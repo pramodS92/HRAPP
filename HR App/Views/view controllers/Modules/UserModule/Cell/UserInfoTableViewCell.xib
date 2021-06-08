@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="UserInfoTableViewCell" customModule="HR_App" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2G-rR-pna">
+                        <rect key="frame" x="16" y="12" width="41.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PWW-sl-Dmu">
+                        <rect key="frame" x="262.5" y="12" width="41.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Y2G-rR-pna" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="9Vp-gE-AC1"/>
+                    <constraint firstAttribute="bottom" secondItem="PWW-sl-Dmu" secondAttribute="bottom" constant="11" id="DRZ-jy-aQV"/>
+                    <constraint firstItem="Y2G-rR-pna" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="byo-QW-Cvw"/>
+                    <constraint firstAttribute="trailing" secondItem="PWW-sl-Dmu" secondAttribute="trailing" constant="16" id="nHj-Pd-ZKm"/>
+                    <constraint firstItem="PWW-sl-Dmu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="o7D-CJ-VIH"/>
+                    <constraint firstAttribute="bottom" secondItem="Y2G-rR-pna" secondAttribute="bottom" constant="11" id="paK-VQ-mcB"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="userInfoDetails" destination="PWW-sl-Dmu" id="vY2-vT-WFl"/>
+                <outlet property="userInfoTitle" destination="Y2G-rR-pna" id="xgD-0c-MrN"/>
+            </connections>
+            <point key="canvasLocation" x="-178.2608695652174" y="81.696428571428569"/>
+        </tableViewCell>
+    </objects>
+</document>

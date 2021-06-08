@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="BranchEmployeeTableViewCell" selectionStyle="default" indentationWidth="10" rowHeight="88" id="KGk-i7-Jjw" customClass="BranchEmployeeTableViewCell" customModule="HR_App" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EXq-dU-c2V">
+                        <rect key="frame" x="8" y="4" width="304" height="56"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_person" translatesAutoresizingMaskIntoConstraints="NO" id="Dth-pw-WZ0">
+                                <rect key="frame" x="4" y="4" width="49" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="7ve-NL-0va"/>
+                                    <constraint firstAttribute="width" constant="49" id="iPU-ok-cQG"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXECETIVE OFFICER" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fb-oW-Ser">
+                                <rect key="frame" x="57" y="8" width="237" height="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Name Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjg-FY-d5I">
+                                <rect key="frame" x="57" y="27" width="237" height="13.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                        <constraints>
+                            <constraint firstItem="Dth-pw-WZ0" firstAttribute="top" secondItem="EXq-dU-c2V" secondAttribute="top" constant="4" id="Gdb-9H-nb0"/>
+                            <constraint firstAttribute="trailing" secondItem="fjg-FY-d5I" secondAttribute="trailing" constant="10" id="JMY-mN-yan"/>
+                            <constraint firstItem="fjg-FY-d5I" firstAttribute="leading" secondItem="Dth-pw-WZ0" secondAttribute="trailing" constant="4" id="NcM-iP-xwR"/>
+                            <constraint firstItem="Dth-pw-WZ0" firstAttribute="leading" secondItem="EXq-dU-c2V" secondAttribute="leading" constant="4" id="Tt3-TJ-qGs"/>
+                            <constraint firstItem="1fb-oW-Ser" firstAttribute="top" secondItem="EXq-dU-c2V" secondAttribute="top" constant="8" id="Xz3-9h-hSg"/>
+                            <constraint firstItem="fjg-FY-d5I" firstAttribute="top" secondItem="1fb-oW-Ser" secondAttribute="bottom" constant="3" id="aS4-i7-Uyq"/>
+                            <constraint firstAttribute="trailing" secondItem="1fb-oW-Ser" secondAttribute="trailing" constant="10" id="jxQ-KD-92h"/>
+                            <constraint firstItem="fjg-FY-d5I" firstAttribute="top" secondItem="1fb-oW-Ser" secondAttribute="bottom" constant="3" id="n9q-MT-AOd"/>
+                            <constraint firstAttribute="bottom" secondItem="Dth-pw-WZ0" secondAttribute="bottom" constant="3" id="u2c-1e-GEY"/>
+                            <constraint firstItem="1fb-oW-Ser" firstAttribute="leading" secondItem="Dth-pw-WZ0" secondAttribute="trailing" constant="4" id="z8E-ze-bQk"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="EXq-dU-c2V" secondAttribute="trailing" constant="8" id="3fR-Ag-R8P"/>
+                    <constraint firstItem="EXq-dU-c2V" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="9Rt-7e-0Rr"/>
+                    <constraint firstAttribute="bottom" secondItem="EXq-dU-c2V" secondAttribute="bottom" constant="4" id="hGN-1h-46b"/>
+                    <constraint firstItem="EXq-dU-c2V" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="nHs-IB-SQ9"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="branchEmployeeDesignation" destination="1fb-oW-Ser" id="nbt-EE-Mvm"/>
+                <outlet property="branchEmployeeImageView" destination="Dth-pw-WZ0" id="XPy-oa-zbA"/>
+                <outlet property="branchEmployeeName" destination="fjg-FY-d5I" id="THt-TJ-RCu"/>
+            </connections>
+            <point key="canvasLocation" x="147.82608695652175" y="98.4375"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_person" width="166.66667175292969" height="166.66667175292969"/>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
