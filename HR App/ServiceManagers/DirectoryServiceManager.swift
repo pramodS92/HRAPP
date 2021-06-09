@@ -49,7 +49,7 @@ class DirectoryServiceManager {
         DepartmentInfoService.shared.getDepartmentNameList(searchBy: text.uppercased()){
             (response, error, statusCode) in
             if response != nil {
-                if let responseBody = try? JSONDecoder().decode(DepaetmentNameListModel.self, from: response! as! Data){
+                if let responseBody = try? JSONDecoder().decode(DepartmentNameListModel.self, from: response! as! Data){
                     self.tableData.removeAll()
                     if let data = responseBody.data{
                         self.departmentData = data

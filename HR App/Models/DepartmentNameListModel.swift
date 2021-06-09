@@ -10,7 +10,7 @@
 import Foundation
 
 
-struct DepaetmentNameListModel: Codable {
+struct DepartmentNameListModel: Codable {
     let user: User
     let status: Int
     let data: [DepartmentData]?
@@ -22,12 +22,12 @@ struct DepaetmentNameListModel: Codable {
     }
 }
 
-// MARK: - Datum
+
 struct DepartmentData: Codable {
     let departmentName, departmentID: String?
 
     enum CodingKeys: String, CodingKey {
         case departmentName
-        case departmentID
+        case departmentID = "departmentId"
     }
 }

@@ -55,6 +55,9 @@ struct NetworkConstants {
         static var getDepartmentNameList: String{
             return "/hrm/department/list/"
         }
+        static var getDepartmentDetailsById: String{
+            return "/hrm/department/id/"
+        }
         static var getEmployeeByName: String{
             return "/hrm/employee/name/"
         }

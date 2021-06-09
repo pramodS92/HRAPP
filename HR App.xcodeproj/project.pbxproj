@@ -25,6 +25,8 @@
 		2C1D200D2660C28D006EF880 /* EmployeeInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1D200C2660C28D006EF880 /* EmployeeInfoService.swift */; };
 		2C1D201C266107AC006EF880 /* EmployeeNameListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1D201B266107AC006EF880 /* EmployeeNameListModel.swift */; };
 		2C1F58592666905F00BC2042 /* EmployeeDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1F58582666905F00BC2042 /* EmployeeDetailsModel.swift */; };
+		2C320D6A2670E48A000A1AAD /* DepartmentDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C320D692670E48A000A1AAD /* DepartmentDetailsModel.swift */; };
+		2C320D6D2670E5A8000A1AAD /* DepartmentDetailsServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C320D6C2670E5A8000A1AAD /* DepartmentDetailsServiceManager.swift */; };
 		2C34EE652655E65600978015 /* UserJobInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C34EE642655E65600978015 /* UserJobInfoViewController.swift */; };
 		2C34EE682655E6C100978015 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C34EE672655E6C100978015 /* UserInfoViewController.swift */; };
 		2C35A69A26631AF100A7EF0E /* AccessTokenServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C35A69926631AF100A7EF0E /* AccessTokenServiceManager.swift */; };
@@ -32,7 +34,7 @@
 		2C35A6BB266342E100A7EF0E /* DirectoryServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C35A6BA266342E100A7EF0E /* DirectoryServiceManager.swift */; };
 		2C373AFB264F318F00577DB6 /* AccessTokenResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C373AFA264F318F00577DB6 /* AccessTokenResponseModel.swift */; };
 		2C373B1126505F0D00577DB6 /* UserDefaultConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C373B1026505F0D00577DB6 /* UserDefaultConstants.swift */; };
-		2C705A7F265B5B9B009E3148 /* DepaetmentNameListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C705A7E265B5B9B009E3148 /* DepaetmentNameListModel.swift */; };
+		2C705A7F265B5B9B009E3148 /* DepartmentNameListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C705A7E265B5B9B009E3148 /* DepartmentNameListModel.swift */; };
 		2C705A8B265B638C009E3148 /* DepartmentInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C705A8A265B638C009E3148 /* DepartmentInfoService.swift */; };
 		2C705AAF265C116A009E3148 /* BranchDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C705AAE265C116A009E3148 /* BranchDetailsViewController.swift */; };
 		2C705AB2265C1D44009E3148 /* DepartmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C705AB1265C1D44009E3148 /* DepartmentViewController.swift */; };
@@ -85,6 +87,8 @@
 		2C1D200C2660C28D006EF880 /* EmployeeInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeInfoService.swift; sourceTree = "<group>"; };
 		2C1D201B266107AC006EF880 /* EmployeeNameListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeNameListModel.swift; sourceTree = "<group>"; };
 		2C1F58582666905F00BC2042 /* EmployeeDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsModel.swift; sourceTree = "<group>"; };
+		2C320D692670E48A000A1AAD /* DepartmentDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentDetailsModel.swift; sourceTree = "<group>"; };
+		2C320D6C2670E5A8000A1AAD /* DepartmentDetailsServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentDetailsServiceManager.swift; sourceTree = "<group>"; };
 		2C34EE642655E65600978015 /* UserJobInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserJobInfoViewController.swift; sourceTree = "<group>"; };
 		2C34EE672655E6C100978015 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		2C35A69926631AF100A7EF0E /* AccessTokenServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenServiceManager.swift; sourceTree = "<group>"; };
@@ -92,7 +96,7 @@
 		2C35A6BA266342E100A7EF0E /* DirectoryServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryServiceManager.swift; sourceTree = "<group>"; };
 		2C373AFA264F318F00577DB6 /* AccessTokenResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenResponseModel.swift; sourceTree = "<group>"; };
 		2C373B1026505F0D00577DB6 /* UserDefaultConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultConstants.swift; sourceTree = "<group>"; };
-		2C705A7E265B5B9B009E3148 /* DepaetmentNameListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepaetmentNameListModel.swift; sourceTree = "<group>"; };
+		2C705A7E265B5B9B009E3148 /* DepartmentNameListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentNameListModel.swift; sourceTree = "<group>"; };
 		2C705A8A265B638C009E3148 /* DepartmentInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentInfoService.swift; sourceTree = "<group>"; };
 		2C705AAE265C116A009E3148 /* BranchDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchDetailsViewController.swift; sourceTree = "<group>"; };
 		2C705AB1265C1D44009E3148 /* DepartmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentViewController.swift; sourceTree = "<group>"; };
@@ -241,6 +245,7 @@
 				2C35A6A526633F0900A7EF0E /* UserProfileServiceManager.swift */,
 				2C35A6BA266342E100A7EF0E /* DirectoryServiceManager.swift */,
 				2C15E0012663E4A900E616E9 /* BranchInfoServiceManager.swift */,
+				2C320D6C2670E5A8000A1AAD /* DepartmentDetailsServiceManager.swift */,
 			);
 			path = ServiceManagers;
 			sourceTree = "<group>";
@@ -347,10 +352,11 @@
 				2C373AFA264F318F00577DB6 /* AccessTokenResponseModel.swift */,
 				2CF4B81F2653BBA200D8BF6A /* UserDetailsModel.swift */,
 				2CD8E7E42658381E00CD2C5A /* BranchNameListModel.swift */,
-				2C705A7E265B5B9B009E3148 /* DepaetmentNameListModel.swift */,
+				2C705A7E265B5B9B009E3148 /* DepartmentNameListModel.swift */,
 				2C177516265D031500F93A29 /* BranchDetailsModel.swift */,
 				2C1D201B266107AC006EF880 /* EmployeeNameListModel.swift */,
 				2C1F58582666905F00BC2042 /* EmployeeDetailsModel.swift */,
+				2C320D692670E48A000A1AAD /* DepartmentDetailsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -592,18 +598,20 @@
 				2C7CD39926406E58000C22D4 /* RequestModel.swift in Sources */,
 				2CF4B8202653BBA200D8BF6A /* UserDetailsModel.swift in Sources */,
 				2C705AC7265C3018009E3148 /* EmployeeViewController.swift in Sources */,
+				2C320D6D2670E5A8000A1AAD /* DepartmentDetailsServiceManager.swift in Sources */,
 				2C7CD39C26406E65000C22D4 /* ResponseModel.swift in Sources */,
 				2C0E35C72612EA89008CD6B5 /* BaseAnimation.swift in Sources */,
 				2CFFA09B26543D9700D86E53 /* UserProfileViewController.swift in Sources */,
 				2CA1A5BA265ED08700CB0AA2 /* BranchEmployeeDetailsViewController.swift in Sources */,
 				2C705A8B265B638C009E3148 /* DepartmentInfoService.swift in Sources */,
-				2C705A7F265B5B9B009E3148 /* DepaetmentNameListModel.swift in Sources */,
+				2C705A7F265B5B9B009E3148 /* DepartmentNameListModel.swift in Sources */,
 				2C34EE652655E65600978015 /* UserJobInfoViewController.swift in Sources */,
 				2C1D200D2660C28D006EF880 /* EmployeeInfoService.swift in Sources */,
 				2CD117AE264D789C005E421C /* UiConstants.swift in Sources */,
 				2C06B36C263936A8005743D8 /* OTPValidationViewController.swift in Sources */,
 				2C373B1126505F0D00577DB6 /* UserDefaultConstants.swift in Sources */,
 				2C15E0022663E4A900E616E9 /* BranchInfoServiceManager.swift in Sources */,
+				2C320D6A2670E48A000A1AAD /* DepartmentDetailsModel.swift in Sources */,
 				2CB1DA542658125E00CCF06F /* UserJobInfoTableViewCell.swift in Sources */,
 				2C06B36E263936A8005743D8 /* LandingViewController.swift in Sources */,
 				2C705AAF265C116A009E3148 /* BranchDetailsViewController.swift in Sources */,

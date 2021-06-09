@@ -18,6 +18,7 @@ class DepartmentInfoService {
 enum DepartmentInfoServiceRouter {
     
     case getDepartmentNameList
+    case getDepartmentDetailsById
     
     var baseURL: String {
         return NetworkConstants.baseURL
@@ -27,6 +28,8 @@ enum DepartmentInfoServiceRouter {
         switch self {
         case .getDepartmentNameList:
             return NetworkConstants.path.getDepartmentNameList
+        case .getDepartmentDetailsById:
+            return NetworkConstants.path.getDepartmentDetailsById
         }
     }
     
@@ -42,12 +45,16 @@ enum DepartmentInfoServiceRouter {
         switch self {
         case .getDepartmentNameList:
             return true
+        case .getDepartmentDetailsById:
+            return true
         }
     }
     
     var contentType: Bool {
         switch self {
         case .getDepartmentNameList:
+            return true
+        case .getDepartmentDetailsById:
             return true
         }
     }
@@ -68,6 +75,21 @@ extension DepartmentInfoService {
     
     func getDepartmentNameList(searchBy: String, completion: @escaping(Any?, Error?, Int?) -> ()) {
         let requestInfo = DepartmentInfoServiceRouter.getDepartmentNameList.asurlRequest(searchBy: searchBy)
+        
+        NetworkClient.shared.requestData(requestInfo: requestInfo, isSecure: false) { (response) in
+            switch response {
+            case .Success(let response, let statusCode):
+                completion(response, nil, statusCode)
+            case .Invalid(let response, let statusCode):
+                completion(nil, nil, statusCode)
+            case .Failure(let error, let statusCode):
+                completion(nil, error, statusCode)
+            }
+        }
+    }
+    
+    func getDepartmentDetailsById(departmentId: String, completion: @escaping(Any?, Error?, Int?) -> ()) {
+        let requestInfo = DepartmentInfoServiceRouter.getDepartmentDetailsById.asurlRequest(searchBy: departmentId)
         
         NetworkClient.shared.requestData(requestInfo: requestInfo, isSecure: false) { (response) in
             switch response {

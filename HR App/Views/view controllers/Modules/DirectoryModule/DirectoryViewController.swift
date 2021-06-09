@@ -35,6 +35,7 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
     var requestHandler: ((_ text: String)->())?
     
     var branchName: String?
+    var departmemtId: String?
     var selectedCategory: String?
     var isTyping: Bool = false
     
@@ -214,6 +215,8 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             self.branchName = _tableData[indexPath.row] as? String
             performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_BRANCH_SEGUE, sender: self)
         case .department:
+            let depInfo = _tableData[indexPath.row] as! DepartmentData
+            self.departmemtId = depInfo.departmentID 
             performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_DEPARTMENT_SEGUE, sender: self)
         case .employee:
             self.getEmployeeInfo(info: _tableData[indexPath.row] as! BranchEmployeeData)
@@ -251,6 +254,7 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             destination.branchName =  self.branchName
         case UiConstants.SegueIdentifiers.DIRECTORY_DEPARTMENT_SEGUE:
             let destination = segue.destination as! DepartmentViewController
+            destination.departmemtId = self.departmemtId
         default:
             let destination1 = segue.destination as! BranchDetailsViewController
         }
