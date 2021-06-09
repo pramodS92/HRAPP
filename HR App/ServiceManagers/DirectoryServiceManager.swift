@@ -12,7 +12,7 @@ import Alamofire
 
 protocol OnSuccessUserDirectory {
     func onSuccessBranchNameList(response: [String])
-    func onSuccessDepartmentNameList(response: [String])
+    func onSuccessDepartmentNameList(response: [DepartmentData])
     func onSuccessEmployeeNameList(response: [BranchEmployeeData])
     func onFailier()
 }
@@ -20,6 +20,7 @@ protocol OnSuccessUserDirectory {
 class DirectoryServiceManager {
     
     var tableData: [String] = []
+    var departmentData: [DepartmentData] = []
     var delegate: OnSuccessUserDirectory?
     
     func getBranchNameList(text: String,_ callback : OnSuccessUserDirectory) {
@@ -51,10 +52,8 @@ class DirectoryServiceManager {
                 if let responseBody = try? JSONDecoder().decode(DepaetmentNameListModel.self, from: response! as! Data){
                     self.tableData.removeAll()
                     if let data = responseBody.data{
-                        for item in data{
-                            self.tableData.append(item.departmentName!)
-                        }
-                        self.delegate?.onSuccessDepartmentNameList(response: self.tableData)
+                        self.departmentData = data
+                        self.delegate?.onSuccessDepartmentNameList(response: data)
                     }
                 }
             }else{

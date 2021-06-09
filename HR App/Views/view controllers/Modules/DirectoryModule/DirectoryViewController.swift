@@ -20,13 +20,18 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     //var sections : [(index: Int, length :Int, title: String)] = Array()
-
+    
     
     let TEXT_FIELD_CONER_RADIUS = 10.0
     let TEXT_FIELD_BORDER_WIDTH = 1.0
     
     var tableData: [String] = []
+    var departmentData: [DepartmentData] = []
     var employeeList: [BranchEmployeeData] = []
+    
+    var _tableData: [Any] = []
+    
+    
     var requestHandler: ((_ text: String)->())?
     
     var branchName: String?
@@ -110,8 +115,8 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         
         if sender.text! == ""{
             self.isTyping = false
-            self.tableData.removeAll()
-            self.employeeList.removeAll()
+            self._tableData.removeAll()
+           // self.employeeList.removeAll()
         }
         self.isTyping = true
         self.derectoryTableView.reloadData()
@@ -149,7 +154,7 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         self.searchTextFiled.text = ""
         self.searchTextFiled.placeholder = placeHolder
         self.setCategoryitemsVisibility ()
-        self.tableData.removeAll()
+        self._tableData.removeAll()
         self.derectoryTableView.reloadData()
     }
     
@@ -164,28 +169,40 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if selectedCategory == KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_EMPLOYEE {
-            return self.employeeList == nil ? 1: self.employeeList.count
-        }else {
-            return  self.tableData == nil ? 1: self.tableData.count
-            //self.sections[section].length
-        }
+        return  self._tableData.count == nil ? 1: self._tableData.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if selectedCategory == KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_EMPLOYEE {
-            let cell = derectoryTableView.dequeueReusableCell(withIdentifier: UiConstants.ViewCellId.EMPLOYEE_ITEM_CELL, for: indexPath) as! EmployeeTableViewCell
-            cell.employeeName.text = employeeList[indexPath.row].name!.condensed + " (" + employeeList[indexPath.row].knownName! + ") "
-            cell.employeeDesignation.text = employeeList[indexPath.row].designation
-            cell.employeeBranch.text = employeeList[indexPath.row].branch
+        switch Category(rawValue: selectedCategory!){
+        case .branch:
+            let cell = derectoryTableView.dequeueReusableCell(withIdentifier: UiConstants.ViewCellId.DIRECTORY_ITEM_CELL, for: indexPath) as! DirectoryTableViewCell
+            cell.direcaryItemLabel.text = _tableData[indexPath.row] as? String
             cell.selectionStyle = .none
             return cell
-        }
-        else {
+            
+        case .department:
             let cell = derectoryTableView.dequeueReusableCell(withIdentifier: UiConstants.ViewCellId.DIRECTORY_ITEM_CELL, for: indexPath) as! DirectoryTableViewCell
-            cell.direcaryItemLabel.text = tableData[indexPath.row]
-            //tableData[sections[indexPath.section].index + indexPath.row]
+            if let departmantData = _tableData[indexPath.row] as? DepartmentData{
+                cell.direcaryItemLabel.text = departmantData.departmentName
+                cell.selectionStyle = .none
+            }
+            return cell
+            
+        case .employee:
+            let cell = derectoryTableView.dequeueReusableCell(withIdentifier: UiConstants.ViewCellId.EMPLOYEE_ITEM_CELL, for: indexPath) as! EmployeeTableViewCell
+            
+            if let employeeData = _tableData[indexPath.row] as? BranchEmployeeData {
+                cell.employeeName.text = employeeData.name!.condensed + " (" + employeeData.knownName! + ") "
+                cell.employeeDesignation.text = employeeData.designation
+                cell.employeeBranch.text = employeeData.branch
+                cell.selectionStyle = .none
+            }
+            return cell
+            
+        default:
+            let cell = derectoryTableView.dequeueReusableCell(withIdentifier: UiConstants.ViewCellId.DIRECTORY_ITEM_CELL, for: indexPath) as! DirectoryTableViewCell
+            cell.direcaryItemLabel.text = _tableData[indexPath.row] as? String
             cell.selectionStyle = .none
             return cell
         }
@@ -194,12 +211,12 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch Category(rawValue: selectedCategory!)  {
         case .branch:
-            self.branchName = tableData[indexPath.row]
+            self.branchName = _tableData[indexPath.row] as? String
             performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_BRANCH_SEGUE, sender: self)
         case .department:
-            return
+            performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_DEPARTMENT_SEGUE, sender: self)
         case .employee:
-            self.getEmployeeInfo(info: employeeList[indexPath.row])
+            self.getEmployeeInfo(info: _tableData[indexPath.row] as! BranchEmployeeData)
         default:
             performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_BRANCH_SEGUE, sender: self)
         }
@@ -232,15 +249,17 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         case UiConstants.SegueIdentifiers.DIRECTORY_BRANCH_SEGUE:
             let destination = segue.destination as! BranchDetailsViewController
             destination.branchName =  self.branchName
+        case UiConstants.SegueIdentifiers.DIRECTORY_DEPARTMENT_SEGUE:
+            let destination = segue.destination as! DepartmentViewController
         default:
             let destination1 = segue.destination as! BranchDetailsViewController
         }
     }
     
-    func setTableData(data: [String]) {
-        tableData.removeAll()
+    func setTableData(data: [Any]) {
+        _tableData.removeAll()
         self.setActivityIndicatorVisibility(show: false)
-        tableData = data
+        _tableData = data
         
         //        if !self.isTyping {
         //            tableData.sort { $0 < $1 }
@@ -263,10 +282,18 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     
-    func setEmployeeTableData(data: [BranchEmployeeData]) {
-        employeeList.removeAll()
+    func setDepartmentTableData(data: [DepartmentData]){
+        _tableData.removeAll()
         self.setActivityIndicatorVisibility(show: false)
-        employeeList = data
+        _tableData = data
+        self.derectoryTableView.reloadData()
+    }
+    
+    
+    func setEmployeeTableData(data: [BranchEmployeeData]) {
+        _tableData.removeAll()
+        self.setActivityIndicatorVisibility(show: false)
+        _tableData = data
         self.derectoryTableView.reloadData()
     }
     
@@ -319,12 +346,12 @@ extension DirectoryViewController: OnSuccessUserDirectory {
         setTableData(data: response)
     }
     
-    func onSuccessDepartmentNameList(response: [String]) {
+    func onSuccessDepartmentNameList(response: [DepartmentData]) {
         setTableData(data: response)
     }
     
     func onSuccessEmployeeNameList(response: [BranchEmployeeData]) {
-        setEmployeeTableData(data: response)
+        setTableData(data: response)
     }
     
     func onFailier() {
