@@ -30,7 +30,7 @@ struct EmployeeDetials: Codable {
 
     enum CodingKeys: String, CodingKey {
         case name
-        case employeeID
+        case employeeID = "employeeId"
         case knownName, gender, designation, email, telephone
         case interCOM = "interCom"
         case imageURL

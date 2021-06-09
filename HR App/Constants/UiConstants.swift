@@ -94,6 +94,7 @@ struct KeyCostants {
         static let BRANCH_DETAILS_AGM_DGM_DETAILS = "AGM/DGM Details"
         static let BRANCH_DETAILS_TITLES = [
             "Manager's Name",
+            "Manager's Known Name",
             "Manager's Telephone No",
             "Address",
             "Branch Telephone Number",
@@ -101,7 +102,8 @@ struct KeyCostants {
             "Branch Code",
             "Regional Manager",
             "Regional Office",
-            "AGM/DGM Details"]
+            "AGM/DGM Details",
+            "AGM/DGM Designation"]
     }
     
     struct BranchEmployeeDetails {

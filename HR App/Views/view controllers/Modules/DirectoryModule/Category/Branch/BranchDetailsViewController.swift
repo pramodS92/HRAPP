@@ -12,7 +12,9 @@ import UIKit
 class BranchDetailsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var branchDetailsTitles: [UILabel]!
+    
     @IBOutlet var branchDetailInfo: [UILabel]!
+    
     @IBOutlet weak var branchNameLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var branchEmployeeTableView: UITableView!

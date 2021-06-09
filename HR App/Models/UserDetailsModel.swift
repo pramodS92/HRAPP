@@ -28,7 +28,7 @@ struct DataClass: Codable {
     let email, telephone, interCOM, imageURL: String?
     
     enum CodingKeys: String, CodingKey {
-        case employeeID
+        case employeeID = "employeeId"
         case knownName, gender, designation, email, telephone
         case interCOM
         case imageURL

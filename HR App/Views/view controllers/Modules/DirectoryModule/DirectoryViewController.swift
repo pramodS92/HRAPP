@@ -20,7 +20,7 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     //var sections : [(index: Int, length :Int, title: String)] = Array()
-//aaa
+
     
     let TEXT_FIELD_CONER_RADIUS = 10.0
     let TEXT_FIELD_BORDER_WIDTH = 1.0

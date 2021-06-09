@@ -58,7 +58,7 @@ class UserProfileServiceManager {
         
     }
     
-    //Get selected employee details to display in top
+    //Get selected employee profile details  - User Profile Module
     func getEmployeeDetails(response: EmployeeDetials) -> [String]{
         self.userInfo.removeAll()
         self.userInfo.append(response.name!.condensed.uppercased())
@@ -70,6 +70,7 @@ class UserProfileServiceManager {
         return userInfo
     }
     
+    //Get selected employee details in UserInfo Tab - User Profile Module
     func getEmployeeTableData(response: EmployeeDetials) -> [String]{
         self.userTableData.removeAll()
         let namesArray: [String]! = response.name?.components(separatedBy: " ")
@@ -85,12 +86,12 @@ class UserProfileServiceManager {
         self.userTableData.append(response.knownName!)
         self.userTableData.append(response.name!.condensed.uppercased())
         self.userTableData.append(unavailable)
-        self.userTableData.append(response.employeeID ?? unavailable )
+        self.userTableData.append(response.employeeID! )
         
         return userTableData
     }
     
-    
+    //Logged in User Profile details - User Profile Module
     func getUserDetails(response: UserDetailsModel) -> [String]{
         self.userInfo.removeAll()
         self.userInfo.append(response.user!.name!.condensed.uppercased())
@@ -103,7 +104,7 @@ class UserProfileServiceManager {
         return userInfo
     }
     
-    
+    //Logged in User details in UserInfo Tab - User Profile Module
     func getUserTabelData(response: UserDetailsModel) ->[String] {
         self.userTableData.removeAll()
         let namesArray: [String]! = response.user?.name?.components(separatedBy: " ")
@@ -114,10 +115,10 @@ class UserProfileServiceManager {
         
         self.userTableData.append(initilas.condensed.uppercased())
         self.userTableData.append(response.user!.familyName!)
-        self.userTableData.append(response.user!.givenName!)
+        self.userTableData.append(response.data!.knownName!)
         self.userTableData.append(response.user!.name!.condensed.uppercased())
         self.userTableData.append(response.user!.familyName!)
-        self.userTableData.append(response.data!.employeeID ?? unavailable )
+        self.userTableData.append(response.data!.employeeID! )
         
         return userTableData
     }
