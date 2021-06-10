@@ -18,6 +18,7 @@
 #import "MaterialElevation.h"
 #import "MaterialInk.h"
 #import "MaterialRipple.h"
+#import "MaterialShadow.h"
 #import "MaterialShadowElevations.h"
 #import "MaterialShapes.h"
 
@@ -92,6 +93,14 @@
 @property(nonatomic, assign) BOOL centerVisibleArea;
 
 /**
+ The edges of this guide are constrained to equal the edges of the visible area
+ when @c centerVisibleArea is @c YES.
+
+ @note If centerVisibleArea is @c NO then visibleAreaLayoutGuide is nil.
+*/
+@property(nonatomic, readonly, strong, nullable) UILayoutGuide *visibleAreaLayoutGuide;
+
+/**
  The default content edge insets of the button. They are set at initialization time.
  */
 @property(nonatomic, readonly) UIEdgeInsets defaultContentEdgeInsets;
@@ -125,6 +134,24 @@
  Defaults to CGSizeZero.
  */
 @property(nonatomic, assign) CGSize maximumSize UI_APPEARANCE_SELECTOR;
+
+/**
+ Setting this property to @c YES when the button's @c titleLabel is multi-line (i.e. when @c
+ numberOfLines is not equal to 1) will result in the button inferring what its size should be and
+ then setting both the @c minimumSize and @c maximumSize to that value. Setting this property back
+ to @c NO will result in @c maximumSize and @c minimumSize being reset to @c CGSizeZero.
+
+ In both Manual Layout and Auto Layout environments the inferred height is a function of the width.
+ In an Auto Layout environment the width will depend on the constraints placed on the view. In a
+ Manual Layout environment the current width will be assumed to be the preferred width, so it is
+ important to make sure the button's width is set to an appropriate value before turning this flag
+ on. In an Auto Layout environment, the view will likely resize itself as needed when this flag is
+ turned on. In a Manual Layout environment, you will likely have to call @c -sizeToFit after turning
+ this flag on.
+
+ Defaults to NO.
+ */
+@property(nonatomic, assign) BOOL inferMinimumAndMaximumSizeWhenMultiline;
 
 /**
  The apparent background color as seen by the user, i.e. the color of the view behind the button.
@@ -350,16 +377,6 @@
 @property(nonatomic, assign) BOOL enableTitleFontForState;
 
 /**
- Insets to apply to the button’s hit area.
-
- Allows the button to detect touches outside of its bounds. A negative value indicates an
- extension past the bounds.
-
- Default is UIEdgeInsetsZero.
- */
-@property(nonatomic) UIEdgeInsets hitAreaInsets;
-
-/**
  The inset margins for the rectangle surrounding all of the button’s visual representation.
  Use this property when you wish to have the touch target (frame) be larger than the
  visible content.
@@ -369,9 +386,7 @@
 
  The button uses this property to determine intrinsicContentSize and sizeThatFits:.
 
- @note This property sets the @c shapeGenerator. Therefore you cannot use both properties
- simultaneously. If you do wish to use a custom shape with visibleAreaInsets, please set your own
- shapeGenerator that is inset from the frame instead of setting this property directly.
+ @note This API will be deprecated and removed. Consider using @c centerVisibleArea.
 
  Default is UIEdgeInsetsZero.
 */
@@ -420,5 +435,19 @@
  self.bounds is used. This value is ignored if button's @c inkStyle is set to |MDCInkStyleBounded|.
  */
 @property(nonatomic, assign) CGFloat inkMaxRippleRadius UI_APPEARANCE_SELECTOR;
+
+@end
+
+@interface MDCButton (Deprecated)
+
+/**
+ Insets to apply to the button’s hit area.
+
+ Allows the button to detect touches outside of its bounds. A negative value indicates an
+ extension past the bounds.
+
+ Default is UIEdgeInsetsZero.
+ */
+@property(nonatomic) UIEdgeInsets hitAreaInsets __deprecated_msg("Use centerVisibleArea instead.");
 
 @end

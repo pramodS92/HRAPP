@@ -18,4 +18,11 @@ struct UserDefaultConstants {
         static let RefreshTokenKey = "RefreshTokenKey"
         static let UserName = "UserName"
     }
+    
+    struct BiometricsPinConstants {
+        static let LocalPin = "LocalPin"
+        static let isLocalPinEnabled = "isLocalPinEnabled"
+        static let isBiometricsEnabled = "isBiometricsEnabled"
+        static let isScreenActive = "isScreenActive"
+    }
 }
