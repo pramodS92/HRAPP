@@ -111,10 +111,10 @@ struct KeyCostants {
         static let BRANCH_EMPLOYEE_DETAILS_TITLES = [
             "Name",
             "Known Name",
-            "Designamtion",
+            "Designation",
             "Branch Name",
             "Telephone",
-            "Intercome",
+            "Intercom",
             "Email"]
     }
     
