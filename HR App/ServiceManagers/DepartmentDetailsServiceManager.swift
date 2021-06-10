@@ -13,7 +13,7 @@ import Alamofire
 
 
 protocol OnSuccessDepartmentDetails {
-    func getDepartmentInfo(response: [String],branchName: String,employeeList: [BranchEmployeeData])
+    func getDepartmentInfo(departmentName: String, departmentInfo: [String],departmentEmployeeList: [BranchEmployeeData])
     func OnFailier()
 }
 
@@ -21,21 +21,48 @@ protocol OnSuccessDepartmentDetails {
 class DepartmentDetailsServiceManager {
     
     var delegate: OnSuccessDepartmentDetails?
+    var departmentData: [String] = []
+    var departmentName: String?
     
-    func getDepartmentDetailsById(departmentId: String){
+    func getDepartmentDetailsById(departmentId: String,_ callback:OnSuccessDepartmentDetails ){
         
-      //  self.delegate = callback
+        self.delegate = callback
         
         DepartmentInfoService.shared.getDepartmentDetailsById(departmentId: departmentId) {
             (response, error, statusCode) in
             if response != nil {
                 if let responseBody = try? JSONDecoder().decode(DepartmentDetailsModel.self, from: response! as! Data){
-                   print(".....AAAA  ",responseBody)
+                    
+                    if let departmentData = responseBody.data{
+                        self.delegate?.getDepartmentInfo(departmentName: departmentData.departmentName!,
+                                                         departmentInfo: self.getDepartmentDetails(data: departmentData), departmentEmployeeList: departmentData.branchEmployees!)
+                    }
                 }
             }else{
+                self.delegate?.OnFailier()
                 return
             }
-            
         }
     }
+    
+    
+    func getDepartmentDetails(data: DepartmentDataClass)-> [String]{
+        departmentData.append(data.deparmentHead!.condensed.uppercased())
+        departmentData.append(data.knownName!)
+        departmentData.append(data.deparmentHeadTelephone!)
+        departmentData.append(data.departmentHeadID!)
+        departmentData.append(data.departmentID!)
+        departmentData.append(data.branchName!)
+        departmentData.append(data.headEXT!)
+        departmentData.append(data.fax!)
+        departmentData.append(data.address1!)
+        departmentData.append(data.address2!)
+        departmentData.append(data.address3!)
+        departmentData.append(data.address4!)
+        
+        return departmentData
+    }
+    
+    
+    
 }

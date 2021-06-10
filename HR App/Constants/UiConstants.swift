@@ -117,7 +117,22 @@ struct KeyCostants {
             "Intercome",
             "Email"]
     }
+    
+    struct DepartmentDetails {
+        static let DEPARTMENT_DETAILS_TITLES = [
+            "Department Head's Name",
+            "Department Head's Known Name",
+            "Department Head's Telephone",
+            "Department Head's ID",
+            "Department ID",
+            "Branch Name",
+            "Head Text",
+            "Fax number",
+            "Address"
+        ]
+    }
 }
+
 
 
 

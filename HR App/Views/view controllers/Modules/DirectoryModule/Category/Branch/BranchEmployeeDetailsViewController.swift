@@ -17,25 +17,26 @@ class BranchEmployeeDetailsViewController: UIViewController {
     var employeeData = [String]()
     let labelFontSize: CGFloat = 12.0
     var employeeDetails: BranchEmployeeData!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.branchEmployeeDetailsTitle.enumerated().forEach { (index, element) in
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.setupUiProps()
+        self.setEmployeeDetails()
+    }
+    
+    func setupUiProps(){
+        self.branchEmployeeDetailsTitle?.enumerated().forEach { (index, element) in
             element.font = element.font.withSize(labelFontSize)
             element.text = KeyCostants.BranchEmployeeDetails.BRANCH_EMPLOYEE_DETAILS_TITLES[index]
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        self.setEmployeeDetails()
-    }
-    
     func initUiProps() {
-//        self.branchEmployeeDetailsTitle.enumerated().forEach { (index, element) in
-//            element.font = element.font.withSize(labelFontSize)
-//            element.text = KeyCostants.BranchEmployeeDetails.BRANCH_EMPLOYEE_DETAILS_TITLES[index]
-//        }
-        self.branchEmployeeDetailsInfo.enumerated().forEach { (index, element) in
+        self.branchEmployeeDetailsInfo?.enumerated().forEach { (index, element) in
             element.font = element.font.withSize(labelFontSize)
             if employeeData[index] != "" {
                 element.text = employeeData[index]
@@ -50,7 +51,7 @@ class BranchEmployeeDetailsViewController: UIViewController {
         if segue.identifier == UiConstants.SegueIdentifiers.EMPLOYEE_DETAIL_SEGUE {
             let destination = segue.destination as! UserProfileViewController
             destination.isLoggedInUser =  false
-            destination.employeeId = employeeDetails.employeeID
+            destination.employeeId = employeeDetails?.employeeID
         }
     }
     

@@ -46,7 +46,7 @@ struct BranchData: Codable {
 
 // MARK: - BranchEmployee
 struct BranchEmployeeData: Codable {
-    let name, employeeID, knownName: String?
+    let name,fullName, employeeID, knownName: String?
     let gender: String?
     let designation: String?
     let email: String?
@@ -57,7 +57,7 @@ struct BranchEmployeeData: Codable {
     let department: String?
 
     enum CodingKeys: String, CodingKey {
-        case name
+        case name,fullName
         case employeeID = "employeeId"
         case knownName, gender, designation, email, telephone
         case interCOM = "interCom"
