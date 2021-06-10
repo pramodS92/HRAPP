@@ -16,6 +16,8 @@
 
 #import "MDCBottomNavigationBar.h"
 
+#import "MaterialElevation.h"
+#import "MaterialInk.h"
 #import <MDFInternationalization/MDFInternationalization.h>
 
 #import "private/MDCBottomNavigationBar+Private.h"
@@ -24,6 +26,7 @@
 #import "MDCBottomNavigationBarDelegate.h"
 #import "MaterialPalettes.h"
 #import "MaterialRipple.h"
+#import "MaterialShadow.h"
 #import "MaterialShadowElevations.h"
 #import "MaterialShadowLayer.h"
 #import "MaterialTypography.h"
@@ -40,8 +43,6 @@ static const CGFloat kDefaultItemHorizontalPadding = 0;
 static const CGFloat kBarHeightStackedTitle = 56;
 static const CGFloat kBarHeightAdjacentTitle = 40;
 static const CGFloat kItemsHorizontalMargin = 12;
-
-static NSString *const kOfAnnouncement = @"of";
 
 @interface MDCBottomNavigationBar () <MDCInkTouchControllerDelegate,
                                       MDCRippleTouchControllerDelegate>
@@ -66,14 +67,19 @@ static NSString *const kOfAnnouncement = @"of";
  */
 @property(nonatomic, nullable) id<UILargeContentViewerItem> lastLargeContentViewerItem
     NS_AVAILABLE_IOS(13_0);
+@property(nonatomic, assign) BOOL isLargeContentLongPressInProgress;
 #endif  // MDC_AVAILABLE_SDK_IOS(13_0)
 
 @end
 
 @implementation MDCBottomNavigationBar
 
+static BOOL gEnablePerformantShadow = NO;
+
 @synthesize mdc_overrideBaseElevation = _mdc_overrideBaseElevation;
 @synthesize mdc_elevationDidChangeBlock = _mdc_elevationDidChangeBlock;
+@synthesize shadowsCollection = _shadowsCollection;
+@synthesize elevation = _elevation;
 
 - (instancetype)initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
@@ -117,13 +123,6 @@ static NSString *const kOfAnnouncement = @"of";
     }
   }
 
-  UIBlurEffect *defaultBlurEffect = [UIBlurEffect effectWithStyle:_backgroundBlurEffectStyle];
-  _blurEffectView = [[UIVisualEffectView alloc] initWithEffect:defaultBlurEffect];
-  _blurEffectView.hidden = !_backgroundBlurEnabled;
-  _blurEffectView.autoresizingMask =
-      (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
-  [self addSubview:_blurEffectView];  // Needs to always be at the bottom
-
   _barView = [[UIView alloc] init];
   _barView.autoresizingMask =
       (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin);
@@ -141,11 +140,8 @@ static NSString *const kOfAnnouncement = @"of";
   [_barView addSubview:_itemsLayoutView];
 
   _itemsLayoutView.accessibilityTraits = UIAccessibilityTraitTabBar;
-  _elevation = MDCShadowElevationBottomNavigationBar;
-  [(MDCShadowLayer *)self.layer setElevation:_elevation];
-  UIColor *defaultShadowColor = UIColor.blackColor;
-  _shadowColor = defaultShadowColor;
-  self.layer.shadowColor = defaultShadowColor.CGColor;
+  self.elevation = MDCShadowElevationBottomNavigationBar;
+  self.shadowColor = gEnablePerformantShadow ? MDCShadowColor() : UIColor.blackColor;
   _itemViews = [NSMutableArray array];
   _itemTitleFont = [UIFont mdc_standardFontForMaterialTextStyle:MDCFontTextStyleCaption];
 
@@ -165,7 +161,9 @@ static NSString *const kOfAnnouncement = @"of";
   [super layoutSubviews];
 
   CGRect standardBounds = CGRectStandardize(self.bounds);
-  self.blurEffectView.frame = standardBounds;
+  if (self.blurEffectView) {
+    self.blurEffectView.frame = standardBounds;
+  }
   self.barView.frame = standardBounds;
   self.layer.shadowColor = self.shadowColor.CGColor;
 
@@ -176,6 +174,10 @@ static NSString *const kOfAnnouncement = @"of";
     [self sizeItemsLayoutViewItemsDistributed:YES withBottomNavSize:size containerWidth:size.width];
   }
   [self layoutItemViews];
+
+  if (gEnablePerformantShadow) {
+    [self updateShadow];
+  }
 }
 
 - (void)safeAreaInsetsDidChange {
@@ -210,16 +212,31 @@ static NSString *const kOfAnnouncement = @"of";
 }
 
 + (Class)layerClass {
-  return [MDCShadowLayer class];
+  if (gEnablePerformantShadow) {
+    return [super layerClass];
+  } else {
+    return [MDCShadowLayer class];
+  }
 }
 
 - (void)setElevation:(MDCShadowElevation)elevation {
-  BOOL elevationChanged = !MDCCGFloatEqual(_elevation, elevation);
-  _elevation = elevation;
-  [(MDCShadowLayer *)self.layer setElevation:elevation];
-  if (elevationChanged) {
-    [self mdc_elevationDidChange];
+  if (MDCCGFloatEqual(_elevation, elevation)) {
+    return;
   }
+  _elevation = elevation;
+  if (gEnablePerformantShadow) {
+    [self updateShadow];
+  } else {
+    MDCShadowLayer *shadowLayer = (MDCShadowLayer *)self.layer;
+    shadowLayer.elevation = elevation;
+  }
+  [self mdc_elevationDidChange];
+}
+
+- (void)updateShadow {
+  MDCConfigureShadowForView(self,
+                            [self.shadowsCollection shadowForElevation:self.mdc_currentElevation],
+                            self.shadowColor);
 }
 
 - (void)setShadowColor:(UIColor *)shadowColor {
@@ -305,9 +322,9 @@ static NSString *const kOfAnnouncement = @"of";
     CGFloat layoutFrameWidth = maxItemWidth * self.items.count;
     layoutFrameWidth = MIN(bottomNavWidthInset, layoutFrameWidth);
     containerWidth = MIN(bottomNavWidthInset, MAX(containerWidth, layoutFrameWidth));
-    CGFloat clusteredOffsetX = MDCFloor((bottomNavSize.width - containerWidth) / 2);
+    CGFloat clusteredOffsetX = floor((bottomNavSize.width - containerWidth) / 2);
     self.itemsLayoutView.frame = CGRectMake(clusteredOffsetX, 0, containerWidth, barHeight);
-    CGFloat itemLayoutFrameOffsetX = MDCFloor((containerWidth - layoutFrameWidth) / 2);
+    CGFloat itemLayoutFrameOffsetX = floor((containerWidth - layoutFrameWidth) / 2);
     self.itemLayoutFrame = CGRectMake(itemLayoutFrameOffsetX, 0, layoutFrameWidth, barHeight);
   }
 }
@@ -324,15 +341,14 @@ static NSString *const kOfAnnouncement = @"of";
     MDCBottomNavigationItemView *itemView = self.itemViews[i];
     itemView.titleBelowIcon = self.isTitleBelowIcon;
     if (layoutDirection == UIUserInterfaceLayoutDirectionLeftToRight) {
-      itemView.frame =
-          CGRectMake(MDCFloor(CGRectGetMinX(self.itemLayoutFrame) + i * itemWidth +
-                              self.itemsHorizontalPadding),
-                     0, MDCFloor(itemWidth - 2 * self.itemsHorizontalPadding), navBarHeight);
+      itemView.frame = CGRectMake(
+          floor(CGRectGetMinX(self.itemLayoutFrame) + i * itemWidth + self.itemsHorizontalPadding),
+          0, floor(itemWidth - 2 * self.itemsHorizontalPadding), navBarHeight);
     } else {
       itemView.frame =
-          CGRectMake(MDCFloor(CGRectGetMaxX(self.itemLayoutFrame) - (i + 1) * itemWidth +
-                              self.itemsHorizontalPadding),
-                     0, MDCFloor(itemWidth - 2 * self.itemsHorizontalPadding), navBarHeight);
+          CGRectMake(floor(CGRectGetMaxX(self.itemLayoutFrame) - (i + 1) * itemWidth +
+                           self.itemsHorizontalPadding),
+                     0, floor(itemWidth - 2 * self.itemsHorizontalPadding), navBarHeight);
     }
   }
 }
@@ -776,7 +792,9 @@ static NSString *const kOfAnnouncement = @"of";
     return;
   }
   _backgroundBlurEffectStyle = backgroundBlurEffectStyle;
-  self.blurEffectView.effect = [UIBlurEffect effectWithStyle:_backgroundBlurEffectStyle];
+  if (self.blurEffectView) {
+    self.blurEffectView.effect = [UIBlurEffect effectWithStyle:_backgroundBlurEffectStyle];
+  }
 }
 
 - (void)setBackgroundBlurEnabled:(BOOL)backgroundBlurEnabled {
@@ -785,7 +803,17 @@ static NSString *const kOfAnnouncement = @"of";
   }
   _backgroundBlurEnabled = backgroundBlurEnabled;
 
-  self.blurEffectView.hidden = !_backgroundBlurEnabled;
+  if (_backgroundBlurEnabled & !self.blurEffectView) {
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:_backgroundBlurEffectStyle];
+    self.blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    self.blurEffectView.hidden = !_backgroundBlurEnabled;
+    self.blurEffectView.autoresizingMask =
+        (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+    [self insertSubview:self.blurEffectView atIndex:0];  // Needs to always be at the bottom
+    self.blurEffectView.frame = CGRectStandardize(self.bounds);
+  } else if (self.blurEffectView) {
+    self.blurEffectView.hidden = !_backgroundBlurEnabled;
+  }
 }
 
 - (void)setAlignment:(MDCBottomNavigationBarAlignment)alignment {
@@ -837,6 +865,45 @@ static NSString *const kOfAnnouncement = @"of";
   return self.elevation;
 }
 
+- (MDCShadowsCollection *)shadowsCollection {
+  if (!_shadowsCollection) {
+    _shadowsCollection = MDCShadowsCollectionDefault();
+  }
+  return _shadowsCollection;
+}
+
+- (void)setShadowsCollection:(MDCShadowsCollection *)shadowsCollection {
+  _shadowsCollection = shadowsCollection;
+
+  [self updateShadow];
+}
+
+- (void)cancelRippleInItemView:(MDCBottomNavigationItemView *)itemView animated:(BOOL)animated {
+  if (self.enableRippleBehavior) {
+    if (animated) {
+      [itemView.rippleTouchController.rippleView beginRippleTouchUpAnimated:YES completion:nil];
+    } else {
+      [itemView.rippleTouchController.rippleView cancelAllRipplesAnimated:NO completion:nil];
+    }
+  } else {
+    if (animated) {
+      [itemView.inkView startTouchEndAtPoint:itemView.center animated:YES withCompletion:nil];
+    } else {
+      [itemView.inkView cancelAllAnimationsAnimated:NO];
+    }
+  }
+}
+
+- (void)beginRippleInItemView:(MDCBottomNavigationItemView *)itemView animated:(BOOL)animated {
+  if (self.enableRippleBehavior) {
+    [itemView.rippleTouchController.rippleView beginRippleTouchDownAtPoint:itemView.center
+                                                                  animated:animated
+                                                                completion:nil];
+  } else {
+    [itemView.inkView startTouchBeganAtPoint:itemView.center animated:animated withCompletion:nil];
+  }
+}
+
 #pragma mark - UILargeContentViewerInteractionDelegate
 
 #if MDC_AVAILABLE_SDK_IOS(13_0)
@@ -844,8 +911,15 @@ static NSString *const kOfAnnouncement = @"of";
                                     (UILargeContentViewerInteraction *)interaction
                                                   itemAtPoint:(CGPoint)point
     NS_AVAILABLE_IOS(13_0) {
+  MDCBottomNavigationItemView *lastItemView =
+      (MDCBottomNavigationItemView *)self.lastLargeContentViewerItem;
+
   if (!CGRectContainsPoint(self.bounds, point)) {
-    // The touch has wandered outside of the view. Do not display the content viewer.
+    // The touch has wandered outside of the view. Clear the ripple/ink and do not display the
+    // content viewer.
+    if (lastItemView) {
+      [self cancelRippleInItemView:lastItemView animated:NO];
+    }
     self.lastLargeContentViewerItem = nil;
     return nil;
   }
@@ -856,43 +930,32 @@ static NSString *const kOfAnnouncement = @"of";
     return self.lastLargeContentViewerItem;
   }
 
-  MDCBottomNavigationItemView *lastItemView =
-      (MDCBottomNavigationItemView *)self.lastLargeContentViewerItem;
-
-  if (lastItemView && lastItemView != itemView) {
-    if (self.enableRippleBehavior) {
-      [lastItemView.rippleTouchController.rippleView cancelAllRipplesAnimated:NO completion:nil];
-      [itemView.rippleTouchController.rippleView beginRippleTouchDownAtPoint:itemView.center
-                                                                    animated:NO
-                                                                  completion:nil];
-    } else {
-      [lastItemView.inkView cancelAllAnimationsAnimated:NO];
-      [itemView.inkView startTouchBeganAtPoint:itemView.center animated:NO withCompletion:nil];
+  if (lastItemView != itemView) {
+    if (lastItemView) {
+      [self cancelRippleInItemView:lastItemView animated:NO];
     }
+    // Only start ink/ripple if it's not the first touch down of the long press
+    if (self.isLargeContentLongPressInProgress) {
+      [self beginRippleInItemView:itemView animated:NO];
+    }
+    self.lastLargeContentViewerItem = itemView;
   }
-
-  self.lastLargeContentViewerItem = itemView;
+  self.isLargeContentLongPressInProgress = YES;
   return itemView;
 }
 
 - (void)largeContentViewerInteraction:(UILargeContentViewerInteraction *)interaction
                          didEndOnItem:(id<UILargeContentViewerItem>)item
                               atPoint:(CGPoint)point NS_AVAILABLE_IOS(13_0) {
-  if (item) {
-    for (NSUInteger i = 0; i < self.items.count; i++) {
-      MDCBottomNavigationItemView *itemView = self.itemViews[i];
-      if (item == itemView) {
-        if (self.enableRippleBehavior) {
-          [itemView.rippleTouchController.rippleView beginRippleTouchUpAnimated:YES completion:nil];
-        } else {
-          [itemView.inkView startTouchEndAtPoint:itemView.center animated:YES withCompletion:nil];
-        }
-        [self didTouchUpInsideButton:itemView.button];
-      }
-    }
+  if (self.lastLargeContentViewerItem) {
+    MDCBottomNavigationItemView *lastItemView =
+        (MDCBottomNavigationItemView *)self.lastLargeContentViewerItem;
+    [self cancelRippleInItemView:lastItemView animated:YES];
+    [self didTouchUpInsideButton:lastItemView.button];
   }
 
   self.lastLargeContentViewerItem = nil;
+  self.isLargeContentLongPressInProgress = NO;
 }
 #endif  // MDC_AVAILABLE_SDK_IOS(13_0)
 
@@ -913,5 +976,15 @@ static NSString *const kOfAnnouncement = @"of";
   return [UIPointerStyle styleWithEffect:highlightEffect shape:shape];
 }
 #endif
+
+#pragma mark - Performant Shadow Toggle
+
++ (void)setEnablePerformantShadow:(BOOL)enable {
+  gEnablePerformantShadow = enable;
+}
+
++ (BOOL)enablePerformantShadow {
+  return gEnablePerformantShadow;
+}
 
 @end

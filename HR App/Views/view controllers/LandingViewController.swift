@@ -12,6 +12,8 @@
 import UIKit
 
 class LandingViewController: UITabBarController,UITabBarControllerDelegate {
+    
+//    var timer: Timer? 
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +22,30 @@ class LandingViewController: UITabBarController,UITabBarControllerDelegate {
         setUpHomeBtn()
 
     }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        resetTimer()
+//
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(toggleControls))
+//        view.addGestureRecognizer(tapGesture)
+//    }
+//
+//    @objc func toggleControls() {
+//        // toggle controls here
+//        resetTimer()
+//    }
+//
+//    func resetTimer() {
+//        timer?.invalidate()
+//        timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(hideControls), userInfo: nil, repeats: false)
+//    }
+//
+//    @objc func hideControls() {
+//            // Hide controls here
+//        print("inactivity...")
+//        UserDefaults.standard.setValue(false, forKey: UserDefaultConstants.BiometricsPinConstants.isScreenActive)
+//    }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)

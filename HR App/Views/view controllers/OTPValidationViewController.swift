@@ -45,7 +45,7 @@ class OTPValidationViewController: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func onActionSubmit(_ sender: Any) {
-        self.navigateToBiometricScreen()
+        self.navigateToConfigureBiometricPinScreen()
     }
     
     func navigateToBiometricScreen(){
@@ -53,6 +53,13 @@ class OTPValidationViewController: UIViewController,UITextFieldDelegate {
             vc.modalPresentationStyle = .fullScreen
             self.navigationController?.pushViewController(vc, animated: true)
             self.present(vc, animated: true, completion: nil)
+    }
+    
+    func navigateToConfigureBiometricPinScreen() {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: UiConstants.StrotyBoardId.CONFIGURE_BIOMETRIC_PIN_VC) as! BiometricPinConfigureViewController
+        vc.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(vc, animated: true)
+        self.present(vc, animated: true, completion: nil)
     }
     
     

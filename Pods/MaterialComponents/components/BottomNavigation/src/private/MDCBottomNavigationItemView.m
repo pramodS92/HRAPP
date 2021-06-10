@@ -15,11 +15,12 @@
 
 #import "MDCBottomNavigationItemView.h"
 
+#import "MaterialInk.h"
+#import "MaterialRipple.h"
 #import <MDFInternationalization/MDFInternationalization.h>
 
+#import "MDCBottomNavigationBar.h"
 #import "MDCBottomNavigationItemBadge.h"
-#import "MaterialAvailability.h"
-#import "MaterialMath.h"
 
 // A number large enough to be larger than any reasonable screen dimension but small enough that
 // CGFloat doesn't lose precision.
@@ -38,8 +39,13 @@ static const CGFloat kBadgeXOffsetFromIconEdgeWithTextLTR = -8;
 // the edge of the image.
 static const CGFloat kBadgeXOffsetFromIconEdgeEmptyLTR = -1;
 
-// The duration of the selection transition animation.
-static const NSTimeInterval kMDCBottomNavigationItemViewTransitionDuration = 0.180;
+// The duration of the (de)selection transition animation.
+static const NSTimeInterval kMDCBottomNavigationItemViewSelectionAnimationDuration = 0.100f;
+
+// The duration of the title label's fade-out animation on deselection. The fade-in animation of the
+// label on selection will be delayed by this value, and the duration of that animation is
+// @c kMDCBottomNavigationItemViewSelectionAnimationDuration minus this value.
+static const NSTimeInterval kMDCBottomNavigationItemViewLabelFadeOutAnimationDuration = 0.0333f;
 
 // The amount to inset pointerEffectHoverRect.
 // These values were chosen to achieve visual parity with UITabBar's highlight effect.
@@ -162,6 +168,10 @@ const CGSize MDCButtonNavigationItemViewPointerEffectHighlightRectInset = {-24, 
     _button.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     _button.accessibilityLabel = [self accessibilityLabelWithTitle:_title];
     _button.accessibilityValue = self.accessibilityValue;
+    // This needs to be set specifically for VoiceOver to work on iOS 14, see b/175421576
+    if (@available(iOS 14, *)) {
+      _button.accessibilityTraits |= UIAccessibilityTraitButton;
+    }
     [self addSubview:_button];
   }
 }
@@ -174,22 +184,24 @@ const CGSize MDCButtonNavigationItemViewPointerEffectHighlightRectInset = {-24, 
   }
 }
 
+- (BOOL)isTitleHidden {
+  return self.titleVisibility == MDCBottomNavigationBarTitleVisibilityNever ||
+         (self.titleVisibility == MDCBottomNavigationBarTitleVisibilitySelected && !self.selected);
+}
+
 - (CGSize)sizeThatFitsForVerticalLayout {
-  BOOL titleHidden =
-      self.titleVisibility == MDCBottomNavigationBarTitleVisibilityNever ||
-      (self.titleVisibility == MDCBottomNavigationBarTitleVisibilitySelected && !self.selected);
   CGSize maxSize = CGSizeMake(kMaxSizeDimension, kMaxSizeDimension);
   CGSize iconSize = [self.iconImageView sizeThatFits:maxSize];
   CGRect iconFrame = CGRectMake(0, 0, iconSize.width, iconSize.height);
   CGSize badgeSize = [self.badge sizeThatFits:maxSize];
   CGPoint badgeCenter = [self badgeCenterFromIconFrame:iconFrame isRTL:NO];
   CGRect badgeFrame =
-      CGRectMake(MDCFloor(badgeCenter.x - badgeSize.width / 2),
-                 MDCFloor(badgeCenter.y - badgeSize.height / 2), badgeSize.width, badgeSize.height);
+      CGRectMake(floor(badgeCenter.x - badgeSize.width / 2),
+                 floor(badgeCenter.y - badgeSize.height / 2), badgeSize.width, badgeSize.height);
   CGRect labelFrame = CGRectZero;
-  if (!titleHidden) {
+  if (![self isTitleHidden]) {
     CGSize labelSize = [self.label sizeThatFits:maxSize];
-    labelFrame = CGRectMake(MDCFloor(CGRectGetMidX(iconFrame) - labelSize.width / 2),
+    labelFrame = CGRectMake(floor(CGRectGetMidX(iconFrame) - labelSize.width / 2),
                             CGRectGetMaxY(iconFrame) + self.contentVerticalMargin, labelSize.width,
                             labelSize.height);
   }
@@ -203,11 +215,11 @@ const CGSize MDCButtonNavigationItemViewPointerEffectHighlightRectInset = {-24, 
   CGSize badgeSize = [self.badge sizeThatFits:maxSize];
   CGPoint badgeCenter = [self badgeCenterFromIconFrame:iconFrame isRTL:NO];
   CGRect badgeFrame =
-      CGRectMake(MDCFloor(badgeCenter.x - badgeSize.width / 2),
-                 MDCFloor(badgeCenter.y - badgeSize.height / 2), badgeSize.width, badgeSize.height);
+      CGRectMake(floor(badgeCenter.x - badgeSize.width / 2),
+                 floor(badgeCenter.y - badgeSize.height / 2), badgeSize.width, badgeSize.height);
   CGSize labelSize = [self.label sizeThatFits:maxSize];
   CGRect labelFrame = CGRectMake(CGRectGetMaxX(iconFrame) + self.contentHorizontalMargin,
-                                 MDCFloor(CGRectGetMidY(iconFrame) - labelSize.height / 2),
+                                 floor(CGRectGetMidY(iconFrame) - labelSize.height / 2),
                                  labelSize.width, labelSize.height);
   return CGRectStandardize(CGRectUnion(labelFrame, CGRectUnion(iconFrame, badgeFrame))).size;
 }
@@ -218,7 +230,7 @@ const CGSize MDCButtonNavigationItemViewPointerEffectHighlightRectInset = {-24, 
   [self.label sizeToFit];
   [self.badge sizeToFit];
   self.inkView.maxRippleRadius =
-      (CGFloat)(MDCHypot(CGRectGetHeight(self.bounds), CGRectGetWidth(self.bounds)) / 2);
+      (CGFloat)(hypot(CGRectGetHeight(self.bounds), CGRectGetWidth(self.bounds)) / 2);
   [self centerLayoutAnimated:NO];
   [self invalidatePointerInteractions];
 }
@@ -230,29 +242,33 @@ const CGSize MDCButtonNavigationItemViewPointerEffectHighlightRectInset = {-24, 
   CGRect contentBoundingRect = CGRectStandardize(contentBounds);
   CGSize iconImageViewSize = [self.iconImageView sizeThatFits:contentBoundingRect.size];
   CGSize labelSize = [self.label sizeThatFits:contentBoundingRect.size];
-  BOOL titleHidden =
-      self.titleVisibility == MDCBottomNavigationBarTitleVisibilityNever ||
-      (self.titleVisibility == MDCBottomNavigationBarTitleVisibilitySelected && !self.selected);
   CGFloat iconHeight = iconImageViewSize.height;
   CGFloat labelHeight = labelSize.height;
   CGFloat totalContentHeight = iconHeight;
-  if (!titleHidden) {
+  if (![self isTitleHidden]) {
     totalContentHeight += labelHeight + self.contentVerticalMargin;
   }
 
   // Determine the position of the label and icon
   CGFloat centerX = CGRectGetMidX(contentBoundingRect);
   CGFloat iconImageViewCenterY =
-      MAX(MDCFloor(CGRectGetMidY(contentBoundingRect) - totalContentHeight / 2 +
+      MAX(floor(CGRectGetMidY(contentBoundingRect) - totalContentHeight / 2 +
                    iconHeight / 2),  // Content centered
-          MDCFloor(CGRectGetMinY(contentBoundingRect) +
+          floor(CGRectGetMinY(contentBoundingRect) +
                    iconHeight / 2)  // Pinned to top of bounding rect.
       );
   CGPoint iconImageViewCenter = CGPointMake(centerX, iconImageViewCenterY);
   // Ignore the horizontal titlePositionAdjustment in a vertical layout to match UITabBar behavior.
-  CGPoint labelCenter =
-      CGPointMake(centerX, iconImageViewCenter.y + iconHeight / 2 + self.contentVerticalMargin +
-                               labelHeight / 2 + self.titlePositionAdjustment.vertical);
+  CGFloat centerY;
+  if ([self isTitleHidden]) {
+    centerY = iconImageViewCenter.y + iconHeight / 2 + self.titlePositionAdjustment.vertical +
+              self.contentVerticalMargin / 2;
+  } else {
+    centerY = iconImageViewCenter.y + iconHeight / 2 + self.contentVerticalMargin +
+              labelHeight / 2 + self.titlePositionAdjustment.vertical;
+  }
+
+  CGPoint labelCenter = CGPointMake(centerX, centerY);
   CGFloat availableContentWidth = CGRectGetWidth(contentBoundingRect);
   if (self.truncatesTitle && (labelSize.width > availableContentWidth)) {
     labelSize = CGSizeMake(availableContentWidth, labelSize.height);
@@ -260,13 +276,13 @@ const CGSize MDCButtonNavigationItemViewPointerEffectHighlightRectInset = {-24, 
 
   // Assign the frames to the inout arguments
   if (outLabelFrame != NULL) {
-    *outLabelFrame = CGRectMake(MDCFloor(labelCenter.x - (labelSize.width / 2)),
-                                MDCFloor(labelCenter.y - (labelSize.height / 2)), labelSize.width,
+    *outLabelFrame = CGRectMake(floor(labelCenter.x - (labelSize.width / 2)),
+                                floor(labelCenter.y - (labelSize.height / 2)), labelSize.width,
                                 labelSize.height);
   }
   if (outIconFrame != NULL) {
-    *outIconFrame = CGRectMake(MDCFloor(iconImageViewCenter.x - (iconImageViewSize.width / 2)),
-                               MDCFloor(iconImageViewCenter.y - (iconImageViewSize.height / 2)),
+    *outIconFrame = CGRectMake(floor(iconImageViewCenter.x - (iconImageViewSize.width / 2)),
+                               floor(iconImageViewCenter.y - (iconImageViewSize.height / 2)),
                                iconImageViewSize.width, iconImageViewSize.height);
   }
 }
@@ -317,13 +333,13 @@ const CGSize MDCButtonNavigationItemViewPointerEffectHighlightRectInset = {-24, 
 
   // Assign the frames to the inout arguments
   if (outLabelFrame != NULL) {
-    *outLabelFrame = CGRectMake(MDCFloor(labelCenter.x - (labelSize.width / 2)),
-                                MDCFloor(labelCenter.y - (labelSize.height / 2)), labelSize.width,
+    *outLabelFrame = CGRectMake(floor(labelCenter.x - (labelSize.width / 2)),
+                                floor(labelCenter.y - (labelSize.height / 2)), labelSize.width,
                                 labelSize.height);
   }
   if (outIconFrame != NULL) {
-    *outIconFrame = CGRectMake(MDCFloor(iconImageViewCenter.x - (iconImageViewSize.width / 2)),
-                               MDCFloor(iconImageViewCenter.y - (iconImageViewSize.height / 2)),
+    *outIconFrame = CGRectMake(floor(iconImageViewCenter.x - (iconImageViewSize.width / 2)),
+                               floor(iconImageViewCenter.y - (iconImageViewSize.height / 2)),
                                iconImageViewSize.width, iconImageViewSize.height);
   }
 }
@@ -352,7 +368,7 @@ const CGSize MDCButtonNavigationItemViewPointerEffectHighlightRectInset = {-24, 
 
   if (self.titleBelowIcon) {
     if (animated) {
-      [UIView animateWithDuration:kMDCBottomNavigationItemViewTransitionDuration
+      [UIView animateWithDuration:kMDCBottomNavigationItemViewSelectionAnimationDuration
                        animations:^(void) {
                          self.iconImageView.center = iconImageViewCenter;
                          self.badge.center =
@@ -377,29 +393,55 @@ const CGSize MDCButtonNavigationItemViewPointerEffectHighlightRectInset = {-24, 
   }
 }
 
-- (void)updateLabelVisibility {
+- (void)updateLabelVisibility:(BOOL)animated {
+  BOOL shouldHide;
   if (self.selected) {
     switch (self.titleVisibility) {
       case MDCBottomNavigationBarTitleVisibilitySelected:
       case MDCBottomNavigationBarTitleVisibilityAlways:
-        self.label.hidden = NO;
+        shouldHide = NO;
         break;
       case MDCBottomNavigationBarTitleVisibilityNever:
-        self.label.hidden = YES;
+        shouldHide = YES;
         break;
     }
   } else {
     switch (self.titleVisibility) {
       case MDCBottomNavigationBarTitleVisibilitySelected:
       case MDCBottomNavigationBarTitleVisibilityNever:
-        self.label.hidden = YES;
+        shouldHide = YES;
         break;
       case MDCBottomNavigationBarTitleVisibilityAlways:
-        self.label.hidden = NO;
+        shouldHide = NO;
         break;
     }
   }
-  [self setNeedsLayout];
+
+  if (!animated) {
+    [self setNeedsLayout];
+    self.label.alpha = shouldHide ? 0.0f : 1.0f;
+  } else {
+    [UIView animateWithDuration:kMDCBottomNavigationItemViewSelectionAnimationDuration
+                     animations:^{
+                       [self setNeedsLayout];
+                       self.label.alpha = shouldHide ? 0.0f : 1.0f;
+                     }];
+    if (shouldHide) {
+      [UIView animateWithDuration:kMDCBottomNavigationItemViewLabelFadeOutAnimationDuration
+                       animations:^{
+                         self.label.alpha = 0.0f;
+                       }];
+    } else {
+      [UIView animateWithDuration:(kMDCBottomNavigationItemViewSelectionAnimationDuration -
+                                   kMDCBottomNavigationItemViewLabelFadeOutAnimationDuration)
+                            delay:kMDCBottomNavigationItemViewLabelFadeOutAnimationDuration
+                          options:UIViewAnimationOptionCurveLinear
+                       animations:^{
+                         self.label.alpha = 1.0f;
+                       }
+                       completion:nil];
+    }
+  }
 }
 
 - (NSString *)accessibilityLabelWithTitle:(NSString *)title {
@@ -503,13 +545,13 @@ const CGSize MDCButtonNavigationItemViewPointerEffectHighlightRectInset = {-24, 
     self.iconImageView.tintColor = self.selectedItemTintColor;
     self.button.accessibilityTraits |= UIAccessibilityTraitSelected;
     self.iconImageView.image = (self.selectedImage) ? self.selectedImage : self.image;
-    [self updateLabelVisibility];
+    [self updateLabelVisibility:animated];
   } else {
     self.label.textColor = self.unselectedItemTintColor;
     self.iconImageView.tintColor = self.unselectedItemTintColor;
     self.button.accessibilityTraits &= ~UIAccessibilityTraitSelected;
     self.iconImageView.image = self.image;
-    [self updateLabelVisibility];
+    [self updateLabelVisibility:animated];
   }
   [self centerLayoutAnimated:animated];
 }
@@ -602,7 +644,7 @@ const CGSize MDCButtonNavigationItemViewPointerEffectHighlightRectInset = {-24, 
 
 - (void)setTitleVisibility:(MDCBottomNavigationBarTitleVisibility)titleVisibility {
   _titleVisibility = titleVisibility;
-  [self updateLabelVisibility];
+  [self updateLabelVisibility:NO];
 }
 
 - (void)setItemTitleFont:(UIFont *)itemTitleFont {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -71,7 +71,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="103.79464285714285"/>
+            <point key="canvasLocation" x="194" y="104"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="dxN-Qo-jBT">
@@ -1310,7 +1310,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QcV-gh-vs9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3535" y="112"/>
+            <point key="canvasLocation" x="4323" y="112"/>
         </scene>
         <!--Validation View Controller-->
         <scene sceneID="IfW-bs-H5e">
@@ -1758,6 +1758,100 @@
             </objects>
             <point key="canvasLocation" x="1762" y="943"/>
         </scene>
+        <!--Biometric Pin Configure View Controller-->
+        <scene sceneID="nSP-eb-hzK">
+            <objects>
+                <viewController storyboardIdentifier="BiometricPinConfigureVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eSX-qD-Os4" customClass="BiometricPinConfigureViewController" customModule="HR_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VXw-Yk-XnR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Configure PIN" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qZ2-v9-gRH">
+                                <rect key="frame" x="40" y="343" width="334" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wAR-nx-1ZO">
+                                <rect key="frame" x="278" y="415" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Configure PIN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7I-yV-9Nt">
+                                <rect key="frame" x="90" y="124" width="234" height="39"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Configure your PIN number here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMN-zT-8f4">
+                                <rect key="frame" x="58" y="178" width="298" height="27.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Configure Biometrics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUh-v4-CzY">
+                                <rect key="frame" x="86" y="419" width="184" height="20"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gln-mF-8F8">
+                                <rect key="frame" x="135" y="465.5" width="144" height="43"/>
+                                <color key="backgroundColor" red="0.12058537449999999" green="0.48113000389999999" blue="0.98038500549999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
+                                <state key="normal" title="Configure">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="configureBtnClicked:" destination="eSX-qD-Os4" eventType="touchUpInside" id="lwQ-71-YRL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bx3-8g-Gju">
+                                <rect key="frame" x="40" y="257.5" width="100" height="50.5"/>
+                                <state key="normal" title="view pin"/>
+                                <connections>
+                                    <action selector="viewBiometricsUserDefaultsBtnClicked:" destination="eSX-qD-Os4" eventType="touchUpInside" id="dfo-o2-yLg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DRE-CT-QmW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qZ2-v9-gRH" firstAttribute="top" secondItem="DRE-CT-QmW" secondAttribute="top" constant="299" id="0g4-v3-S9Z"/>
+                            <constraint firstItem="ZMN-zT-8f4" firstAttribute="leading" secondItem="DRE-CT-QmW" secondAttribute="leading" constant="58" id="20C-M2-Fk8"/>
+                            <constraint firstItem="ZMN-zT-8f4" firstAttribute="top" secondItem="J7I-yV-9Nt" secondAttribute="bottom" constant="15" id="4OK-ok-O9u"/>
+                            <constraint firstItem="DRE-CT-QmW" firstAttribute="trailing" secondItem="wAR-nx-1ZO" secondAttribute="trailing" constant="87" id="51r-xG-0NL"/>
+                            <constraint firstItem="BUh-v4-CzY" firstAttribute="leading" secondItem="DRE-CT-QmW" secondAttribute="leading" constant="86" id="9Mc-xj-2ct"/>
+                            <constraint firstItem="qZ2-v9-gRH" firstAttribute="leading" secondItem="DRE-CT-QmW" secondAttribute="leading" constant="40" id="AZa-8A-4V7"/>
+                            <constraint firstItem="Bx3-8g-Gju" firstAttribute="leading" secondItem="DRE-CT-QmW" secondAttribute="leading" constant="40" id="CXl-cE-FAN"/>
+                            <constraint firstItem="DRE-CT-QmW" firstAttribute="trailing" secondItem="Bx3-8g-Gju" secondAttribute="trailing" constant="274" id="CnA-L0-QDV"/>
+                            <constraint firstItem="Gln-mF-8F8" firstAttribute="top" secondItem="wAR-nx-1ZO" secondAttribute="bottom" constant="19.5" id="GSA-7d-ZZp"/>
+                            <constraint firstItem="J7I-yV-9Nt" firstAttribute="leading" secondItem="DRE-CT-QmW" secondAttribute="leading" constant="90" id="Ja4-79-TQo"/>
+                            <constraint firstItem="DRE-CT-QmW" firstAttribute="trailing" secondItem="qZ2-v9-gRH" secondAttribute="trailing" constant="40" id="LdC-42-u1w"/>
+                            <constraint firstItem="Gln-mF-8F8" firstAttribute="leading" secondItem="DRE-CT-QmW" secondAttribute="leading" constant="135" id="Okj-kt-77A"/>
+                            <constraint firstItem="qZ2-v9-gRH" firstAttribute="top" secondItem="Bx3-8g-Gju" secondAttribute="bottom" constant="35" id="Udb-90-AHl"/>
+                            <constraint firstItem="BUh-v4-CzY" firstAttribute="top" secondItem="qZ2-v9-gRH" secondAttribute="bottom" constant="42" id="Wsl-Qh-men"/>
+                            <constraint firstItem="qZ2-v9-gRH" firstAttribute="centerX" secondItem="VXw-Yk-XnR" secondAttribute="centerX" id="YXR-id-oMX"/>
+                            <constraint firstItem="DRE-CT-QmW" firstAttribute="trailing" secondItem="J7I-yV-9Nt" secondAttribute="trailing" constant="90" id="bTW-E9-FPh"/>
+                            <constraint firstItem="J7I-yV-9Nt" firstAttribute="top" secondItem="DRE-CT-QmW" secondAttribute="top" constant="80" id="gEM-GI-r6v"/>
+                            <constraint firstItem="DRE-CT-QmW" firstAttribute="trailing" secondItem="ZMN-zT-8f4" secondAttribute="trailing" constant="58" id="h63-sa-NsZ"/>
+                            <constraint firstItem="Gln-mF-8F8" firstAttribute="centerX" secondItem="qZ2-v9-gRH" secondAttribute="centerX" id="iqW-OY-UaH"/>
+                            <constraint firstItem="Gln-mF-8F8" firstAttribute="top" secondItem="BUh-v4-CzY" secondAttribute="bottom" constant="26.5" id="lMP-hb-tHH"/>
+                            <constraint firstItem="DRE-CT-QmW" firstAttribute="trailing" secondItem="Gln-mF-8F8" secondAttribute="trailing" constant="135" id="ltx-a2-w1w"/>
+                            <constraint firstItem="wAR-nx-1ZO" firstAttribute="top" secondItem="qZ2-v9-gRH" secondAttribute="bottom" constant="38" id="oEx-SB-QSM"/>
+                            <constraint firstItem="wAR-nx-1ZO" firstAttribute="leading" secondItem="BUh-v4-CzY" secondAttribute="trailing" constant="8" id="qge-0Y-iAo"/>
+                            <constraint firstItem="Bx3-8g-Gju" firstAttribute="top" secondItem="ZMN-zT-8f4" secondAttribute="bottom" constant="52" id="tLe-Xk-hvd"/>
+                            <constraint firstItem="ZMN-zT-8f4" firstAttribute="top" secondItem="J7I-yV-9Nt" secondAttribute="bottom" constant="15" id="uiX-91-wQ4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="u1t-1R-fLc"/>
+                    <connections>
+                        <outlet property="biometricSwitch" destination="wAR-nx-1ZO" id="pvH-v2-GkO"/>
+                        <outlet property="configureBtn" destination="Gln-mF-8F8" id="4kd-aV-gg3"/>
+                        <outlet property="configurePintf" destination="qZ2-v9-gRH" id="sRV-EE-f9y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uWJ-Cf-di9" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3536" y="112"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="fgT-Ot-b3I"/>
@@ -1766,7 +1860,6 @@
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="ic_directory" width="24" height="24"/>
         <image name="ic_finger_print" width="170.66667175292969" height="170.66667175292969"/>
-        <image name="ic_home" width="24" height="24"/>
         <image name="ic_home" width="24" height="24"/>
         <image name="ic_left_arrow" width="21.333333969116211" height="21.333333969116211"/>
         <image name="ic_magifire" width="64" height="64"/>
