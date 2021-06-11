@@ -24,10 +24,8 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
     
     let TEXT_FIELD_CONER_RADIUS = 10.0
     let TEXT_FIELD_BORDER_WIDTH = 1.0
-    
     var tableData: [String] = []
-//    var departmentData: [DepartmentData] = []
-//    var employeeList: [BranchEmployeeData] = []
+
     
     var _tableData: [Any] = []
     
