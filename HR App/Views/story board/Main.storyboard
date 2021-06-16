@@ -741,7 +741,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dfd-4f-Hf1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1761" y="1850"/>
+            <point key="canvasLocation" x="1794" y="1850"/>
         </scene>
         <!--Branch Employee Details View Controller-->
         <scene sceneID="Ndr-CJ-dy5">
@@ -1536,9 +1536,10 @@
                                             <action selector="categoryItemTapped:" destination="NDy-Jx-O5L" eventType="touchUpInside" id="aGM-Yo-3zb"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSC-jC-44n">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSC-jC-44n">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
                                         <color key="backgroundColor" red="0.41516045631419662" green="0.67582125641915736" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <state key="normal" title="Exchange Offices">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -1565,6 +1566,17 @@
                                         </state>
                                         <connections>
                                             <action selector="categoryItemTapped:" destination="NDy-Jx-O5L" eventType="touchUpInside" id="aZh-x5-Ne5"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HyX-yH-T6w">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                        <color key="backgroundColor" red="0.41516045631419662" green="0.67582125641915736" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="Special Offices">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="categoryItemTapped:" destination="NDy-Jx-O5L" eventType="touchUpInside" id="p89-GN-Hyw"/>
                                         </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DbU-Sm-rpy">
@@ -1639,6 +1651,7 @@
                         <outletCollection property="categoryItems" destination="h29-ew-pqQ" collectionClass="NSMutableArray" id="y4d-Oi-eFT"/>
                         <outletCollection property="categoryItems" destination="rNH-eh-1R4" collectionClass="NSMutableArray" id="FWp-fx-hlF"/>
                         <outletCollection property="categoryItems" destination="DbU-Sm-rpy" collectionClass="NSMutableArray" id="oQe-N4-TsZ"/>
+                        <outletCollection property="categoryItems" destination="HyX-yH-T6w" collectionClass="NSMutableArray" id="uW3-Ax-HRZ"/>
                         <segue destination="BRn-q0-ifc" kind="show" identifier="branchSegue" id="OgQ-hU-VsV"/>
                         <segue destination="ww2-WS-hlc" kind="show" identifier="departmentSegue" id="Y4A-dC-w5B"/>
                         <segue destination="dfG-hZ-i9F" kind="show" identifier="employeeSegue" id="wRe-Qc-BxX"/>
@@ -2192,7 +2205,7 @@
                                     <action selector="configureBtnClicked:" destination="eSX-qD-Os4" eventType="touchUpInside" id="lwQ-71-YRL"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bx3-8g-Gju">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bx3-8g-Gju">
                                 <rect key="frame" x="40" y="257.5" width="100" height="50.5"/>
                                 <state key="normal" title="view pin"/>
                                 <connections>

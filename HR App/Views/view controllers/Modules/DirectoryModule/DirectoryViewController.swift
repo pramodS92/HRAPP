@@ -34,14 +34,15 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var branchName: String?
     var regionalOfficeName: String?
+    var exchangeOfficeName: String?
     var departmemtId: String?
     var regionalOfficeId: String?
+    var exchangeOfficeId: String?
     var selectedCategory: String?
     var isTyping: Bool = false
     
     var employeeDetailsVc = BranchEmployeeDetailsViewController()
     var serviceManager: DirectoryServiceManager = DirectoryServiceManager()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -146,8 +147,13 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             self.requestHandler!("")
             searchTextFiled.isEnabled = true
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_DEPARTMENT
+        case .ex_office:
+            requestHandler = getExchangeOfficeNameList
+            self.requestHandler!("")
+            searchTextFiled.isEnabled = true
+            placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_EX_OFFICE
         case .reg_office:
-            requestHandler = getRegionalOfficeNames
+            requestHandler = getRegionalOfficeNameList
             self.requestHandler!("")
             searchTextFiled.isEnabled = false
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_REG_OFFICE
@@ -182,7 +188,6 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         return  self._tableData.count == nil ? 1: self._tableData.count
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch Category(rawValue: selectedCategory!){
         case .branch:
@@ -195,8 +200,16 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             let cell = derectoryTableView.dequeueReusableCell(withIdentifier: UiConstants.ViewCellId.DIRECTORY_ITEM_CELL, for: indexPath) as! DirectoryTableViewCell
             if let departmantData = _tableData[indexPath.row] as? DepartmentData{
                 cell.direcaryItemLabel.text = departmantData.departmentName
-                cell.selectionStyle = .none
             }
+            cell.selectionStyle = .none
+            return cell
+            
+        case .ex_office:
+            let cell = derectoryTableView.dequeueReusableCell(withIdentifier: UiConstants.ViewCellId.DIRECTORY_ITEM_CELL, for: indexPath) as! DirectoryTableViewCell
+            if let exchangeOfficeData = _tableData[indexPath.row] as? ExchangeOfficeData {
+                cell.direcaryItemLabel.text = exchangeOfficeData.departmentName
+            }
+            cell.selectionStyle = .none
             return cell
             
         case .reg_office:
@@ -234,6 +247,11 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             let depInfo = _tableData[indexPath.row] as! DepartmentData
             self.departmemtId = depInfo.departmentID 
             performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_DEPARTMENT_SEGUE, sender: self)
+        case .ex_office:
+            let exchangeOfficeInfo = _tableData[indexPath.row] as! ExchangeOfficeData
+            self.exchangeOfficeName = exchangeOfficeInfo.departmentName
+            self.departmemtId = exchangeOfficeInfo.departmentID
+            performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_DEPARTMENT_SEGUE, sender: self)
         case .reg_office:
             let regOfficeInfo = _tableData[indexPath.row] as! RegionalOfficeData
             self.regionalOfficeName = regOfficeInfo.regionalOffice
@@ -245,7 +263,6 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_BRANCH_SEGUE, sender: self)
         }
     }
-    
     
     //    func numberOfSections(in tableView: UITableView) -> Int {
     //        return sections.count
@@ -266,13 +283,12 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         self.present(employeeDetailsVc, animated: true, completion: nil)
     }
     
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case UiConstants.SegueIdentifiers.DIRECTORY_BRANCH_SEGUE:
             let destination = segue.destination as! BranchDetailsViewController
             destination.branchName =  self.branchName
+            destination.titleLabels = KeyCostants.BranchDetails.BRANCH_DETAILS_TITLES
         case UiConstants.SegueIdentifiers.DIRECTORY_DEPARTMENT_SEGUE:
             let destination = segue.destination as! DepartmentViewController
             destination.departmemtId = self.departmemtId
@@ -309,7 +325,6 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         self.derectoryTableView.reloadData()
     }
     
-    
     func setDepartmentTableData(data: [DepartmentData]){
         _tableData.removeAll()
         self.setActivityIndicatorVisibility(show: false)
@@ -317,14 +332,12 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         self.derectoryTableView.reloadData()
     }
     
-    
     func setEmployeeTableData(data: [BranchEmployeeData]) {
         _tableData.removeAll()
         self.setActivityIndicatorVisibility(show: false)
         _tableData = data
         self.derectoryTableView.reloadData()
     }
-    
     
     func getBranchNameList(text: String) {
         self.setActivityIndicatorVisibility(show: true)
@@ -336,6 +349,11 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         self.getDepartmentNames(text: text)
     }
     
+    func getExchangeOfficeNameList(text: String) {
+        self.setActivityIndicatorVisibility(show: true)
+        self.getExchangeOfficeNames(text: text)
+    }
+    
     func getRegionalOfficeNameList(text: String) {
         self.setActivityIndicatorVisibility(show: true)
         self.getRegionalOfficeNames(text: text)
@@ -345,7 +363,6 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         self.setActivityIndicatorVisibility(show: true)
         self.getEmployeeNames(text: text)
     }
-    
     
 }
 
@@ -360,7 +377,6 @@ extension Collection where Element: Equatable {
     }
 }
 
-
 extension DirectoryViewController: OnSuccessUserDirectory {
     
     internal func getBranchNames(text: String){
@@ -369,6 +385,10 @@ extension DirectoryViewController: OnSuccessUserDirectory {
     
     internal func getDepartmentNames(text: String){
         serviceManager.getDepartmentNameList(text: text, self)
+    }
+    
+    internal func getExchangeOfficeNames(text: String) {
+        serviceManager.getExchangeOfficeNameList(text: text, self)
     }
     
     internal func getRegionalOfficeNames(text: String) {
@@ -384,6 +404,10 @@ extension DirectoryViewController: OnSuccessUserDirectory {
     }
     
     func onSuccessDepartmentNameList(response: [DepartmentData]) {
+        setTableData(data: response)
+    }
+    
+    func onSuccessExchangeOfficeNameList(response: [ExchangeOfficeData]) {
         setTableData(data: response)
     }
     

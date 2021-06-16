@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - RegionalOfficeNameListModel
 struct RegionalOfficeNameListModel: Codable {
     let user: User?
     let status: Int?

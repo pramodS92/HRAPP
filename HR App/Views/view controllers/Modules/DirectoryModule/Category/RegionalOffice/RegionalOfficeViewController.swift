@@ -90,8 +90,6 @@ class RegionalOfficeViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return regionalOfficeEmployeeList.count
     }

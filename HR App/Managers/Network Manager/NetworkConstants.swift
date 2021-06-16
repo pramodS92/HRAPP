@@ -17,8 +17,6 @@ enum APIEnvironment {
     case production
 }
 
-
-
 struct NetworkConstants {
     
     static let environment: APIEnvironment = .development
@@ -69,6 +67,9 @@ struct NetworkConstants {
         }
         static var getRegionalOfficeDetailsById: String {
             return "/hrm/regionaloffice/id/"
+        }
+        static var getExchangeOfficeNameList: String {
+            return "/hrm/exchangeOffice/list/"
         }
         
     }

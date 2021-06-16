@@ -124,5 +124,4 @@ extension BranchInfoService {
         }
     }
     
-    
 }

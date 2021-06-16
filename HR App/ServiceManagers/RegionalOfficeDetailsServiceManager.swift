@@ -25,12 +25,10 @@ class RegionalOfficeDetailsServiceManager {
         RegionalOfficeInfoService.shared.getRegionalOfficeDetailsById(regionalOfficeId: regionalOfficeId) { (response, error, statusCode) in
             
             if response != nil {
-                
                 if let responseBody = try? JSONDecoder().decode(RegionalOfficeDetailsModel.self, from: response! as! Data) {
                     
                     if let regionalOfficeData = responseBody.data {
                         self.delegate?.getRegionalOfficeInfo(regionalOffice: regionalOfficeData.regionalOffice!, regionalOfficeInfo: self.getRegionalOfficeDetails(data: regionalOfficeData), regionalOfficeEmployeeList: regionalOfficeData.employeeDetails!)
-                        
                     }
                 }
             } else {

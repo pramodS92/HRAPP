@@ -80,6 +80,7 @@ struct KeyCostants {
         static let DIRECTORY_CATEGORY_EX_OFFICE = "Exchange Offices"
         static let DIRECTORY_CATEGORY_REG_OFFICE = "Regional Offices"
         static let DIRECTORY_CATEGORY_SERANDIB = "Serendib Finance Ltd"
+        static let DIRECTORY_CATEGORY_SPECIAL_LOCATIONS = "Special Locations"
         static let DIRECTORY_CATEGORY_EMPLOYEE = "Employee"
         static let DIRECTORY_CATEGORY_EMPLOYEE_PLACEHOLDER = "Search employee (ex: Kasun)"
     }
