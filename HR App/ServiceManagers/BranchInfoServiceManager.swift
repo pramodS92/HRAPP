@@ -25,7 +25,6 @@ class BranchInfoServiceManager {
     public func getBranchInfo(branchName: String,_ callback: OnSuccessBranchInfo) {
         self.delegate = callback
         
-        
         BranchInfoService.shared.getBranchDetailsByName(searchBy: branchName){ [self]
             (response, error, statusCode) in
             if response != nil {

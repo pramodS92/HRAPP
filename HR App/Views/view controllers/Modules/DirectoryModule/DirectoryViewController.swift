@@ -148,12 +148,12 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             searchTextFiled.isEnabled = true
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_DEPARTMENT
         case .ex_office:
-            requestHandler = getExchangeOfficeNameList
+            requestHandler = getExchangeOfficeNamesList
             self.requestHandler!("")
             searchTextFiled.isEnabled = true
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_EX_OFFICE
         case .reg_office:
-            requestHandler = getRegionalOfficeNameList
+            requestHandler = getRegionalOfficeNames
             self.requestHandler!("")
             searchTextFiled.isEnabled = false
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_REG_OFFICE
@@ -250,8 +250,7 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         case .ex_office:
             let exchangeOfficeInfo = _tableData[indexPath.row] as! ExchangeOfficeData
             self.exchangeOfficeName = exchangeOfficeInfo.departmentName
-            self.departmemtId = exchangeOfficeInfo.departmentID
-            performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_DEPARTMENT_SEGUE, sender: self)
+            self.exchangeOfficeId = exchangeOfficeInfo.departmentID
         case .reg_office:
             let regOfficeInfo = _tableData[indexPath.row] as! RegionalOfficeData
             self.regionalOfficeName = regOfficeInfo.regionalOffice
@@ -288,7 +287,6 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         case UiConstants.SegueIdentifiers.DIRECTORY_BRANCH_SEGUE:
             let destination = segue.destination as! BranchDetailsViewController
             destination.branchName =  self.branchName
-            destination.titleLabels = KeyCostants.BranchDetails.BRANCH_DETAILS_TITLES
         case UiConstants.SegueIdentifiers.DIRECTORY_DEPARTMENT_SEGUE:
             let destination = segue.destination as! DepartmentViewController
             destination.departmemtId = self.departmemtId
@@ -351,7 +349,7 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func getExchangeOfficeNameList(text: String) {
         self.setActivityIndicatorVisibility(show: true)
-        self.getExchangeOfficeNames(text: text)
+        self.getExchangeOfficeNamesList(text: text)
     }
     
     func getRegionalOfficeNameList(text: String) {
@@ -387,7 +385,7 @@ extension DirectoryViewController: OnSuccessUserDirectory {
         serviceManager.getDepartmentNameList(text: text, self)
     }
     
-    internal func getExchangeOfficeNames(text: String) {
+    internal func getExchangeOfficeNamesList(text: String) {
         serviceManager.getExchangeOfficeNameList(text: text, self)
     }
     

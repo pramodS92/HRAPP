@@ -24,7 +24,6 @@ class BranchDetailsViewController: UIViewController,UITableViewDelegate, UITable
     var branchName: String!
     var brachData = [String]()
     var employeeData = [String]()
-    var titleLabels = [String]()
     var employeeDataList = [BranchEmployeeData]()
     
     let labelFontSize: CGFloat = 12.0
@@ -137,5 +136,3 @@ extension BranchDetailsViewController: OnSuccessBranchInfo {
     }
     
 }
-
-
