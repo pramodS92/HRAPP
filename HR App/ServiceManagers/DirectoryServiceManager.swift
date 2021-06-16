@@ -13,6 +13,7 @@ import Alamofire
 protocol OnSuccessUserDirectory {
     func onSuccessBranchNameList(response: [String])
     func onSuccessDepartmentNameList(response: [DepartmentData])
+    func onSuccessRegionalOfficeNameList(response: [RegionalOfficeData])
     func onSuccessEmployeeNameList(response: [BranchEmployeeData])
     func onFailier()
 }
@@ -21,6 +22,7 @@ class DirectoryServiceManager {
     
     var tableData: [String] = []
     var departmentData: [DepartmentData] = []
+    var regionalOfficeData: [RegionalOfficeData] = []
     var delegate: OnSuccessUserDirectory?
     
     func getBranchNameList(text: String,_ callback : OnSuccessUserDirectory) {
@@ -57,6 +59,28 @@ class DirectoryServiceManager {
                     }
                 }
             }else{
+                self.delegate?.onFailier()
+                return
+            }
+        }
+    }
+    
+    func getRegionalOfficeNameList(text: String,_ callback : OnSuccessUserDirectory) {
+        self.delegate = callback
+        RegionalOfficeInfoService.shared.getRegionalOfficeNameList(searchBy: text.uppercased()) {
+            (response, error, statusCode) in
+            if response != nil {
+                if let responseBody = try? JSONDecoder().decode(RegionalOfficeNameListModel.self, from: response! as! Data) {
+                    self.tableData.removeAll()
+                    if let data = responseBody.data {
+                        self.regionalOfficeData = data
+                        for item in data {
+                            self.tableData.append(item.regionalOffice!)
+                        }
+                        self.delegate?.onSuccessRegionalOfficeNameList(response: data)
+                    }
+                }
+            } else {
                 self.delegate?.onFailier()
                 return
             }

@@ -65,6 +65,11 @@
 		2CFC8020265174F400DD88AD /* BiometricAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFC801F265174F400DD88AD /* BiometricAuthViewController.swift */; };
 		2CFFA09B26543D9700D86E53 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFFA09A26543D9700D86E53 /* UserProfileViewController.swift */; };
 		516EC043267097D0007E58DC /* BiometricPinConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516EC042267097D0007E58DC /* BiometricPinConfigureViewController.swift */; };
+		51BE1C942679DA960035E0D3 /* RegionalOfficeDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1C932679DA960035E0D3 /* RegionalOfficeDetailsModel.swift */; };
+		51BE1C962679DAAD0035E0D3 /* RegionalOfficeNameListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1C952679DAAD0035E0D3 /* RegionalOfficeNameListModel.swift */; };
+		51BE1C982679DB160035E0D3 /* RegionalOfficeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1C972679DB160035E0D3 /* RegionalOfficeViewController.swift */; };
+		51BE1C9A2679DC470035E0D3 /* RegionalOfficeInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1C992679DC470035E0D3 /* RegionalOfficeInfoService.swift */; };
+		51BE1C9C2679EE430035E0D3 /* RegionalOfficeDetailsServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1C9B2679EE430035E0D3 /* RegionalOfficeDetailsServiceManager.swift */; };
 		AC5208F32E612C35D2BE5886 /* Pods_HR_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EA7925F3E50FD5087076891 /* Pods_HR_App.framework */; };
 /* End PBXBuildFile section */
 
@@ -129,6 +134,11 @@
 		2CFC801F265174F400DD88AD /* BiometricAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthViewController.swift; sourceTree = "<group>"; };
 		2CFFA09A26543D9700D86E53 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		516EC042267097D0007E58DC /* BiometricPinConfigureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricPinConfigureViewController.swift; sourceTree = "<group>"; };
+		51BE1C932679DA960035E0D3 /* RegionalOfficeDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalOfficeDetailsModel.swift; sourceTree = "<group>"; };
+		51BE1C952679DAAD0035E0D3 /* RegionalOfficeNameListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalOfficeNameListModel.swift; sourceTree = "<group>"; };
+		51BE1C972679DB160035E0D3 /* RegionalOfficeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalOfficeViewController.swift; sourceTree = "<group>"; };
+		51BE1C992679DC470035E0D3 /* RegionalOfficeInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalOfficeInfoService.swift; sourceTree = "<group>"; };
+		51BE1C9B2679EE430035E0D3 /* RegionalOfficeDetailsServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalOfficeDetailsServiceManager.swift; sourceTree = "<group>"; };
 		5791E70373F4F5FE484E5087 /* Pods-HR App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HR App.release.xcconfig"; path = "Target Support Files/Pods-HR App/Pods-HR App.release.xcconfig"; sourceTree = "<group>"; };
 		5EA7925F3E50FD5087076891 /* Pods_HR_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HR_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9F6B75645391FA444D561C9 /* Pods-HR App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HR App.debug.xcconfig"; path = "Target Support Files/Pods-HR App/Pods-HR App.debug.xcconfig"; sourceTree = "<group>"; };
@@ -154,6 +164,7 @@
 				2CD8E7D526582F7A00CD2C5A /* BranchInfoService.swift */,
 				2C705A8A265B638C009E3148 /* DepartmentInfoService.swift */,
 				2C1D200C2660C28D006EF880 /* EmployeeInfoService.swift */,
+				51BE1C992679DC470035E0D3 /* RegionalOfficeInfoService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -248,6 +259,7 @@
 				2C35A6BA266342E100A7EF0E /* DirectoryServiceManager.swift */,
 				2C15E0012663E4A900E616E9 /* BranchInfoServiceManager.swift */,
 				2C320D6C2670E5A8000A1AAD /* DepartmentDetailsServiceManager.swift */,
+				51BE1C9B2679EE430035E0D3 /* RegionalOfficeDetailsServiceManager.swift */,
 			);
 			path = ServiceManagers;
 			sourceTree = "<group>";
@@ -339,7 +351,7 @@
 		2C705AC9265C35FF009E3148 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				2C83C03226732A7000800786 /* RegionalOffice */,
+				51BE1C922679D8D70035E0D3 /* RegionalOffice */,
 				2C1D20102660C8F0006EF880 /* Employee */,
 				2C1D200F2660C8D6006EF880 /* Department */,
 				2CA1A5B8265ED06000CB0AA2 /* Branch */,
@@ -361,15 +373,10 @@
 				2C1D201B266107AC006EF880 /* EmployeeNameListModel.swift */,
 				2C1F58582666905F00BC2042 /* EmployeeDetailsModel.swift */,
 				2C320D692670E48A000A1AAD /* DepartmentDetailsModel.swift */,
+				51BE1C932679DA960035E0D3 /* RegionalOfficeDetailsModel.swift */,
+				51BE1C952679DAAD0035E0D3 /* RegionalOfficeNameListModel.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		2C83C03226732A7000800786 /* RegionalOffice */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = RegionalOffice;
 			sourceTree = "<group>";
 		};
 		2C8D3B3A265AB5D500BC58E1 /* Cell */ = {
@@ -460,6 +467,14 @@
 				2C34EE632655E5EB00978015 /* UserModule */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		51BE1C922679D8D70035E0D3 /* RegionalOffice */ = {
+			isa = PBXGroup;
+			children = (
+				51BE1C972679DB160035E0D3 /* RegionalOfficeViewController.swift */,
+			);
+			path = RegionalOffice;
 			sourceTree = "<group>";
 		};
 		8ED30D3D7B39D48B6ABAF2B6 /* Frameworks */ = {
@@ -598,15 +613,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CD117A9264D714B005E421C /* UiUtils.swift in Sources */,
+				51BE1C982679DB160035E0D3 /* RegionalOfficeViewController.swift in Sources */,
 				2CD8E7E52658381E00CD2C5A /* BranchNameListModel.swift in Sources */,
+				51BE1C962679DAAD0035E0D3 /* RegionalOfficeNameListModel.swift in Sources */,
 				2C8D3BC4265AE0EC00BC58E1 /* DirectoryConstants.swift in Sources */,
 				2C0B39FF26454EFD0037378E /* NetworkConstants.swift in Sources */,
+				51BE1C9A2679DC470035E0D3 /* RegionalOfficeInfoService.swift in Sources */,
 				2CD8E7D626582F7A00CD2C5A /* BranchInfoService.swift in Sources */,
 				2C06B371263936A8005743D8 /* LoginViewController.swift in Sources */,
 				2C06B370263936A8005743D8 /* TabBarView.swift in Sources */,
 				2C373AFB264F318F00577DB6 /* AccessTokenResponseModel.swift in Sources */,
 				2C177517265D031500F93A29 /* BranchDetailsModel.swift in Sources */,
 				2C7CD39926406E58000C22D4 /* RequestModel.swift in Sources */,
+				51BE1C942679DA960035E0D3 /* RegionalOfficeDetailsModel.swift in Sources */,
 				2CF4B8202653BBA200D8BF6A /* UserDetailsModel.swift in Sources */,
 				2C705AC7265C3018009E3148 /* EmployeeViewController.swift in Sources */,
 				2C320D6D2670E5A8000A1AAD /* DepartmentDetailsServiceManager.swift in Sources */,
@@ -644,6 +663,7 @@
 				516EC043267097D0007E58DC /* BiometricPinConfigureViewController.swift in Sources */,
 				2C06B36D263936A8005743D8 /* WelcomeViewController.swift in Sources */,
 				2C35A6A626633F0900A7EF0E /* UserProfileServiceManager.swift in Sources */,
+				51BE1C9C2679EE430035E0D3 /* RegionalOfficeDetailsServiceManager.swift in Sources */,
 				2C1F58592666905F00BC2042 /* EmployeeDetailsModel.swift in Sources */,
 				2C35A6BB266342E100A7EF0E /* DirectoryServiceManager.swift in Sources */,
 				2C34EE682655E6C100978015 /* UserInfoViewController.swift in Sources */,

@@ -33,7 +33,9 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
     var requestHandler: ((_ text: String)->())?
     
     var branchName: String?
+    var regionalOfficeName: String?
     var departmemtId: String?
+    var regionalOfficeId: String?
     var selectedCategory: String?
     var isTyping: Bool = false
     
@@ -137,16 +139,25 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         case .branch:
             requestHandler = getBranchNameList
             self.requestHandler!("")
+            searchTextFiled.isEnabled = true
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_BRANCH
         case .department:
             requestHandler = getDepartmentNameList
             self.requestHandler!("")
+            searchTextFiled.isEnabled = true
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_DEPARTMENT
+        case .reg_office:
+            requestHandler = getRegionalOfficeNames
+            self.requestHandler!("")
+            searchTextFiled.isEnabled = false
+            placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_REG_OFFICE
         case .employee:
             requestHandler = getEmployeeList
+            searchTextFiled.isEnabled = true
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_EMPLOYEE_PLACEHOLDER
         default:
             requestHandler = getBranchNameList
+            searchTextFiled.isEnabled = true
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_BRANCH
         }
         
@@ -188,9 +199,16 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             }
             return cell
             
+        case .reg_office:
+            let cell = derectoryTableView.dequeueReusableCell(withIdentifier: UiConstants.ViewCellId.DIRECTORY_ITEM_CELL, for: indexPath) as! DirectoryTableViewCell
+            if let regionalOfficeData = _tableData[indexPath.row] as? RegionalOfficeData{
+                cell.direcaryItemLabel.text = regionalOfficeData.regionalOffice
+            }
+            cell.selectionStyle = .none
+            return cell
+            
         case .employee:
             let cell = derectoryTableView.dequeueReusableCell(withIdentifier: UiConstants.ViewCellId.EMPLOYEE_ITEM_CELL, for: indexPath) as! EmployeeTableViewCell
-            
             if let employeeData = _tableData[indexPath.row] as? BranchEmployeeData {
                 cell.employeeName.text = employeeData.name!.condensed + " (" + employeeData.knownName! + ") "
                 cell.employeeDesignation.text = employeeData.designation
@@ -216,6 +234,11 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             let depInfo = _tableData[indexPath.row] as! DepartmentData
             self.departmemtId = depInfo.departmentID 
             performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_DEPARTMENT_SEGUE, sender: self)
+        case .reg_office:
+            let regOfficeInfo = _tableData[indexPath.row] as! RegionalOfficeData
+            self.regionalOfficeName = regOfficeInfo.regionalOffice
+            self.regionalOfficeId = regOfficeInfo.regionalOfficeIDs
+            performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_REGIONAL_OFFICE_SEGUE, sender: self)
         case .employee:
             self.getEmployeeInfo(info: _tableData[indexPath.row] as! BranchEmployeeData)
         default:
@@ -253,6 +276,9 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         case UiConstants.SegueIdentifiers.DIRECTORY_DEPARTMENT_SEGUE:
             let destination = segue.destination as! DepartmentViewController
             destination.departmemtId = self.departmemtId
+        case UiConstants.SegueIdentifiers.DIRECTORY_REGIONAL_OFFICE_SEGUE:
+            let destination = segue.destination as! RegionalOfficeViewController
+            destination.regionalOfficeId = self.regionalOfficeId
         default:
             let destination1 = segue.destination as! BranchDetailsViewController
         }
@@ -310,6 +336,11 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         self.getDepartmentNames(text: text)
     }
     
+    func getRegionalOfficeNameList(text: String) {
+        self.setActivityIndicatorVisibility(show: true)
+        self.getRegionalOfficeNames(text: text)
+    }
+    
     func getEmployeeList(text: String) {
         self.setActivityIndicatorVisibility(show: true)
         self.getEmployeeNames(text: text)
@@ -340,6 +371,10 @@ extension DirectoryViewController: OnSuccessUserDirectory {
         serviceManager.getDepartmentNameList(text: text, self)
     }
     
+    internal func getRegionalOfficeNames(text: String) {
+        serviceManager.getRegionalOfficeNameList(text: text, self)
+    }
+    
     internal func getEmployeeNames(text: String){
         serviceManager.getEmployeeNameList(text: text, self)
     }
@@ -349,6 +384,10 @@ extension DirectoryViewController: OnSuccessUserDirectory {
     }
     
     func onSuccessDepartmentNameList(response: [DepartmentData]) {
+        setTableData(data: response)
+    }
+    
+    func onSuccessRegionalOfficeNameList(response: [RegionalOfficeData]) {
         setTableData(data: response)
     }
     

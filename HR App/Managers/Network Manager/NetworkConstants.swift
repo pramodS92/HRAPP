@@ -64,6 +64,12 @@ struct NetworkConstants {
         static var getEmployeeDetailsById: String{
             return "/hrm/employee/id/"
         }
+        static var getRegionalOfficeNameList: String {
+            return "/hrm/regionaloffice/list/"
+        }
+        static var getRegionalOfficeDetailsById: String {
+            return "/hrm/regionaloffice/id/"
+        }
         
     }
 }
