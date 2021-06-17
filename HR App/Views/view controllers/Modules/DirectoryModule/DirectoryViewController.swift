@@ -250,7 +250,8 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         case .ex_office:
             let exchangeOfficeInfo = _tableData[indexPath.row] as! ExchangeOfficeData
             self.exchangeOfficeName = exchangeOfficeInfo.departmentName
-            self.exchangeOfficeId = exchangeOfficeInfo.departmentID
+            self.departmemtId = exchangeOfficeInfo.departmentID
+            performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_DEPARTMENT_SEGUE, sender: self)
         case .reg_office:
             let regOfficeInfo = _tableData[indexPath.row] as! RegionalOfficeData
             self.regionalOfficeName = regOfficeInfo.regionalOffice
