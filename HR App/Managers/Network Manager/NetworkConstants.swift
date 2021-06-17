@@ -74,6 +74,10 @@ struct NetworkConstants {
         static var getSerendibFinanceNameList: String {
             return "/hrm/department/id/136"
         }
+        static var getCoporateManagementNameList: String {
+            return "/hrm/corporate"
+        }
+        
     }
 }
 

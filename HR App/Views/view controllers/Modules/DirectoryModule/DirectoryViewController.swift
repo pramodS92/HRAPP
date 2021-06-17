@@ -147,6 +147,11 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             self.requestHandler!("")
             searchTextFiled.isEnabled = true
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_DEPARTMENT
+        case .co_management:
+            requestHandler = getCoporateManagementNameList
+            self.requestHandler!("")
+            searchTextFiled.isEnabled = false
+            placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_COP_MANAGEMENT
         case .ex_office:
             requestHandler = getExchangeOfficeNameList
             self.requestHandler!("")
@@ -208,6 +213,16 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
                 cell.direcaryItemLabel.text = departmantData.departmentName
             }
             cell.selectionStyle = .none
+            return cell
+            
+        case .co_management:
+            let cell = derectoryTableView.dequeueReusableCell(withIdentifier: UiConstants.ViewCellId.EMPLOYEE_ITEM_CELL, for: indexPath) as! EmployeeTableViewCell
+            if let employeeData = _tableData[indexPath.row] as? CoporateManagementData {
+                cell.employeeName.text = employeeData.name!.condensed + " (" + employeeData.knownName! + ") "
+                cell.employeeDesignation.text = employeeData.designation
+                cell.employeeBranch.text = " "
+                cell.selectionStyle = .none
+            }
             return cell
             
         case .ex_office:
@@ -366,6 +381,11 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         self.getDepartmentNames(text: text)
     }
     
+    func getCoporateManagementNameList(text: String) {
+        self.setActivityIndicatorVisibility(show: true)
+        self.getCoporateManagementNames(text: text)
+    }
+    
     func getExchangeOfficeNameList(text: String) {
         self.setActivityIndicatorVisibility(show: true)
         self.getExchangeOfficeNames(text: text)
@@ -409,6 +429,10 @@ extension DirectoryViewController: OnSuccessUserDirectory {
         serviceManager.getDepartmentNameList(text: text, self)
     }
     
+    internal func getCoporateManagementNames(text: String) {
+        serviceManager.getCoporateManagementList(text: text, self)
+    }
+    
     internal func getExchangeOfficeNames(text: String) {
         serviceManager.getExchangeOfficeNameList(text: text, self)
     }
@@ -430,6 +454,10 @@ extension DirectoryViewController: OnSuccessUserDirectory {
     }
     
     func onSuccessDepartmentNameList(response: [DepartmentData]) {
+        setTableData(data: response)
+    }
+    
+    func onSuccessCoporateManagementList(response: [CoporateManagementData]) {
         setTableData(data: response)
     }
     

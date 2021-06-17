@@ -13,6 +13,7 @@ import Alamofire
 protocol OnSuccessUserDirectory {
     func onSuccessBranchNameList(response: [String])
     func onSuccessDepartmentNameList(response: [DepartmentData])
+    func onSuccessCoporateManagementList(response: [CoporateManagementData])
     func onSuccessExchangeOfficeNameList(response: [ExchangeOfficeData])
     func onSuccessRegionalOfficeNameList(response: [RegionalOfficeData])
     func onSuccessSerendibFinanceNameList(response: SerendibFinanceDataClass)
@@ -67,6 +68,25 @@ class DirectoryServiceManager {
                 return
             }
         }
+    }
+
+    func getCoporateManagementList(text: String, _ callback: OnSuccessUserDirectory) {
+        self.delegate = callback
+        CoporateManagementInfoService.shared.getCoporateManagementNameList(searchBy: text.uppercased()) {
+            (response, error, statusCode) in
+            if response != nil {
+                if let responseBody = try? JSONDecoder().decode(CoporateManagementNameListModel.self, from: response! as! Data) {
+                    self.tableData.removeAll()
+                    if let data = responseBody.data {
+                        self.delegate?.onSuccessCoporateManagementList(response: data)
+                    }
+                }
+            } else {
+                self.delegate?.onFailier()
+                return
+            }
+        }
+        
     }
     
     func getExchangeOfficeNameList(text: String,_ callback : OnSuccessUserDirectory) {
