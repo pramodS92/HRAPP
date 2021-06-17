@@ -28,7 +28,7 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
 
     
     var _tableData: [Any] = []
-    
+    var _serendibFinanceTableData: [Any] = []
     
     var requestHandler: ((_ text: String)->())?
     
@@ -148,15 +148,20 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             searchTextFiled.isEnabled = true
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_DEPARTMENT
         case .ex_office:
-            requestHandler = getExchangeOfficeNamesList
+            requestHandler = getExchangeOfficeNameList
             self.requestHandler!("")
             searchTextFiled.isEnabled = true
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_EX_OFFICE
         case .reg_office:
-            requestHandler = getRegionalOfficeNames
+            requestHandler = getRegionalOfficeNameList
             self.requestHandler!("")
             searchTextFiled.isEnabled = false
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_REG_OFFICE
+        case .serandib:
+            requestHandler = getSerendibFinanceNameList
+            self.requestHandler!("")
+            searchTextFiled.isEnabled = false
+            placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_SPECIAL_LOCATIONS
         case .employee:
             requestHandler = getEmployeeList
             searchTextFiled.isEnabled = true
@@ -171,6 +176,7 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         self.searchTextFiled.placeholder = placeHolder
         self.setCategoryitemsVisibility ()
         self._tableData.removeAll()
+        self._serendibFinanceTableData.removeAll()
         self.derectoryTableView.reloadData()
     }
     
@@ -220,6 +226,14 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.selectionStyle = .none
             return cell
             
+        case .serandib:
+            let cell = derectoryTableView.dequeueReusableCell(withIdentifier: UiConstants.ViewCellId.DIRECTORY_ITEM_CELL, for: indexPath) as! DirectoryTableViewCell
+            if let serandibFinanceData = _tableData[indexPath.row] as? SerendibFinanceDataClass {
+                cell.direcaryItemLabel.text = serandibFinanceData.departmentName
+            }
+            cell.selectionStyle = .none
+            return cell
+            
         case .employee:
             let cell = derectoryTableView.dequeueReusableCell(withIdentifier: UiConstants.ViewCellId.EMPLOYEE_ITEM_CELL, for: indexPath) as! EmployeeTableViewCell
             if let employeeData = _tableData[indexPath.row] as? BranchEmployeeData {
@@ -257,6 +271,10 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             self.regionalOfficeName = regOfficeInfo.regionalOffice
             self.regionalOfficeId = regOfficeInfo.regionalOfficeIDs
             performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_REGIONAL_OFFICE_SEGUE, sender: self)
+        case .serandib:
+            let serendibInfo = _tableData[indexPath.row] as! SerendibFinanceDataClass
+            self.departmemtId = serendibInfo.departmentID
+            performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_DEPARTMENT_SEGUE, sender: self)
         case .employee:
             self.getEmployeeInfo(info: _tableData[indexPath.row] as! BranchEmployeeData)
         default:
@@ -350,12 +368,17 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func getExchangeOfficeNameList(text: String) {
         self.setActivityIndicatorVisibility(show: true)
-        self.getExchangeOfficeNamesList(text: text)
+        self.getExchangeOfficeNames(text: text)
     }
     
     func getRegionalOfficeNameList(text: String) {
         self.setActivityIndicatorVisibility(show: true)
         self.getRegionalOfficeNames(text: text)
+    }
+    
+    func getSerendibFinanceNameList(text: String) {
+        self.setActivityIndicatorVisibility(show: true)
+        self.getSerendibOfficeNames(text: text)
     }
     
     func getEmployeeList(text: String) {
@@ -386,12 +409,16 @@ extension DirectoryViewController: OnSuccessUserDirectory {
         serviceManager.getDepartmentNameList(text: text, self)
     }
     
-    internal func getExchangeOfficeNamesList(text: String) {
+    internal func getExchangeOfficeNames(text: String) {
         serviceManager.getExchangeOfficeNameList(text: text, self)
     }
     
     internal func getRegionalOfficeNames(text: String) {
         serviceManager.getRegionalOfficeNameList(text: text, self)
+    }
+    
+    internal func getSerendibOfficeNames(text: String) {
+        serviceManager.getSerendibFinanceNameList(text: text, self)
     }
     
     internal func getEmployeeNames(text: String){
@@ -412,6 +439,11 @@ extension DirectoryViewController: OnSuccessUserDirectory {
     
     func onSuccessRegionalOfficeNameList(response: [RegionalOfficeData]) {
         setTableData(data: response)
+    }
+    
+    func onSuccessSerendibFinanceNameList(response: SerendibFinanceDataClass) {
+        _serendibFinanceTableData.append(response)
+        setTableData(data: _serendibFinanceTableData)
     }
     
     func onSuccessEmployeeNameList(response: [BranchEmployeeData]) {

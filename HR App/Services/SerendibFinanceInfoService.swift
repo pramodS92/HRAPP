@@ -1,30 +1,31 @@
 //
-//  ExchangeOfficeInfoService.swift
+//  SerendibFinanceInfoService.swift
 //  HR App
 //
-//  Created by Lakith Jayalath on 2021-06-16.
+//  Created by Lakith Jayalath on 2021-06-17.
 //
 
 import Foundation
 import Alamofire
 
-class ExchangeOfficeInfoService {
-    static let shared = ExchangeOfficeInfoService()
+class SerendibFinanceInfoService {
+    
+    static let shared = SerendibFinanceInfoService()
     private init() {}
 }
 
-enum ExchangeOfficeInfoServiceRouter {
+enum SerendibFinanceInfoServiceRouter {
     
-    case getExchangeOfficeNameList
+    case getSerendibFinanceNameList
     
-    var baseUrl: String {
+    var baseURL: String {
         return NetworkConstants.baseURL
     }
     
     var path: String {
         switch self {
-        case .getExchangeOfficeNameList:
-            return NetworkConstants.path.getExchangeOfficeNameList
+        case .getSerendibFinanceNameList:
+            return NetworkConstants.path.getSerendibFinanceNameList
         }
     }
     
@@ -33,19 +34,19 @@ enum ExchangeOfficeInfoServiceRouter {
     }
     
     var url: String {
-        return "http://" + baseUrl + path
+        return "http://" + baseURL + path
     }
     
     var acceptType: Bool {
         switch self {
-        case .getExchangeOfficeNameList:
+        case .getSerendibFinanceNameList:
             return true
         }
     }
     
     var contentType: Bool {
         switch self {
-        case .getExchangeOfficeNameList:
+        case .getSerendibFinanceNameList:
             return true
         }
     }
@@ -60,13 +61,13 @@ enum ExchangeOfficeInfoServiceRouter {
         let requestInfo = RequestInfo(method: httpMethod,params: nil,headers: requestHeaders.headers,url: url + searchBy)
         return requestInfo
     }
-    
 }
 
-extension ExchangeOfficeInfoService {
+extension SerendibFinanceInfoService {
     
-    func getExchangeOfficeNameList(searchBy: String, completion:@escaping(Any?, Error?, Int?) -> ()) {
-        let requestInfo = ExchangeOfficeInfoServiceRouter.getExchangeOfficeNameList.asurlRequest(searchBy: searchBy)
+    func getSerendibFinanceNameList(searchBy: String, completion: @escaping(Any?, Error?, Int?) -> ()) {
+        
+        let requestInfo = SerendibFinanceInfoServiceRouter.getSerendibFinanceNameList.asurlRequest(searchBy: searchBy)
         
         NetworkClient.shared.requestData(requestInfo: requestInfo, isSecure: false) { (response) in
             switch response {

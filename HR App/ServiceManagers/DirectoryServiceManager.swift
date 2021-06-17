@@ -15,6 +15,7 @@ protocol OnSuccessUserDirectory {
     func onSuccessDepartmentNameList(response: [DepartmentData])
     func onSuccessExchangeOfficeNameList(response: [ExchangeOfficeData])
     func onSuccessRegionalOfficeNameList(response: [RegionalOfficeData])
+    func onSuccessSerendibFinanceNameList(response: SerendibFinanceDataClass)
     func onSuccessEmployeeNameList(response: [BranchEmployeeData])
     func onFailier()
 }
@@ -24,6 +25,7 @@ class DirectoryServiceManager {
     var tableData: [String] = []
     var departmentData: [DepartmentData] = []
     var regionalOfficeData: [RegionalOfficeData] = []
+    var serendibFinanceData: String!
     var exchangeOfficeData: [ExchangeOfficeData] = []
     var delegate: OnSuccessUserDirectory?
     
@@ -103,6 +105,26 @@ class DirectoryServiceManager {
                         }
                         self.delegate?.onSuccessRegionalOfficeNameList(response: data)
                     }
+                }
+            } else {
+                self.delegate?.onFailier()
+                return
+            }
+        }
+    }
+    
+    func getSerendibFinanceNameList(text: String, _ callback: OnSuccessUserDirectory) {
+        self.delegate = callback
+        SerendibFinanceInfoService.shared.getSerendibFinanceNameList(searchBy: text.uppercased()) { (response, error, statusCode) in
+            if response != nil {
+                if let responseBody = try? JSONDecoder().decode(SerendibFinanceDetailsModel.self, from: response! as! Data) {
+                    self.tableData.removeAll()
+                    if let data = responseBody.data {
+                        self.serendibFinanceData = data.departmentName
+                        self.tableData.append(self.serendibFinanceData)
+                        self.delegate?.onSuccessSerendibFinanceNameList(response: data)
+                    }
+                    
                 }
             } else {
                 self.delegate?.onFailier()

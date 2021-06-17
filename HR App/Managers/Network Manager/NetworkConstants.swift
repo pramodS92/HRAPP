@@ -71,7 +71,9 @@ struct NetworkConstants {
         static var getExchangeOfficeNameList: String {
             return "/hrm/exchangeOffice/list/"
         }
-        
+        static var getSerendibFinanceNameList: String {
+            return "/hrm/department/id/136"
+        }
     }
 }
 
