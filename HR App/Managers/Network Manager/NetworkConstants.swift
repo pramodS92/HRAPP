@@ -77,6 +77,12 @@ struct NetworkConstants {
         static var getCoporateManagementNameList: String {
             return "/hrm/corporate"
         }
+        static var getSpecialLocationNameList: String {
+            return "/hrm/specialLocation/list/"
+        }
+        static var getSpecialLocationDetailsById: String {
+            return "/hrm/specialLocation/id/"
+        }
         
     }
 }

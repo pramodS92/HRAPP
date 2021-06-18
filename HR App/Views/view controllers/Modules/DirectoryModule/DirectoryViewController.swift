@@ -167,6 +167,11 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             self.requestHandler!("")
             searchTextFiled.isEnabled = false
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_SPECIAL_LOCATIONS
+        case .special_office:
+            requestHandler = getSpecialOfficeNameList
+            self.requestHandler!("")
+            searchTextFiled.isEnabled = true
+            placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_SPECIAL_LOCATIONS
         case .employee:
             requestHandler = getEmployeeList
             searchTextFiled.isEnabled = true
@@ -211,6 +216,13 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             let cell = derectoryTableView.dequeueReusableCell(withIdentifier: UiConstants.ViewCellId.DIRECTORY_ITEM_CELL, for: indexPath) as! DirectoryTableViewCell
             if let departmantData = _tableData[indexPath.row] as? DepartmentData{
                 cell.direcaryItemLabel.text = departmantData.departmentName
+            }
+            cell.selectionStyle = .none
+            return cell
+        case .special_office:
+            let cell = derectoryTableView.dequeueReusableCell(withIdentifier: UiConstants.ViewCellId.DIRECTORY_ITEM_CELL, for: indexPath) as! DirectoryTableViewCell
+            if let specicalOfficeData = _tableData[indexPath.row] as? SpecialLocationData{
+                cell.direcaryItemLabel.text = specicalOfficeData.locationName
             }
             cell.selectionStyle = .none
             return cell
@@ -276,6 +288,10 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             let depInfo = _tableData[indexPath.row] as! DepartmentData
             self.departmemtId = depInfo.departmentID 
             performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_DEPARTMENT_SEGUE, sender: self)
+        case .special_office:
+            print("special office")
+        case .co_management:
+            print("coporate management")
         case .ex_office:
             let exchangeOfficeInfo = _tableData[indexPath.row] as! ExchangeOfficeData
             self.exchangeOfficeName = exchangeOfficeInfo.departmentName
@@ -401,6 +417,11 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         self.getSerendibOfficeNames(text: text)
     }
     
+    func getSpecialOfficeNameList(text: String) {
+        self.setActivityIndicatorVisibility(show: true)
+        self.getSpecialOfficeNames(text: text)
+    }
+    
     func getEmployeeList(text: String) {
         self.setActivityIndicatorVisibility(show: true)
         self.getEmployeeNames(text: text)
@@ -420,6 +441,8 @@ extension Collection where Element: Equatable {
 }
 
 extension DirectoryViewController: OnSuccessUserDirectory {
+    
+    
     
     internal func getBranchNames(text: String){
         serviceManager.getBranchNameList(text: text, self)
@@ -449,6 +472,10 @@ extension DirectoryViewController: OnSuccessUserDirectory {
         serviceManager.getEmployeeNameList(text: text, self)
     }
     
+    internal func getSpecialOfficeNames(text: String) {
+        serviceManager.getSpecialLocationNameList(text: text, self)
+    }
+    
     func onSuccessBranchNameList(response: [String]) {
         setTableData(data: response)
     }
@@ -472,6 +499,10 @@ extension DirectoryViewController: OnSuccessUserDirectory {
     func onSuccessSerendibFinanceNameList(response: SerendibFinanceDataClass) {
         _serendibFinanceTableData.append(response)
         setTableData(data: _serendibFinanceTableData)
+    }
+    
+    func onSuccessSpecialLocationNameList(response: [SpecialLocationData]) {
+        setTableData(data: response)
     }
     
     func onSuccessEmployeeNameList(response: [BranchEmployeeData]) {

@@ -79,6 +79,10 @@
 		51BE1CAA267B5B0E0035E0D3 /* SerendibFinanceDetailsServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1CA9267B5B0E0035E0D3 /* SerendibFinanceDetailsServiceManager.swift */; };
 		51BE1CAC267BB26A0035E0D3 /* CoporateManagementNameListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1CAB267BB26A0035E0D3 /* CoporateManagementNameListModel.swift */; };
 		51BE1CAE267BB3770035E0D3 /* CoporateManagementInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1CAD267BB3770035E0D3 /* CoporateManagementInfoService.swift */; };
+		51BE1CB0267C839A0035E0D3 /* SpecialLocationNameListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1CAF267C839A0035E0D3 /* SpecialLocationNameListModel.swift */; };
+		51BE1CB2267C874F0035E0D3 /* SpecialLocationDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1CB1267C874F0035E0D3 /* SpecialLocationDetailsModel.swift */; };
+		51BE1CB4267C87E80035E0D3 /* SpecialLocationInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1CB3267C87E80035E0D3 /* SpecialLocationInfoService.swift */; };
+		51BE1CB6267C9B7C0035E0D3 /* SpecialLocationDetailsServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1CB5267C9B7C0035E0D3 /* SpecialLocationDetailsServiceManager.swift */; };
 		AC5208F32E612C35D2BE5886 /* Pods_HR_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EA7925F3E50FD5087076891 /* Pods_HR_App.framework */; };
 /* End PBXBuildFile section */
 
@@ -157,6 +161,10 @@
 		51BE1CA9267B5B0E0035E0D3 /* SerendibFinanceDetailsServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerendibFinanceDetailsServiceManager.swift; sourceTree = "<group>"; };
 		51BE1CAB267BB26A0035E0D3 /* CoporateManagementNameListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoporateManagementNameListModel.swift; sourceTree = "<group>"; };
 		51BE1CAD267BB3770035E0D3 /* CoporateManagementInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoporateManagementInfoService.swift; sourceTree = "<group>"; };
+		51BE1CAF267C839A0035E0D3 /* SpecialLocationNameListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialLocationNameListModel.swift; sourceTree = "<group>"; };
+		51BE1CB1267C874F0035E0D3 /* SpecialLocationDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialLocationDetailsModel.swift; sourceTree = "<group>"; };
+		51BE1CB3267C87E80035E0D3 /* SpecialLocationInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialLocationInfoService.swift; sourceTree = "<group>"; };
+		51BE1CB5267C9B7C0035E0D3 /* SpecialLocationDetailsServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialLocationDetailsServiceManager.swift; sourceTree = "<group>"; };
 		5791E70373F4F5FE484E5087 /* Pods-HR App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HR App.release.xcconfig"; path = "Target Support Files/Pods-HR App/Pods-HR App.release.xcconfig"; sourceTree = "<group>"; };
 		5EA7925F3E50FD5087076891 /* Pods_HR_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HR_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9F6B75645391FA444D561C9 /* Pods-HR App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HR App.debug.xcconfig"; path = "Target Support Files/Pods-HR App/Pods-HR App.debug.xcconfig"; sourceTree = "<group>"; };
@@ -186,6 +194,7 @@
 				51BE1C9F267A10600035E0D3 /* ExchangeOfficeInfoService.swift */,
 				51BE1CA7267B4FCA0035E0D3 /* SerendibFinanceInfoService.swift */,
 				51BE1CAD267BB3770035E0D3 /* CoporateManagementInfoService.swift */,
+				51BE1CB3267C87E80035E0D3 /* SpecialLocationInfoService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -283,6 +292,7 @@
 				51BE1CA5267B4A820035E0D3 /* ExchangeOfficeDetailsServiceManager.swift */,
 				51BE1C9B2679EE430035E0D3 /* RegionalOfficeDetailsServiceManager.swift */,
 				51BE1CA9267B5B0E0035E0D3 /* SerendibFinanceDetailsServiceManager.swift */,
+				51BE1CB5267C9B7C0035E0D3 /* SpecialLocationDetailsServiceManager.swift */,
 			);
 			path = ServiceManagers;
 			sourceTree = "<group>";
@@ -402,6 +412,8 @@
 				51BE1CA1267B38E80035E0D3 /* ExchangeOfficeDetailsModel.swift */,
 				51BE1CA3267B3C730035E0D3 /* SerendibFInanceDetailsModel.swift */,
 				51BE1CAB267BB26A0035E0D3 /* CoporateManagementNameListModel.swift */,
+				51BE1CAF267C839A0035E0D3 /* SpecialLocationNameListModel.swift */,
+				51BE1CB1267C874F0035E0D3 /* SpecialLocationDetailsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -647,11 +659,13 @@
 				2C0B39FF26454EFD0037378E /* NetworkConstants.swift in Sources */,
 				51BE1C9A2679DC470035E0D3 /* RegionalOfficeInfoService.swift in Sources */,
 				2CD8E7D626582F7A00CD2C5A /* BranchInfoService.swift in Sources */,
+				51BE1CB4267C87E80035E0D3 /* SpecialLocationInfoService.swift in Sources */,
 				51BE1CAC267BB26A0035E0D3 /* CoporateManagementNameListModel.swift in Sources */,
 				51BE1C9E267A08D20035E0D3 /* ExchangeOfficeNameListModel.swift in Sources */,
 				2C06B371263936A8005743D8 /* LoginViewController.swift in Sources */,
 				2C06B370263936A8005743D8 /* TabBarView.swift in Sources */,
 				2C373AFB264F318F00577DB6 /* AccessTokenResponseModel.swift in Sources */,
+				51BE1CB0267C839A0035E0D3 /* SpecialLocationNameListModel.swift in Sources */,
 				2C177517265D031500F93A29 /* BranchDetailsModel.swift in Sources */,
 				2C7CD39926406E58000C22D4 /* RequestModel.swift in Sources */,
 				51BE1C942679DA960035E0D3 /* RegionalOfficeDetailsModel.swift in Sources */,
@@ -668,6 +682,7 @@
 				2C705A7F265B5B9B009E3148 /* DepartmentNameListModel.swift in Sources */,
 				2C34EE652655E65600978015 /* UserJobInfoViewController.swift in Sources */,
 				2C1D200D2660C28D006EF880 /* EmployeeInfoService.swift in Sources */,
+				51BE1CB2267C874F0035E0D3 /* SpecialLocationDetailsModel.swift in Sources */,
 				2CD117AE264D789C005E421C /* UiConstants.swift in Sources */,
 				2C06B36C263936A8005743D8 /* OTPValidationViewController.swift in Sources */,
 				2C373B1126505F0D00577DB6 /* UserDefaultConstants.swift in Sources */,
@@ -678,6 +693,7 @@
 				2C705AAF265C116A009E3148 /* BranchDetailsViewController.swift in Sources */,
 				2C0B3A03264552410037378E /* NetworkClient.swift in Sources */,
 				2CF4B7B92652C17200D8BF6A /* UserDetailsService.swift in Sources */,
+				51BE1CB6267C9B7C0035E0D3 /* SpecialLocationDetailsServiceManager.swift in Sources */,
 				51BE1CA6267B4A820035E0D3 /* ExchangeOfficeDetailsServiceManager.swift in Sources */,
 				2C7CD39626406E3D000C22D4 /* ErrorModel.swift in Sources */,
 				2C35A69A26631AF100A7EF0E /* AccessTokenServiceManager.swift in Sources */,

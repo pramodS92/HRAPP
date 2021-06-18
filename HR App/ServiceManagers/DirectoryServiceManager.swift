@@ -17,6 +17,7 @@ protocol OnSuccessUserDirectory {
     func onSuccessExchangeOfficeNameList(response: [ExchangeOfficeData])
     func onSuccessRegionalOfficeNameList(response: [RegionalOfficeData])
     func onSuccessSerendibFinanceNameList(response: SerendibFinanceDataClass)
+    func onSuccessSpecialLocationNameList(response: [SpecialLocationData])
     func onSuccessEmployeeNameList(response: [BranchEmployeeData])
     func onFailier()
 }
@@ -145,6 +146,26 @@ class DirectoryServiceManager {
                         self.delegate?.onSuccessSerendibFinanceNameList(response: data)
                     }
                     
+                }
+            } else {
+                self.delegate?.onFailier()
+                return
+            }
+        }
+    }
+    
+    func getSpecialLocationNameList(text: String,_ callback: OnSuccessUserDirectory) {
+        self.delegate = callback
+        SpecialLocationInfoService.shared.getSpecialLocationNameList(searchBy: text.uppercased()) { (response, error, statusCode) in
+            if response != nil {
+                if let responseBody = try? JSONDecoder().decode(SpecialLocationNameListModel.self, from: response! as! Data) {
+                    self.tableData.removeAll()
+                    if let data = responseBody.data {
+                        for item in data {
+                            self.tableData.append(item.locationName!)
+                        }
+                        self.delegate?.onSuccessSpecialLocationNameList(response: data)
+                    }
                 }
             } else {
                 self.delegate?.onFailier()
