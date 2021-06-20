@@ -12,7 +12,7 @@ import Foundation
 struct EmployeeDetailsModel: Codable {
     let user: User?
     let status: Int?
-    let data: BranchEmployeeData?
+    let data: EmployeeDetials?
     let welcomeDescription: String?
 
     enum CodingKeys: String, CodingKey {

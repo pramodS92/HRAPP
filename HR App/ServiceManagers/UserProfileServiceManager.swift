@@ -48,8 +48,7 @@ class UserProfileServiceManager {
             } else {
                 if response != nil {
                     if let responseBody = try? JSONDecoder().decode(EmployeeDetailsModel.self, from: response! as!Data){
-                        self.delegate?.OnSuccessUserProfile(userInfo: self.getEmployeeDetails(response: responseBody.data!),
-                                                            userTabelData: self.getEmployeeTableData(response: responseBody.data!))
+                        self.delegate?.OnSuccessUserProfile(userInfo: self.getEmployeeDetails(response: responseBody.data!), userTabelData: self.getEmployeeTableData(response: responseBody.data!))
                     }
                 }else{
                     return
@@ -60,19 +59,19 @@ class UserProfileServiceManager {
     }
     
     //Get selected employee profile details  - User Profile Module
-    func getEmployeeDetails(response: EmployeeDetials) -> [String]{
+    func getEmployeeDetails(response: EmployeeDetials) -> [String] {
         self.userInfo.removeAll()
         self.userInfo.append(response.name!.condensed.uppercased())
         self.userInfo.append(response.designation ?? "Designation")
         self.userInfo.append(response.branch!)
         self.userInfo.append(response.telephone ?? "telephone number")
-        self.userInfo.append(response.interCOM! ?? "intercom")
+        self.userInfo.append(response.interCOM ?? "intercom")
         self.userInfo.append(response.email ?? "email")
         return userInfo
     }
     
     //Get selected employee details in UserInfo Tab - User Profile Module
-    func getEmployeeTableData(response: EmployeeDetials) -> [String]{
+    func getEmployeeTableData(response: EmployeeDetials) -> [String] {
         self.userTableData.removeAll()
         let namesArray: [String]! = response.name?.components(separatedBy: " ")
         var initilas: String = ""

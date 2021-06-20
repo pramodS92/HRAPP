@@ -64,6 +64,8 @@
 		2CF4B8202653BBA200D8BF6A /* UserDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF4B81F2653BBA200D8BF6A /* UserDetailsModel.swift */; };
 		2CFC8020265174F400DD88AD /* BiometricAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFC801F265174F400DD88AD /* BiometricAuthViewController.swift */; };
 		2CFFA09B26543D9700D86E53 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFFA09A26543D9700D86E53 /* UserProfileViewController.swift */; };
+		516825DD267F956700755321 /* CoporateManagementDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516825DC267F956700755321 /* CoporateManagementDetailsModel.swift */; };
+		516825DF267F982000755321 /* CoporateManagementDetailsServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516825DE267F982000755321 /* CoporateManagementDetailsServiceManager.swift */; };
 		516EC043267097D0007E58DC /* BiometricPinConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516EC042267097D0007E58DC /* BiometricPinConfigureViewController.swift */; };
 		51BE1C942679DA960035E0D3 /* RegionalOfficeDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1C932679DA960035E0D3 /* RegionalOfficeDetailsModel.swift */; };
 		51BE1C962679DAAD0035E0D3 /* RegionalOfficeNameListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1C952679DAAD0035E0D3 /* RegionalOfficeNameListModel.swift */; };
@@ -146,6 +148,8 @@
 		2CF4B81F2653BBA200D8BF6A /* UserDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsModel.swift; sourceTree = "<group>"; };
 		2CFC801F265174F400DD88AD /* BiometricAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthViewController.swift; sourceTree = "<group>"; };
 		2CFFA09A26543D9700D86E53 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		516825DC267F956700755321 /* CoporateManagementDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoporateManagementDetailsModel.swift; sourceTree = "<group>"; };
+		516825DE267F982000755321 /* CoporateManagementDetailsServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoporateManagementDetailsServiceManager.swift; sourceTree = "<group>"; };
 		516EC042267097D0007E58DC /* BiometricPinConfigureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricPinConfigureViewController.swift; sourceTree = "<group>"; };
 		51BE1C932679DA960035E0D3 /* RegionalOfficeDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalOfficeDetailsModel.swift; sourceTree = "<group>"; };
 		51BE1C952679DAAD0035E0D3 /* RegionalOfficeNameListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalOfficeNameListModel.swift; sourceTree = "<group>"; };
@@ -293,6 +297,7 @@
 				51BE1C9B2679EE430035E0D3 /* RegionalOfficeDetailsServiceManager.swift */,
 				51BE1CA9267B5B0E0035E0D3 /* SerendibFinanceDetailsServiceManager.swift */,
 				51BE1CB5267C9B7C0035E0D3 /* SpecialLocationDetailsServiceManager.swift */,
+				516825DE267F982000755321 /* CoporateManagementDetailsServiceManager.swift */,
 			);
 			path = ServiceManagers;
 			sourceTree = "<group>";
@@ -414,6 +419,7 @@
 				51BE1CAB267BB26A0035E0D3 /* CoporateManagementNameListModel.swift */,
 				51BE1CAF267C839A0035E0D3 /* SpecialLocationNameListModel.swift */,
 				51BE1CB1267C874F0035E0D3 /* SpecialLocationDetailsModel.swift */,
+				516825DC267F956700755321 /* CoporateManagementDetailsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -667,6 +673,7 @@
 				2C373AFB264F318F00577DB6 /* AccessTokenResponseModel.swift in Sources */,
 				51BE1CB0267C839A0035E0D3 /* SpecialLocationNameListModel.swift in Sources */,
 				2C177517265D031500F93A29 /* BranchDetailsModel.swift in Sources */,
+				516825DD267F956700755321 /* CoporateManagementDetailsModel.swift in Sources */,
 				2C7CD39926406E58000C22D4 /* RequestModel.swift in Sources */,
 				51BE1C942679DA960035E0D3 /* RegionalOfficeDetailsModel.swift in Sources */,
 				2CF4B8202653BBA200D8BF6A /* UserDetailsModel.swift in Sources */,
@@ -699,6 +706,7 @@
 				2C35A69A26631AF100A7EF0E /* AccessTokenServiceManager.swift in Sources */,
 				2C705AB2265C1D44009E3148 /* DepartmentViewController.swift in Sources */,
 				2C0E35B22612DD72008CD6B5 /* AppDelegate.swift in Sources */,
+				516825DF267F982000755321 /* CoporateManagementDetailsServiceManager.swift in Sources */,
 				2C0B3A0B264554340037378E /* AccessTokenService.swift in Sources */,
 				2C8D3B37265AB34000BC58E1 /* DirectoryTableViewCell.swift in Sources */,
 				2CB1DA4C2657F61C00CCF06F /* UserInfoTableViewCell.swift in Sources */,

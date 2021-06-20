@@ -40,12 +40,14 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
     var specialLocationId: String?
     var regionalOfficeId: String?
     var exchangeOfficeId: String?
+    var coporateManagementEmployeeId: String?
     var selectedCategory: String?
     var isTyping: Bool = false
     var infoTitles = [String]()
     
     var employeeDetailsVc = BranchEmployeeDetailsViewController()
     var serviceManager: DirectoryServiceManager = DirectoryServiceManager()
+    var coporateManagementServiceManager: CoporateManagementDetailsService = CoporateManagementDetailsService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -293,6 +295,9 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             self.infoTitles = KeyCostants.DepartmentDetails.DEPARTMENT_DETAILS_TITLES
             performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_DEPARTMENT_SEGUE, sender: self)
         case .co_management:
+            let coporateManagementInfo = _tableData[indexPath.row] as! CoporateManagementData
+            self.coporateManagementEmployeeId = coporateManagementInfo.agmid
+            self.getCoporateManagementDetails()
             print("coporate management")
         case .ex_office:
             let exchangeOfficeInfo = _tableData[indexPath.row] as! ExchangeOfficeData
@@ -441,6 +446,10 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         self.getEmployeeNames(text: text)
     }
     
+    func getCoporateManagementDetails() {
+        self.getCoporateManagementDetails(employeeId: coporateManagementEmployeeId!)
+    }
+    
 }
 
 extension Collection where Element: Equatable {
@@ -455,8 +464,6 @@ extension Collection where Element: Equatable {
 }
 
 extension DirectoryViewController: OnSuccessUserDirectory {
-    
-    
     
     internal func getBranchNames(text: String){
         serviceManager.getBranchNameList(text: text, self)
@@ -525,6 +532,18 @@ extension DirectoryViewController: OnSuccessUserDirectory {
     
     func onFailier() {
         self.setActivityIndicatorVisibility(show: false)
+    }
+    
+}
+
+extension DirectoryViewController: onSuccessCoporateManagementDetails {
+    
+    internal func getCoporateManagementDetails(employeeId: String) {
+        coporateManagementServiceManager.getCoporateManagementDetailsById(employeeId: employeeId, self)
+    }
+    
+    func getCoporateManagementInfo(coporateManagementEmployeeName: String, coporateManagementInfo: [String], coporateManagemenData: BranchEmployeeData) {
+        getEmployeeInfo(info: coporateManagemenData)
     }
     
 }
