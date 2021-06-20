@@ -40,7 +40,6 @@ struct UiConstants {
         static let DIRECTORY_DEPARTMENT_SEGUE = "departmentSegue"
         static let DIRECTORY_EMPLOYEE_SEGUE = "employeeSegue"
         static let EMPLOYEE_DETAIL_SEGUE = "employeeDetailSegue"
-        static let DIRECTORY_REGIONAL_OFFICE_SEGUE = "regionalOfficeSegue"
     }
     
     struct PlaceHolders {
@@ -121,17 +120,15 @@ struct KeyCostants {
         static let REGIONAL_OFFICE_DETAILS_AGM_DGM_DESIGNATION = "AGM/DGM Designation"
         static let REGIONAL_OFFICE_DETAILS_SUBDIVISION = "Subdivision"
         static let REGIONAL_OFFICE_DETAILS_TITLES = [
-            "Manager's Name",
-            "Manager's Known Name",
-            "Manager's Telephone No",
-            "Address",
-            "Regional Office Fax No",
-            "Regional Office Code",
-            "Region Code",
-            "Subdivision",
+            "Regional Office Manager's Name",
+            "Regional Office Manager's Known Name",
+            "Regional Office Manager's Telephone No",
+            "Regional Office Manager's Ext",
+            "Regional Office ID",
             "Attached Branch",
-            "AGM/DGM Details",
-            "AGM/DGM Designation"]
+            "Subdivision",
+            "Fax",
+            "Address"]
     }
     
     struct BranchEmployeeDetails {

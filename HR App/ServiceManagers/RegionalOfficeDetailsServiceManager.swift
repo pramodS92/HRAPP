@@ -47,17 +47,15 @@ class RegionalOfficeDetailsServiceManager {
         regionalOfficeData.append(data.regionalManagerName!.condensed.uppercased())
         regionalOfficeData.append(data.regionalManagerKnownName!)
         regionalOfficeData.append(data.regionalManagerTP!)
+        regionalOfficeData.append(data.regionalManagerEXT!)
+        regionalOfficeData.append(data.regionalOfficeIDs!)
+        regionalOfficeData.append(data.attachedBranch!)
+        regionalOfficeData.append(data.subdivision!)
+        regionalOfficeData.append(data.fax!)
         regionalOfficeData.append(String(address[0]))
         regionalOfficeData.append(String(address.count > 1 ? address[1] : ""))
         regionalOfficeData.append(String(address.count > 2 ? address[2] : ""))
         regionalOfficeData.append(String(address.count > 3 ? address[3] : ""))
-        regionalOfficeData.append(data.fax!)
-        regionalOfficeData.append(data.regionalOfficeIDs!)
-        regionalOfficeData.append(data.regionCode!)
-        regionalOfficeData.append(data.subdivision!)
-        regionalOfficeData.append(data.attachedBranch!)
-        regionalOfficeData.append(data.aGMName!)
-        regionalOfficeData.append(data.aGMDesignation!)
         
         return regionalOfficeData
     }

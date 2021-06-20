@@ -298,7 +298,6 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             let coporateManagementInfo = _tableData[indexPath.row] as! CoporateManagementData
             self.coporateManagementEmployeeId = coporateManagementInfo.agmid
             self.getCoporateManagementDetails()
-            print("coporate management")
         case .ex_office:
             let exchangeOfficeInfo = _tableData[indexPath.row] as! ExchangeOfficeData
             self.exchangeOfficeName = exchangeOfficeInfo.departmentName
@@ -309,8 +308,9 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             let regOfficeInfo = _tableData[indexPath.row] as! RegionalOfficeData
             self.regionalOfficeName = regOfficeInfo.regionalOffice
             self.regionalOfficeId = regOfficeInfo.regionalOfficeIDs
+            self.infoTitles = KeyCostants.RegionalOfficeDetails.REGIONAL_OFFICE_DETAILS_TITLES
             self.categoryNo = 5
-            performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_REGIONAL_OFFICE_SEGUE, sender: self)
+            performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_DEPARTMENT_SEGUE, sender: self)
         case .serandib:
             let serendibInfo = _tableData[indexPath.row] as! SerendibFinanceDataClass
             self.departmemtId = serendibInfo.departmentID
@@ -357,11 +357,9 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             let destination = segue.destination as! DepartmentViewController
             destination.departmemtId = self.departmemtId
             destination.specialLocationId = self.specialLocationId
+            destination.regionalOfficeId = self.regionalOfficeId
             destination.infoTitle = self.infoTitles
             destination.categoryNo = self.categoryNo
-        case UiConstants.SegueIdentifiers.DIRECTORY_REGIONAL_OFFICE_SEGUE:
-            let destination = segue.destination as! RegionalOfficeViewController
-            destination.regionalOfficeId = self.regionalOfficeId
         default:
             let destination1 = segue.destination as! BranchDetailsViewController
         }

@@ -21,11 +21,13 @@ class DepartmentViewController: UIViewController,UITableViewDelegate, UITableVie
     var categoryNo: Int?
     var departmemtId: String?
     var specialLocationId: String?
+    var regionalOfficeId: String?
     let labelFontSize: CGFloat = 10.0
     var infoTitle = [String]()
     var departmentEmployeeList: [BranchEmployeeData] = []
     var serviceManager: DepartmentDetailsServiceManager = DepartmentDetailsServiceManager()
     var specialLocationServiceManager: SpecialLocationDetailsServiceManager = SpecialLocationDetailsServiceManager()
+    var regionalOfficeServiceManager: RegionalOfficeDetailsServiceManager = RegionalOfficeDetailsServiceManager()
     var employeeDetailsVc = BranchEmployeeDetailsViewController()
     
     override func viewDidLoad() {
@@ -37,7 +39,7 @@ class DepartmentViewController: UIViewController,UITableViewDelegate, UITableVie
     
     func getCorrectDetails(categoryNo: Int) {
         if (categoryNo == 5) {
-            
+            self.getRegionalOfficeDetails()
         } else if (categoryNo == 7) {
             self.getSpecialLocationDetails()
         } else {
@@ -68,6 +70,11 @@ class DepartmentViewController: UIViewController,UITableViewDelegate, UITableVie
     func getDepartmentDetails(){
         setActivityIndicatorVisibility(show: true)
         self.getDepartmentDetails(departmentId: departmemtId!)
+    }
+    
+    func getRegionalOfficeDetails() {
+        setActivityIndicatorVisibility(show: true)
+        self.getRegionalOfficeDetails(regionalOfficeId: regionalOfficeId!)
     }
     
     func getSpecialLocationDetails() {
@@ -152,6 +159,20 @@ extension DepartmentViewController: OnSuccessSpecialLocationDetails {
         setDepartmentName(deptName: specialLocationName)
         setDepartmentDetails(data: specialLocationInfo)
         setDepartmentEmployeeList(employeeList: [])
+    }
+    
+}
+
+extension DepartmentViewController: onSuccessRegionalOfficeDetails {
+    
+    internal func getRegionalOfficeDetails(regionalOfficeId: String) {
+        regionalOfficeServiceManager.getRegionalOfficeDetailsById(regionalOfficeId: regionalOfficeId, self)
+    }
+    
+    func getRegionalOfficeInfo(regionalOffice: String, regionalOfficeInfo: [String], regionalOfficeEmployeeList: [BranchEmployeeData]) {
+        setDepartmentName(deptName: regionalOffice)
+        setDepartmentDetails(data: regionalOfficeInfo)
+        setDepartmentEmployeeList(employeeList: regionalOfficeEmployeeList)
     }
     
 }
