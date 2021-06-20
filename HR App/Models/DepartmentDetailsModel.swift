@@ -9,8 +9,6 @@
 
 import Foundation
 
-
-
 struct DepartmentDetailsModel: Codable {
     let user: User?
     let status: Int?

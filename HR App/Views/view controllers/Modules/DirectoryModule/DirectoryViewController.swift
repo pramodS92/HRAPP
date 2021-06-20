@@ -32,14 +32,17 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var requestHandler: ((_ text: String)->())?
     
+    var categoryNo: Int = 0
     var branchName: String?
     var regionalOfficeName: String?
     var exchangeOfficeName: String?
     var departmemtId: String?
+    var specialLocationId: String?
     var regionalOfficeId: String?
     var exchangeOfficeId: String?
     var selectedCategory: String?
     var isTyping: Bool = false
+    var infoTitles = [String]()
     
     var employeeDetailsVc = BranchEmployeeDetailsViewController()
     var serviceManager: DirectoryServiceManager = DirectoryServiceManager()
@@ -286,25 +289,33 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_BRANCH_SEGUE, sender: self)
         case .department:
             let depInfo = _tableData[indexPath.row] as! DepartmentData
-            self.departmemtId = depInfo.departmentID 
+            self.departmemtId = depInfo.departmentID
+            self.infoTitles = KeyCostants.DepartmentDetails.DEPARTMENT_DETAILS_TITLES
             performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_DEPARTMENT_SEGUE, sender: self)
-        case .special_office:
-            print("special office")
         case .co_management:
             print("coporate management")
         case .ex_office:
             let exchangeOfficeInfo = _tableData[indexPath.row] as! ExchangeOfficeData
             self.exchangeOfficeName = exchangeOfficeInfo.departmentName
             self.departmemtId = exchangeOfficeInfo.departmentID
+            self.infoTitles = KeyCostants.DepartmentDetails.DEPARTMENT_DETAILS_TITLES
             performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_DEPARTMENT_SEGUE, sender: self)
         case .reg_office:
             let regOfficeInfo = _tableData[indexPath.row] as! RegionalOfficeData
             self.regionalOfficeName = regOfficeInfo.regionalOffice
             self.regionalOfficeId = regOfficeInfo.regionalOfficeIDs
+            self.categoryNo = 5
             performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_REGIONAL_OFFICE_SEGUE, sender: self)
         case .serandib:
             let serendibInfo = _tableData[indexPath.row] as! SerendibFinanceDataClass
             self.departmemtId = serendibInfo.departmentID
+            self.infoTitles = KeyCostants.DepartmentDetails.DEPARTMENT_DETAILS_TITLES
+            performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_DEPARTMENT_SEGUE, sender: self)
+        case .special_office:
+            let specialLocationInfo = _tableData[indexPath.row] as? SpecialLocationData
+            self.specialLocationId = specialLocationInfo?.locationID
+            self.categoryNo = 7
+            self.infoTitles = KeyCostants.SpecialOfficeDetails.SPECIAL_OFFICE_DETAILS_TITLES
             performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_DEPARTMENT_SEGUE, sender: self)
         case .employee:
             self.getEmployeeInfo(info: _tableData[indexPath.row] as! BranchEmployeeData)
@@ -340,6 +351,9 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         case UiConstants.SegueIdentifiers.DIRECTORY_DEPARTMENT_SEGUE:
             let destination = segue.destination as! DepartmentViewController
             destination.departmemtId = self.departmemtId
+            destination.specialLocationId = self.specialLocationId
+            destination.infoTitle = self.infoTitles
+            destination.categoryNo = self.categoryNo
         case UiConstants.SegueIdentifiers.DIRECTORY_REGIONAL_OFFICE_SEGUE:
             let destination = segue.destination as! RegionalOfficeViewController
             destination.regionalOfficeId = self.regionalOfficeId

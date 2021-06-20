@@ -12,6 +12,7 @@ import Alamofire
 
 protocol OnSuccessUserProfile {
     func OnSuccessUserProfile(userInfo: [String],userTabelData: [String])
+    
 }
 
 class UserProfileServiceManager {

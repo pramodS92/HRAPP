@@ -159,6 +159,20 @@ struct KeyCostants {
             "Address"
         ]
     }
+    
+    struct SpecialOfficeDetails {
+        static let SPECIAL_OFFICE_DETAILS_TITLES = [
+            "Special Office Head's Name",
+            "Special Office Head's Known Name",
+            "Special Office Head's Telephone",
+            "Special Office Head's Intercom",
+            "Special Office ID",
+            "Special Office Name",
+            "Attached Branch",
+            "Fax",
+            "Address"
+        ]
+    }
 }
 
 

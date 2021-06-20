@@ -18,16 +18,32 @@ class DepartmentViewController: UIViewController,UITableViewDelegate, UITableVie
     @IBOutlet weak var departmentDetailsTableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    var categoryNo: Int?
     var departmemtId: String?
+    var specialLocationId: String?
     let labelFontSize: CGFloat = 10.0
+    var infoTitle = [String]()
     var departmentEmployeeList: [BranchEmployeeData] = []
     var serviceManager: DepartmentDetailsServiceManager = DepartmentDetailsServiceManager()
+    var specialLocationServiceManager: SpecialLocationDetailsServiceManager = SpecialLocationDetailsServiceManager()
     var employeeDetailsVc = BranchEmployeeDetailsViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUiProps()
-        self.getDepartmentDetails()
+        
+        self.getCorrectDetails(categoryNo: categoryNo!)
+    }
+    
+    func getCorrectDetails(categoryNo: Int) {
+        if (categoryNo == 5) {
+            
+        } else if (categoryNo == 7) {
+            self.getSpecialLocationDetails()
+        } else {
+            self.getDepartmentDetails()
+        }
+        
     }
     
     func setupUiProps(){
@@ -45,7 +61,7 @@ class DepartmentViewController: UIViewController,UITableViewDelegate, UITableVie
         self.activityIndicator.isHidden = true
         self.departmentInfoTitles.enumerated().forEach { (index, element) in
             element.font = UIFont.boldSystemFont(ofSize: labelFontSize)
-            element.text = KeyCostants.DepartmentDetails.DEPARTMENT_DETAILS_TITLES[index]
+            element.text = infoTitle[index]
         }
     }
     
@@ -54,6 +70,10 @@ class DepartmentViewController: UIViewController,UITableViewDelegate, UITableVie
         self.getDepartmentDetails(departmentId: departmemtId!)
     }
     
+    func getSpecialLocationDetails() {
+        setActivityIndicatorVisibility(show: true)
+        self.getSpecialLocationDetails(locationId: specialLocationId!)
+    }
     
     func setDepartmentName(deptName: String){
         departmentName.text = deptName
@@ -120,5 +140,18 @@ extension DepartmentViewController: OnSuccessDepartmentDetails {
         setActivityIndicatorVisibility(show: false)
     }
     
+}
+
+extension DepartmentViewController: OnSuccessSpecialLocationDetails {
+    
+    internal func getSpecialLocationDetails(locationId: String) {
+        specialLocationServiceManager.getSpecialLocationDetailsById(specialLocationId: locationId, self)
+    }
+    
+    func getSpecialLocationInfo(specialLocationName: String, specialLocationInfo: [String]) {
+        setDepartmentName(deptName: specialLocationName)
+        setDepartmentDetails(data: specialLocationInfo)
+        setDepartmentEmployeeList(employeeList: [])
+    }
     
 }

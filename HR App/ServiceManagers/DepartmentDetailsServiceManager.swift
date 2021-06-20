@@ -10,13 +10,10 @@
 import Foundation
 import Alamofire
 
-
-
 protocol OnSuccessDepartmentDetails {
     func getDepartmentInfo(departmentName: String, departmentInfo: [String],departmentEmployeeList: [BranchEmployeeData])
     func OnFailier()
 }
-
 
 class DepartmentDetailsServiceManager {
     
