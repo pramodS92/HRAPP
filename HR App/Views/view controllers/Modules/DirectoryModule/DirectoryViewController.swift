@@ -272,6 +272,7 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
                 cell.employeeName.text = employeeData.name!.condensed + " (" + employeeData.knownName! + ") "
                 cell.employeeDesignation.text = employeeData.designation
                 cell.employeeBranch.text = employeeData.branch
+                cell.employeeImage.image = UIImage(named: employeeData.gender == "M" ? "ic_person": "ic_women")
                 cell.selectionStyle = .none
             }
             return cell

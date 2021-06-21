@@ -22,7 +22,10 @@ struct UiConstants {
         static let LANDING_VC = "LandingViewController"
         static let BIOMETRIC_AUTH_VC = "BiometricAuthViewController"
         static let BRANCH_EMPLOYEE_DETAILS_VC = "BranchEmployeeDetailsViewController"
-        static let CONFIGURE_BIOMETRIC_PIN_VC = "BiometricPinConfigureVC"
+        static let CONFIGURE_BIOMETRIC_PIN_VC = "BiometricPinConfigureViewController"
+        static let HOME_VC = "HomeViewController"
+        static let DIRECTORY_VC = "DirectoryViewController"
+        static let USER_PROFILE_VC = "UserProfileViewController"
     }
     
     struct ViewCellId {

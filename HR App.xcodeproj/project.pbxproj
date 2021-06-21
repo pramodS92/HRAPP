@@ -67,9 +67,10 @@
 		516825DD267F956700755321 /* CoporateManagementDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516825DC267F956700755321 /* CoporateManagementDetailsModel.swift */; };
 		516825DF267F982000755321 /* CoporateManagementDetailsServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516825DE267F982000755321 /* CoporateManagementDetailsServiceManager.swift */; };
 		516EC043267097D0007E58DC /* BiometricPinConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516EC042267097D0007E58DC /* BiometricPinConfigureViewController.swift */; };
+		5198CE572680AAC30051549C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5198CE562680AAC30051549C /* HomeViewController.swift */; };
+		5198CE592680AAEB0051549C /* HomeNavigationTileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5198CE582680AAEB0051549C /* HomeNavigationTileButton.swift */; };
 		51BE1C942679DA960035E0D3 /* RegionalOfficeDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1C932679DA960035E0D3 /* RegionalOfficeDetailsModel.swift */; };
 		51BE1C962679DAAD0035E0D3 /* RegionalOfficeNameListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1C952679DAAD0035E0D3 /* RegionalOfficeNameListModel.swift */; };
-		51BE1C982679DB160035E0D3 /* RegionalOfficeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1C972679DB160035E0D3 /* RegionalOfficeViewController.swift */; };
 		51BE1C9A2679DC470035E0D3 /* RegionalOfficeInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1C992679DC470035E0D3 /* RegionalOfficeInfoService.swift */; };
 		51BE1C9C2679EE430035E0D3 /* RegionalOfficeDetailsServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1C9B2679EE430035E0D3 /* RegionalOfficeDetailsServiceManager.swift */; };
 		51BE1C9E267A08D20035E0D3 /* ExchangeOfficeNameListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1C9D267A08D20035E0D3 /* ExchangeOfficeNameListModel.swift */; };
@@ -83,10 +84,11 @@
 		51BE1CB2267C874F0035E0D3 /* SpecialLocationDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1CB1267C874F0035E0D3 /* SpecialLocationDetailsModel.swift */; };
 		51BE1CB4267C87E80035E0D3 /* SpecialLocationInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1CB3267C87E80035E0D3 /* SpecialLocationInfoService.swift */; };
 		51BE1CB6267C9B7C0035E0D3 /* SpecialLocationDetailsServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1CB5267C9B7C0035E0D3 /* SpecialLocationDetailsServiceManager.swift */; };
-		AC5208F32E612C35D2BE5886 /* Pods_HR_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EA7925F3E50FD5087076891 /* Pods_HR_App.framework */; };
+		F4D9612C03BF5E0CBB9F00D7 /* Pods_HR_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12118F4C3A4593868361AFCC /* Pods_HR_App.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12118F4C3A4593868361AFCC /* Pods_HR_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HR_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C06B363263936A8005743D8 /* OTPValidationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPValidationViewController.swift; sourceTree = "<group>"; };
 		2C06B364263936A8005743D8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		2C06B365263936A8005743D8 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
@@ -146,12 +148,14 @@
 		2CF4B81F2653BBA200D8BF6A /* UserDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsModel.swift; sourceTree = "<group>"; };
 		2CFC801F265174F400DD88AD /* BiometricAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthViewController.swift; sourceTree = "<group>"; };
 		2CFFA09A26543D9700D86E53 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		3E54E7E5DDF93BC62F1248E9 /* Pods-HR App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HR App.release.xcconfig"; path = "Target Support Files/Pods-HR App/Pods-HR App.release.xcconfig"; sourceTree = "<group>"; };
 		516825DC267F956700755321 /* CoporateManagementDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoporateManagementDetailsModel.swift; sourceTree = "<group>"; };
 		516825DE267F982000755321 /* CoporateManagementDetailsServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoporateManagementDetailsServiceManager.swift; sourceTree = "<group>"; };
 		516EC042267097D0007E58DC /* BiometricPinConfigureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricPinConfigureViewController.swift; sourceTree = "<group>"; };
+		5198CE562680AAC30051549C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		5198CE582680AAEB0051549C /* HomeNavigationTileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationTileButton.swift; sourceTree = "<group>"; };
 		51BE1C932679DA960035E0D3 /* RegionalOfficeDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalOfficeDetailsModel.swift; sourceTree = "<group>"; };
 		51BE1C952679DAAD0035E0D3 /* RegionalOfficeNameListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalOfficeNameListModel.swift; sourceTree = "<group>"; };
-		51BE1C972679DB160035E0D3 /* RegionalOfficeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalOfficeViewController.swift; sourceTree = "<group>"; };
 		51BE1C992679DC470035E0D3 /* RegionalOfficeInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalOfficeInfoService.swift; sourceTree = "<group>"; };
 		51BE1C9B2679EE430035E0D3 /* RegionalOfficeDetailsServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalOfficeDetailsServiceManager.swift; sourceTree = "<group>"; };
 		51BE1C9D267A08D20035E0D3 /* ExchangeOfficeNameListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeOfficeNameListModel.swift; sourceTree = "<group>"; };
@@ -165,9 +169,7 @@
 		51BE1CB1267C874F0035E0D3 /* SpecialLocationDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialLocationDetailsModel.swift; sourceTree = "<group>"; };
 		51BE1CB3267C87E80035E0D3 /* SpecialLocationInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialLocationInfoService.swift; sourceTree = "<group>"; };
 		51BE1CB5267C9B7C0035E0D3 /* SpecialLocationDetailsServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialLocationDetailsServiceManager.swift; sourceTree = "<group>"; };
-		5791E70373F4F5FE484E5087 /* Pods-HR App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HR App.release.xcconfig"; path = "Target Support Files/Pods-HR App/Pods-HR App.release.xcconfig"; sourceTree = "<group>"; };
-		5EA7925F3E50FD5087076891 /* Pods_HR_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HR_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F9F6B75645391FA444D561C9 /* Pods-HR App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HR App.debug.xcconfig"; path = "Target Support Files/Pods-HR App/Pods-HR App.debug.xcconfig"; sourceTree = "<group>"; };
+		A217BE01F3E4C7683CC30EE7 /* Pods-HR App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HR App.debug.xcconfig"; path = "Target Support Files/Pods-HR App/Pods-HR App.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,13 +177,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC5208F32E612C35D2BE5886 /* Pods_HR_App.framework in Frameworks */,
+				F4D9612C03BF5E0CBB9F00D7 /* Pods_HR_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F7A458B0C56AE8FA88B60E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				12118F4C3A4593868361AFCC /* Pods_HR_App.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2C0B3A09264554190037378E /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,8 +214,8 @@
 			children = (
 				2C0E35B02612DD72008CD6B5 /* HR App */,
 				A05548C113752D85C13732CE /* Pods */,
-				8ED30D3D7B39D48B6ABAF2B6 /* Frameworks */,
 				2CD92CE9261C2C2B001E551F /* HR App.app */,
+				0F7A458B0C56AE8FA88B60E4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -383,7 +393,6 @@
 		2C705AC9265C35FF009E3148 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				51BE1C922679D8D70035E0D3 /* RegionalOffice */,
 				2C1D20102660C8F0006EF880 /* Employee */,
 				2C1D200F2660C8D6006EF880 /* Department */,
 				2CA1A5B8265ED06000CB0AA2 /* Branch */,
@@ -502,33 +511,27 @@
 		2CFFA09426543D5B00D86E53 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				5198CE552680A9E10051549C /* Home */,
 				2CB1DA502658061500CCF06F /* DirectoryModule */,
 				2C34EE632655E5EB00978015 /* UserModule */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		51BE1C922679D8D70035E0D3 /* RegionalOffice */ = {
+		5198CE552680A9E10051549C /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				51BE1C972679DB160035E0D3 /* RegionalOfficeViewController.swift */,
+				5198CE562680AAC30051549C /* HomeViewController.swift */,
+				5198CE582680AAEB0051549C /* HomeNavigationTileButton.swift */,
 			);
-			path = RegionalOffice;
-			sourceTree = "<group>";
-		};
-		8ED30D3D7B39D48B6ABAF2B6 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5EA7925F3E50FD5087076891 /* Pods_HR_App.framework */,
-			);
-			name = Frameworks;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		A05548C113752D85C13732CE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F9F6B75645391FA444D561C9 /* Pods-HR App.debug.xcconfig */,
-				5791E70373F4F5FE484E5087 /* Pods-HR App.release.xcconfig */,
+				A217BE01F3E4C7683CC30EE7 /* Pods-HR App.debug.xcconfig */,
+				3E54E7E5DDF93BC62F1248E9 /* Pods-HR App.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -540,11 +543,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C0E35C22612DD73008CD6B5 /* Build configuration list for PBXNativeTarget "HR App" */;
 			buildPhases = (
-				9DDCDE896D4A2F8D3B063436 /* [CP] Check Pods Manifest.lock */,
+				B5D24FBD839250F62E513124 /* [CP] Check Pods Manifest.lock */,
 				2C0E35AA2612DD72008CD6B5 /* Sources */,
 				2C0E35AB2612DD72008CD6B5 /* Frameworks */,
 				2C0E35AC2612DD72008CD6B5 /* Resources */,
-				EC2DCB14721244D554205EE9 /* [CP] Embed Pods Frameworks */,
+				8E88D88CECC9BAEFE4C7D81A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -605,7 +608,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9DDCDE896D4A2F8D3B063436 /* [CP] Check Pods Manifest.lock */ = {
+		8E88D88CECC9BAEFE4C7D81A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HR App/Pods-HR App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HR App/Pods-HR App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HR App/Pods-HR App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5D24FBD839250F62E513124 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -627,23 +647,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EC2DCB14721244D554205EE9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HR App/Pods-HR App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HR App/Pods-HR App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HR App/Pods-HR App-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -652,10 +655,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CD117A9264D714B005E421C /* UiUtils.swift in Sources */,
-				51BE1C982679DB160035E0D3 /* RegionalOfficeViewController.swift in Sources */,
 				2CD8E7E52658381E00CD2C5A /* BranchNameListModel.swift in Sources */,
 				51BE1C962679DAAD0035E0D3 /* RegionalOfficeNameListModel.swift in Sources */,
 				2C8D3BC4265AE0EC00BC58E1 /* DirectoryConstants.swift in Sources */,
+				5198CE572680AAC30051549C /* HomeViewController.swift in Sources */,
 				2C0B39FF26454EFD0037378E /* NetworkConstants.swift in Sources */,
 				51BE1C9A2679DC470035E0D3 /* RegionalOfficeInfoService.swift in Sources */,
 				2CD8E7D626582F7A00CD2C5A /* BranchInfoService.swift in Sources */,
@@ -676,6 +679,7 @@
 				2C320D6D2670E5A8000A1AAD /* DepartmentDetailsServiceManager.swift in Sources */,
 				2C7CD39C26406E65000C22D4 /* ResponseModel.swift in Sources */,
 				2C0E35C72612EA89008CD6B5 /* BaseAnimation.swift in Sources */,
+				5198CE592680AAEB0051549C /* HomeNavigationTileButton.swift in Sources */,
 				2CFFA09B26543D9700D86E53 /* UserProfileViewController.swift in Sources */,
 				2CA1A5BA265ED08700CB0AA2 /* BranchEmployeeDetailsViewController.swift in Sources */,
 				2C705A8B265B638C009E3148 /* DepartmentInfoService.swift in Sources */,
@@ -763,6 +767,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = armv7;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -824,6 +829,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = armv7;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -844,18 +850,21 @@
 		};
 		2C0E35C32612DD73008CD6B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F9F6B75645391FA444D561C9 /* Pods-HR App.debug.xcconfig */;
+			baseConfigurationReference = A217BE01F3E4C7683CC30EE7 /* Pods-HR App.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X2YYRSPUG5;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "HR App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.combank.HR-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -865,18 +874,21 @@
 		};
 		2C0E35C42612DD73008CD6B5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5791E70373F4F5FE484E5087 /* Pods-HR App.release.xcconfig */;
+			baseConfigurationReference = 3E54E7E5DDF93BC62F1248E9 /* Pods-HR App.release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X2YYRSPUG5;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "HR App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.combank.HR-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

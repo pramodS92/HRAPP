@@ -252,18 +252,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CnX-f4-meH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3450" y="943"/>
+            <point key="canvasLocation" x="728" y="2618"/>
         </scene>
         <!--Branch Details View Controller-->
         <scene sceneID="vTQ-dO-0h9">
             <objects>
                 <viewController storyboardIdentifier="BranchDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BRn-q0-ifc" customClass="BranchDetailsViewController" customModule="HR_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PE6-wL-9X7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hnr-sf-BFI">
-                                <rect key="frame" x="6" y="112" width="402" height="294"/>
+                                <rect key="frame" x="6" y="24" width="402" height="294"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="YJM-7E-A0e">
                                         <rect key="frame" x="0.0" y="0.0" width="402" height="294"/>
@@ -674,14 +674,14 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zvP-Pq-kFL">
-                                <rect key="frame" x="0.0" y="412" width="414" height="484"/>
+                                <rect key="frame" x="0.0" y="324" width="414" height="518"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="C7w-yN-B5B">
-                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <rect key="frame" x="197" y="411" width="20" height="20"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3C2-wd-RVJ">
-                                <rect key="frame" x="0.0" y="88" width="414" height="18"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="18"/>
                                 <color key="backgroundColor" red="0.059212408959999997" green="0.35817873480000001" blue="0.7137628198" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -741,7 +741,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dfd-4f-Hf1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1794" y="1850"/>
+            <point key="canvasLocation" x="996" y="1725"/>
         </scene>
         <!--Branch Employee Details View Controller-->
         <scene sceneID="Ndr-CJ-dy5">
@@ -1023,18 +1023,18 @@
             <objects>
                 <viewController restorationIdentifier="DepartmentViewController" storyboardIdentifier="DepartmentViewController" id="ww2-WS-hlc" customClass="DepartmentViewController" customModule="HR_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iJh-FV-QF2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDr-nl-8dV">
-                                <rect key="frame" x="20" y="88" width="374" height="20.5"/>
+                                <rect key="frame" x="20" y="0.0" width="374" height="20.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VXM-zi-nTI">
-                                <rect key="frame" x="6" y="116.5" width="402" height="250"/>
+                                <rect key="frame" x="6" y="28.5" width="402" height="250"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="awV-zd-pOh">
                                         <rect key="frame" x="0.0" y="0.0" width="402" height="250"/>
@@ -1364,11 +1364,11 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SyO-TU-WlC">
-                                <rect key="frame" x="0.0" y="372.5" width="414" height="440.5"/>
+                                <rect key="frame" x="0.0" y="284.5" width="414" height="523.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="HS4-fs-kBr">
-                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <rect key="frame" x="197" y="411" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="S0T-eE-xPn"/>
@@ -1419,14 +1419,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uz2-HZ-msH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2592.753623188406" y="1849.5535714285713"/>
+            <point key="canvasLocation" x="2029" y="1725"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="E9V-wX-aOf">
             <objects>
                 <viewController id="dfG-hZ-i9F" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z2u-zt-O6I">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="gmZ-CF-gy7"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
@@ -1435,14 +1435,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CGj-3K-hNl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3449" y="1850"/>
+            <point key="canvasLocation" x="3022" y="1725"/>
         </scene>
         <!--Directory View Controller-->
         <scene sceneID="rxE-1v-HPA">
             <objects>
                 <viewController storyboardIdentifier="DirectoryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NDy-Jx-O5L" customClass="DirectoryViewController" customModule="HR_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qnW-Sc-gRZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UnO-Fh-3DA">
@@ -1609,11 +1609,11 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5e2-wZ-cr4">
-                                <rect key="frame" x="0.0" y="152" width="414" height="661"/>
+                                <rect key="frame" x="0.0" y="152" width="414" height="656"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="zqB-YZ-AGH">
-                                <rect key="frame" x="197" y="423" width="20" height="50"/>
+                                <rect key="frame" x="197" y="396" width="20" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="SwF-Yg-7pt"/>
                                 </constraints>
@@ -1704,7 +1704,7 @@
                         <color key="selectedImageTintColor" systemColor="linkColor"/>
                     </tabBar>
                     <connections>
-                        <segue destination="9Yf-oD-3b6" kind="relationship" relationship="viewControllers" id="fe6-XE-VHv"/>
+                        <segue destination="MYX-Oq-l2K" kind="relationship" relationship="viewControllers" id="4KN-oC-0tw"/>
                         <segue destination="kbm-SZ-RhS" kind="relationship" relationship="viewControllers" id="9jQ-sR-RtA"/>
                         <segue destination="iQ2-lT-SJy" kind="relationship" relationship="viewControllers" id="InQ-gX-0fa"/>
                         <segue destination="ydm-kG-gZs" kind="relationship" relationship="viewControllers" id="PsR-gN-kqI"/>
@@ -1713,7 +1713,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QcV-gh-vs9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4323" y="112"/>
+            <point key="canvasLocation" x="5038" y="165"/>
         </scene>
         <!--Validation View Controller-->
         <scene sceneID="IfW-bs-H5e">
@@ -1838,7 +1838,7 @@
         <!--User Profile-->
         <scene sceneID="uFY-Gz-Ign">
             <objects>
-                <viewController id="ydm-kG-gZs" customClass="UserProfileViewController" customModule="HR_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ydm-kG-gZs" customClass="UserProfileViewController" customModule="HR_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uXs-EV-7KE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2164,7 +2164,7 @@
         <!--Biometric Pin Configure View Controller-->
         <scene sceneID="nSP-eb-hzK">
             <objects>
-                <viewController storyboardIdentifier="BiometricPinConfigureVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eSX-qD-Os4" customClass="BiometricPinConfigureViewController" customModule="HR_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BiometricPinConfigureViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eSX-qD-Os4" customClass="BiometricPinConfigureViewController" customModule="HR_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VXw-Yk-XnR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2195,13 +2195,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gln-mF-8F8">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gln-mF-8F8" customClass="HomeNavigationTileButton" customModule="HR_App" customModuleProvider="target">
                                 <rect key="frame" x="135" y="465.5" width="144" height="43"/>
                                 <color key="backgroundColor" red="0.12058537449999999" green="0.48113000389999999" blue="0.98038500549999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
                                 <state key="normal" title="Configure">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="homeNavigationTileButton" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="configureBtnClicked:" destination="eSX-qD-Os4" eventType="touchUpInside" id="lwQ-71-YRL"/>
                                 </connections>
@@ -2255,12 +2258,297 @@
             </objects>
             <point key="canvasLocation" x="3536" y="112"/>
         </scene>
+        <!--Home-->
+        <scene sceneID="EvB-je-E2q">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MYX-Oq-l2K" customClass="HomeViewController" customModule="HR_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iYi-XG-bkP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OTO-Zz-2zh">
+                                <rect key="frame" x="0.0" y="110" width="414" height="786"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LAS-Dd-iH8">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dmo-OH-WZP">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgc-uB-RMY" customClass="HomeNavigationTileButton" customModule="employee_iOS_CBC" customModuleProvider="target">
+                                                        <rect key="frame" x="25" y="62" width="364" height="100"/>
+                                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="100" id="TDB-TQ-S0l"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="titleEdgeInsets" minX="130" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="100" maxY="0.0"/>
+                                                        <state key="normal" title="  Directory">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large" renderingMode="template"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" scale="large" weight="medium"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="homeNavigationTileButton" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="viewDirectoryAction:" destination="MYX-Oq-l2K" eventType="touchUpInside" id="xkb-3O-dHz"/>
+                                                            <segue destination="NDy-Jx-O5L" kind="show" id="o2b-2d-PBx"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D66-qu-JFk" customClass="HomeNavigationTileButton" customModule="employee_iOS_CBC" customModuleProvider="target">
+                                                        <rect key="frame" x="25" y="182" width="364" height="100"/>
+                                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="100" id="DNp-wa-kxE"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="titleEdgeInsets" minX="138" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="100" maxY="0.0"/>
+                                                        <state key="normal" title="      Profile">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <imageReference key="image" image="person.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" scale="large" weight="medium"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="homeNavigationTileButton" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="viewUserProfileAction:" destination="MYX-Oq-l2K" eventType="touchUpInside" id="fmD-zH-yj8"/>
+                                                            <segue destination="ydm-kG-gZs" kind="show" id="Qed-kn-pIC"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JVi-M1-MaL" customClass="HomeNavigationTileButton" customModule="employee_iOS_CBC" customModuleProvider="target">
+                                                        <rect key="frame" x="25" y="302" width="364" height="100"/>
+                                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="100" id="Nv7-LZ-BIF"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="titleEdgeInsets" minX="138" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="130" maxY="0.0"/>
+                                                        <state key="normal" title="       Post">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <imageReference key="image" image="newspaper.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" scale="large" weight="medium"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="homeNavigationTileButton" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="viewPostAction:" destination="MYX-Oq-l2K" eventType="touchUpInside" id="CMO-iX-98R"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSc-mS-RIK" customClass="HomeNavigationTileButton" customModule="employee_iOS_CBC" customModuleProvider="target">
+                                                        <rect key="frame" x="25" y="422" width="364" height="100"/>
+                                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="100" id="dGl-J0-5Xl"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="titleEdgeInsets" minX="110" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="90" maxY="0.0"/>
+                                                        <state key="normal" title="Notifications">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <imageReference key="image" image="bell.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" scale="large" weight="medium"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="homeNavigationTileButton" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="viewNotificationsAction:" destination="MYX-Oq-l2K" eventType="touchUpInside" id="9jf-oL-zMP"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="irg-St-PDp" customClass="HomeNavigationTileButton" customModule="employee_iOS_CBC" customModuleProvider="target">
+                                                        <rect key="frame" x="25" y="542" width="364" height="100"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="100" id="S2s-lC-p4t"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="titleEdgeInsets" minX="40" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                                                        <state key="normal" title="Product Ref. Guide">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <imageReference key="image" image="book.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" scale="large" weight="medium"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="homeNavigationTileButton" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="viewProductRefGuideAction:" destination="MYX-Oq-l2K" eventType="touchUpInside" id="0AD-yP-ZEu"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qog-JK-CzY" customClass="HomeNavigationTileButton" customModule="employee_iOS_CBC" customModuleProvider="target">
+                                                        <rect key="frame" x="25" y="662" width="364" height="100"/>
+                                                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="100" id="frm-fg-8T0"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="titleEdgeInsets" minX="160" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="130" maxY="0.0"/>
+                                                        <state key="normal" title="   Module">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <imageReference key="image" image="circle.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" scale="large" weight="medium"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="homeNavigationTileButton" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SgO-FA-kd8" customClass="HomeNavigationTileButton" customModule="employee_iOS_CBC" customModuleProvider="target">
+                                                        <rect key="frame" x="25" y="782" width="364" height="100"/>
+                                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="100" id="oqX-uE-I8X"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="titleEdgeInsets" minX="160" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="130" maxY="0.0"/>
+                                                        <state key="normal" title="   Module">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <imageReference key="image" image="circle.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" scale="large" weight="medium"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="homeNavigationTileButton" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XfA-2m-xaV" customClass="HomeNavigationTileButton" customModule="employee_iOS_CBC" customModuleProvider="target">
+                                                        <rect key="frame" x="25" y="902" width="364" height="100"/>
+                                                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="100" id="veV-dQ-9pj"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="titleEdgeInsets" minX="160" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="130" maxY="0.0"/>
+                                                        <state key="normal" title="   Module">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <imageReference key="image" image="circle.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" scale="large" weight="medium"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="homeNavigationTileButton" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="qog-JK-CzY" firstAttribute="leading" secondItem="dmo-OH-WZP" secondAttribute="leading" constant="25" id="3Dn-22-D7z"/>
+                                                    <constraint firstAttribute="trailing" secondItem="irg-St-PDp" secondAttribute="trailing" constant="25" id="5rV-wc-DgB"/>
+                                                    <constraint firstItem="D66-qu-JFk" firstAttribute="top" secondItem="xgc-uB-RMY" secondAttribute="bottom" constant="20" id="64r-4F-rsr"/>
+                                                    <constraint firstAttribute="bottom" secondItem="XfA-2m-xaV" secondAttribute="bottom" constant="98" id="6dZ-p3-sOg"/>
+                                                    <constraint firstItem="XfA-2m-xaV" firstAttribute="leading" secondItem="dmo-OH-WZP" secondAttribute="leading" constant="25" id="AR6-Wh-GZU"/>
+                                                    <constraint firstAttribute="trailing" secondItem="XfA-2m-xaV" secondAttribute="trailing" constant="25" id="FDY-93-BHt"/>
+                                                    <constraint firstAttribute="trailing" secondItem="qog-JK-CzY" secondAttribute="trailing" constant="25" id="FtY-JI-6iS"/>
+                                                    <constraint firstItem="JVi-M1-MaL" firstAttribute="leading" secondItem="dmo-OH-WZP" secondAttribute="leading" constant="25" id="Hn9-oh-HxU"/>
+                                                    <constraint firstAttribute="trailing" secondItem="JVi-M1-MaL" secondAttribute="trailing" constant="25" id="IYw-mj-qr9"/>
+                                                    <constraint firstItem="xgc-uB-RMY" firstAttribute="top" secondItem="dmo-OH-WZP" secondAttribute="top" constant="62" id="Kgi-TF-hyW"/>
+                                                    <constraint firstItem="xgc-uB-RMY" firstAttribute="leading" secondItem="dmo-OH-WZP" secondAttribute="leading" constant="25" id="NgF-dT-XIB"/>
+                                                    <constraint firstAttribute="trailing" secondItem="SgO-FA-kd8" secondAttribute="trailing" constant="25" id="Nmp-j5-sEa"/>
+                                                    <constraint firstItem="irg-St-PDp" firstAttribute="top" secondItem="dSc-mS-RIK" secondAttribute="bottom" constant="20" id="Owg-Hp-ODQ"/>
+                                                    <constraint firstItem="dSc-mS-RIK" firstAttribute="top" secondItem="JVi-M1-MaL" secondAttribute="bottom" constant="20" id="QH3-zK-60d"/>
+                                                    <constraint firstItem="XfA-2m-xaV" firstAttribute="top" secondItem="SgO-FA-kd8" secondAttribute="bottom" constant="20" id="Qxd-GN-yWk"/>
+                                                    <constraint firstAttribute="height" constant="1100" id="R2w-wZ-wgT"/>
+                                                    <constraint firstAttribute="trailing" secondItem="D66-qu-JFk" secondAttribute="trailing" constant="25" id="RtD-N2-YZy"/>
+                                                    <constraint firstItem="D66-qu-JFk" firstAttribute="leading" secondItem="dmo-OH-WZP" secondAttribute="leading" constant="25" id="S18-fW-2qv"/>
+                                                    <constraint firstItem="SgO-FA-kd8" firstAttribute="top" secondItem="qog-JK-CzY" secondAttribute="bottom" constant="20" id="b1m-0S-g9k"/>
+                                                    <constraint firstItem="JVi-M1-MaL" firstAttribute="top" secondItem="D66-qu-JFk" secondAttribute="bottom" constant="20" id="cNh-Ls-dOT"/>
+                                                    <constraint firstItem="dSc-mS-RIK" firstAttribute="leading" secondItem="dmo-OH-WZP" secondAttribute="leading" constant="25" id="ceE-St-aqC"/>
+                                                    <constraint firstItem="irg-St-PDp" firstAttribute="leading" secondItem="dmo-OH-WZP" secondAttribute="leading" constant="25" id="juR-wC-xhl"/>
+                                                    <constraint firstAttribute="trailing" secondItem="dSc-mS-RIK" secondAttribute="trailing" constant="25" id="k9N-2Y-bi1"/>
+                                                    <constraint firstItem="qog-JK-CzY" firstAttribute="top" secondItem="irg-St-PDp" secondAttribute="bottom" constant="20" id="lHz-LW-oO2"/>
+                                                    <constraint firstItem="SgO-FA-kd8" firstAttribute="leading" secondItem="dmo-OH-WZP" secondAttribute="leading" constant="25" id="soh-th-vwN"/>
+                                                    <constraint firstAttribute="trailing" secondItem="xgc-uB-RMY" secondAttribute="trailing" constant="25" id="uJF-RY-9EL"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="LAS-Dd-iH8" firstAttribute="leading" secondItem="NfQ-ac-MnZ" secondAttribute="leading" id="0ZW-cH-wB9"/>
+                                    <constraint firstItem="LAS-Dd-iH8" firstAttribute="trailing" secondItem="NfQ-ac-MnZ" secondAttribute="trailing" id="2Uz-Qk-lUs"/>
+                                    <constraint firstItem="LAS-Dd-iH8" firstAttribute="bottom" secondItem="NfQ-ac-MnZ" secondAttribute="bottom" id="HFy-HR-r6b"/>
+                                    <constraint firstItem="LAS-Dd-iH8" firstAttribute="width" secondItem="dAg-dG-hcp" secondAttribute="width" id="h9g-1x-DcU"/>
+                                    <constraint firstItem="LAS-Dd-iH8" firstAttribute="top" secondItem="NfQ-ac-MnZ" secondAttribute="top" id="uYb-jw-mwd"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="NfQ-ac-MnZ"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="dAg-dG-hcp"/>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zy8-83-Z6W">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="104"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NlS-v8-X4p"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="zy8-83-Z6W" secondAttribute="trailing" id="ABC-qk-qiK"/>
+                            <constraint firstItem="OTO-Zz-2zh" firstAttribute="top" secondItem="zy8-83-Z6W" secondAttribute="bottom" constant="6" id="MnV-uK-5i6"/>
+                            <constraint firstItem="OTO-Zz-2zh" firstAttribute="trailing" secondItem="NlS-v8-X4p" secondAttribute="trailing" id="O9m-Lf-zIc"/>
+                            <constraint firstItem="zy8-83-Z6W" firstAttribute="leading" secondItem="iYi-XG-bkP" secondAttribute="leading" id="OeG-zS-PoU"/>
+                            <constraint firstItem="zy8-83-Z6W" firstAttribute="top" secondItem="iYi-XG-bkP" secondAttribute="top" id="Wuf-Ml-kx1"/>
+                            <constraint firstItem="OTO-Zz-2zh" firstAttribute="top" secondItem="iYi-XG-bkP" secondAttribute="top" constant="110" id="eWZ-bz-xPp"/>
+                            <constraint firstAttribute="bottom" secondItem="OTO-Zz-2zh" secondAttribute="bottom" id="ekX-pW-nzR"/>
+                            <constraint firstItem="OTO-Zz-2zh" firstAttribute="leading" secondItem="NlS-v8-X4p" secondAttribute="leading" id="nqc-16-376"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="QGm-0y-zjE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uja-Lt-W2Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3457.971014492754" y="942.85714285714278"/>
+        </scene>
     </scenes>
+    <designables>
+        <designable name="D66-qu-JFk">
+            <size key="intrinsicContentSize" width="180.5" height="64"/>
+        </designable>
+        <designable name="JVi-M1-MaL">
+            <size key="intrinsicContentSize" width="183" height="75"/>
+        </designable>
+        <designable name="SgO-FA-kd8">
+            <size key="intrinsicContentSize" width="179.5" height="71.5"/>
+        </designable>
+        <designable name="XfA-2m-xaV">
+            <size key="intrinsicContentSize" width="179.5" height="71.5"/>
+        </designable>
+        <designable name="dSc-mS-RIK">
+            <size key="intrinsicContentSize" width="216.5" height="73.5"/>
+        </designable>
+        <designable name="irg-St-PDp">
+            <size key="intrinsicContentSize" width="299" height="66.5"/>
+        </designable>
+        <designable name="qog-JK-CzY">
+            <size key="intrinsicContentSize" width="179.5" height="71.5"/>
+        </designable>
+        <designable name="xgc-uB-RMY">
+            <size key="intrinsicContentSize" width="190" height="67.5"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="fgT-Ot-b3I"/>
+        <segue reference="Qed-kn-pIC"/>
+        <segue reference="o2b-2d-PBx"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="bell.fill" catalog="system" width="128" height="124"/>
+        <image name="book.fill" catalog="system" width="128" height="102"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
+        <image name="circle.fill" catalog="system" width="128" height="121"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="ic_directory" width="24" height="24"/>
         <image name="ic_finger_print" width="170.66667175292969" height="170.66667175292969"/>
         <image name="ic_home" width="24" height="24"/>
@@ -2269,6 +2557,9 @@
         <image name="ic_notification" width="24" height="24"/>
         <image name="ic_person" width="166.66667175292969" height="166.66667175292969"/>
         <image name="ic_profile" width="24" height="24"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="newspaper.fill" catalog="system" width="128" height="111"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="splash-background-image" width="98.333335876464844" height="175"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2284,6 +2575,18 @@
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
