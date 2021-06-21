@@ -2489,7 +2489,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="dAg-dG-hcp"/>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zy8-83-Z6W">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="104"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                             </view>
                         </subviews>
@@ -2497,7 +2497,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="zy8-83-Z6W" secondAttribute="trailing" id="ABC-qk-qiK"/>
-                            <constraint firstItem="OTO-Zz-2zh" firstAttribute="top" secondItem="zy8-83-Z6W" secondAttribute="bottom" constant="6" id="MnV-uK-5i6"/>
+                            <constraint firstItem="OTO-Zz-2zh" firstAttribute="top" secondItem="zy8-83-Z6W" secondAttribute="bottom" id="MnV-uK-5i6"/>
                             <constraint firstItem="OTO-Zz-2zh" firstAttribute="trailing" secondItem="NlS-v8-X4p" secondAttribute="trailing" id="O9m-Lf-zIc"/>
                             <constraint firstItem="zy8-83-Z6W" firstAttribute="leading" secondItem="iYi-XG-bkP" secondAttribute="leading" id="OeG-zS-PoU"/>
                             <constraint firstItem="zy8-83-Z6W" firstAttribute="top" secondItem="iYi-XG-bkP" secondAttribute="top" id="Wuf-Ml-kx1"/>
