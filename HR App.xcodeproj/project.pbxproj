@@ -76,9 +76,7 @@
 		51BE1CA0267A10600035E0D3 /* ExchangeOfficeInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1C9F267A10600035E0D3 /* ExchangeOfficeInfoService.swift */; };
 		51BE1CA2267B38E80035E0D3 /* ExchangeOfficeDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1CA1267B38E80035E0D3 /* ExchangeOfficeDetailsModel.swift */; };
 		51BE1CA4267B3C730035E0D3 /* SerendibFInanceDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1CA3267B3C730035E0D3 /* SerendibFInanceDetailsModel.swift */; };
-		51BE1CA6267B4A820035E0D3 /* ExchangeOfficeDetailsServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1CA5267B4A820035E0D3 /* ExchangeOfficeDetailsServiceManager.swift */; };
 		51BE1CA8267B4FCA0035E0D3 /* SerendibFinanceInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1CA7267B4FCA0035E0D3 /* SerendibFinanceInfoService.swift */; };
-		51BE1CAA267B5B0E0035E0D3 /* SerendibFinanceDetailsServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1CA9267B5B0E0035E0D3 /* SerendibFinanceDetailsServiceManager.swift */; };
 		51BE1CAC267BB26A0035E0D3 /* CoporateManagementNameListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1CAB267BB26A0035E0D3 /* CoporateManagementNameListModel.swift */; };
 		51BE1CAE267BB3770035E0D3 /* CoporateManagementInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1CAD267BB3770035E0D3 /* CoporateManagementInfoService.swift */; };
 		51BE1CB0267C839A0035E0D3 /* SpecialLocationNameListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1CAF267C839A0035E0D3 /* SpecialLocationNameListModel.swift */; };
@@ -160,9 +158,7 @@
 		51BE1C9F267A10600035E0D3 /* ExchangeOfficeInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeOfficeInfoService.swift; sourceTree = "<group>"; };
 		51BE1CA1267B38E80035E0D3 /* ExchangeOfficeDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeOfficeDetailsModel.swift; sourceTree = "<group>"; };
 		51BE1CA3267B3C730035E0D3 /* SerendibFInanceDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerendibFInanceDetailsModel.swift; sourceTree = "<group>"; };
-		51BE1CA5267B4A820035E0D3 /* ExchangeOfficeDetailsServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeOfficeDetailsServiceManager.swift; sourceTree = "<group>"; };
 		51BE1CA7267B4FCA0035E0D3 /* SerendibFinanceInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerendibFinanceInfoService.swift; sourceTree = "<group>"; };
-		51BE1CA9267B5B0E0035E0D3 /* SerendibFinanceDetailsServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerendibFinanceDetailsServiceManager.swift; sourceTree = "<group>"; };
 		51BE1CAB267BB26A0035E0D3 /* CoporateManagementNameListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoporateManagementNameListModel.swift; sourceTree = "<group>"; };
 		51BE1CAD267BB3770035E0D3 /* CoporateManagementInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoporateManagementInfoService.swift; sourceTree = "<group>"; };
 		51BE1CAF267C839A0035E0D3 /* SpecialLocationNameListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialLocationNameListModel.swift; sourceTree = "<group>"; };
@@ -293,9 +289,7 @@
 				2C35A6BA266342E100A7EF0E /* DirectoryServiceManager.swift */,
 				2C15E0012663E4A900E616E9 /* BranchInfoServiceManager.swift */,
 				2C320D6C2670E5A8000A1AAD /* DepartmentDetailsServiceManager.swift */,
-				51BE1CA5267B4A820035E0D3 /* ExchangeOfficeDetailsServiceManager.swift */,
 				51BE1C9B2679EE430035E0D3 /* RegionalOfficeDetailsServiceManager.swift */,
-				51BE1CA9267B5B0E0035E0D3 /* SerendibFinanceDetailsServiceManager.swift */,
 				51BE1CB5267C9B7C0035E0D3 /* SpecialLocationDetailsServiceManager.swift */,
 				516825DE267F982000755321 /* CoporateManagementDetailsServiceManager.swift */,
 			);
@@ -701,7 +695,6 @@
 				2C0B3A03264552410037378E /* NetworkClient.swift in Sources */,
 				2CF4B7B92652C17200D8BF6A /* UserDetailsService.swift in Sources */,
 				51BE1CB6267C9B7C0035E0D3 /* SpecialLocationDetailsServiceManager.swift in Sources */,
-				51BE1CA6267B4A820035E0D3 /* ExchangeOfficeDetailsServiceManager.swift in Sources */,
 				2C7CD39626406E3D000C22D4 /* ErrorModel.swift in Sources */,
 				2C35A69A26631AF100A7EF0E /* AccessTokenServiceManager.swift in Sources */,
 				2C705AB2265C1D44009E3148 /* DepartmentViewController.swift in Sources */,
@@ -717,7 +710,6 @@
 				51BE1CA2267B38E80035E0D3 /* ExchangeOfficeDetailsModel.swift in Sources */,
 				51BE1CAE267BB3770035E0D3 /* CoporateManagementInfoService.swift in Sources */,
 				2C1D201C266107AC006EF880 /* EmployeeNameListModel.swift in Sources */,
-				51BE1CAA267B5B0E0035E0D3 /* SerendibFinanceDetailsServiceManager.swift in Sources */,
 				2C17750B265CE13000F93A29 /* UserDetailsConstants.swift in Sources */,
 				516EC043267097D0007E58DC /* BiometricPinConfigureViewController.swift in Sources */,
 				2C06B36D263936A8005743D8 /* WelcomeViewController.swift in Sources */,
