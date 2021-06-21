@@ -13,7 +13,7 @@ import Foundation
 enum Category: String {
     case branch = "Branches"
     case department = "Departments"
-    case co_management = "Coporate Management"
+    case co_management = "Corporate Management"
     case ex_office = "Exchange Offices"
     case reg_office = "Regional Offices"
     case serandib = "Serendib Finance Ltd"
