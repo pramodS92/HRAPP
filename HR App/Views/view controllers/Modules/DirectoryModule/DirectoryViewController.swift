@@ -49,13 +49,13 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
     var serviceManager: DirectoryServiceManager = DirectoryServiceManager()
     var coporateManagementServiceManager: CoporateManagementDetailsService = CoporateManagementDetailsService()
     
-    let viewSecretaryInfobutton: UIButton = {
-            let btn = UIButton()
-            btn.setTitle("Secretary Info", for: .normal)
-            btn.backgroundColor = .systemPink
-            btn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-            return btn
-        }()
+//    let viewSecretaryInfobutton: UIButton = {
+//            let btn = UIButton()
+//            btn.setTitle("Secretary Info", for: .normal)
+//            btn.backgroundColor = .systemPink
+//            btn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+//            return btn
+//        }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +71,7 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
+    
     
     
     func initUiProps() {
@@ -107,7 +108,6 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         self.selectcategoryBtn.setTitle(KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_BRANCH, for: .normal)
         
     }
-    
     
     @IBAction func handleCategorySelection(_ sender: UIButton) {
         self.setCategoryitemsVisibility ()
@@ -247,6 +247,7 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
                 cell.employeeName.text = employeeData.name!.condensed + " (" + employeeData.knownName! + ") "
                 cell.employeeDesignation.text = employeeData.designation
                 cell.employeeBranch.text = " "
+                cell.accessoryType = .detailButton
                 cell.selectionStyle = .none
             }
             return cell
@@ -292,6 +293,12 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.selectionStyle = .none
             return cell
         }
+    }
+    
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        let employeeData = _tableData[indexPath.row] as? CoporateManagementData
+        self.coporateManagementEmployeeId = employeeData?.secretaryID
+        self.getCoporateManagementDetails()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
