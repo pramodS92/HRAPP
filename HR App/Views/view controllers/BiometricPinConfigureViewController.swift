@@ -33,6 +33,7 @@ class BiometricPinConfigureViewController: UIViewController, UITextFieldDelegate
     func setupUI() {
         configureHidePinText()
         biometricSwitch.addTarget(self, action: #selector(switchValueDidChange), for: .valueChanged)
+        configureBtn.layer.cornerRadius = 10.0
     }
     
     private func devicePasscodeSet() -> Bool {

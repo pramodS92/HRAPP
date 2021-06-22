@@ -49,6 +49,14 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
     var serviceManager: DirectoryServiceManager = DirectoryServiceManager()
     var coporateManagementServiceManager: CoporateManagementDetailsService = CoporateManagementDetailsService()
     
+    let viewSecretaryInfobutton: UIButton = {
+            let btn = UIButton()
+            btn.setTitle("Secretary Info", for: .normal)
+            btn.backgroundColor = .systemPink
+            btn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+            return btn
+        }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initUiProps()
@@ -224,6 +232,7 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             }
             cell.selectionStyle = .none
             return cell
+            
         case .special_office:
             let cell = derectoryTableView.dequeueReusableCell(withIdentifier: UiConstants.ViewCellId.DIRECTORY_ITEM_CELL, for: indexPath) as! DirectoryTableViewCell
             if let specicalOfficeData = _tableData[indexPath.row] as? SpecialLocationData{
