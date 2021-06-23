@@ -67,6 +67,7 @@
 		516825DD267F956700755321 /* CoporateManagementDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516825DC267F956700755321 /* CoporateManagementDetailsModel.swift */; };
 		516825DF267F982000755321 /* CoporateManagementDetailsServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516825DE267F982000755321 /* CoporateManagementDetailsServiceManager.swift */; };
 		516EC043267097D0007E58DC /* BiometricPinConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516EC042267097D0007E58DC /* BiometricPinConfigureViewController.swift */; };
+		5198CE7C268347350051549C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5198CE7B268347350051549C /* HomeViewController.swift */; };
 		51BE1C942679DA960035E0D3 /* RegionalOfficeDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1C932679DA960035E0D3 /* RegionalOfficeDetailsModel.swift */; };
 		51BE1C962679DAAD0035E0D3 /* RegionalOfficeNameListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1C952679DAAD0035E0D3 /* RegionalOfficeNameListModel.swift */; };
 		51BE1C9A2679DC470035E0D3 /* RegionalOfficeInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1C992679DC470035E0D3 /* RegionalOfficeInfoService.swift */; };
@@ -150,6 +151,7 @@
 		516825DC267F956700755321 /* CoporateManagementDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoporateManagementDetailsModel.swift; sourceTree = "<group>"; };
 		516825DE267F982000755321 /* CoporateManagementDetailsServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoporateManagementDetailsServiceManager.swift; sourceTree = "<group>"; };
 		516EC042267097D0007E58DC /* BiometricPinConfigureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricPinConfigureViewController.swift; sourceTree = "<group>"; };
+		5198CE7B268347350051549C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		51BE1C932679DA960035E0D3 /* RegionalOfficeDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalOfficeDetailsModel.swift; sourceTree = "<group>"; };
 		51BE1C952679DAAD0035E0D3 /* RegionalOfficeNameListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalOfficeNameListModel.swift; sourceTree = "<group>"; };
 		51BE1C992679DC470035E0D3 /* RegionalOfficeInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalOfficeInfoService.swift; sourceTree = "<group>"; };
@@ -507,10 +509,19 @@
 		2CFFA09426543D5B00D86E53 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				5198CE7A268347130051549C /* Home */,
 				2CB1DA502658061500CCF06F /* DirectoryModule */,
 				2C34EE632655E5EB00978015 /* UserModule */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		5198CE7A268347130051549C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				5198CE7B268347350051549C /* HomeViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		A05548C113752D85C13732CE /* Pods */ = {
@@ -669,6 +680,7 @@
 				2C705A8B265B638C009E3148 /* DepartmentInfoService.swift in Sources */,
 				51BE1CA8267B4FCA0035E0D3 /* SerendibFinanceInfoService.swift in Sources */,
 				2C705A7F265B5B9B009E3148 /* DepartmentNameListModel.swift in Sources */,
+				5198CE7C268347350051549C /* HomeViewController.swift in Sources */,
 				2C34EE652655E65600978015 /* UserJobInfoViewController.swift in Sources */,
 				2C1D200D2660C28D006EF880 /* EmployeeInfoService.swift in Sources */,
 				51BE1CB2267C874F0035E0D3 /* SpecialLocationDetailsModel.swift in Sources */,
