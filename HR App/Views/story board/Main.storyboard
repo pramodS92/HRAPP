@@ -1840,7 +1840,7 @@
             <objects>
                 <viewController storyboardIdentifier="UserProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ydm-kG-gZs" customClass="UserProfileViewController" customModule="HR_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uXs-EV-7KE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ca6-HF-OVB">
@@ -1966,24 +1966,24 @@
                                 </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cVr-yv-UBD">
-                                <rect key="frame" x="0.0" y="348" width="414" height="514"/>
+                                <rect key="frame" x="0.0" y="348" width="414" height="509"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jHK-0M-yFo">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="514"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="509"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <segue destination="jt3-sq-YLq" kind="embed" identifier="UserInfoSegue" id="zBf-mJ-wya"/>
                                         </connections>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ld-ZD-LjL">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="514"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="509"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <segue destination="nEa-jA-cK3" kind="embed" identifier="UserJobInfoSegue" id="mMd-Jz-ogb"/>
                                         </connections>
                                     </containerView>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="wih-8B-HPg">
-                                        <rect key="frame" x="174.5" y="224.5" width="65" height="65"/>
+                                        <rect key="frame" x="174.5" y="222" width="65" height="65"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="65" id="DCD-3v-7eV"/>
                                             <constraint firstAttribute="height" constant="65" id="LMI-bl-b1s"/>
@@ -2081,11 +2081,11 @@
             <objects>
                 <viewController storyboardIdentifier="UserJobInfoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nEa-jA-cK3" customClass="UserJobInfoViewController" customModule="HR_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AyR-Rf-cX8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="514"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="509"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BIi-RD-Nm8">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="514"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="509"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -2111,11 +2111,11 @@
             <objects>
                 <viewController storyboardIdentifier="UserInfoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jt3-sq-YLq" customClass="UserInfoViewController" customModule="HR_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F9m-SU-33q">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="514"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="509"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hL5-Ca-KyG">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="514"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="509"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -2259,13 +2259,8 @@
             <point key="canvasLocation" x="3536" y="112"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="Gln-mF-8F8">
-            <size key="intrinsicContentSize" width="102" height="43"/>
-        </designable>
-    </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="PsR-gN-kqI"/>
+        <segue reference="fgT-Ot-b3I"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
