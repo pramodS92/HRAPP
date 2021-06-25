@@ -17,6 +17,7 @@ class BranchEmployeeDetailsViewController: UIViewController {
     var employeeData = [String]()
     let labelFontSize: CGFloat = 12.0
     var employeeDetails: BranchEmployeeData!
+    var employeeType: Int = 0
 
     
     override func viewDidLoad() {
@@ -33,6 +34,8 @@ class BranchEmployeeDetailsViewController: UIViewController {
             element.font = element.font.withSize(labelFontSize)
             element.text = KeyCostants.BranchEmployeeDetails.BRANCH_EMPLOYEE_DETAILS_TITLES[index]
         }
+        
+        
     }
     
     func initUiProps() {

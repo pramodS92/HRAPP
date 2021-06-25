@@ -64,6 +64,7 @@
 		2CF4B8202653BBA200D8BF6A /* UserDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF4B81F2653BBA200D8BF6A /* UserDetailsModel.swift */; };
 		2CFC8020265174F400DD88AD /* BiometricAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFC801F265174F400DD88AD /* BiometricAuthViewController.swift */; };
 		2CFFA09B26543D9700D86E53 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFFA09A26543D9700D86E53 /* UserProfileViewController.swift */; };
+		5111397826859D25002FEFC2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5111397726859D25002FEFC2 /* HomeViewController.swift */; };
 		516825DD267F956700755321 /* CoporateManagementDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516825DC267F956700755321 /* CoporateManagementDetailsModel.swift */; };
 		516825DF267F982000755321 /* CoporateManagementDetailsServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516825DE267F982000755321 /* CoporateManagementDetailsServiceManager.swift */; };
 		516EC043267097D0007E58DC /* BiometricPinConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516EC042267097D0007E58DC /* BiometricPinConfigureViewController.swift */; };
@@ -147,6 +148,7 @@
 		2CFC801F265174F400DD88AD /* BiometricAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthViewController.swift; sourceTree = "<group>"; };
 		2CFFA09A26543D9700D86E53 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		3E54E7E5DDF93BC62F1248E9 /* Pods-HR App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HR App.release.xcconfig"; path = "Target Support Files/Pods-HR App/Pods-HR App.release.xcconfig"; sourceTree = "<group>"; };
+		5111397726859D25002FEFC2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		516825DC267F956700755321 /* CoporateManagementDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoporateManagementDetailsModel.swift; sourceTree = "<group>"; };
 		516825DE267F982000755321 /* CoporateManagementDetailsServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoporateManagementDetailsServiceManager.swift; sourceTree = "<group>"; };
 		516EC042267097D0007E58DC /* BiometricPinConfigureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricPinConfigureViewController.swift; sourceTree = "<group>"; };
@@ -507,10 +509,19 @@
 		2CFFA09426543D5B00D86E53 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				5111397626859D12002FEFC2 /* Home */,
 				2CB1DA502658061500CCF06F /* DirectoryModule */,
 				2C34EE632655E5EB00978015 /* UserModule */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		5111397626859D12002FEFC2 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				5111397726859D25002FEFC2 /* HomeViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		A05548C113752D85C13732CE /* Pods */ = {
@@ -669,6 +680,7 @@
 				2C705A8B265B638C009E3148 /* DepartmentInfoService.swift in Sources */,
 				51BE1CA8267B4FCA0035E0D3 /* SerendibFinanceInfoService.swift in Sources */,
 				2C705A7F265B5B9B009E3148 /* DepartmentNameListModel.swift in Sources */,
+				5111397826859D25002FEFC2 /* HomeViewController.swift in Sources */,
 				2C34EE652655E65600978015 /* UserJobInfoViewController.swift in Sources */,
 				2C1D200D2660C28D006EF880 /* EmployeeInfoService.swift in Sources */,
 				51BE1CB2267C874F0035E0D3 /* SpecialLocationDetailsModel.swift in Sources */,

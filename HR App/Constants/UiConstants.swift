@@ -146,6 +146,17 @@ struct KeyCostants {
             "Email"]
     }
     
+    struct SecretaryDetails {
+        static let SECRETARY_UNAVAILABLE = [
+            "",
+            ""
+        ]
+        static let SECRETARY_AVAILABLE = [
+            "Secretary Details",
+            "view details"
+        ]
+    }
+    
     struct DepartmentDetails {
         static let DEPARTMENT_DETAILS_TITLES = [
             "Department Head's Name",
