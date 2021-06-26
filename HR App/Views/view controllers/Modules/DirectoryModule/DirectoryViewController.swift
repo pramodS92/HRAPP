@@ -41,9 +41,11 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
     var regionalOfficeId: String?
     var exchangeOfficeId: String?
     var coporateManagementEmployeeId: String?
+    var coporateManagementSecretaryId: String?
     var selectedCategory: String?
     var isTyping: Bool = false
     var infoTitles = [String]()
+    var employeeType: Int = 0
     
     var employeeDetailsVc = BranchEmployeeDetailsViewController()
     var serviceManager: DirectoryServiceManager = DirectoryServiceManager()
@@ -154,44 +156,53 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             requestHandler = getBranchNameList
             self.requestHandler!("")
             searchTextFiled.isEnabled = true
+            employeeType = 0
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_BRANCH
         case .department:
             requestHandler = getDepartmentNameList
             self.requestHandler!("")
             searchTextFiled.isEnabled = true
+            employeeType = 0
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_DEPARTMENT
         case .co_management:
             requestHandler = getCoporateManagementNameList
             self.requestHandler!("")
+            employeeType = 1
             searchTextFiled.isEnabled = false
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_COP_MANAGEMENT
         case .ex_office:
             requestHandler = getExchangeOfficeNameList
             self.requestHandler!("")
             searchTextFiled.isEnabled = true
+            employeeType = 0
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_EX_OFFICE
         case .reg_office:
             requestHandler = getRegionalOfficeNameList
             self.requestHandler!("")
             searchTextFiled.isEnabled = false
+            employeeType = 0
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_REG_OFFICE
         case .serandib:
             requestHandler = getSerendibFinanceNameList
             self.requestHandler!("")
             searchTextFiled.isEnabled = false
+            employeeType = 0
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_SPECIAL_LOCATIONS
         case .special_office:
             requestHandler = getSpecialOfficeNameList
             self.requestHandler!("")
             searchTextFiled.isEnabled = true
+            employeeType = 0
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_SPECIAL_LOCATIONS
         case .employee:
             requestHandler = getEmployeeList
             searchTextFiled.isEnabled = true
+            employeeType = 0
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_EMPLOYEE_PLACEHOLDER
         default:
             requestHandler = getBranchNameList
             searchTextFiled.isEnabled = true
+            employeeType = 0
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_BRANCH
         }
         
@@ -247,7 +258,7 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
                 cell.employeeName.text = employeeData.name!.condensed + " (" + employeeData.knownName! + ") "
                 cell.employeeDesignation.text = employeeData.designation
                 cell.employeeBranch.text = " "
-                cell.accessoryType = .detailButton
+//                cell.accessoryType = .detailButton
                 cell.selectionStyle = .none
             }
             return cell
@@ -295,11 +306,11 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
-    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        let employeeData = _tableData[indexPath.row] as? CoporateManagementData
-        self.coporateManagementEmployeeId = employeeData?.secretaryID
-        self.getCoporateManagementDetails()
-    }
+//    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+//        let employeeData = _tableData[indexPath.row] as? CoporateManagementData
+//        self.coporateManagementEmployeeId = employeeData?.secretaryID
+//        self.getCoporateManagementDetails()
+//    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch Category(rawValue: selectedCategory!)  {
@@ -314,6 +325,7 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         case .co_management:
             let coporateManagementInfo = _tableData[indexPath.row] as! CoporateManagementData
             self.coporateManagementEmployeeId = coporateManagementInfo.agmid
+            self.coporateManagementSecretaryId = coporateManagementInfo.secretaryID
             self.getCoporateManagementDetails()
         case .ex_office:
             let exchangeOfficeInfo = _tableData[indexPath.row] as! ExchangeOfficeData
@@ -361,6 +373,8 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func getEmployeeInfo(info: BranchEmployeeData){
         employeeDetailsVc.modalPresentationStyle = .overCurrentContext
+        employeeDetailsVc.employeeType = self.employeeType
+        employeeDetailsVc.coporateManagerSecretaryID = self.coporateManagementSecretaryId
         employeeDetailsVc.employeeDetails = info
         self.present(employeeDetailsVc, animated: true, completion: nil)
     }

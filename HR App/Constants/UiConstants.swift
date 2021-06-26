@@ -144,16 +144,13 @@ struct KeyCostants {
             "Telephone",
             "Intercom",
             "Email"]
-    }
-    
-    struct SecretaryDetails {
         static let SECRETARY_UNAVAILABLE = [
             "",
             ""
         ]
         static let SECRETARY_AVAILABLE = [
             "Secretary Details",
-            "view details"
+            "click here to view details"
         ]
     }
     

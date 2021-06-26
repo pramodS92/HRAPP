@@ -1087,7 +1087,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wC-rU-cNd">
+                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wC-rU-cNd">
                                                         <rect key="frame" x="341" y="-9.5" width="9" height="19.5"/>
                                                         <attributedString key="attributedText">
                                                             <fragment content="..">
@@ -1173,6 +1173,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="rUo-NL-old"/>
                     <connections>
+                        <outlet property="secretaryDetailsView" destination="U3j-zA-7Z4" id="gdq-bG-6qg"/>
+                        <outlet property="secretarydetailsTitleLabel" destination="8bB-W4-nil" id="GOW-LC-6vd"/>
+                        <outlet property="viewSecretaryDetailsLabel" destination="8wC-rU-cNd" id="jaF-cA-PMQ"/>
                         <outletCollection property="branchEmployeeDetailsTitle" destination="7QB-j9-PH6" collectionClass="NSMutableArray" id="LfB-Zg-Adk"/>
                         <outletCollection property="branchEmployeeDetailsTitle" destination="Kz6-Gc-ICm" collectionClass="NSMutableArray" id="mGZ-HH-haq"/>
                         <outletCollection property="branchEmployeeDetailsTitle" destination="l6w-Jc-qLx" collectionClass="NSMutableArray" id="ZWF-Z6-GQ6"/>
@@ -1191,7 +1194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IhP-FB-7vr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4946" y="1850"/>
+            <point key="canvasLocation" x="4926" y="1725"/>
         </scene>
         <!--Department View Controller-->
         <scene sceneID="2T0-Vu-eik">
@@ -1888,7 +1891,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QcV-gh-vs9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5038" y="165"/>
+            <point key="canvasLocation" x="5039" y="112"/>
         </scene>
         <!--Validation View Controller-->
         <scene sceneID="IfW-bs-H5e">
@@ -2217,7 +2220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IU2-v1-3n0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6390" y="943"/>
+            <point key="canvasLocation" x="6365" y="651"/>
         </scene>
         <!--Notification-->
         <scene sceneID="LpM-93-xjo">
@@ -2435,7 +2438,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="het-gB-rOf"/>
+        <segue reference="fgT-Ot-b3I"/>
         <segue reference="E2d-sL-GfC"/>
     </inferredMetricsTieBreakers>
     <resources>
