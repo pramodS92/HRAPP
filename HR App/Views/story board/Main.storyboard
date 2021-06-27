@@ -278,7 +278,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cvp-86-CIV">
                                                         <rect key="frame" x="25" y="262" width="364" height="100"/>
-                                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="100" id="eXc-ZM-shq"/>
                                                             <constraint firstAttribute="width" constant="364" id="gAN-kI-wGw"/>
@@ -324,24 +324,81 @@
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" scale="large" weight="medium"/>
                                                         </state>
                                                     </button>
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Dk-pe-S0s">
+                                                        <rect key="frame" x="25" y="586" width="364" height="100"/>
+                                                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="364" id="e1v-5j-j5k"/>
+                                                            <constraint firstAttribute="height" constant="100" id="n7i-NB-ayT"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="titleEdgeInsets" minX="180" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="140" maxY="0.0"/>
+                                                        <state key="normal" title="Module" image="circle.fill" catalog="system">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" scale="large" weight="medium"/>
+                                                        </state>
+                                                    </button>
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Tc-oq-pEf">
+                                                        <rect key="frame" x="25" y="694" width="364" height="100"/>
+                                                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="364" id="gXW-hT-y2F"/>
+                                                            <constraint firstAttribute="height" constant="100" id="jOw-4K-mDt"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="titleEdgeInsets" minX="180" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="140" maxY="0.0"/>
+                                                        <state key="normal" title="Module" image="circle.fill" catalog="system">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" scale="large" weight="medium"/>
+                                                        </state>
+                                                    </button>
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXD-WQ-6L1">
+                                                        <rect key="frame" x="25" y="802" width="364" height="100"/>
+                                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="100" id="aLf-qd-qgC"/>
+                                                            <constraint firstAttribute="width" constant="364" id="hsJ-gK-gDF"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="titleEdgeInsets" minX="180" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="140" maxY="0.0"/>
+                                                        <state key="normal" title="Module" image="circle.fill" catalog="system">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" scale="large" weight="medium"/>
+                                                        </state>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstItem="6Dk-pe-S0s" firstAttribute="top" secondItem="5KZ-fa-DyW" secondAttribute="bottom" constant="8" symbolic="YES" id="0Rv-D6-hUW"/>
                                                     <constraint firstItem="e9G-vG-eUR" firstAttribute="leading" secondItem="eNe-vp-p0R" secondAttribute="leading" constant="25" id="19F-oX-mOb"/>
                                                     <constraint firstAttribute="trailing" secondItem="Cvp-86-CIV" secondAttribute="trailing" constant="25" id="1tm-Jw-glE"/>
                                                     <constraint firstItem="lXS-qk-2n7" firstAttribute="top" secondItem="eNe-vp-p0R" secondAttribute="top" constant="46" id="2TL-Ru-A9E"/>
                                                     <constraint firstAttribute="trailing" secondItem="e9G-vG-eUR" secondAttribute="trailing" constant="25" id="3Ms-Pv-kKY"/>
                                                     <constraint firstItem="lXS-qk-2n7" firstAttribute="leading" secondItem="eNe-vp-p0R" secondAttribute="leading" constant="25" id="4Dn-Qu-a6A"/>
+                                                    <constraint firstItem="5Tc-oq-pEf" firstAttribute="top" secondItem="6Dk-pe-S0s" secondAttribute="bottom" constant="8" symbolic="YES" id="6Fz-k8-Qkn"/>
                                                     <constraint firstAttribute="trailing" secondItem="5KZ-fa-DyW" secondAttribute="trailing" constant="25" id="6uZ-HN-GlC"/>
                                                     <constraint firstAttribute="trailing" secondItem="STt-wH-Ppi" secondAttribute="trailing" constant="25" id="7vJ-Sv-IYk"/>
                                                     <constraint firstItem="Cvp-86-CIV" firstAttribute="top" secondItem="STt-wH-Ppi" secondAttribute="bottom" constant="8" symbolic="YES" id="Elq-MS-vaw"/>
+                                                    <constraint firstItem="RXD-WQ-6L1" firstAttribute="top" secondItem="5Tc-oq-pEf" secondAttribute="bottom" constant="8" symbolic="YES" id="OD4-f1-acS"/>
+                                                    <constraint firstItem="6Dk-pe-S0s" firstAttribute="leading" secondItem="eNe-vp-p0R" secondAttribute="leading" constant="25" id="RNs-KI-pVp"/>
+                                                    <constraint firstItem="5Tc-oq-pEf" firstAttribute="leading" secondItem="eNe-vp-p0R" secondAttribute="leading" constant="25" id="YHv-yT-D1z"/>
                                                     <constraint firstAttribute="trailing" secondItem="lXS-qk-2n7" secondAttribute="trailing" constant="25" id="bWt-dS-bQC"/>
+                                                    <constraint firstAttribute="trailing" secondItem="6Dk-pe-S0s" secondAttribute="trailing" constant="25" id="fZD-SX-eNh"/>
                                                     <constraint firstItem="e9G-vG-eUR" firstAttribute="top" secondItem="Cvp-86-CIV" secondAttribute="bottom" constant="8" symbolic="YES" id="fn3-az-y6g"/>
                                                     <constraint firstItem="STt-wH-Ppi" firstAttribute="top" secondItem="lXS-qk-2n7" secondAttribute="bottom" constant="8" symbolic="YES" id="gKJ-os-w7H"/>
                                                     <constraint firstItem="Cvp-86-CIV" firstAttribute="leading" secondItem="eNe-vp-p0R" secondAttribute="leading" constant="25" id="gQ8-c4-PU4"/>
                                                     <constraint firstItem="5KZ-fa-DyW" firstAttribute="top" secondItem="e9G-vG-eUR" secondAttribute="bottom" constant="8" symbolic="YES" id="nPb-NA-w2D"/>
                                                     <constraint firstItem="STt-wH-Ppi" firstAttribute="leading" secondItem="eNe-vp-p0R" secondAttribute="leading" constant="25" id="oBH-q3-wAh"/>
                                                     <constraint firstItem="5KZ-fa-DyW" firstAttribute="leading" secondItem="eNe-vp-p0R" secondAttribute="leading" constant="25" id="r53-nB-jEl"/>
+                                                    <constraint firstAttribute="trailing" secondItem="RXD-WQ-6L1" secondAttribute="trailing" constant="25" id="t0C-qw-OpT"/>
+                                                    <constraint firstItem="RXD-WQ-6L1" firstAttribute="leading" secondItem="eNe-vp-p0R" secondAttribute="leading" constant="25" id="x8V-Ej-pRT"/>
+                                                    <constraint firstAttribute="trailing" secondItem="5Tc-oq-pEf" secondAttribute="trailing" constant="25" id="xAv-yk-V3E"/>
                                                     <constraint firstAttribute="height" constant="1200" id="xyL-fD-jM2"/>
                                                 </constraints>
                                             </view>
@@ -2134,7 +2191,7 @@
                                         <imageReference key="image" image="ic_profile" symbolScale="small"/>
                                     </segment>
                                     <segment title="">
-                                        <imageReference key="image" image="ic_notification" symbolScale="small"/>
+                                        <imageReference key="image" image="ic_briefcase" symbolScale="small"/>
                                     </segment>
                                 </segments>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2438,13 +2495,15 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fgT-Ot-b3I"/>
+        <segue reference="het-gB-rOf"/>
         <segue reference="E2d-sL-GfC"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bell.fill" catalog="system" width="128" height="124"/>
         <image name="book.fill" catalog="system" width="128" height="102"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
+        <image name="circle.fill" catalog="system" width="128" height="121"/>
+        <image name="ic_briefcase" width="32" height="32"/>
         <image name="ic_directory" width="24" height="24"/>
         <image name="ic_finger_print" width="170.66667175292969" height="170.66667175292969"/>
         <image name="ic_home" width="24" height="24"/>
@@ -2475,8 +2534,17 @@
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
