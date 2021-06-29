@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.4.2)
+  - Alamofire (5.4.3)
   - MaterialComponents/AnimationTiming (124.2.0)
   - MaterialComponents/Availability (124.2.0)
   - MaterialComponents/BottomAppBar (124.2.0):
@@ -87,6 +87,7 @@ DEPENDENCIES:
   - Alamofire (~> 5.2)
   - MaterialComponents/BottomAppBar
   - MaterialComponents/BottomNavigation
+  - MDFInternationalization
   - RxSwift (~> 5)
   - SVProgressHUD
   - SwiftyJSON (~> 4.0)
@@ -102,7 +103,7 @@ SPEC REPOS:
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: bfbc4c2fe5909b1d94fb4ef2277c6b3727ef5dae
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
   MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
   MDFTextAccessibility: f4bb4cc2194286651b59a215fdeaa0e05dc90ba5
@@ -110,6 +111,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: e3e735bae1bdd7e1dc0a7febc7b7b5943eb78821
+PODFILE CHECKSUM: 37f183b292261a4e04b6f5b73f093bd6e7dd1b26
 
 COCOAPODS: 1.10.1
