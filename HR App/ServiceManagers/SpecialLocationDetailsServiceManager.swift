@@ -38,14 +38,14 @@ class SpecialLocationDetailsServiceManager {
     }
     
     func getSpecialLocationDetails(data: SpecialLocationDataClass) -> [String] {
-        specialLocationData.append(data.nameOne!.condensed.uppercased())
-        specialLocationData.append(" ")
-        specialLocationData.append(data.directNumberOne!)
-        specialLocationData.append(data.interComeOne!)
-        specialLocationData.append(data.locationID!)
-        specialLocationData.append(data.locationName!)
+        
         specialLocationData.append(data.attachedBranch!)
         specialLocationData.append(data.fax!)
+        specialLocationData.append(" ")
+        specialLocationData.append(" ")
+        specialLocationData.append(" ")
+        specialLocationData.append(" ")
+        specialLocationData.append(" ")
         specialLocationData.append(" ")
         specialLocationData.append(" ")
         specialLocationData.append(" ")

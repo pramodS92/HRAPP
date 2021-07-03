@@ -93,6 +93,7 @@ class BranchEmployeeDetailsViewController: UIViewController {
         self.employeeData.append(employeeDetails.knownName!)
         self.employeeData.append(employeeDetails.designation!)
         self.employeeData.append(employeeDetails.branch!)
+        self.employeeData.append(employeeDetails.department!)
         self.employeeData.append(employeeDetails.telephone!)
         self.employeeData.append(employeeDetails.interCOM!)
         self.employeeData.append(employeeDetails.email!)

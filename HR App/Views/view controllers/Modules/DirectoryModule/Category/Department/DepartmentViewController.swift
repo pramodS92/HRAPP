@@ -42,10 +42,9 @@ class DepartmentViewController: UIViewController,UITableViewDelegate, UITableVie
             self.getRegionalOfficeDetails()
         } else if (categoryNo == 7) {
             self.getSpecialLocationDetails()
-        } else {
+        } else if (categoryNo == 0){
             self.getDepartmentDetails()
         }
-        
     }
     
     func setupUiProps(){

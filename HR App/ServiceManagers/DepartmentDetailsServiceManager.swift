@@ -48,7 +48,6 @@ class DepartmentDetailsServiceManager {
         departmentData.append(data.knownName!)
         departmentData.append(data.deparmentHeadTelephone!)
         departmentData.append(data.departmentHeadID!)
-        departmentData.append(data.departmentID!)
         departmentData.append(data.branchName!)
         departmentData.append(data.headEXT!)
         departmentData.append(data.fax!)

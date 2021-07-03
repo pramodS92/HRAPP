@@ -157,17 +157,20 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             self.requestHandler!("")
             searchTextFiled.isEnabled = true
             employeeType = 0
+            self.categoryNo = 0
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_BRANCH
         case .department:
             requestHandler = getDepartmentNameList
             self.requestHandler!("")
             searchTextFiled.isEnabled = true
             employeeType = 0
+            self.categoryNo = 0
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_DEPARTMENT
         case .co_management:
             requestHandler = getCoporateManagementNameList
             self.requestHandler!("")
             employeeType = 1
+            self.categoryNo = 0
             searchTextFiled.isEnabled = false
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_COP_MANAGEMENT
         case .ex_office:
@@ -175,34 +178,40 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             self.requestHandler!("")
             searchTextFiled.isEnabled = true
             employeeType = 0
+            self.categoryNo = 0
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_EX_OFFICE
         case .reg_office:
             requestHandler = getRegionalOfficeNameList
             self.requestHandler!("")
             searchTextFiled.isEnabled = false
             employeeType = 0
+            self.categoryNo = 5
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_REG_OFFICE
         case .serandib:
             requestHandler = getSerendibFinanceNameList
             self.requestHandler!("")
             searchTextFiled.isEnabled = false
             employeeType = 0
+            self.categoryNo = 0
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_SPECIAL_LOCATIONS
         case .special_office:
             requestHandler = getSpecialOfficeNameList
             self.requestHandler!("")
             searchTextFiled.isEnabled = true
             employeeType = 0
+            self.categoryNo = 7
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_SPECIAL_LOCATIONS
         case .employee:
             requestHandler = getEmployeeList
             searchTextFiled.isEnabled = true
             employeeType = 0
+            self.categoryNo = 0
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_EMPLOYEE_PLACEHOLDER
         default:
             requestHandler = getBranchNameList
             searchTextFiled.isEnabled = true
             employeeType = 0
+            self.categoryNo = 0
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_BRANCH
         }
         
@@ -338,7 +347,7 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             self.regionalOfficeName = regOfficeInfo.regionalOffice
             self.regionalOfficeId = regOfficeInfo.regionalOfficeIDs
             self.infoTitles = KeyCostants.RegionalOfficeDetails.REGIONAL_OFFICE_DETAILS_TITLES
-            self.categoryNo = 5
+            
             performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_DEPARTMENT_SEGUE, sender: self)
         case .serandib:
             let serendibInfo = _tableData[indexPath.row] as! SerendibFinanceDataClass
@@ -348,7 +357,6 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         case .special_office:
             let specialLocationInfo = _tableData[indexPath.row] as? SpecialLocationData
             self.specialLocationId = specialLocationInfo?.locationID
-            self.categoryNo = 7
             self.infoTitles = KeyCostants.SpecialOfficeDetails.SPECIAL_OFFICE_DETAILS_TITLES
             performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_DEPARTMENT_SEGUE, sender: self)
         case .employee:

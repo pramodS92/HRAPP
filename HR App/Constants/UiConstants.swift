@@ -123,13 +123,12 @@ struct KeyCostants {
         static let REGIONAL_OFFICE_DETAILS_AGM_DGM_DESIGNATION = "AGM/DGM Designation"
         static let REGIONAL_OFFICE_DETAILS_SUBDIVISION = "Subdivision"
         static let REGIONAL_OFFICE_DETAILS_TITLES = [
+            "AGM",
             "Regional Office Manager's Name",
             "Regional Office Manager's Known Name",
             "Regional Office Manager's Telephone No",
             "Regional Office Manager's Ext",
-            "Regional Office ID",
             "Attached Branch",
-            "Subdivision",
             "Fax",
             "Address"]
     }
@@ -141,6 +140,7 @@ struct KeyCostants {
             "Known Name",
             "Designation",
             "Branch Name",
+            "Department",
             "Telephone",
             "Intercom",
             "Email"]
@@ -160,9 +160,8 @@ struct KeyCostants {
             "Department Head's Known Name",
             "Department Head's Telephone",
             "Department Head's ID",
-            "Department ID",
             "Branch Name",
-            "Head Text",
+            "Head ext",
             "Fax number",
             "Address"
         ]
@@ -170,15 +169,14 @@ struct KeyCostants {
     
     struct SpecialOfficeDetails {
         static let SPECIAL_OFFICE_DETAILS_TITLES = [
-            "Special Office Head's Name",
-            "Special Office Head's Known Name",
-            "Special Office Head's Telephone",
-            "Special Office Head's Intercom",
-            "Special Office ID",
-            "Special Office Name",
             "Attached Branch",
             "Fax",
-            "Address"
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
         ]
     }
 }
