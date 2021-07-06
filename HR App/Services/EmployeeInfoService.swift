@@ -20,6 +20,7 @@ enum EmployeeInfoServiceRouter {
     
     case getEmployeeByName
     case getEmployeeDetailsById
+    case getEmployeeSalaryDetailsById
     
     var baseURL: String {
         return NetworkConstants.baseURL
@@ -31,6 +32,8 @@ enum EmployeeInfoServiceRouter {
             return NetworkConstants.path.getEmployeeByName
         case .getEmployeeDetailsById:
             return NetworkConstants.path.getEmployeeDetailsById
+        case .getEmployeeSalaryDetailsById:
+            return NetworkConstants.path.getEmployeeSalaryDetailsById
         }
     }
     
@@ -89,6 +92,21 @@ extension EmployeeInfoService {
                 completion(response, nil, statusCode)
             case .Invalid(let response, let statusCode):
                 completion(nil, nil, statusCode)
+            case .Failure(let error, let statusCode):
+                completion(nil, error, statusCode)
+            }
+        }
+    }
+    
+    func getEmployeeSalaryDetailsById(employeeId: String, completion: @escaping(Any?, Error?, Int?) -> ()) {
+        let requestInfo = EmployeeInfoServiceRouter.getEmployeeSalaryDetailsById.asurlRequest(searchBy: employeeId)
+        
+        NetworkClient.shared.requestData(requestInfo: requestInfo, isSecure: false) { (response) in
+            switch response {
+            case .Success(let response, let statusCode):
+                completion(response, nil, statusCode)
+            case .Invalid(let response, let statusCode):
+                completion(response, nil, statusCode)
             case .Failure(let error, let statusCode):
                 completion(nil, error, statusCode)
             }

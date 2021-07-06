@@ -24,9 +24,12 @@ class UserProfileViewController: UIViewController {
 
     var userInfo: [String]?
     var userTabelData: [String]?
+    var userJobTableData: [EmployeeSalaryDetailsData]?
     var isLoggedInUser: Bool?
     var employeeId: String?
+    var loggedInEmployeeId: String?
     var serviceManager: UserProfileServiceManager = UserProfileServiceManager()
+    var employeeSalaryDetailsServiceManager: EmployeeSalaryDetailsServiceManager = EmployeeSalaryDetailsServiceManager()
     
     var isLoggedIn: Bool = false {
         didSet {
@@ -39,6 +42,7 @@ class UserProfileViewController: UIViewController {
         super.viewDidLoad()
         self.setDefaultSegment()
         isLoggedInUser ?? true ? self.getUserDetails() : self.getEmployeeDetailsById()
+        self.getEmployeeSalaryDetailsById()
         self.backButton.isHidden = isLoggedInUser ?? true
     }
     
@@ -57,8 +61,24 @@ class UserProfileViewController: UIViewController {
         self.isLoggedIn = true
         self.spinnerView.stopAnimating()
         self.spinnerView.isHidden = true
+        
     }
     
+    func setUserJobInfo(userJobTableData: [EmployeeSalaryDetailsData]) {
+        print("jobs")
+        self.userJobTableData = userJobTableData
+        print(self.userJobTableData!)
+        
+    }
+    
+    func setActivityIndicatorVisibility(show: Bool) {
+        self.spinnerView.isHidden = !show
+        if show {
+            self.spinnerView.startAnimating()
+        }else {
+            self.spinnerView.stopAnimating()
+        }
+    }
     
     @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
@@ -81,8 +101,6 @@ class UserProfileViewController: UIViewController {
         getUserProfile()
     }
     
-
-    
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         return isLoggedIn
     }
@@ -98,6 +116,7 @@ class UserProfileViewController: UIViewController {
 
 
 extension UserProfileViewController: OnSuccessUserProfile {
+    
     internal func getUserProfile() {
         serviceManager.getUserProfileInfo(self)
     }
@@ -108,11 +127,30 @@ extension UserProfileViewController: OnSuccessUserProfile {
     
     func OnSuccessUserProfile(userInfo: [String],userTabelData: [String]) {
         setUiProps(userInfo: userInfo, userTabelData: userTabelData)
-       
+    }
+    
+    func getUserData(userData: BranchEmployeeData) {
         
     }
+    
 }
 
+extension UserProfileViewController: OnSuccessEmployeeSalaryDetails {
+    
+    internal func getEmployeeSalaryDetailsById() {
+        print("helloworld")
+        isLoggedInUser ?? true ? employeeSalaryDetailsServiceManager.getEmployeeSalaryDetailsById(employeeId: "02713", self) : employeeSalaryDetailsServiceManager.getEmployeeSalaryDetailsById(employeeId: self.employeeId!, self)
+    }
+    
+    func getEmployeeSalaryInfo(employeeSalaries: [EmployeeSalaryDetailsData]) {
+        setUserJobInfo(userJobTableData: employeeSalaries)
+    }
+    
+    func onFailier() {
+        setActivityIndicatorVisibility(show: false)
+    }
+    
+}
 
 
 

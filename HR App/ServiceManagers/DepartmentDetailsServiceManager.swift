@@ -29,7 +29,6 @@ class DepartmentDetailsServiceManager {
             (response, error, statusCode) in
             if response != nil {
                 if let responseBody = try? JSONDecoder().decode(DepartmentDetailsModel.self, from: response! as! Data){
-                    
                     if let departmentData = responseBody.data{
                         self.delegate?.getDepartmentInfo(departmentName: departmentData.departmentName!,
                                                          departmentInfo: self.getDepartmentDetails(data: departmentData), departmentEmployeeList: departmentData.branchEmployees!)
@@ -47,7 +46,7 @@ class DepartmentDetailsServiceManager {
         departmentData.append(data.deparmentHead!.condensed.uppercased())
         departmentData.append(data.knownName!)
         departmentData.append(data.deparmentHeadTelephone!)
-        departmentData.append(data.departmentHeadID!)
+        departmentData.append(data.aGMName!.condensed.uppercased())
         departmentData.append(data.branchName!)
         departmentData.append(data.headEXT!)
         departmentData.append(data.fax!)

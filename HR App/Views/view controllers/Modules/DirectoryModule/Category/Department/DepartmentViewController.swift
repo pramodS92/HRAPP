@@ -25,9 +25,12 @@ class DepartmentViewController: UIViewController,UITableViewDelegate, UITableVie
     let labelFontSize: CGFloat = 10.0
     var infoTitle = [String]()
     var departmentEmployeeList: [BranchEmployeeData] = []
+    var specialLocationEmployeeList: [BranchEmployeeData]? = []
+    var specialLocationEmployeeIdList: [String] = []
     var serviceManager: DepartmentDetailsServiceManager = DepartmentDetailsServiceManager()
     var specialLocationServiceManager: SpecialLocationDetailsServiceManager = SpecialLocationDetailsServiceManager()
     var regionalOfficeServiceManager: RegionalOfficeDetailsServiceManager = RegionalOfficeDetailsServiceManager()
+    var userProfileServiceManager: UserProfileServiceManager = UserProfileServiceManager()
     var employeeDetailsVc = BranchEmployeeDetailsViewController()
     
     override func viewDidLoad() {
@@ -42,6 +45,8 @@ class DepartmentViewController: UIViewController,UITableViewDelegate, UITableVie
             self.getRegionalOfficeDetails()
         } else if (categoryNo == 7) {
             self.getSpecialLocationDetails()
+            print(self.specialLocationId! + "Hello")
+            self.getSpecialLocationEmployeeDetails(specialLocationId: self.specialLocationId!)
         } else if (categoryNo == 0){
             self.getDepartmentDetails()
         }
@@ -95,6 +100,37 @@ class DepartmentViewController: UIViewController,UITableViewDelegate, UITableVie
     func setDepartmentEmployeeList(employeeList: [BranchEmployeeData]){
         departmentEmployeeList = employeeList
         setActivityIndicatorVisibility(show: false)
+    }
+    
+    func getSpecialLocationEmployeeDetails(specialLocationId: String) {
+        
+        if specialLocationId == "01" {
+            self.specialLocationEmployeeIdList = ["03263"]
+        } else if specialLocationId == "129" {
+            self.specialLocationEmployeeIdList = ["01978"]
+        } else if specialLocationId == "0103" {
+            self.specialLocationEmployeeIdList = ["01732", "02242"]
+        } else if specialLocationId == "0104" {
+            self.specialLocationEmployeeIdList = ["02064"]
+        } else if specialLocationId == "0117" {
+            self.specialLocationEmployeeIdList = []
+        } else {
+            self.specialLocationEmployeeIdList = []
+        }
+        
+        if self.specialLocationEmployeeIdList.isEmpty == false {
+            for i in 0...(self.specialLocationEmployeeIdList.count - 1) {
+                getEmployeeById(employeeId: self.specialLocationEmployeeIdList[i])
+            }
+        }
+        
+    }
+    
+    func addSpecialLocationEmployees(employee: BranchEmployeeData) {
+        
+        specialLocationEmployeeList?.append(employee)
+        
+        print("8888", specialLocationEmployeeList!)
     }
     
     func setActivityIndicatorVisibility(show: Bool) {
@@ -157,7 +193,7 @@ extension DepartmentViewController: OnSuccessSpecialLocationDetails {
     func getSpecialLocationInfo(specialLocationName: String, specialLocationInfo: [String]) {
         setDepartmentName(deptName: specialLocationName)
         setDepartmentDetails(data: specialLocationInfo)
-        setDepartmentEmployeeList(employeeList: [])
+//        setDepartmentEmployeeList(employeeList: specialLocationEmployeeList!)
     }
     
 }
@@ -172,6 +208,24 @@ extension DepartmentViewController: onSuccessRegionalOfficeDetails {
         setDepartmentName(deptName: regionalOffice)
         setDepartmentDetails(data: regionalOfficeInfo)
         setDepartmentEmployeeList(employeeList: regionalOfficeEmployeeList)
+    }
+    
+}
+
+extension DepartmentViewController: OnSuccessUserProfile {
+    func getUserData(userData: BranchEmployeeData) {
+        specialLocationEmployeeList?.append(userData)
+        setDepartmentEmployeeList(employeeList: specialLocationEmployeeList!)
+//        addSpecialLocationEmployees(employee: userData)
+    }
+    
+    
+    internal func getEmployeeById(employeeId: String) {
+        userProfileServiceManager.getEmployeeDetailsById(employeeId: employeeId, self)
+    }
+
+    func OnSuccessUserProfile(userInfo: [String], userTabelData: [String]) {
+        
     }
     
 }

@@ -23,8 +23,8 @@ struct EmployeeSalaryDetailsModel: Codable {
 // MARK: - Datum
 struct EmployeeSalaryDetailsData: Codable {
     let salaryGrade, basicSalary: String
-    let branch: Branch
-    let department: Department
+    let branch: String
+    let department: String
     let eligibleForOt, incrementYear, incrementMonth, additionalDate: String
     let effectiveDate: String
 }

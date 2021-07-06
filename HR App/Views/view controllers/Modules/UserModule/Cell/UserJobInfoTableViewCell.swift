@@ -12,6 +12,7 @@ import UIKit
 class UserJobInfoTableViewCell: UITableViewCell {
     
     @IBOutlet weak var userJobInfoTitle: UILabel!
+    @IBOutlet weak var userJobInfoDetails: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

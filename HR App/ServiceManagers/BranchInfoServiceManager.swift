@@ -31,8 +31,8 @@ class BranchInfoServiceManager {
                 if let responseBody = try? JSONDecoder().decode(BranchDetailsModel.self, from: response! as! Data){
                     
                     if let infoData = responseBody.data?[0] {
-                        brachData.append(infoData.managerName!.condensed.uppercased())
-                        brachData.append(infoData.managerKnowName!.uppercased())
+                        brachData.append(infoData.managerName?.condensed.uppercased() ?? "")
+                        brachData.append(infoData.managerKnowName?.uppercased() ?? "")
                         brachData.append(infoData.managerTelephone!)
                         brachData.append(infoData.addressOne!)
                         brachData.append(infoData.addressTwo!)
@@ -41,10 +41,10 @@ class BranchInfoServiceManager {
                         brachData.append(infoData.telephone!)
                         brachData.append(infoData.fax!)
                         brachData.append(infoData.branchID!)
-                        brachData.append(infoData.regionalManagerName!.condensed.uppercased())
+                        brachData.append(infoData.regionalManagerName?.condensed.uppercased() ?? "")
                         brachData.append(infoData.regionalOffice!)
-                        brachData.append(infoData.aGM!.condensed.uppercased())
-                        brachData.append(infoData.aGMDesignation!)
+                        brachData.append(infoData.aGM?.condensed.uppercased() ?? "")
+                        brachData.append(infoData.aGMDesignation ?? "")
                         self.delegate?.getBranchInfo(response: brachData, branchName: infoData.branchName!,employeeList: infoData.branchEmployees!)
                     }
                 }

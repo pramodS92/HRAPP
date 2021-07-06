@@ -347,7 +347,6 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             self.regionalOfficeName = regOfficeInfo.regionalOffice
             self.regionalOfficeId = regOfficeInfo.regionalOfficeIDs
             self.infoTitles = KeyCostants.RegionalOfficeDetails.REGIONAL_OFFICE_DETAILS_TITLES
-            
             performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_DEPARTMENT_SEGUE, sender: self)
         case .serandib:
             let serendibInfo = _tableData[indexPath.row] as! SerendibFinanceDataClass

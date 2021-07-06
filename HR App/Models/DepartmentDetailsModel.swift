@@ -27,12 +27,16 @@ struct DepartmentDataClass: Codable {
     let departmentID, fax, deparmentHead, knownName: String?
     let departmentHeadID, deparmentHeadTelephone, headEXT: String?
     let branchName: String?
+    let aGMName, aGMEmpcode, aGMDetails: String?
     let address1, address2, address3, address4: String?
     let branchEmployees: [BranchEmployeeData]?
 
     enum CodingKeys: String, CodingKey {
         case departmentName
         case departmentID = "departmentId"
+        case aGMName = "aGM_Name"
+        case aGMEmpcode = "aGM_Empcode"
+        case aGMDetails = "aGM_Details"
         case fax, deparmentHead, knownName, departmentHeadID, deparmentHeadTelephone, headEXT, branchName, address1, address2, address3, address4, branchEmployees
     }
 }

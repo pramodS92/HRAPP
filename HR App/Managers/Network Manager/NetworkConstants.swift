@@ -83,6 +83,9 @@ struct NetworkConstants {
         static var getSpecialLocationDetailsById: String {
             return "/hrm/specialLocation/id/"
         }
+        static var getEmployeeSalaryDetailsById: String {
+            return "/hrm/salary/employee/"
+        }
         
     }
 }

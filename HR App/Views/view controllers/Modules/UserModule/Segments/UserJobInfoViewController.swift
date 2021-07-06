@@ -14,7 +14,6 @@ class UserJobInfoViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var userJobInfoTableView: UITableView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: UiConstants.ViewCellId.USER_JOB_INFO_CELL, bundle: nil)
@@ -24,13 +23,13 @@ class UserJobInfoViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return UiConstants.UserInfo.UserInfoTitles.count
+        return UiConstants.UserInfo.UserJobInfoTitles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = userJobInfoTableView.dequeueReusableCell(withIdentifier: UiConstants.ViewCellId.USER_JOB_INFO_CELL, for: indexPath) as! UserJobInfoTableViewCell
         cell.selectionStyle = .none
-        cell.userJobInfoTitle.text = " "
+        cell.userJobInfoTitle.text = UiConstants.UserInfo.UserJobInfoTitles[indexPath.row]
         return cell
     }
     

@@ -40,6 +40,7 @@ class ViewController: UIViewController {
                 self.navigateToBiometricAuthScreen()
             case 401:
                 UserDefaults.standard.set(nil, forKey: UserDefaultConstants.KeyConstants.UserName)
+                UserDefaults.standard.set(false, forKey: UserDefaultConstants.BiometricsPinConstants.isBiometricsEnabled)
                 self.navigateToLoginScreen()
             default:
                 self.navigateToLoginScreen()

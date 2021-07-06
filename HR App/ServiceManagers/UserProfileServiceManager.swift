@@ -12,13 +12,14 @@ import Alamofire
 
 protocol OnSuccessUserProfile {
     func OnSuccessUserProfile(userInfo: [String],userTabelData: [String])
-    
+    func getUserData(userData: BranchEmployeeData)
 }
 
 class UserProfileServiceManager {
     
     var userInfo: [String] = []
     var userTableData: [String] = []
+    var effectiveDates: [Date] = []
     var delegate: OnSuccessUserProfile?
     let unavailable = KeyCostants.BranchEmployeeDetails.TEXT_UNAVAILABLE
     
@@ -49,17 +50,18 @@ class UserProfileServiceManager {
                 if response != nil {
                     if let responseBody = try? JSONDecoder().decode(EmployeeDetailsModel.self, from: response! as!Data){
                         self.delegate?.OnSuccessUserProfile(userInfo: self.getEmployeeDetails(response: responseBody.data!), userTabelData: self.getEmployeeTableData(response: responseBody.data!))
+                        self.delegate?.getUserData(userData: responseBody.data!)
                     }
                 }else{
                     return
                 }
             }
         }
-        
     }
     
+    
     //Get selected employee profile details  - User Profile Module
-    func getEmployeeDetails(response: EmployeeDetials) -> [String] {
+    func getEmployeeDetails(response: BranchEmployeeData) -> [String] {
         self.userInfo.removeAll()
         self.userInfo.append(response.name!.condensed.uppercased())
         self.userInfo.append(response.designation ?? "Designation")
@@ -67,17 +69,18 @@ class UserProfileServiceManager {
         self.userInfo.append(response.telephone ?? "telephone number")
         self.userInfo.append(response.interCOM ?? "intercom")
         self.userInfo.append(response.email ?? "email")
+        
         return userInfo
     }
     
     //Get selected employee details in UserInfo Tab - User Profile Module
-    func getEmployeeTableData(response: EmployeeDetials) -> [String] {
+    func getEmployeeTableData(response: BranchEmployeeData) -> [String] {
         self.userTableData.removeAll()
         let namesArray: [String]! = response.name?.components(separatedBy: " ")
         var initilas: String = ""
         for (index,name) in namesArray.enumerated() {
             if index > 1 {
-                initilas += name.prefix(1) + " "
+            initilas += name.prefix(1) + " "
             }
         }
         
@@ -90,6 +93,8 @@ class UserProfileServiceManager {
         
         return userTableData
     }
+    
+    
     
     //Logged in User Profile details - User Profile Module
     func getUserDetails(response: UserDetailsModel) -> [String]{

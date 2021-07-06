@@ -69,6 +69,9 @@ struct UiConstants {
                                        "Full name",
                                        "Middle name",
                                        "Employee ID"]
+        
+        static let UserJobInfoTitles = ["Current Salary",
+                                        "Previous Salary Details"]
     }
     
 }
@@ -159,10 +162,10 @@ struct KeyCostants {
             "Department Head's Name",
             "Department Head's Known Name",
             "Department Head's Telephone",
-            "Department Head's ID",
+            "AGM/DGM Details",
             "Branch Name",
-            "Head ext",
-            "Fax number",
+            "Head Ext",
+            "Fax Number",
             "Address"
         ]
     }

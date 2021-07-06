@@ -66,6 +66,7 @@
 		2CFFA09B26543D9700D86E53 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFFA09A26543D9700D86E53 /* UserProfileViewController.swift */; };
 		5109F64F268B6A44005C39E3 /* EmployeeSalaryDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5109F64E268B6A44005C39E3 /* EmployeeSalaryDetailsModel.swift */; };
 		5111397826859D25002FEFC2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5111397726859D25002FEFC2 /* HomeViewController.swift */; };
+		514217362693275B004EC2C7 /* EmployeeSalaryDetailsServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514217352693275B004EC2C7 /* EmployeeSalaryDetailsServiceManager.swift */; };
 		516825DD267F956700755321 /* CoporateManagementDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516825DC267F956700755321 /* CoporateManagementDetailsModel.swift */; };
 		516825DF267F982000755321 /* CoporateManagementDetailsServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516825DE267F982000755321 /* CoporateManagementDetailsServiceManager.swift */; };
 		516EC043267097D0007E58DC /* BiometricPinConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516EC042267097D0007E58DC /* BiometricPinConfigureViewController.swift */; };
@@ -151,6 +152,7 @@
 		3E54E7E5DDF93BC62F1248E9 /* Pods-HR App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HR App.release.xcconfig"; path = "Target Support Files/Pods-HR App/Pods-HR App.release.xcconfig"; sourceTree = "<group>"; };
 		5109F64E268B6A44005C39E3 /* EmployeeSalaryDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeSalaryDetailsModel.swift; sourceTree = "<group>"; };
 		5111397726859D25002FEFC2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		514217352693275B004EC2C7 /* EmployeeSalaryDetailsServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeSalaryDetailsServiceManager.swift; sourceTree = "<group>"; };
 		516825DC267F956700755321 /* CoporateManagementDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoporateManagementDetailsModel.swift; sourceTree = "<group>"; };
 		516825DE267F982000755321 /* CoporateManagementDetailsServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoporateManagementDetailsServiceManager.swift; sourceTree = "<group>"; };
 		516EC042267097D0007E58DC /* BiometricPinConfigureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricPinConfigureViewController.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				51BE1C9B2679EE430035E0D3 /* RegionalOfficeDetailsServiceManager.swift */,
 				51BE1CB5267C9B7C0035E0D3 /* SpecialLocationDetailsServiceManager.swift */,
 				516825DE267F982000755321 /* CoporateManagementDetailsServiceManager.swift */,
+				514217352693275B004EC2C7 /* EmployeeSalaryDetailsServiceManager.swift */,
 			);
 			path = ServiceManagers;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				2C320D692670E48A000A1AAD /* DepartmentDetailsModel.swift */,
 				2C1D201B266107AC006EF880 /* EmployeeNameListModel.swift */,
 				2C1F58582666905F00BC2042 /* EmployeeDetailsModel.swift */,
+				5109F64E268B6A44005C39E3 /* EmployeeSalaryDetailsModel.swift */,
 				51BE1C932679DA960035E0D3 /* RegionalOfficeDetailsModel.swift */,
 				51BE1C952679DAAD0035E0D3 /* RegionalOfficeNameListModel.swift */,
 				51BE1C9D267A08D20035E0D3 /* ExchangeOfficeNameListModel.swift */,
@@ -423,7 +427,6 @@
 				51BE1CAF267C839A0035E0D3 /* SpecialLocationNameListModel.swift */,
 				51BE1CB1267C874F0035E0D3 /* SpecialLocationDetailsModel.swift */,
 				516825DC267F956700755321 /* CoporateManagementDetailsModel.swift */,
-				5109F64E268B6A44005C39E3 /* EmployeeSalaryDetailsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -689,6 +692,7 @@
 				2C1D200D2660C28D006EF880 /* EmployeeInfoService.swift in Sources */,
 				51BE1CB2267C874F0035E0D3 /* SpecialLocationDetailsModel.swift in Sources */,
 				2CD117AE264D789C005E421C /* UiConstants.swift in Sources */,
+				514217362693275B004EC2C7 /* EmployeeSalaryDetailsServiceManager.swift in Sources */,
 				2C06B36C263936A8005743D8 /* OTPValidationViewController.swift in Sources */,
 				2C373B1126505F0D00577DB6 /* UserDefaultConstants.swift in Sources */,
 				2C15E0022663E4A900E616E9 /* BranchInfoServiceManager.swift in Sources */,
