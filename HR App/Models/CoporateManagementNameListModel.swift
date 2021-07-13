@@ -21,16 +21,16 @@ struct CoporateManagementNameListModel: Codable {
 
 // MARK: - Datum
 struct CoporateManagementData: Codable {
-    let knownName, directNumber, interCOM: String?
-    let secretaryInterCOM: String?
+    let knownName, directNumber, interCom: String?
+    let secretaryInterCom: String?
     let countryCode: String?
-    let designation, agmid, secretaryID, name: String?
+    let designation, agmId, secretaryID, name: String?
 
     enum CodingKeys: String, CodingKey {
         case knownName, directNumber
-        case interCOM = "interCom"
-        case secretaryInterCOM = "secretaryInterCom"
-        case countryCode, designation, agmid
+        case interCom
+        case secretaryInterCom
+        case countryCode, designation, agmId
         case secretaryID = "secretaryId"
         case name
     }

@@ -16,7 +16,8 @@ protocol OnSuccessEmployeeSalaryDetails {
 class EmployeeSalaryDetailsServiceManager {
     
     var delegate: OnSuccessEmployeeSalaryDetails?
-    var userJobTableData: [EmployeeSalaryDetailsData] = []
+    var userSalaryTableData: [EmployeeSalaryDetailsData] = []
+    var userJobTableData: [String] = []
     
     static  let isoFormatter : ISO8601DateFormatter = {
         let formatter =  ISO8601DateFormatter()
@@ -31,7 +32,6 @@ class EmployeeSalaryDetailsServiceManager {
             (response, error, statusCode) in
             if response != nil {
                 if let responseBody = try? JSONDecoder().decode(EmployeeSalaryDetailsModel.self, from: response! as! Data) {
-                    print("helloworld2")
                     self.delegate?.getEmployeeSalaryInfo(employeeSalaries: self.getEmployeeSalaryTableData(response: responseBody.data))
                 }
             } else {
@@ -41,9 +41,15 @@ class EmployeeSalaryDetailsServiceManager {
         }
     }
     
+    func getEmployeeJobTableData(response: [EmployeeSalaryDetailsData]) -> [String] {
+        userJobTableData.removeAll()
+        
+        return userJobTableData
+    }
+    
     //Get select employee salary details in UserJobInfo Tab - User Profile Module
     func getEmployeeSalaryTableData(response: [EmployeeSalaryDetailsData]) -> [EmployeeSalaryDetailsData] {
-        self.userJobTableData.removeAll()
+        self.userSalaryTableData.removeAll()
         
         for i in 0...(response.count - 1) {
             
@@ -69,7 +75,7 @@ class EmployeeSalaryDetailsServiceManager {
         }
         
         let sortedSalaries = response.sorted {$0.effectiveDate > $1.effectiveDate}
-        self.userJobTableData = sortedSalaries
+        self.userSalaryTableData = sortedSalaries
         
 //        for i in 1...response.count {
 //
@@ -87,10 +93,7 @@ class EmployeeSalaryDetailsServiceManager {
 //
 //        }
         
-        print("job4")
-        print(userJobTableData)
-        
-        return userJobTableData
+        return userSalaryTableData
     }
     
 }

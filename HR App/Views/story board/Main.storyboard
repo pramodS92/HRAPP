@@ -1804,11 +1804,11 @@
                                             <action selector="categoryItemTapped:" destination="NDy-Jx-O5L" eventType="touchUpInside" id="aZh-x5-Ne5"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HyX-yH-T6w">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HyX-yH-T6w" userLabel="Special Locations">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
                                         <color key="backgroundColor" red="0.41516045631419662" green="0.67582125641915736" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                        <state key="normal" title="Special Offices">
+                                        <state key="normal" title="Special Locations">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -2078,7 +2078,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ca6-HF-OVB">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="340"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ci-zr-auY">
                                         <rect key="frame" x="0.0" y="32" width="414" height="27"/>
@@ -2166,9 +2166,9 @@
                                 <color key="backgroundColor" red="0.11412043200881845" green="0.36205465458717123" blue="0.68855092005076135" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="1Ci-zr-auY" secondAttribute="trailing" id="5hD-Ia-eQ2"/>
-                                    <constraint firstAttribute="bottom" secondItem="H2Z-55-eSP" secondAttribute="bottom" constant="12" id="6uZ-Qm-Qi1"/>
+                                    <constraint firstAttribute="bottom" secondItem="H2Z-55-eSP" secondAttribute="bottom" constant="52" id="6uZ-Qm-Qi1"/>
                                     <constraint firstItem="1Ci-zr-auY" firstAttribute="top" secondItem="ca6-HF-OVB" secondAttribute="top" constant="32" id="BWv-T5-GtG"/>
-                                    <constraint firstAttribute="height" constant="300" id="EgM-zX-ZV2"/>
+                                    <constraint firstAttribute="height" constant="340" id="EgM-zX-ZV2"/>
                                     <constraint firstItem="gtf-V4-kFY" firstAttribute="leading" secondItem="ca6-HF-OVB" secondAttribute="leading" constant="18" id="GPJ-IQ-ITA"/>
                                     <constraint firstItem="H2Z-55-eSP" firstAttribute="top" secondItem="gtf-V4-kFY" secondAttribute="bottom" constant="8" symbolic="YES" id="Lge-1q-dEZ"/>
                                     <constraint firstItem="H2Z-55-eSP" firstAttribute="leading" secondItem="ca6-HF-OVB" secondAttribute="leading" constant="13" id="MET-7j-Y44"/>
@@ -2180,7 +2180,7 @@
                                 </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZF0-DE-Hmq">
-                                <rect key="frame" x="20" y="308" width="374" height="33"/>
+                                <rect key="frame" x="0.0" y="308" width="414" height="33"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="bek-gj-UXn"/>
@@ -2244,13 +2244,13 @@
                         <constraints>
                             <constraint firstItem="ca6-HF-OVB" firstAttribute="leading" secondItem="arO-8r-ssT" secondAttribute="leading" id="8ia-yM-bAI"/>
                             <constraint firstItem="ca6-HF-OVB" firstAttribute="top" secondItem="uXs-EV-7KE" secondAttribute="top" id="BuR-Bs-7NW"/>
-                            <constraint firstItem="ZF0-DE-Hmq" firstAttribute="top" secondItem="ca6-HF-OVB" secondAttribute="bottom" constant="8" symbolic="YES" id="FVz-Jz-uv1"/>
+                            <constraint firstItem="ZF0-DE-Hmq" firstAttribute="top" secondItem="ca6-HF-OVB" secondAttribute="bottom" constant="-32" id="FVz-Jz-uv1"/>
                             <constraint firstItem="cVr-yv-UBD" firstAttribute="bottom" secondItem="arO-8r-ssT" secondAttribute="bottom" constant="49" id="STz-RW-sil"/>
-                            <constraint firstItem="ZF0-DE-Hmq" firstAttribute="leading" secondItem="arO-8r-ssT" secondAttribute="leading" constant="20" id="Svo-XD-6l8"/>
+                            <constraint firstItem="ZF0-DE-Hmq" firstAttribute="leading" secondItem="arO-8r-ssT" secondAttribute="leading" id="Svo-XD-6l8"/>
                             <constraint firstItem="cVr-yv-UBD" firstAttribute="leading" secondItem="arO-8r-ssT" secondAttribute="leading" id="WWP-Hw-cIz"/>
                             <constraint firstItem="cVr-yv-UBD" firstAttribute="trailing" secondItem="arO-8r-ssT" secondAttribute="trailing" id="YGi-K7-3d4"/>
                             <constraint firstItem="cVr-yv-UBD" firstAttribute="top" secondItem="ZF0-DE-Hmq" secondAttribute="bottom" constant="8" symbolic="YES" id="jvz-MA-TEs"/>
-                            <constraint firstItem="arO-8r-ssT" firstAttribute="trailing" secondItem="ZF0-DE-Hmq" secondAttribute="trailing" constant="20" id="lSs-df-1zk"/>
+                            <constraint firstItem="arO-8r-ssT" firstAttribute="trailing" secondItem="ZF0-DE-Hmq" secondAttribute="trailing" id="lSs-df-1zk"/>
                             <constraint firstItem="ca6-HF-OVB" firstAttribute="width" secondItem="uXs-EV-7KE" secondAttribute="width" id="slO-Iq-guZ"/>
                             <constraint firstItem="ca6-HF-OVB" firstAttribute="trailing" secondItem="arO-8r-ssT" secondAttribute="trailing" id="u9Z-8B-SsM"/>
                         </constraints>
@@ -2266,6 +2266,7 @@
                         <outlet property="spinnerView" destination="wih-8B-HPg" id="ZEF-bv-6oe"/>
                         <outlet property="userInfoViewContainer" destination="jHK-0M-yFo" id="P1r-fI-A3l"/>
                         <outlet property="userJobInfoViewContainer" destination="9ld-ZD-LjL" id="p6T-iO-Qfh"/>
+                        <outlet property="userSegmentControl" destination="ZF0-DE-Hmq" id="Hak-oy-Zev"/>
                         <outletCollection property="userInfoTitles" destination="Z2K-Id-Puv" collectionClass="NSMutableArray" id="meV-FT-h1D"/>
                         <outletCollection property="userInfoTitles" destination="79b-BW-Gfi" collectionClass="NSMutableArray" id="oJO-8M-cpb"/>
                         <outletCollection property="userInfoTitles" destination="Egw-r3-qLb" collectionClass="NSMutableArray" id="N5A-mb-QRA"/>
@@ -2276,7 +2277,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IU2-v1-3n0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6365" y="651"/>
+            <point key="canvasLocation" x="6363.7681159420299" y="650.89285714285711"/>
         </scene>
         <!--Notification-->
         <scene sceneID="LpM-93-xjo">
@@ -2494,7 +2495,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fgT-Ot-b3I"/>
+        <segue reference="het-gB-rOf"/>
         <segue reference="E2d-sL-GfC"/>
     </inferredMetricsTieBreakers>
     <resources>

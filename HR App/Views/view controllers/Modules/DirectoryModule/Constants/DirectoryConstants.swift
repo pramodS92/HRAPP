@@ -17,7 +17,7 @@ enum Category: String {
     case ex_office = "Exchange Offices"
     case reg_office = "Regional Offices"
     case serandib = "Serendib Finance Ltd"
-    case special_office = "Special Offices"
+    case special_locations = "Special Locations"
     case employee = "Employee"
 }
 

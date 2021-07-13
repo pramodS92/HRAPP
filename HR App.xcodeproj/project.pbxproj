@@ -66,6 +66,10 @@
 		2CFFA09B26543D9700D86E53 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFFA09A26543D9700D86E53 /* UserProfileViewController.swift */; };
 		5109F64F268B6A44005C39E3 /* EmployeeSalaryDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5109F64E268B6A44005C39E3 /* EmployeeSalaryDetailsModel.swift */; };
 		5111397826859D25002FEFC2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5111397726859D25002FEFC2 /* HomeViewController.swift */; };
+		51289214269AD483005405E1 /* PreviousSalaryTitlesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51289212269AD483005405E1 /* PreviousSalaryTitlesTableViewCell.swift */; };
+		51289215269AD483005405E1 /* PreviousSalaryTitlesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51289213269AD483005405E1 /* PreviousSalaryTitlesTableViewCell.xib */; };
+		51289217269C540D005405E1 /* UserJobInfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51289216269C540C005405E1 /* UserJobInfoHeaderView.xib */; };
+		51289219269C5911005405E1 /* UserJobInfoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51289218269C5911005405E1 /* UserJobInfoHeader.swift */; };
 		514217362693275B004EC2C7 /* EmployeeSalaryDetailsServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514217352693275B004EC2C7 /* EmployeeSalaryDetailsServiceManager.swift */; };
 		516825DD267F956700755321 /* CoporateManagementDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516825DC267F956700755321 /* CoporateManagementDetailsModel.swift */; };
 		516825DF267F982000755321 /* CoporateManagementDetailsServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516825DE267F982000755321 /* CoporateManagementDetailsServiceManager.swift */; };
@@ -152,6 +156,10 @@
 		3E54E7E5DDF93BC62F1248E9 /* Pods-HR App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HR App.release.xcconfig"; path = "Target Support Files/Pods-HR App/Pods-HR App.release.xcconfig"; sourceTree = "<group>"; };
 		5109F64E268B6A44005C39E3 /* EmployeeSalaryDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeSalaryDetailsModel.swift; sourceTree = "<group>"; };
 		5111397726859D25002FEFC2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		51289212269AD483005405E1 /* PreviousSalaryTitlesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousSalaryTitlesTableViewCell.swift; sourceTree = "<group>"; };
+		51289213269AD483005405E1 /* PreviousSalaryTitlesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviousSalaryTitlesTableViewCell.xib; sourceTree = "<group>"; };
+		51289216269C540C005405E1 /* UserJobInfoHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserJobInfoHeaderView.xib; sourceTree = "<group>"; };
+		51289218269C5911005405E1 /* UserJobInfoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserJobInfoHeader.swift; sourceTree = "<group>"; };
 		514217352693275B004EC2C7 /* EmployeeSalaryDetailsServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeSalaryDetailsServiceManager.swift; sourceTree = "<group>"; };
 		516825DC267F956700755321 /* CoporateManagementDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoporateManagementDetailsModel.swift; sourceTree = "<group>"; };
 		516825DE267F982000755321 /* CoporateManagementDetailsServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoporateManagementDetailsServiceManager.swift; sourceTree = "<group>"; };
@@ -280,6 +288,10 @@
 				2CB1DA4B2657F61C00CCF06F /* UserInfoTableViewCell.xib */,
 				2CB1DA522658125E00CCF06F /* UserJobInfoTableViewCell.swift */,
 				2CB1DA532658125E00CCF06F /* UserJobInfoTableViewCell.xib */,
+				51289212269AD483005405E1 /* PreviousSalaryTitlesTableViewCell.swift */,
+				51289213269AD483005405E1 /* PreviousSalaryTitlesTableViewCell.xib */,
+				51289216269C540C005405E1 /* UserJobInfoHeaderView.xib */,
+				51289218269C5911005405E1 /* UserJobInfoHeader.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -605,6 +617,8 @@
 				2CD67BD22664AE4C00C4C5C3 /* EmployeeTableViewCell.xib in Resources */,
 				2C0E35BB2612DD73008CD6B5 /* Assets.xcassets in Resources */,
 				2C8D3B38265AB34000BC58E1 /* DirectoryTableViewCell.xib in Resources */,
+				51289217269C540D005405E1 /* UserJobInfoHeaderView.xib in Resources */,
+				51289215269AD483005405E1 /* PreviousSalaryTitlesTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,6 +671,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51289219269C5911005405E1 /* UserJobInfoHeader.swift in Sources */,
 				2CD117A9264D714B005E421C /* UiUtils.swift in Sources */,
 				2CD8E7E52658381E00CD2C5A /* BranchNameListModel.swift in Sources */,
 				51BE1C962679DAAD0035E0D3 /* RegionalOfficeNameListModel.swift in Sources */,
@@ -724,6 +739,7 @@
 				2C35A6A626633F0900A7EF0E /* UserProfileServiceManager.swift in Sources */,
 				51BE1C9C2679EE430035E0D3 /* RegionalOfficeDetailsServiceManager.swift in Sources */,
 				2C1F58592666905F00BC2042 /* EmployeeDetailsModel.swift in Sources */,
+				51289214269AD483005405E1 /* PreviousSalaryTitlesTableViewCell.swift in Sources */,
 				2C35A6BB266342E100A7EF0E /* DirectoryServiceManager.swift in Sources */,
 				2C34EE682655E6C100978015 /* UserInfoViewController.swift in Sources */,
 				51BE1CA0267A10600035E0D3 /* ExchangeOfficeInfoService.swift in Sources */,

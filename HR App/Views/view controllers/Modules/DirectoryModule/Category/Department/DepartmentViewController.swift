@@ -112,9 +112,8 @@ class DepartmentViewController: UIViewController,UITableViewDelegate, UITableVie
             self.specialLocationEmployeeIdList = ["01732", "02242"]
         } else if specialLocationId == "0104" {
             self.specialLocationEmployeeIdList = ["02064"]
-        } else if specialLocationId == "0117" {
-            self.specialLocationEmployeeIdList = []
         } else {
+            setDepartmentEmployeeList(employeeList: [])
             self.specialLocationEmployeeIdList = []
         }
         
@@ -125,14 +124,7 @@ class DepartmentViewController: UIViewController,UITableViewDelegate, UITableVie
         }
         
     }
-    
-    func addSpecialLocationEmployees(employee: BranchEmployeeData) {
-        
-        specialLocationEmployeeList?.append(employee)
-        
-        print("8888", specialLocationEmployeeList!)
-    }
-    
+   
     func setActivityIndicatorVisibility(show: Bool) {
         self.activityIndicator.isHidden = !show
         if show {

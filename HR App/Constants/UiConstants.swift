@@ -34,6 +34,8 @@ struct UiConstants {
         static let DIRECTORY_ITEM_CELL = "DirectoryTableViewCell"
         static let BRANCH_EMPLOYEE_DETAIL_CELL = "BranchEmployeeTableViewCell"
         static let EMPLOYEE_ITEM_CELL = "EmployeeTableViewCell"
+        static let PREVIOUS_SALARY_TITLE_CELL = "PreviousSalaryTitlesTableViewCell"
+//        static let PREVIOUS_SALARY_INFO_CELL = ""
     }
     
     struct SegueIdentifiers {

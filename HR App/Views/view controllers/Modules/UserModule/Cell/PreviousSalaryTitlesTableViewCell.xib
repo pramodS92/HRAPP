@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="PreviousSalaryTitlesTableViewCell" customModule="HR_App" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Effective Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQF-IB-yG0">
+                        <rect key="frame" x="16" y="11.5" width="115" height="21"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="OT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIv-r2-hUH">
+                        <rect key="frame" x="280.5" y="11.5" width="23.5" height="21"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Basic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KcK-uB-48R">
+                        <rect key="frame" x="183.5" y="11.5" width="44.5" height="21"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="LQF-IB-yG0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11.5" id="3Gh-EZ-O1I"/>
+                    <constraint firstAttribute="bottom" secondItem="CIv-r2-hUH" secondAttribute="bottom" constant="11.5" id="NAh-6P-KFU"/>
+                    <constraint firstAttribute="bottom" secondItem="KcK-uB-48R" secondAttribute="bottom" constant="11.5" id="Tck-RX-smQ"/>
+                    <constraint firstAttribute="trailing" secondItem="CIv-r2-hUH" secondAttribute="trailing" constant="16" id="V9W-SC-zXi"/>
+                    <constraint firstItem="KcK-uB-48R" firstAttribute="leading" secondItem="LQF-IB-yG0" secondAttribute="trailing" constant="52.5" id="ZfM-cg-CP7"/>
+                    <constraint firstAttribute="bottom" secondItem="LQF-IB-yG0" secondAttribute="bottom" constant="11.5" id="fxE-Or-FLz"/>
+                    <constraint firstItem="KcK-uB-48R" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11.5" id="gAf-g0-eFk"/>
+                    <constraint firstItem="CIv-r2-hUH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11.5" id="hOe-es-bBg"/>
+                    <constraint firstItem="LQF-IB-yG0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="onr-xj-m00"/>
+                    <constraint firstItem="CIv-r2-hUH" firstAttribute="leading" secondItem="KcK-uB-48R" secondAttribute="trailing" constant="52.5" id="wMY-Ut-HO7"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="basicSalaryLabel" destination="KcK-uB-48R" id="Vqw-m9-Cvc"/>
+                <outlet property="effectiveDataLabel" destination="LQF-IB-yG0" id="vX0-2v-kh4"/>
+                <outlet property="otLabel" destination="CIv-r2-hUH" id="aL2-DP-h4V"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="87.723214285714278"/>
+        </tableViewCell>
+    </objects>
+</document>

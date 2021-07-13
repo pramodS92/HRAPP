@@ -21,7 +21,7 @@ class UserInfoViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         let nib = UINib(nibName: UiConstants.ViewCellId.USER_INFO_CELL, bundle: nil)
         userInfoTableView.register(nib, forCellReuseIdentifier: UiConstants.ViewCellId.USER_INFO_CELL)
-        userInfoTableView.delegate = self
+        userInfoTableView.delegate = self 
         userInfoTableView.dataSource = self
     }
     

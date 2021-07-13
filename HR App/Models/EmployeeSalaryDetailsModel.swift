@@ -29,15 +29,3 @@ struct EmployeeSalaryDetailsData: Codable {
     let effectiveDate: String
 }
 
-enum Branch: String, Codable {
-    case foreignBranch = "FOREIGN BRANCH"
-    case headOffice = "HEAD OFFICE"
-}
-
-enum Department: String, Codable {
-    case corporateBankingUnit = "CORPORATE BANKING UNIT"
-    case empty = "."
-    case marketingDepartment = "MARKETING DEPARTMENT"
-    case retailCreditDept = "RETAIL CREDIT DEPT."
-    case secretariesUnit = "SECRETARIES UNIT"
-}

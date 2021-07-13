@@ -194,7 +194,7 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             employeeType = 0
             self.categoryNo = 0
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_SPECIAL_LOCATIONS
-        case .special_office:
+        case .special_locations:
             requestHandler = getSpecialOfficeNameList
             self.requestHandler!("")
             searchTextFiled.isEnabled = true
@@ -253,7 +253,7 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.selectionStyle = .none
             return cell
             
-        case .special_office:
+        case .special_locations:
             let cell = derectoryTableView.dequeueReusableCell(withIdentifier: UiConstants.ViewCellId.DIRECTORY_ITEM_CELL, for: indexPath) as! DirectoryTableViewCell
             if let specicalOfficeData = _tableData[indexPath.row] as? SpecialLocationData{
                 cell.direcaryItemLabel.text = specicalOfficeData.locationName
@@ -333,7 +333,7 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_DEPARTMENT_SEGUE, sender: self)
         case .co_management:
             let coporateManagementInfo = _tableData[indexPath.row] as! CoporateManagementData
-            self.coporateManagementEmployeeId = coporateManagementInfo.agmid
+            self.coporateManagementEmployeeId = coporateManagementInfo.agmId
             self.coporateManagementSecretaryId = coporateManagementInfo.secretaryID
             self.getCoporateManagementDetails()
         case .ex_office:
@@ -353,7 +353,7 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             self.departmemtId = serendibInfo.departmentID
             self.infoTitles = KeyCostants.DepartmentDetails.DEPARTMENT_DETAILS_TITLES
             performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_DEPARTMENT_SEGUE, sender: self)
-        case .special_office:
+        case .special_locations:
             let specialLocationInfo = _tableData[indexPath.row] as? SpecialLocationData
             self.specialLocationId = specialLocationInfo?.locationID
             self.infoTitles = KeyCostants.SpecialOfficeDetails.SPECIAL_OFFICE_DETAILS_TITLES
