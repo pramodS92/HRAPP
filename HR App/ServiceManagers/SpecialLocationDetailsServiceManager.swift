@@ -8,7 +8,7 @@
 import Foundation
 
 protocol OnSuccessSpecialLocationDetails {
-    func getSpecialLocationInfo(specialLocationName: String, specialLocationInfo: [String])
+    func getSpecialLocationInfo(specialLocationName: String, specialLocationInfo: [String], specialLocationData: SpecialLocationDataClass)
     func OnFailier()
 }
 
@@ -26,7 +26,7 @@ class SpecialLocationDetailsServiceManager {
             if response != nil {
                 if let responseBody = try? JSONDecoder().decode(SpecialLocationDetailsModel.self, from: response! as! Data) {
                     if let specialLocationData = responseBody.data {
-                        self.delegate?.getSpecialLocationInfo(specialLocationName: specialLocationData.locationName!, specialLocationInfo: self.getSpecialLocationDetails(data: specialLocationData))
+                        self.delegate?.getSpecialLocationInfo(specialLocationName: specialLocationData.locationName!, specialLocationInfo: self.getSpecialLocationDetails(data: specialLocationData), specialLocationData: specialLocationData)
                     }
                 }
             } else {

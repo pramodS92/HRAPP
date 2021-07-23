@@ -26,6 +26,8 @@ struct UiConstants {
         static let HOME_VC = "HomeViewController"
         static let DIRECTORY_VC = "DirectoryViewController"
         static let USER_PROFILE_VC = "UserProfileViewController"
+        static let LEAVE_INFO_VC = "LeaveInfoViewController"
+        static let ADD_LEAVE_VC = "AddLeaveViewController"
     }
     
     struct ViewCellId {
@@ -35,7 +37,6 @@ struct UiConstants {
         static let BRANCH_EMPLOYEE_DETAIL_CELL = "BranchEmployeeTableViewCell"
         static let EMPLOYEE_ITEM_CELL = "EmployeeTableViewCell"
         static let PREVIOUS_SALARY_TITLE_CELL = "PreviousSalaryTitlesTableViewCell"
-//        static let PREVIOUS_SALARY_INFO_CELL = ""
     }
     
     struct SegueIdentifiers {
@@ -50,11 +51,12 @@ struct UiConstants {
     struct PlaceHolders {
         static let USER_NAME = "User name"
         static let PASSWORD = "Password"
-        static let OTP_CODE_DIGIT = "Enter 4-digit code"
+        static let OTP_CODE_DIGIT = "Enter 6-digit code"
     }
     
     struct AlertConst {
         static let ALERT_TITLE_ALERT = "Alert"
+        static let DISMISS_ACTION_TITLE = "Dismiss"
         //Password validation
         static let PASSWORD_LEAST_CHAR_COUNT = "Password must contain at least 8 characters"
         static let PASSWORD_LEAST_CHAR_UPPER = "Password must contain at least one Uppercase character"
@@ -62,6 +64,10 @@ struct UiConstants {
         static let PASSWORD_LEAST_CHAR_SPECIAL = "Password must contain at least one special character"
         //Login
         static let INVALID_USER_CREDENTIALS = "Invalid user credentials"
+        //Biometrics & Pin
+        static let ENTER_PIN_TITLE = "Enter PIN number"
+        static let ENTER_PIN_MESSAGE = "Please enter your PIN number here"
+        static let PIN_FIELD_PLACEHOLDER = "Enter PIN"
     }
     
     struct UserInfo {
@@ -86,7 +92,7 @@ struct KeyCostants {
         static let DIRECTORY_CATEGORY_COP_MANAGEMENT = "Coporate Management"
         static let DIRECTORY_CATEGORY_EX_OFFICE = "Exchange Offices"
         static let DIRECTORY_CATEGORY_REG_OFFICE = "Regional Offices"
-        static let DIRECTORY_CATEGORY_SERANDIB = "Serendib Finance Ltd"
+        static let DIRECTORY_CATEGORY_CBC = "CBC Finance Ltd"
         static let DIRECTORY_CATEGORY_SPECIAL_LOCATIONS = "Special Locations"
         static let DIRECTORY_CATEGORY_EMPLOYEE = "Employee"
         static let DIRECTORY_CATEGORY_EMPLOYEE_PLACEHOLDER = "Search employee (ex: Kasun)"
@@ -183,6 +189,59 @@ struct KeyCostants {
             "",
             ""
         ]
+    }
+    
+    struct OTPDetails {
+        static let WAIT_FOR_OTP_CODE = "Waiting for code..."
+    }
+    
+    struct LeaveDetails {
+        static let LEAVE_TYPE_ANNUAL = "Annual Leave"
+        static let LEAVE_TYPE_CASUAL = "Casual Leave"
+        static let LEAVE_TYPE_MEDICAL = "Medical Leave"
+        static let LEAVE_TYPE_DUTY = "Duty Leave"
+        static let LEAVE_BALANCE_TITLES = [
+            "Annual",
+            "Medical",
+            "Casual",
+            "Accumulated Annual",
+            "Accumulated Medical"
+        ]
+        static let LEAVE_STATUS_TITLES = [
+            "Pending Leave",
+            "Approved Leave",
+            "Recommended Leave",
+            "Rejected Leave"
+        ]
+        static let LEAVE_WARNING_MESSAGES = "Please check your reporting line, prior to applying leave. For any changes contact Compensation & Benefits Unit."
+        static let LEAVE_DETAILS_TITLES = [
+            "Annual",
+            "Medical",
+            "Casual",
+            "Sick Note(taken)",
+            "Accumulated Annual",
+            "Accumulated Medical"
+        ]
+        static let LEAVE_DETAILS_WARNING_MESSAGES = [
+            "Since there could be a difference with the Branch/Department, leave records during this transition period,"
+            + " please check the above leave balances prior to applying leave.",
+            "\"Pending Leave requests have not been excluded from the above leave balance\""
+        ]
+        static let ANNUAL_LEAVE_ROSTER_DETAILS_TITLES = [
+            "Month",
+            "Number of days"
+        ]
+        static let LEAVE_APPLICATION_TITLES = [
+            "Leave Type",
+            "From Date",
+            "To Date",
+            "Reason of Duty Leave (Max 60 Charachters)",
+            "Contact Address",
+            "Email (private)",
+            "Contact No."
+        ]
+        
+        
     }
 }
 

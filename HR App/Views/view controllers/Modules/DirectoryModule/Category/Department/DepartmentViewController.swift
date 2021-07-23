@@ -23,9 +23,11 @@ class DepartmentViewController: UIViewController,UITableViewDelegate, UITableVie
     var specialLocationId: String?
     var regionalOfficeId: String?
     let labelFontSize: CGFloat = 10.0
+    var specialLocationEmployeeCount: Int? = 0
     var infoTitle = [String]()
     var departmentEmployeeList: [BranchEmployeeData] = []
     var specialLocationEmployeeList: [BranchEmployeeData]? = []
+    var specialLocationData: SpecialLocationDataClass?
     var specialLocationEmployeeIdList: [String] = []
     var serviceManager: DepartmentDetailsServiceManager = DepartmentDetailsServiceManager()
     var specialLocationServiceManager: SpecialLocationDetailsServiceManager = SpecialLocationDetailsServiceManager()
@@ -45,8 +47,6 @@ class DepartmentViewController: UIViewController,UITableViewDelegate, UITableVie
             self.getRegionalOfficeDetails()
         } else if (categoryNo == 7) {
             self.getSpecialLocationDetails()
-            print(self.specialLocationId! + "Hello")
-            self.getSpecialLocationEmployeeDetails(specialLocationId: self.specialLocationId!)
         } else if (categoryNo == 0){
             self.getDepartmentDetails()
         }
@@ -102,27 +102,15 @@ class DepartmentViewController: UIViewController,UITableViewDelegate, UITableVie
         setActivityIndicatorVisibility(show: false)
     }
     
-    func getSpecialLocationEmployeeDetails(specialLocationId: String) {
-        
-        if specialLocationId == "01" {
-            self.specialLocationEmployeeIdList = ["03263"]
-        } else if specialLocationId == "129" {
-            self.specialLocationEmployeeIdList = ["01978"]
-        } else if specialLocationId == "0103" {
-            self.specialLocationEmployeeIdList = ["01732", "02242"]
-        } else if specialLocationId == "0104" {
-            self.specialLocationEmployeeIdList = ["02064"]
-        } else {
-            setDepartmentEmployeeList(employeeList: [])
-            self.specialLocationEmployeeIdList = []
+    func setSpecialLocationDetails(specialLocationData: SpecialLocationDataClass) {
+        self.specialLocationData = specialLocationData
+        if (specialLocationData.designationOne != "" && specialLocationData.designationTwo != "") {
+            specialLocationEmployeeCount = 2
+        } else if (specialLocationData.designationOne != "" && specialLocationData.designationTwo == "") {
+            specialLocationEmployeeCount = 1
+        } else if (specialLocationData.designationOne == "") {
+            specialLocationEmployeeCount = 0
         }
-        
-        if self.specialLocationEmployeeIdList.isEmpty == false {
-            for i in 0...(self.specialLocationEmployeeIdList.count - 1) {
-                getEmployeeById(employeeId: self.specialLocationEmployeeIdList[i])
-            }
-        }
-        
     }
    
     func setActivityIndicatorVisibility(show: Bool) {
@@ -136,23 +124,51 @@ class DepartmentViewController: UIViewController,UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return departmentEmployeeList.count
+        if categoryNo != 7 {
+            return departmentEmployeeList.count
+        }
+        return specialLocationEmployeeCount!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = departmentDetailsTableView.dequeueReusableCell(withIdentifier: UiConstants.ViewCellId.BRANCH_EMPLOYEE_DETAIL_CELL, for: indexPath) as! BranchEmployeeTableViewCell
         cell.selectionStyle = .none
-        cell.branchEmployeeDesignation.text = self.departmentEmployeeList[indexPath.row].designation
-        cell.branchEmployeeName.text = self.departmentEmployeeList[indexPath.row].name!.condensed  + " (" + self.departmentEmployeeList[indexPath.row].knownName!.uppercased() + ")"
-        cell.branchEmployeeImageView.image = UIImage(named: self.departmentEmployeeList[indexPath.row].gender == "M" ? "ic_person": "ic_women")
+        
+        if (categoryNo == 0 || categoryNo == 5) {
+            cell.branchEmployeeDesignation.text = self.departmentEmployeeList[indexPath.row].designation
+            cell.branchEmployeeName.text = self.departmentEmployeeList[indexPath.row].name!.condensed  + " (" + self.departmentEmployeeList[indexPath.row].knownName!.uppercased() + ")"
+            cell.branchEmployeeImageView.image = UIImage(named: self.departmentEmployeeList[indexPath.row].gender == "M" ? "ic_person": "ic_women")
+        } else if (categoryNo == 7) {
+            if indexPath.row == 0 {
+                cell.branchEmployeeDesignation.text = self.specialLocationData?.designationOne
+                cell.branchEmployeeName.text = (self.specialLocationData?.nameOne!.condensed)!
+                cell.branchEmployeeImageView.image = UIImage(named: self.specialLocationData?.nameOne?.prefix(3) == "Mrs" ? "ic_women": "ic_person")
+            } else if (indexPath.row == 1) {
+                cell.branchEmployeeDesignation.text = self.specialLocationData?.designationTwo
+                cell.branchEmployeeName.text = (self.specialLocationData?.nameTwo!.condensed)!
+                cell.branchEmployeeImageView.image = UIImage(named: self.specialLocationData?.nameTwo?.prefix(3) == "Mrs" ? "ic_women": "ic_person")
+            }
+        }
+        
         return cell
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        employeeDetailsVc.modalPresentationStyle = .fullScreen
-        employeeDetailsVc.employeeDetails = self.departmentEmployeeList[indexPath.row]
-        self.present(employeeDetailsVc, animated: true, completion: nil)
+        if (categoryNo == 0 || categoryNo == 5) {
+            employeeDetailsVc.modalPresentationStyle = .fullScreen
+            employeeDetailsVc.employeeDetails = self.departmentEmployeeList[indexPath.row]
+            employeeDetailsVc.categoryNo = self.categoryNo!
+            self.present(employeeDetailsVc, animated: true, completion: nil)
+        } else if (categoryNo == 7) {
+            employeeDetailsVc.modalPresentationStyle = .fullScreen
+            employeeDetailsVc.specialLocationEmployeeDetails = specialLocationData
+            employeeDetailsVc.specialLocationEmployeeCount = self.specialLocationEmployeeCount
+            employeeDetailsVc.categoryNo = self.categoryNo!
+            self.present(employeeDetailsVc, animated: true, completion: nil)
+            print("special Location Employee")
+        }
+        
     }
     
 }
@@ -182,9 +198,10 @@ extension DepartmentViewController: OnSuccessSpecialLocationDetails {
         specialLocationServiceManager.getSpecialLocationDetailsById(specialLocationId: locationId, self)
     }
     
-    func getSpecialLocationInfo(specialLocationName: String, specialLocationInfo: [String]) {
+    func getSpecialLocationInfo(specialLocationName: String, specialLocationInfo: [String], specialLocationData: SpecialLocationDataClass) {
         setDepartmentName(deptName: specialLocationName)
         setDepartmentDetails(data: specialLocationInfo)
+        setSpecialLocationDetails(specialLocationData: specialLocationData)
 //        setDepartmentEmployeeList(employeeList: specialLocationEmployeeList!)
     }
     

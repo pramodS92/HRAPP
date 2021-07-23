@@ -15,6 +15,8 @@ class HomeViewController: UIViewController {
     @IBOutlet var postBtn: UIButton!
     @IBOutlet var notificationsBtn: UIButton!
     @IBOutlet var productRefGuideBtn: UIButton!
+    @IBOutlet var eLeaveBtn: UIButton!
+    @IBOutlet var settingsBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,9 @@ class HomeViewController: UIViewController {
         postBtn.layer.cornerRadius = 10.0
         notificationsBtn.layer.cornerRadius = 10.0
         productRefGuideBtn.layer.cornerRadius = 10.0
+        eLeaveBtn.layer.cornerRadius = 10.0
+        settingsBtn.layer.cornerRadius = 10.0
     }
-
+    
+    
 }

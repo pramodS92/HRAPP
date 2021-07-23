@@ -36,7 +36,10 @@ struct NetworkConstants {
             return "/auth/realms/Combank/protocol/openid-connect/token"
         }
         static var genarateOTP: String{
-            return ""
+            return "/hrm/auth/otp/new"
+        }
+        static var validateOTP: String {
+            return "/hrm/auth/otp/validate"
         }
         static var getDefaultUserDetails: String{
             return "/hrm/employee/"
@@ -121,4 +124,7 @@ struct RequestHeader {
         self.accessToken = accessToken
     }
 }
+
+
+
 

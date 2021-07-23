@@ -63,7 +63,7 @@ enum AccessTokenServiceRouter {
         let requestBody = AccessTokenRequestBody(userName: userName,password: password)
         let requestHeaders = AccessTokenRequestHeader()
         let requestInfo = RequestInfo(method: httpMethod,
-                                                 params: requestBody.payload,
+                                      params: requestBody.payload,
                                                  headers: requestHeaders.headers,
                                                  url: url)
         
@@ -116,8 +116,6 @@ struct AccessTokenRequestBody {
         self.password = password
     }
 }
-
-
 
 struct AccessTokenRequestHeader {
     var contentType = "application/x-www-form-urlencoded"

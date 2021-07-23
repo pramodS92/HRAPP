@@ -70,10 +70,14 @@
 		51289215269AD483005405E1 /* PreviousSalaryTitlesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51289213269AD483005405E1 /* PreviousSalaryTitlesTableViewCell.xib */; };
 		51289217269C540D005405E1 /* UserJobInfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51289216269C540C005405E1 /* UserJobInfoHeaderView.xib */; };
 		51289219269C5911005405E1 /* UserJobInfoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51289218269C5911005405E1 /* UserJobInfoHeader.swift */; };
+		5128921E269DD4CB005405E1 /* LeaveInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5128921D269DD4CB005405E1 /* LeaveInfoViewController.swift */; };
+		51289220269DD55D005405E1 /* AddLeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5128921F269DD55D005405E1 /* AddLeaveViewController.swift */; };
+		51289223269DD622005405E1 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51289222269DD622005405E1 /* CircularProgressView.swift */; };
 		514217362693275B004EC2C7 /* EmployeeSalaryDetailsServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514217352693275B004EC2C7 /* EmployeeSalaryDetailsServiceManager.swift */; };
 		516825DD267F956700755321 /* CoporateManagementDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516825DC267F956700755321 /* CoporateManagementDetailsModel.swift */; };
 		516825DF267F982000755321 /* CoporateManagementDetailsServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516825DE267F982000755321 /* CoporateManagementDetailsServiceManager.swift */; };
 		516EC043267097D0007E58DC /* BiometricPinConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516EC042267097D0007E58DC /* BiometricPinConfigureViewController.swift */; };
+		517F8A1A26A219B300D089AA /* LeaveConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517F8A1926A219B300D089AA /* LeaveConstants.swift */; };
 		51BE1C942679DA960035E0D3 /* RegionalOfficeDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1C932679DA960035E0D3 /* RegionalOfficeDetailsModel.swift */; };
 		51BE1C962679DAAD0035E0D3 /* RegionalOfficeNameListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1C952679DAAD0035E0D3 /* RegionalOfficeNameListModel.swift */; };
 		51BE1C9A2679DC470035E0D3 /* RegionalOfficeInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1C992679DC470035E0D3 /* RegionalOfficeInfoService.swift */; };
@@ -89,6 +93,10 @@
 		51BE1CB2267C874F0035E0D3 /* SpecialLocationDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1CB1267C874F0035E0D3 /* SpecialLocationDetailsModel.swift */; };
 		51BE1CB4267C87E80035E0D3 /* SpecialLocationInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1CB3267C87E80035E0D3 /* SpecialLocationInfoService.swift */; };
 		51BE1CB6267C9B7C0035E0D3 /* SpecialLocationDetailsServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE1CB5267C9B7C0035E0D3 /* SpecialLocationDetailsServiceManager.swift */; };
+		51CCCBE126A71C8A00C383BE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CCCBE026A71C8A00C383BE /* SettingsViewController.swift */; };
+		51D258F226A2CD980069A87D /* OTPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D258F126A2CD980069A87D /* OTPModel.swift */; };
+		51D258F426A2FC7A0069A87D /* OTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D258F326A2FC7A0069A87D /* OTPService.swift */; };
+		51D258F626A3F9CF0069A87D /* OTPServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D258F526A3F9CE0069A87D /* OTPServiceManager.swift */; };
 		F4D9612C03BF5E0CBB9F00D7 /* Pods_HR_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12118F4C3A4593868361AFCC /* Pods_HR_App.framework */; };
 /* End PBXBuildFile section */
 
@@ -160,10 +168,14 @@
 		51289213269AD483005405E1 /* PreviousSalaryTitlesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviousSalaryTitlesTableViewCell.xib; sourceTree = "<group>"; };
 		51289216269C540C005405E1 /* UserJobInfoHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserJobInfoHeaderView.xib; sourceTree = "<group>"; };
 		51289218269C5911005405E1 /* UserJobInfoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserJobInfoHeader.swift; sourceTree = "<group>"; };
+		5128921D269DD4CB005405E1 /* LeaveInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveInfoViewController.swift; sourceTree = "<group>"; };
+		5128921F269DD55D005405E1 /* AddLeaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLeaveViewController.swift; sourceTree = "<group>"; };
+		51289222269DD622005405E1 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		514217352693275B004EC2C7 /* EmployeeSalaryDetailsServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeSalaryDetailsServiceManager.swift; sourceTree = "<group>"; };
 		516825DC267F956700755321 /* CoporateManagementDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoporateManagementDetailsModel.swift; sourceTree = "<group>"; };
 		516825DE267F982000755321 /* CoporateManagementDetailsServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoporateManagementDetailsServiceManager.swift; sourceTree = "<group>"; };
 		516EC042267097D0007E58DC /* BiometricPinConfigureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricPinConfigureViewController.swift; sourceTree = "<group>"; };
+		517F8A1926A219B300D089AA /* LeaveConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveConstants.swift; sourceTree = "<group>"; };
 		51BE1C932679DA960035E0D3 /* RegionalOfficeDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalOfficeDetailsModel.swift; sourceTree = "<group>"; };
 		51BE1C952679DAAD0035E0D3 /* RegionalOfficeNameListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalOfficeNameListModel.swift; sourceTree = "<group>"; };
 		51BE1C992679DC470035E0D3 /* RegionalOfficeInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalOfficeInfoService.swift; sourceTree = "<group>"; };
@@ -179,6 +191,10 @@
 		51BE1CB1267C874F0035E0D3 /* SpecialLocationDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialLocationDetailsModel.swift; sourceTree = "<group>"; };
 		51BE1CB3267C87E80035E0D3 /* SpecialLocationInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialLocationInfoService.swift; sourceTree = "<group>"; };
 		51BE1CB5267C9B7C0035E0D3 /* SpecialLocationDetailsServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialLocationDetailsServiceManager.swift; sourceTree = "<group>"; };
+		51CCCBE026A71C8A00C383BE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		51D258F126A2CD980069A87D /* OTPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPModel.swift; sourceTree = "<group>"; };
+		51D258F326A2FC7A0069A87D /* OTPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPService.swift; sourceTree = "<group>"; };
+		51D258F526A3F9CE0069A87D /* OTPServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPServiceManager.swift; sourceTree = "<group>"; };
 		A217BE01F3E4C7683CC30EE7 /* Pods-HR App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HR App.debug.xcconfig"; path = "Target Support Files/Pods-HR App/Pods-HR App.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,6 +231,7 @@
 				51BE1CA7267B4FCA0035E0D3 /* SerendibFinanceInfoService.swift */,
 				51BE1CAD267BB3770035E0D3 /* CoporateManagementInfoService.swift */,
 				51BE1CB3267C87E80035E0D3 /* SpecialLocationInfoService.swift */,
+				51D258F326A2FC7A0069A87D /* OTPService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -290,8 +307,8 @@
 				2CB1DA532658125E00CCF06F /* UserJobInfoTableViewCell.xib */,
 				51289212269AD483005405E1 /* PreviousSalaryTitlesTableViewCell.swift */,
 				51289213269AD483005405E1 /* PreviousSalaryTitlesTableViewCell.xib */,
-				51289216269C540C005405E1 /* UserJobInfoHeaderView.xib */,
 				51289218269C5911005405E1 /* UserJobInfoHeader.swift */,
+				51289216269C540C005405E1 /* UserJobInfoHeaderView.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -317,6 +334,7 @@
 				51BE1CB5267C9B7C0035E0D3 /* SpecialLocationDetailsServiceManager.swift */,
 				516825DE267F982000755321 /* CoporateManagementDetailsServiceManager.swift */,
 				514217352693275B004EC2C7 /* EmployeeSalaryDetailsServiceManager.swift */,
+				51D258F526A3F9CE0069A87D /* OTPServiceManager.swift */,
 			);
 			path = ServiceManagers;
 			sourceTree = "<group>";
@@ -359,6 +377,7 @@
 				2C06B368263936A8005743D8 /* LoginViewController.swift */,
 				2CFC801F265174F400DD88AD /* BiometricAuthViewController.swift */,
 				516EC042267097D0007E58DC /* BiometricPinConfigureViewController.swift */,
+				51CCCBE026A71C8A00C383BE /* SettingsViewController.swift */,
 			);
 			path = "view controllers";
 			sourceTree = "<group>";
@@ -401,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				2C0E35C62612EA89008CD6B5 /* BaseAnimation.swift */,
+				51289222269DD622005405E1 /* CircularProgressView.swift */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -439,6 +459,7 @@
 				51BE1CAF267C839A0035E0D3 /* SpecialLocationNameListModel.swift */,
 				51BE1CB1267C874F0035E0D3 /* SpecialLocationDetailsModel.swift */,
 				516825DC267F956700755321 /* CoporateManagementDetailsModel.swift */,
+				51D258F126A2CD980069A87D /* OTPModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -527,6 +548,7 @@
 		2CFFA09426543D5B00D86E53 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				5128921A269D884A005405E1 /* ELeave */,
 				5111397626859D12002FEFC2 /* Home */,
 				2CB1DA502658061500CCF06F /* DirectoryModule */,
 				2C34EE632655E5EB00978015 /* UserModule */,
@@ -540,6 +562,24 @@
 				5111397726859D25002FEFC2 /* HomeViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		5128921A269D884A005405E1 /* ELeave */ = {
+			isa = PBXGroup;
+			children = (
+				517F8A1826A2199000D089AA /* Constants */,
+				5128921D269DD4CB005405E1 /* LeaveInfoViewController.swift */,
+				5128921F269DD55D005405E1 /* AddLeaveViewController.swift */,
+			);
+			path = ELeave;
+			sourceTree = "<group>";
+		};
+		517F8A1826A2199000D089AA /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				517F8A1926A219B300D089AA /* LeaveConstants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		A05548C113752D85C13732CE /* Pods */ = {
@@ -673,6 +713,8 @@
 			files = (
 				51289219269C5911005405E1 /* UserJobInfoHeader.swift in Sources */,
 				2CD117A9264D714B005E421C /* UiUtils.swift in Sources */,
+				51289223269DD622005405E1 /* CircularProgressView.swift in Sources */,
+				5128921E269DD4CB005405E1 /* LeaveInfoViewController.swift in Sources */,
 				2CD8E7E52658381E00CD2C5A /* BranchNameListModel.swift in Sources */,
 				51BE1C962679DAAD0035E0D3 /* RegionalOfficeNameListModel.swift in Sources */,
 				2C8D3BC4265AE0EC00BC58E1 /* DirectoryConstants.swift in Sources */,
@@ -686,6 +728,7 @@
 				2C06B370263936A8005743D8 /* TabBarView.swift in Sources */,
 				2C373AFB264F318F00577DB6 /* AccessTokenResponseModel.swift in Sources */,
 				51BE1CB0267C839A0035E0D3 /* SpecialLocationNameListModel.swift in Sources */,
+				51D258F626A3F9CF0069A87D /* OTPServiceManager.swift in Sources */,
 				2C177517265D031500F93A29 /* BranchDetailsModel.swift in Sources */,
 				516825DD267F956700755321 /* CoporateManagementDetailsModel.swift in Sources */,
 				2C7CD39926406E58000C22D4 /* RequestModel.swift in Sources */,
@@ -694,6 +737,7 @@
 				2C705AC7265C3018009E3148 /* EmployeeViewController.swift in Sources */,
 				51BE1CA4267B3C730035E0D3 /* SerendibFInanceDetailsModel.swift in Sources */,
 				2C320D6D2670E5A8000A1AAD /* DepartmentDetailsServiceManager.swift in Sources */,
+				51CCCBE126A71C8A00C383BE /* SettingsViewController.swift in Sources */,
 				5109F64F268B6A44005C39E3 /* EmployeeSalaryDetailsModel.swift in Sources */,
 				2C7CD39C26406E65000C22D4 /* ResponseModel.swift in Sources */,
 				2C0E35C72612EA89008CD6B5 /* BaseAnimation.swift in Sources */,
@@ -702,6 +746,7 @@
 				2C705A8B265B638C009E3148 /* DepartmentInfoService.swift in Sources */,
 				51BE1CA8267B4FCA0035E0D3 /* SerendibFinanceInfoService.swift in Sources */,
 				2C705A7F265B5B9B009E3148 /* DepartmentNameListModel.swift in Sources */,
+				51D258F226A2CD980069A87D /* OTPModel.swift in Sources */,
 				5111397826859D25002FEFC2 /* HomeViewController.swift in Sources */,
 				2C34EE652655E65600978015 /* UserJobInfoViewController.swift in Sources */,
 				2C1D200D2660C28D006EF880 /* EmployeeInfoService.swift in Sources */,
@@ -721,6 +766,7 @@
 				2C7CD39626406E3D000C22D4 /* ErrorModel.swift in Sources */,
 				2C35A69A26631AF100A7EF0E /* AccessTokenServiceManager.swift in Sources */,
 				2C705AB2265C1D44009E3148 /* DepartmentViewController.swift in Sources */,
+				517F8A1A26A219B300D089AA /* LeaveConstants.swift in Sources */,
 				2C0E35B22612DD72008CD6B5 /* AppDelegate.swift in Sources */,
 				516825DF267F982000755321 /* CoporateManagementDetailsServiceManager.swift in Sources */,
 				2C0B3A0B264554340037378E /* AccessTokenService.swift in Sources */,
@@ -731,12 +777,14 @@
 				2CD8E7D92658349D00CD2C5A /* DirectoryViewController.swift in Sources */,
 				2CFC8020265174F400DD88AD /* BiometricAuthViewController.swift in Sources */,
 				51BE1CA2267B38E80035E0D3 /* ExchangeOfficeDetailsModel.swift in Sources */,
+				51289220269DD55D005405E1 /* AddLeaveViewController.swift in Sources */,
 				51BE1CAE267BB3770035E0D3 /* CoporateManagementInfoService.swift in Sources */,
 				2C1D201C266107AC006EF880 /* EmployeeNameListModel.swift in Sources */,
 				2C17750B265CE13000F93A29 /* UserDetailsConstants.swift in Sources */,
 				516EC043267097D0007E58DC /* BiometricPinConfigureViewController.swift in Sources */,
 				2C06B36D263936A8005743D8 /* WelcomeViewController.swift in Sources */,
 				2C35A6A626633F0900A7EF0E /* UserProfileServiceManager.swift in Sources */,
+				51D258F426A2FC7A0069A87D /* OTPService.swift in Sources */,
 				51BE1C9C2679EE430035E0D3 /* RegionalOfficeDetailsServiceManager.swift in Sources */,
 				2C1F58592666905F00BC2042 /* EmployeeDetailsModel.swift in Sources */,
 				51289214269AD483005405E1 /* PreviousSalaryTitlesTableViewCell.swift in Sources */,

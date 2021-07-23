@@ -14,6 +14,8 @@ class BiometricPinConfigureViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var configureBtn: UIButton!
     @IBOutlet weak var biometricSwitch: UISwitch!
     
+    var isUserLoggedIn: Bool?
+    
     let imgViewPinText = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
     let imgViewPinHideText = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
     let eyeImage = UIImage(named: "pineye.png")

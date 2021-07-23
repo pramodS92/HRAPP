@@ -17,13 +17,18 @@ class BranchEmployeeDetailsViewController: UIViewController {
     @IBOutlet var secretarydetailsTitleLabel: UILabel!
     @IBOutlet var viewSecretaryDetailsLabel: UILabel!
     @IBOutlet var secretaryDetailsView: UIView!
+    @IBOutlet var viewMoreInfoBtn: UIButton!
     
     var employeeData = [String]()
     let labelFontSize: CGFloat = 12.0
     var employeeDetails: BranchEmployeeData!
+    var specialLocationEmployeeDetails: SpecialLocationDataClass!
+    var specialLocationEmployeeCount: Int? = 0
     var corporatManagementDetails: BranchEmployeeData!
     var coporateManagerSecretaryID: String?
     var employeeType: Int = 0
+    var categoryNo: Int = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +36,14 @@ class BranchEmployeeDetailsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         self.setupUiProps()
-        self.setEmployeeDetails()
+        if categoryNo != 7 {
+            self.setEmployeeDetails()
+            viewMoreInfoBtn.isHidden = false
+        } else {
+            self.setSpecialLocationEmployeeDetails()
+            viewMoreInfoBtn.isHidden = true
+        }
+        
     }
     
     func setupUiProps(){
@@ -80,11 +92,11 @@ class BranchEmployeeDetailsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == UiConstants.SegueIdentifiers.EMPLOYEE_DETAIL_SEGUE {
-            let destination = segue.destination as! UserProfileViewController
-            destination.isLoggedInUser =  false
-            destination.employeeId = employeeDetails?.employeeID
-        }
+            if segue.identifier == UiConstants.SegueIdentifiers.EMPLOYEE_DETAIL_SEGUE {
+                let destination = segue.destination as! UserProfileViewController
+                destination.isLoggedInUser =  false
+                destination.employeeId = employeeDetails?.employeeID
+            }
     }
     
     
@@ -97,6 +109,29 @@ class BranchEmployeeDetailsViewController: UIViewController {
         self.employeeData.append(employeeDetails.telephone!)
         self.employeeData.append(employeeDetails.interCOM!)
         self.employeeData.append(employeeDetails.email!)
+        self.initUiProps()
+    }
+    
+    func setSpecialLocationEmployeeDetails() {
+        if specialLocationEmployeeCount == 1 {
+            self.employeeData.append(specialLocationEmployeeDetails.nameOne!.condensed.uppercased())
+            self.employeeData.append("")
+            self.employeeData.append(specialLocationEmployeeDetails.designationOne!)
+            self.employeeData.append("")
+            self.employeeData.append("")
+            self.employeeData.append(specialLocationEmployeeDetails.directNumberOne!)
+            self.employeeData.append(specialLocationEmployeeDetails.interComeOne!)
+            self.employeeData.append("")
+        } else if specialLocationEmployeeCount == 2 {
+            self.employeeData.append(specialLocationEmployeeDetails.nameTwo!.condensed.uppercased())
+            self.employeeData.append("")
+            self.employeeData.append(specialLocationEmployeeDetails.designationTwo!)
+            self.employeeData.append("")
+            self.employeeData.append("")
+            self.employeeData.append(specialLocationEmployeeDetails.directNumberTwo!)
+            self.employeeData.append(specialLocationEmployeeDetails.interComeTwo!)
+            self.employeeData.append("")
+        }
         self.initUiProps()
     }
     

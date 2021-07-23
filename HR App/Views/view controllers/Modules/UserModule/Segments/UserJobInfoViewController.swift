@@ -38,7 +38,8 @@ class UserJobInfoViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userSalaryTableData.count
+//        return userSalaryTableData.count
+                return userSalaryTableData.count
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -50,17 +51,15 @@ class UserJobInfoViewController: UIViewController, UITableViewDelegate, UITableV
         return header
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
     }
     
-    func handleExpandClose() {
+    func handleExpandClose(isOpened: Bool) {
         print("Trying to expand and close section...")
         
+        self.isOpened = isOpened
+        print(self.isOpened)
 //        var indexPaths = [IndexPath]()
 //
 //        for cell in userJobInfoTableView.visibleCells {
@@ -107,7 +106,8 @@ class UserJobInfoViewController: UIViewController, UITableViewDelegate, UITableV
             
             cell.effectiveDataLabel.text =  String(day) + "/" + String(month) + "/" + String(effectiveYear)
             cell.basicSalaryLabel.text = employeeSalaryDetails.basicSalary
-            cell.otLabel.text = employeeSalaryDetails.eligibleForOt
+            cell.otLabel.text = employeeSalaryDetails.salaryGrade
+            
         }
         
         return cell

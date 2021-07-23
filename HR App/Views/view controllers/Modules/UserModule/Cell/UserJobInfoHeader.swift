@@ -17,9 +17,24 @@ class UserJobInfoHeader: UITableViewHeaderFooterView {
         return label
     }()
     
-    private let labelTwo: UILabel = {
+    private let titleOne: UILabel = {
         let label = UILabel()
-        label.text = "View"
+        label.text = "Effective Date"
+        label.font = UIFont.boldSystemFont(ofSize: 10)
+        return label
+    }()
+    
+    private let titleTwo: UILabel = {
+        let label = UILabel()
+        label.text = "Basic"
+        label.font = UIFont.boldSystemFont(ofSize: 10)
+        return label
+    }()
+    
+    private let titleThree: UILabel = {
+        let label = UILabel()
+        label.text = "Salary Grade"
+        label.font = UIFont.boldSystemFont(ofSize: 10)
         return label
     }()
     
@@ -29,8 +44,6 @@ class UserJobInfoHeader: UITableViewHeaderFooterView {
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         
-        
-        
         button.addTarget(self, action: #selector(handleExpandClose), for: .touchUpInside)
         return button
     }()
@@ -38,8 +51,10 @@ class UserJobInfoHeader: UITableViewHeaderFooterView {
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         contentView.addSubview(label)
-//        contentView.addSubview(labelTwo)
         contentView.addSubview(button)
+        contentView.addSubview(titleOne)
+        contentView.addSubview(titleTwo)
+        contentView.addSubview(titleThree)
     }
     
     required init?(coder: NSCoder) {
@@ -48,13 +63,16 @@ class UserJobInfoHeader: UITableViewHeaderFooterView {
     
     @objc func handleExpandClose() {
         // close the section by deleting the rows
-        UserJobInfoViewController().handleExpandClose()
+        UserJobInfoViewController().handleExpandClose(isOpened: true)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         label.sizeToFit()
         button.sizeToFit()
+        titleOne.sizeToFit()
+        titleTwo.sizeToFit()
+        titleThree.sizeToFit()
         label.frame = CGRect(x: contentView.frame.size.width * 0.05,
                              y: contentView.frame.size.height * 0.25,
                              width: label.frame.size.width,
@@ -63,6 +81,18 @@ class UserJobInfoHeader: UITableViewHeaderFooterView {
                               y: contentView.frame.size.height * 0.2,
                              width: button.frame.size.width,
                              height: button.frame.size.height)
+        titleOne.frame = CGRect(x: contentView.frame.size.width * 0.05,
+                                y: contentView.frame.size.height * 0.6,
+                               width: button.frame.size.width,
+                               height: button.frame.size.height)
+        titleTwo.frame = CGRect(x: contentView.frame.size.width * 0.5,
+                                y: contentView.frame.size.height * 0.6,
+                               width: button.frame.size.width,
+                               height: button.frame.size.height)
+        titleThree.frame = CGRect(x: contentView.frame.size.width * 0.85,
+                                  y: contentView.frame.size.height * 0.6,
+                                 width: button.frame.size.width,
+                                 height: button.frame.size.height)
 //        labelTwo.frame = CGRect(x: 25,
 //                                y: contentView.frame.midY,
 //                             width: labelTwo.frame.size.width,

@@ -49,7 +49,6 @@ class UserProfileViewController: UIViewController {
         super.viewDidLoad()
         self.setDefaultSegment()
         isLoggedInUser ?? true ? self.getUserDetails() : self.getEmployeeDetailsById()
-//        isLoggedInUser ?? true ? userSegmentControl.isHidden == false : userSegmentControl.isHidden == true
         self.getEmployeeSalaryDetailsById()
         self.backButton.isHidden = isLoggedInUser ?? true
         hideSegmentControl()
@@ -116,6 +115,7 @@ class UserProfileViewController: UIViewController {
     }
     
     @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
+        
         if sender.selectedSegmentIndex == 0 {
             self.userJobInfoViewContainer.alpha = 0
             self.userInfoViewContainer.alpha = 1
@@ -123,9 +123,6 @@ class UserProfileViewController: UIViewController {
         } else if sender.selectedSegmentIndex == 1 {
             self.userInfoViewContainer.alpha = 0
             self.userJobInfoViewContainer.alpha = 1
-            
-//            let userJobVc = UserJobInfoViewController()
-//            userJobVc.userJobTableData = self.userJobTableData
             
         }
     }

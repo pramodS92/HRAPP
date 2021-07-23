@@ -13,6 +13,10 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet var categoryItems: [UIButton]!
     @IBOutlet weak var categoryStackView: UIStackView!
+    @IBOutlet var expandingViewItems: [UIView]!
+    @IBOutlet var expandingStackView: UIStackView!
+    @IBOutlet var searchView: UIView!
+    @IBOutlet var searchTextField: UITextField!
     @IBOutlet weak var derectoryTableView: UITableView!
     @IBOutlet weak var selectcategoryBtn: UIButton!
     @IBOutlet weak var searchTextFiled: UITextField!
@@ -51,14 +55,6 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
     var serviceManager: DirectoryServiceManager = DirectoryServiceManager()
     var coporateManagementServiceManager: CoporateManagementDetailsService = CoporateManagementDetailsService()
     
-//    let viewSecretaryInfobutton: UIButton = {
-//            let btn = UIButton()
-//            btn.setTitle("Secretary Info", for: .normal)
-//            btn.backgroundColor = .systemPink
-//            btn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-//            return btn
-//        }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initUiProps()
@@ -91,8 +87,16 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         
         employeeDetailsVc = self.storyboard?.instantiateViewController(withIdentifier:  UiConstants.StrotyBoardId.BRANCH_EMPLOYEE_DETAILS_VC) as! BranchEmployeeDetailsViewController
         selectedCategory = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_BRANCH
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleSearchViewTap(sender:)))
+        searchView.addGestureRecognizer(tap)
+        
+        serchBarContainerView.isHidden = true
     }
     
+    @objc func handleSearchViewTap(sender: UITapGestureRecognizer) {
+        setExpandingItemsVisibility()
+    }
     
     func setUiProps() {
         derectoryTableView.delegate = self
@@ -106,15 +110,30 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         self.serchBarContainerView.layer.borderWidth = CGFloat(TEXT_FIELD_BORDER_WIDTH)
         self.serchBarContainerView.layer.cornerRadius = CGFloat(TEXT_FIELD_CONER_RADIUS)
         self.searchTextFiled.placeholder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_BRANCH
+        self.searchTextField.placeholder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_BRANCH
         
         self.selectcategoryBtn.setTitle(KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_BRANCH, for: .normal)
         
+        setupExpandingSearchView()
+        
+    }
+    
+    func setupExpandingSearchView() {
+        searchView.layer.cornerRadius = searchView.bounds.width / 2
     }
     
     @IBAction func handleCategorySelection(_ sender: UIButton) {
         self.setCategoryitemsVisibility ()
     }
     
+    func setExpandingItemsVisibility() {
+        expandingViewItems.forEach { (item) in
+            UIView.animate(withDuration: 0.3) {
+                item.isHidden = !item.isHidden
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
     
     func setCategoryitemsVisibility () {
         categoryItems.forEach { (button) in
@@ -139,7 +158,19 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         self.derectoryTableView.reloadData()
     }
     
-    
+    @IBAction func searchTextFieldEdited(_ sender: UITextField) {
+        
+        self.requestHandler!(sender.text!)
+        
+        if sender.text! == ""{
+            self.isTyping = false
+            self._tableData.removeAll()
+           // self.employeeList.removeAll()
+        }
+        self.isTyping = true
+        self.derectoryTableView.reloadData()
+        
+    }
     
     @IBAction func categoryItemTapped(_ sender: UIButton) {
         var placeHolder: String?
@@ -149,7 +180,6 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         self.selectcategoryBtn.setTitle(categoryType.rawValue,for: .normal)
         self.selectedCategory = categoryType.rawValue
         
-        
         //Default Branch
         switch categoryType {
         case .branch:
@@ -158,6 +188,7 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             searchTextFiled.isEnabled = true
             employeeType = 0
             self.categoryNo = 0
+            searchTextField.isEnabled = true
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_BRANCH
         case .department:
             requestHandler = getDepartmentNameList
@@ -165,13 +196,15 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             searchTextFiled.isEnabled = true
             employeeType = 0
             self.categoryNo = 0
+            searchTextField.isEnabled = true
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_DEPARTMENT
         case .co_management:
             requestHandler = getCoporateManagementNameList
             self.requestHandler!("")
+            searchTextFiled.isEnabled = false
             employeeType = 1
             self.categoryNo = 0
-            searchTextFiled.isEnabled = false
+            searchTextField.isEnabled = false
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_COP_MANAGEMENT
         case .ex_office:
             requestHandler = getExchangeOfficeNameList
@@ -179,6 +212,7 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             searchTextFiled.isEnabled = true
             employeeType = 0
             self.categoryNo = 0
+            searchTextField.isEnabled = true
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_EX_OFFICE
         case .reg_office:
             requestHandler = getRegionalOfficeNameList
@@ -186,38 +220,45 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             searchTextFiled.isEnabled = false
             employeeType = 0
             self.categoryNo = 5
+            searchTextField.isEnabled = false
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_REG_OFFICE
-        case .serandib:
+        case .cbc_finance:
             requestHandler = getSerendibFinanceNameList
             self.requestHandler!("")
             searchTextFiled.isEnabled = false
             employeeType = 0
             self.categoryNo = 0
-            placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_SPECIAL_LOCATIONS
+            searchTextField.isEnabled = false
+            placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_CBC
         case .special_locations:
             requestHandler = getSpecialOfficeNameList
             self.requestHandler!("")
             searchTextFiled.isEnabled = true
             employeeType = 0
             self.categoryNo = 7
+            searchTextField.isEnabled = true
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_SPECIAL_LOCATIONS
         case .employee:
             requestHandler = getEmployeeList
             searchTextFiled.isEnabled = true
             employeeType = 0
             self.categoryNo = 0
+            searchTextField.isEnabled = true
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_EMPLOYEE_PLACEHOLDER
         default:
             requestHandler = getBranchNameList
             searchTextFiled.isEnabled = true
             employeeType = 0
             self.categoryNo = 0
+            searchTextField.isEnabled = true
             placeHolder = KeyCostants.DirectoryCategory.DIRECTORY_CATEGORY_BRANCH
         }
         
         self.searchTextFiled.text = ""
         self.searchTextFiled.placeholder = placeHolder
         self.setCategoryitemsVisibility ()
+        self.searchTextField.text = ""
+        self.searchTextField.placeholder = placeHolder
         self._tableData.removeAll()
         self._serendibFinanceTableData.removeAll()
         self.derectoryTableView.reloadData()
@@ -288,7 +329,7 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.selectionStyle = .none
             return cell
             
-        case .serandib:
+        case .cbc_finance:
             let cell = derectoryTableView.dequeueReusableCell(withIdentifier: UiConstants.ViewCellId.DIRECTORY_ITEM_CELL, for: indexPath) as! DirectoryTableViewCell
             if let serandibFinanceData = _tableData[indexPath.row] as? SerendibFinanceDataClass {
                 cell.direcaryItemLabel.text = serandibFinanceData.departmentName
@@ -348,7 +389,7 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
             self.regionalOfficeId = regOfficeInfo.regionalOfficeIDs
             self.infoTitles = KeyCostants.RegionalOfficeDetails.REGIONAL_OFFICE_DETAILS_TITLES
             performSegue(withIdentifier: UiConstants.SegueIdentifiers.DIRECTORY_DEPARTMENT_SEGUE, sender: self)
-        case .serandib:
+        case .cbc_finance:
             let serendibInfo = _tableData[indexPath.row] as! SerendibFinanceDataClass
             self.departmemtId = serendibInfo.departmentID
             self.infoTitles = KeyCostants.DepartmentDetails.DEPARTMENT_DETAILS_TITLES

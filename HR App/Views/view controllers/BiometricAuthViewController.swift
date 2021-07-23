@@ -25,7 +25,7 @@ class BiometricAuthViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -71,12 +71,15 @@ class BiometricAuthViewController: UIViewController, UITextFieldDelegate {
             self.authenticateWithPin()
         }
         
+    }
+    
+    func changeBiometricsPin() {
         
     }
     
     func authenticateWithPin() {
         DispatchQueue.main.async {
-            let alertController = UIAlertController(title: "Enter PIN number", message: "Please enter your PIN number here", preferredStyle: .alert)
+            let alertController = UIAlertController(title: UiConstants.AlertConst.ENTER_PIN_TITLE, message: UiConstants.AlertConst.ENTER_PIN_MESSAGE, preferredStyle: .alert)
             
             self.imgViewPinHideText.image = self.eyeHideImage
             let tapGestureHide = UITapGestureRecognizer(target: self, action: #selector(self.eyeImageHideAction))
@@ -91,7 +94,7 @@ class BiometricAuthViewController: UIViewController, UITextFieldDelegate {
             alertController.addTextField { (textField: UITextField!) in
                 self.pinTextField = textField
                 self.pinTextField.delegate = self
-                self.pinTextField.placeholder = "Enter PIN"
+                self.pinTextField.placeholder = UiConstants.AlertConst.PIN_FIELD_PLACEHOLDER
                 self.pinTextField.isSecureTextEntry = true
                 self.pinTextField.rightView = self.imgViewPinText
                 self.pinTextField.rightView = self.imgViewPinHideText
