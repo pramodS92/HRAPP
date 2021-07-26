@@ -23,9 +23,8 @@ class UserProfileViewController: UIViewController {
     @IBOutlet var userSegmentControl: UISegmentedControl!
     
     var employeeDetails: BranchEmployeeData!
-
-    var userInfo: [String]?
-    var userTabelData: [String]?
+    var userInfo: [String] = []
+    var userTabelData: [String] = []
     var userJobTableData: [String] = []
     var userSalaryTableData: [EmployeeSalaryDetailsData] = []
     var userTransferHistoryData: [EmployeeTransferHistoryData] = []
@@ -49,20 +48,8 @@ class UserProfileViewController: UIViewController {
         self.setDefaultSegment()
         isLoggedInUser ?? true ? self.getUserDetails() : self.getEmployeeDetailsById()
         self.backButton.isHidden = isLoggedInUser ?? true
-//        self.hideSegmentControl()
-        DispatchQueue.main.async {
-            self.getEmployeeSalaryDetailsById()
-            self.getTransferHistoryDetailsById()
-        }
+        
     }
-    
-//    func hideSegmentControl() {
-//        if isLoggedInUser == false {
-//            userSegmentControl.isHidden = true
-//        } else {
-//            userSegmentControl.isHidden = false
-//        }
-//    }
     
     func setDefaultSegment() {
         self.userJobInfoViewContainer.alpha = 0
@@ -80,6 +67,11 @@ class UserProfileViewController: UIViewController {
         self.isLoggedIn = true
         self.spinnerView.stopAnimating()
         self.spinnerView.isHidden = true
+        
+        DispatchQueue.main.async {
+            self.getEmployeeSalaryDetailsById()
+            self.getTransferHistoryDetailsById()
+        }
         
     }
     
@@ -103,7 +95,6 @@ class UserProfileViewController: UIViewController {
         
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: UiConstants.SegueIdentifiers.USER_JOB_INFO_SEGUE, sender: self)
-            
         }
         
     }
@@ -153,7 +144,6 @@ class UserProfileViewController: UIViewController {
         if segue.identifier == UiConstants.SegueIdentifiers.USER_INFO_SEGUE {
             let destination = segue.destination as! UserInfoViewController
             destination.userTabelData =  self.userTabelData
-            
         }
         else if segue.identifier == UiConstants.SegueIdentifiers.USER_JOB_INFO_SEGUE {
             let destination = segue.destination as! UserJobInfoViewController
@@ -186,11 +176,11 @@ extension UserProfileViewController: OnSuccessUserProfile {
     }
     
     internal func getEmployeeSalaryDetailsById() {
-        isLoggedInUser ?? true ? serviceManager.getEmployeeSalaryDetailsById(employeeId: "02713", self) : serviceManager.getEmployeeSalaryDetailsById(employeeId: self.employeeId!, self)
+        isLoggedInUser ?? true ? serviceManager.getEmployeeSalaryDetailsById(employeeId: self.loggedInEmployeeId!, self) : serviceManager.getEmployeeSalaryDetailsById(employeeId: self.employeeId!, self)
     }
     
     internal func getTransferHistoryDetailsById() {
-        isLoggedInUser ?? true ? serviceManager.getEmployeeTransferHistoryDetailsById(employeeId: "02713", self) : serviceManager.getEmployeeTransferHistoryDetailsById(employeeId: self.employeeId!, self)
+        isLoggedInUser ?? true ? serviceManager.getEmployeeTransferHistoryDetailsById(employeeId: self.loggedInEmployeeId!, self) : serviceManager.getEmployeeTransferHistoryDetailsById(employeeId: self.employeeId!, self)
     }
     
     func getEmployeeSalaryInfo(employeeSalaries: [EmployeeSalaryDetailsData]) {
