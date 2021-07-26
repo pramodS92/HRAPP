@@ -35,3 +35,15 @@ struct CoporateManagementData: Codable {
         case name
     }
 }
+
+struct CoporateManagementDetailsModel: Codable {
+    let user: User?
+    let status: Int?
+    let data: BranchEmployeeData?
+    let welcomeDescription: String?
+
+    enum CodingKeys: String, CodingKey {
+        case user, status, data
+        case welcomeDescription = "description"
+    }
+}

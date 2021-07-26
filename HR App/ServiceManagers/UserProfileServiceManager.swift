@@ -12,7 +12,10 @@ import Alamofire
 
 protocol OnSuccessUserProfile {
     func OnSuccessUserProfile(userInfo: [String],userTabelData: [String])
+    func getEmployeeSalaryInfo(employeeSalaries: [EmployeeSalaryDetailsData])
+    func getEmployeeTransferHistoryInfo(employeeTransferHistory: [EmployeeTransferHistoryData])
     func getUserData(userData: BranchEmployeeData)
+    func onFailier()
 }
 
 class UserProfileServiceManager {
@@ -20,8 +23,16 @@ class UserProfileServiceManager {
     var userInfo: [String] = []
     var userTableData: [String] = []
     var effectiveDates: [Date] = []
+    var userSalaryTableData: [EmployeeSalaryDetailsData] = []
+    var userTransferHistoryTableData: [EmployeeTransferHistoryData] = []
     var delegate: OnSuccessUserProfile?
     let unavailable = KeyCostants.BranchEmployeeDetails.TEXT_UNAVAILABLE
+    
+    static  let isoFormatter : ISO8601DateFormatter = {
+        let formatter =  ISO8601DateFormatter()
+            formatter.formatOptions = [.withFullDate,]
+        return formatter
+       }()
     
     public func getUserProfileInfo(_ callback: OnSuccessUserProfile) {
         self.delegate = callback
@@ -58,6 +69,77 @@ class UserProfileServiceManager {
             }
         }
     }
+    
+    func getEmployeeSalaryDetailsById(employeeId: String, _ callback: OnSuccessUserProfile) {
+        self.delegate = callback
+        
+        EmployeeInfoService.shared.getEmployeeSalaryDetailsById(employeeId: employeeId) {
+            (response, error, statusCode) in
+            if response != nil {
+                if let responseBody = try? JSONDecoder().decode(EmployeeSalaryDetailsModel.self, from: response! as! Data) {
+                    self.delegate?.getEmployeeSalaryInfo(employeeSalaries: self.getEmployeeSalaryTableData(response: responseBody.data))
+                }
+            } else {
+                self.delegate?.onFailier()
+                return
+            }
+        }
+    }
+    
+    func getEmployeeTransferHistoryDetailsById(employeeId: String, _ callback: OnSuccessUserProfile) {
+        self.delegate = callback
+        
+        EmployeeInfoService.shared.getEmployeeTransferHistoryById(employeeId: employeeId) { (response, error, statusCode) in
+            if response != nil {
+                if let responseBody = try? JSONDecoder().decode(EmployeeTransferHistoryModel.self, from: response! as! Data) {
+                    self.delegate?.getEmployeeTransferHistoryInfo(employeeTransferHistory: self.getEmployeeTransferHistoryData(response: responseBody.data))
+                }
+            } else {
+                self.delegate?.onFailier()
+                return
+            }
+        }
+    }
+    
+    
+    
+    //Get selected employee salary details in UserJobInfo Tab - User Profile Module
+    func getEmployeeSalaryTableData(response: [EmployeeSalaryDetailsData]) -> [EmployeeSalaryDetailsData] {
+        self.userSalaryTableData.removeAll()
+        
+        // latest to oldest
+        for i in 0...(response.count - 1) {
+            
+            var dateFromString: Date {
+                return UserProfileServiceManager.isoFormatter.date(from: response[i].effectiveDate)!
+            }
+            
+        }
+        
+        let sortedSalaries = response.sorted {$0.effectiveDate > $1.effectiveDate}
+        self.userSalaryTableData = sortedSalaries
+        
+        return userSalaryTableData
+    }
+    
+    func getEmployeeTransferHistoryData(response: [EmployeeTransferHistoryData]) -> [EmployeeTransferHistoryData] {
+        self.userTransferHistoryTableData.removeAll()
+        
+        //latest to oldest
+        for i in 0...(response.count - 1) {
+            
+            var dateFromString: Date {
+                return UserProfileServiceManager.isoFormatter.date(from: response[i].date)!
+            }
+        }
+        
+        let sortedTransferHistory = response.sorted {$0.date > $1.date}
+        self.userTransferHistoryTableData = sortedTransferHistory
+        
+        return userTransferHistoryTableData
+    }
+    
+    
     
     
     //Get selected employee profile details  - User Profile Module

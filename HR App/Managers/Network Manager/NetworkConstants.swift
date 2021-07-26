@@ -89,6 +89,9 @@ struct NetworkConstants {
         static var getEmployeeSalaryDetailsById: String {
             return "/hrm/salary/employee/"
         }
+        static var getEmployeeTransferHistoryById: String {
+            return "/hrm/employee/history/transfer/"
+        }
         
     }
 }

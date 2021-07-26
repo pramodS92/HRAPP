@@ -11,7 +11,6 @@ import Foundation
 import UIKit
 
 class UserInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
     
    @IBOutlet weak var userInfoTableView: UITableView!
     

@@ -1,13 +1,36 @@
 //
 //
-// DepartmentDetailsModel.swift
+// DepaetmentNameListModel.swift
 // HR App
 //
-//Created by Pramod Ranasinghe on 6/9/21
+//Created by Pramod Ranasinghe on 5/24/21
 // Copyright © 2021 CBC Tech Solutions. All rights reserved.
 
 
 import Foundation
+
+
+struct DepartmentNameListModel: Codable {
+    let user: User
+    let status: Int
+    let data: [DepartmentData]?
+    let welcomeDescription: String
+
+    enum CodingKeys: String, CodingKey {
+        case user, status, data
+        case welcomeDescription = "description"
+    }
+}
+
+
+struct DepartmentData: Codable {
+    let departmentName, departmentID: String?
+
+    enum CodingKeys: String, CodingKey {
+        case departmentName
+        case departmentID = "departmentId"
+    }
+}
 
 struct DepartmentDetailsModel: Codable {
     let user: User?
@@ -23,7 +46,7 @@ struct DepartmentDetailsModel: Codable {
 
 
 struct DepartmentDataClass: Codable {
-    let departmentName: String? 
+    let departmentName: String?
     let departmentID, fax, deparmentHead, knownName: String?
     let departmentHeadID, deparmentHeadTelephone, headEXT: String?
     let branchName: String?
@@ -59,7 +82,3 @@ struct DepartmentDataClass: Codable {
 //        case branch, department
 //    }
 //}
-
-
-
-

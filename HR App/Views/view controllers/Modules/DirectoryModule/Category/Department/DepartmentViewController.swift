@@ -222,6 +222,7 @@ extension DepartmentViewController: onSuccessRegionalOfficeDetails {
 }
 
 extension DepartmentViewController: OnSuccessUserProfile {
+    
     func getUserData(userData: BranchEmployeeData) {
         specialLocationEmployeeList?.append(userData)
         setDepartmentEmployeeList(employeeList: specialLocationEmployeeList!)
@@ -234,6 +235,18 @@ extension DepartmentViewController: OnSuccessUserProfile {
     }
 
     func OnSuccessUserProfile(userInfo: [String], userTabelData: [String]) {
+        
+    }
+    
+    func getEmployeeSalaryInfo(employeeSalaries: [EmployeeSalaryDetailsData]) {
+        
+    }
+    
+    func getEmployeeTransferHistoryInfo(employeeTransferHistory: [EmployeeTransferHistoryData]) {
+        
+    }
+    
+    func onFailier() {
         
     }
     

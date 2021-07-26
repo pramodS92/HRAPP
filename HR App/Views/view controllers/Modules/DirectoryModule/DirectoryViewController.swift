@@ -9,6 +9,7 @@
 
 import UIKit
 
+@available(iOS 13.0, *)
 class DirectoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var categoryItems: [UIButton]!
@@ -16,7 +17,14 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet var expandingViewItems: [UIView]!
     @IBOutlet var expandingStackView: UIStackView!
     @IBOutlet var searchView: UIView!
-    @IBOutlet var searchTextField: UITextField!
+    @IBOutlet var searchTextField: UITextField! {
+        didSet {
+            searchTextField.tintColor = UIColor.lightGray
+            searchTextField.setIcon(UIImage(systemName: "magnifyingglass")!)
+        }
+     }
+    @IBOutlet weak var searchTextView: UIView!
+    @IBOutlet weak var searchImageView: UIImageView!
     @IBOutlet weak var derectoryTableView: UITableView!
     @IBOutlet weak var selectcategoryBtn: UIButton!
     @IBOutlet weak var searchTextFiled: UITextField!
@@ -120,6 +128,8 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func setupExpandingSearchView() {
         searchView.layer.cornerRadius = searchView.bounds.width / 2
+        expandingStackView.layer.cornerRadius = 20.0
+        searchTextView.layer.cornerRadius = 20.0
     }
     
     @IBAction func handleCategorySelection(_ sender: UIButton) {
@@ -130,6 +140,7 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
         expandingViewItems.forEach { (item) in
             UIView.animate(withDuration: 0.3) {
                 item.isHidden = !item.isHidden
+                self.searchImageView.image = UIImage(systemName: item.isHidden ? "magnifyingglass" : "xmark")
                 self.view.layoutIfNeeded()
             }
         }
@@ -540,6 +551,7 @@ extension Collection where Element: Equatable {
     }
 }
 
+@available(iOS 13.0, *)
 extension DirectoryViewController: OnSuccessUserDirectory {
     
     internal func getBranchNames(text: String){
@@ -613,6 +625,7 @@ extension DirectoryViewController: OnSuccessUserDirectory {
     
 }
 
+@available(iOS 13.0, *)
 extension DirectoryViewController: onSuccessCoporateManagementDetails {
     
     internal func getCoporateManagementDetails(employeeId: String) {
@@ -623,4 +636,17 @@ extension DirectoryViewController: onSuccessCoporateManagementDetails {
         getEmployeeInfo(info: coporateManagemenData)
     }
     
+}
+
+extension UITextField {
+    func setIcon(_ image: UIImage) {
+       let iconView = UIImageView(frame:
+                      CGRect(x: 10, y: 5, width: 20, height: 20))
+       iconView.image = image
+       let iconContainerView: UIView = UIView(frame:
+                      CGRect(x: 20, y: 0, width: 30, height: 30))
+       iconContainerView.addSubview(iconView)
+       leftView = iconContainerView
+       leftViewMode = .always
+    }
 }

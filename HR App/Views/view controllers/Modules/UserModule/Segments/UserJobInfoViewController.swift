@@ -13,105 +13,144 @@ import UIKit
 class UserJobInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var userJobInfoTableView: UITableView!
+    @IBOutlet weak var userTransferHistoryTableView: UITableView!
+    @IBOutlet var userJobInfoTableTitles: [UILabel]!
+    @IBOutlet weak var currentSalaryLabel: UILabel!
+    @IBOutlet weak var previousSalaryHistoryView: UIView!
+    @IBOutlet weak var currentSalaryView: UIView!
     
     var userJobTableData: [String]?
     var userSalaryTableData: [EmployeeSalaryDetailsData]!
+    var userTransferHistoryTableData: [EmployeeTransferHistoryData]!
     var currentSalary: String?
-    var isOpened: Bool = false
-    
-//    var effectiveYear: String?
-//    var effectiveMonth: String?
-//    var effectiveDay: String?
-//
+    var isLoggedInUser: Bool?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: UiConstants.ViewCellId.USER_JOB_INFO_CELL, bundle: nil)
-        userJobInfoTableView.register(nib, forCellReuseIdentifier: UiConstants.ViewCellId.USER_JOB_INFO_CELL)
+        userTransferHistoryTableView.register(nib, forCellReuseIdentifier: UiConstants.ViewCellId.USER_JOB_INFO_CELL)
+        userTransferHistoryTableView.register(UserTransferHistoryHeader.self, forHeaderFooterViewReuseIdentifier: UiConstants.ViewCellId.USER_TRANSFER_HISTORY_HEADER_CELL)
         let previousSalaryNib = UINib(nibName: UiConstants.ViewCellId.PREVIOUS_SALARY_TITLE_CELL, bundle: nil)
         userJobInfoTableView.register(previousSalaryNib, forCellReuseIdentifier: UiConstants.ViewCellId.PREVIOUS_SALARY_TITLE_CELL)
-        userJobInfoTableView.register(UserJobInfoHeader.self, forHeaderFooterViewReuseIdentifier: "header")
+        userJobInfoTableView.register(UserJobInfoHeader.self, forHeaderFooterViewReuseIdentifier: UiConstants.ViewCellId.USER_JOB_INFO_HEADER_CELL)
+        let transferHistoryNib = UINib(nibName: UiConstants.ViewCellId.USER_TRANSFER_HISTORY_CELL, bundle: nil)
+        userTransferHistoryTableView.register(transferHistoryNib, forCellReuseIdentifier: UiConstants.ViewCellId.USER_TRANSFER_HISTORY_CELL)
         userJobInfoTableView.delegate = self
         userJobInfoTableView.dataSource = self
+        userTransferHistoryTableView.delegate = self
+        userTransferHistoryTableView.dataSource = self
+        
         print("hell yea", self.userJobTableData!)
         print("hell no", self.userSalaryTableData!)
+        self.setupUi()
+        self.hidePreviousSalaryHistoryView()
+    }
+    
+    func setupUi() {
+        setUserJobInfoTitles()
+        currentSalaryLabel.text = self.currentSalary
+    }
+    
+    func hidePreviousSalaryHistoryView() {
         
+        if isLoggedInUser == false {
+            previousSalaryHistoryView.isHidden = true
+            currentSalaryView.isHidden = true
+        } else {
+            previousSalaryHistoryView.isHidden = false
+            currentSalaryView.isHidden = false
+        }
+    }
+    
+    func setUserJobInfoTitles() {
+        self.userJobInfoTableTitles.enumerated().forEach { (index, element) in
+            element.text = UiConstants.UserInfo.UserJobInfoTitles[index]
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return userSalaryTableData.count
-                return userSalaryTableData.count
+        var tableCount: Int?
+        
+        if tableView == self.userJobInfoTableView {
+            tableCount = self.userSalaryTableData.count
+        } else if tableView == self.userTransferHistoryTableView {
+            tableCount = self.userTransferHistoryTableData.count
+        }
+        return tableCount!
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let label = UILabel()
-//        label.text = "Previous Salary Details"
-//        label.backgroundColor = UIColor.lightGray
-//        return label
-        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header")
-        return header
+        var headerView: UIView?
+        
+        let clearView: UIView = {
+           let view = UIView()
+            view.backgroundColor = UIColor.clear
+            return view
+        }()
+        
+        if tableView == self.userJobInfoTableView {
+            let header = userJobInfoTableView.dequeueReusableHeaderFooterView(withIdentifier: UiConstants.ViewCellId.USER_JOB_INFO_HEADER_CELL)
+            headerView = header
+        } else if tableView == self.userTransferHistoryTableView {
+            headerView = clearView
+        }
+        
+        return headerView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
     }
     
-    func handleExpandClose(isOpened: Bool) {
-        print("Trying to expand and close section...")
-        
-        self.isOpened = isOpened
-        print(self.isOpened)
-//        var indexPaths = [IndexPath]()
-//
-//        for cell in userJobInfoTableView.visibleCells {
-//            let indexPath: IndexPath = userJobInfoTableView.indexPath(for: cell)!
-//
-//            if indexPath.section == 0 {
-//                indexPaths.append(indexPath)
-//            }
-//        }
-//
-//        userJobInfoTableView.deleteRows(at: indexPaths, with: .fade)
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if (indexPath.row == 0) {
-//            let cell = userJobInfoTableView.dequeueReusableCell(withIdentifier: UiConstants.ViewCellId.USER_JOB_INFO_CELL, for: indexPath) as! UserJobInfoTableViewCell
-//            cell.selectionStyle = .none
-//            cell.userJobInfoTitle.text = UiConstants.UserInfo.UserJobInfoTitles[0]
-//            cell.userJobInfoDetails.text = userJobTableData?[0]
-//            return cell
-//        } else if (indexPath.row == 1) {
-//            let cell = userJobInfoTableView.dequeueReusableCell(withIdentifier: UiConstants.ViewCellId.USER_JOB_INFO_CELL, for: indexPath) as! UserJobInfoTableViewCell
-//            cell.selectionStyle = .none
-//            cell.userJobInfoTitle.text = UiConstants.UserInfo.UserJobInfoTitles[1]
-//            cell.userJobInfoDetails.text = userJobTableData?[1]
-//            return cell
-//        }
-//        else if (indexPath.row == 2) {
-//            let cell = userJobInfoTableView.dequeueReusableCell(withIdentifier: UiConstants.ViewCellId.PREVIOUS_SALARY_TITLE_CELL, for: indexPath) as! PreviousSalaryTitlesTableViewCell
-//            return cell
-//        }
-        let cell = userJobInfoTableView.dequeueReusableCell(withIdentifier: UiConstants.ViewCellId.PREVIOUS_SALARY_TITLE_CELL, for: indexPath) as! PreviousSalaryTitlesTableViewCell
-        cell.selectionStyle = .none
-        if let employeeSalaryDetails = userSalaryTableData[indexPath.row] as? EmployeeSalaryDetailsData {
+        
+        var tableViewCell: UITableViewCell?
+        
+        if tableView == self.userJobInfoTableView {
             
-            let startIndex = employeeSalaryDetails.effectiveDate.index(employeeSalaryDetails.effectiveDate.startIndex, offsetBy: 4)
-            let endIndex = employeeSalaryDetails.effectiveDate.index(employeeSalaryDetails.effectiveDate.endIndex, offsetBy: -2)
+            let startIndex = userSalaryTableData[indexPath.row].effectiveDate.index(userSalaryTableData[indexPath.row].effectiveDate.startIndex, offsetBy: 4)
+            let endIndex = userSalaryTableData[indexPath.row].effectiveDate.index(userSalaryTableData[indexPath.row].effectiveDate.endIndex, offsetBy: -2)
+            let range = startIndex..<endIndex
+                
+                
+            let effectiveYear = userSalaryTableData[indexPath.row].effectiveDate.prefix(4)
+            let month = userSalaryTableData[indexPath.row].effectiveDate[range]
+            let day = userSalaryTableData[indexPath.row].effectiveDate.suffix(2)
+            
+            let cell = userJobInfoTableView.dequeueReusableCell(withIdentifier: UiConstants.ViewCellId.PREVIOUS_SALARY_TITLE_CELL, for: indexPath) as! PreviousSalaryTitlesTableViewCell
+            cell.selectionStyle = .none
+            self.userTransferHistoryTableView.separatorStyle = .none
+                
+            cell.effectiveDataLabel.text =  String(day) + "/" + String(month) + "/" + String(effectiveYear)
+            cell.basicSalaryLabel.text = userSalaryTableData[indexPath.row].basicSalary
+            cell.otLabel.text = userSalaryTableData[indexPath.row].salaryGrade
+            
+            tableViewCell = cell
+                
+        } else if tableView == self.userTransferHistoryTableView {
+            
+            let startIndex = userTransferHistoryTableData[indexPath.row].date.index(userTransferHistoryTableData[indexPath.row].date.startIndex, offsetBy: 4)
+            let endIndex = userTransferHistoryTableData[indexPath.row].date.index(userTransferHistoryTableData[indexPath.row].date.endIndex, offsetBy: -2)
             let range = startIndex..<endIndex
             
+            let year = userTransferHistoryTableData[indexPath.row].date.prefix(4)
+            let month = userTransferHistoryTableData[indexPath.row].date[range]
+            let day = userTransferHistoryTableData[indexPath.row].date.suffix(2)
             
-            let effectiveYear = employeeSalaryDetails.effectiveDate.prefix(4)
-            let month = employeeSalaryDetails.effectiveDate[range]
-            let day = employeeSalaryDetails.effectiveDate.suffix(2)
+            let cell = userTransferHistoryTableView.dequeueReusableCell(withIdentifier: UiConstants.ViewCellId.USER_TRANSFER_HISTORY_CELL, for: indexPath) as! UserTransferHistoryTableViewCell
+            cell.selectionStyle = .none
             
-            cell.effectiveDataLabel.text =  String(day) + "/" + String(month) + "/" + String(effectiveYear)
-            cell.basicSalaryLabel.text = employeeSalaryDetails.basicSalary
-            cell.otLabel.text = employeeSalaryDetails.salaryGrade
+            let date = String(day) + "/" + String(month) + "/" + String(year)
+            
+            cell.designation.text = userTransferHistoryTableData[indexPath.row].designation
+            cell.date.text = date.condensed
+            cell.branchName.text = userTransferHistoryTableData[indexPath.row].branchName
+            
+            tableViewCell = cell
             
         }
-        
-        return cell
            
+        return tableViewCell!
     }
     
 }

@@ -24,11 +24,11 @@ class UserProfileViewController: UIViewController {
     
     var employeeDetails: BranchEmployeeData!
 
-    var helloWorld: [String] = ["Hello World", "10000"]
     var userInfo: [String]?
     var userTabelData: [String]?
     var userJobTableData: [String] = []
     var userSalaryTableData: [EmployeeSalaryDetailsData] = []
+    var userTransferHistoryData: [EmployeeTransferHistoryData] = []
     var userJobInfoVc = UserJobInfoViewController()
     var userCurrentSalary: String?
     var isLoggedInUser: Bool?
@@ -36,7 +36,6 @@ class UserProfileViewController: UIViewController {
     var employeeId: String?
     var loggedInEmployeeId: String?
     var serviceManager: UserProfileServiceManager = UserProfileServiceManager()
-    var employeeSalaryDetailsServiceManager: EmployeeSalaryDetailsServiceManager = EmployeeSalaryDetailsServiceManager()
     
     var isLoggedIn: Bool = false {
         didSet {
@@ -49,19 +48,21 @@ class UserProfileViewController: UIViewController {
         super.viewDidLoad()
         self.setDefaultSegment()
         isLoggedInUser ?? true ? self.getUserDetails() : self.getEmployeeDetailsById()
-        self.getEmployeeSalaryDetailsById()
         self.backButton.isHidden = isLoggedInUser ?? true
-        hideSegmentControl()
-        
-    }
-    
-    func hideSegmentControl() {
-        if isLoggedInUser == false {
-            userSegmentControl.isHidden = true
-        } else {
-            userSegmentControl.isHidden = false
+//        self.hideSegmentControl()
+        DispatchQueue.main.async {
+            self.getEmployeeSalaryDetailsById()
+            self.getTransferHistoryDetailsById()
         }
     }
+    
+//    func hideSegmentControl() {
+//        if isLoggedInUser == false {
+//            userSegmentControl.isHidden = true
+//        } else {
+//            userSegmentControl.isHidden = false
+//        }
+//    }
     
     func setDefaultSegment() {
         self.userJobInfoViewContainer.alpha = 0
@@ -70,7 +71,8 @@ class UserProfileViewController: UIViewController {
     
     func setUiProps(userInfo: [String],userTabelData: [String]) {
         self.userTabelData = userTabelData
-        
+        print("id:", userTabelData[5])
+        self.loggedInEmployeeId =  userTabelData[5]
         self.userInfoTitles.enumerated().forEach { (index, element) in
             element.text = userInfo[index]
         }
@@ -101,8 +103,14 @@ class UserProfileViewController: UIViewController {
         
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: UiConstants.SegueIdentifiers.USER_JOB_INFO_SEGUE, sender: self)
+            
         }
         
+    }
+    
+    func setUserTransferHistoryInfo(userTransferHistoryTableData: [EmployeeTransferHistoryData]) {
+        self.userTransferHistoryData = userTransferHistoryTableData
+        print("transfer ", self.userTransferHistoryData)
     }
     
     func setActivityIndicatorVisibility(show: Bool) {
@@ -123,8 +131,8 @@ class UserProfileViewController: UIViewController {
         } else if sender.selectedSegmentIndex == 1 {
             self.userInfoViewContainer.alpha = 0
             self.userJobInfoViewContainer.alpha = 1
-            
         }
+        
     }
     
     @IBAction func actionBack(_ sender: Any) {
@@ -151,6 +159,9 @@ class UserProfileViewController: UIViewController {
             let destination = segue.destination as! UserJobInfoViewController
             destination.userJobTableData = self.userJobTableData
             destination.userSalaryTableData = self.userSalaryTableData
+            destination.userTransferHistoryTableData = self.userTransferHistoryData
+            destination.currentSalary = self.userCurrentSalary
+            destination.isLoggedInUser = self.isLoggedInUser
         }
     }
 }
@@ -174,22 +185,23 @@ extension UserProfileViewController: OnSuccessUserProfile {
         
     }
     
-}
-
-extension UserProfileViewController: OnSuccessEmployeeSalaryDetails {
-    
     internal func getEmployeeSalaryDetailsById() {
-        isLoggedInUser ?? true ? employeeSalaryDetailsServiceManager.getEmployeeSalaryDetailsById(employeeId: "02713", self) : employeeSalaryDetailsServiceManager.getEmployeeSalaryDetailsById(employeeId: self.employeeId!, self)
+        isLoggedInUser ?? true ? serviceManager.getEmployeeSalaryDetailsById(employeeId: "02713", self) : serviceManager.getEmployeeSalaryDetailsById(employeeId: self.employeeId!, self)
+    }
+    
+    internal func getTransferHistoryDetailsById() {
+        isLoggedInUser ?? true ? serviceManager.getEmployeeTransferHistoryDetailsById(employeeId: "02713", self) : serviceManager.getEmployeeTransferHistoryDetailsById(employeeId: self.employeeId!, self)
     }
     
     func getEmployeeSalaryInfo(employeeSalaries: [EmployeeSalaryDetailsData]) {
         setUserSalaryInfo(userSalaryTableData: employeeSalaries)
     }
     
+    func getEmployeeTransferHistoryInfo(employeeTransferHistory: [EmployeeTransferHistoryData]) {
+        setUserTransferHistoryInfo(userTransferHistoryTableData: employeeTransferHistory)
+    }
+    
     func onFailier() {
         setActivityIndicatorVisibility(show: false)
     }
-    
 }
-
-
