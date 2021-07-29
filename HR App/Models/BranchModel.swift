@@ -47,8 +47,8 @@ struct BranchDetailsModel: Codable {
 // MARK: - Datum
 struct BranchData: Codable {
     let branchName: String?
-    let branchID, address1, address2, address3: String?
-    let address4, telephone, fax, managerID: String?
+    let branchID, addressOne, addressTwo, addressThree: String?
+    let addressFour, telephone, fax, managerID: String?
     let managerTelephone, managerName, managerKnowName, regionalOffice: String?
     let regionalManagerName, regionalManagerEmpcode, aGM, aGMID: String?
     let aGMDesignation: String?
@@ -57,7 +57,7 @@ struct BranchData: Codable {
     enum CodingKeys: String, CodingKey {
         case branchName
         case branchID = "branchId"
-        case address1, address2, address3, address4, telephone, fax, managerID, managerTelephone, managerName, managerKnowName, regionalOffice, regionalManagerName, regionalManagerEmpcode, aGM
+        case addressOne, addressTwo, addressThree, addressFour, telephone, fax, managerID, managerTelephone, managerName, managerKnowName, regionalOffice, regionalManagerName, regionalManagerEmpcode, aGM
         case aGMID = "aGM_ID"
         case aGMDesignation = "aGM_designation"
         case branchEmployees

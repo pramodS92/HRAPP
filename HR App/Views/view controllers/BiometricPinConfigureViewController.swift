@@ -112,7 +112,6 @@ class BiometricPinConfigureViewController: UIViewController, UITextFieldDelegate
         configureBtn.isEnabled = false
         navigateToBiometricAuthScreen()
         
-        
         UserDefaults.standard.set(configurePintf.text!, forKey: UserDefaultConstants.BiometricsPinConstants.LocalPin)
         UserDefaults.standard.set(true, forKey: UserDefaultConstants.BiometricsPinConstants.isLocalPinEnabled)
         

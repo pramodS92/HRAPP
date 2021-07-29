@@ -39,7 +39,6 @@ class UserProfileViewController: UIViewController {
     var isLoggedIn: Bool = false {
         didSet {
             self.performSegue(withIdentifier: UiConstants.SegueIdentifiers.USER_INFO_SEGUE, sender: self)
-            
         }
     }
     

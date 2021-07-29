@@ -71,7 +71,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="194" y="104"/>
+            <point key="canvasLocation" x="922" y="112"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="dxN-Qo-jBT">
@@ -219,7 +219,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sfo-pz-U6E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="996" y="104"/>
+            <point key="canvasLocation" x="1725" y="112"/>
         </scene>
         <!--Home-->
         <scene sceneID="rfK-Um-iNl">
@@ -1287,7 +1287,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IhP-FB-7vr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8330.434782608696" y="1725"/>
+            <point key="canvasLocation" x="6284" y="943"/>
         </scene>
         <!--Department View Controller-->
         <scene sceneID="2T0-Vu-eik">
@@ -2613,7 +2613,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FD0-0s-WL8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1872.4637681159422" y="111.83035714285714"/>
+            <point key="canvasLocation" x="2601" y="120"/>
         </scene>
         <!--Biometric Auth View Controller-->
         <scene sceneID="aUW-Nf-hDe">
@@ -2656,7 +2656,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p6U-E0-kSa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2705.625" y="111.25"/>
+            <point key="canvasLocation" x="3433" y="119"/>
         </scene>
         <!--User Profile-->
         <scene sceneID="uFY-Gz-Ign">
@@ -2866,7 +2866,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IU2-v1-3n0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6363.7681159420299" y="650.89285714285711"/>
+            <point key="canvasLocation" x="7170" y="943"/>
         </scene>
         <!--Notification-->
         <scene sceneID="LpM-93-xjo">
@@ -3031,22 +3031,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nwM-HP-5HD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7219" y="781"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="2pp-KW-sAg">
-            <objects>
-                <viewController id="ZBl-eE-Uye" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Mnc-2v-x2B">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="VIX-dY-GQt"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L4D-U7-jCS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="9309" y="886"/>
+            <point key="canvasLocation" x="8039" y="1145"/>
         </scene>
         <!--User Info View Controller-->
         <scene sceneID="f5Q-h1-gQe">
@@ -3078,7 +3063,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jmX-Vy-E3D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7220" y="373"/>
+            <point key="canvasLocation" x="8039" y="704"/>
         </scene>
         <!--Directory-->
         <scene sceneID="idH-6z-1xR">
@@ -3198,7 +3183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uWJ-Cf-di9" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3536" y="112"/>
+            <point key="canvasLocation" x="4264" y="120"/>
         </scene>
         <!--Apply Leave Online-->
         <scene sceneID="24O-AE-EuP">
@@ -3652,7 +3637,7 @@
                                                                 </constraints>
                                                             </datePicker>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="whq-DC-xOl">
-                                                                <rect key="frame" x="207.5" y="223.5" width="192.5" height="50"/>
+                                                                <rect key="frame" x="207.5" y="223.5" width="187.5" height="50"/>
                                                                 <color key="backgroundColor" systemColor="quaternaryLabelColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="pHH-1U-7tr"/>
@@ -3662,7 +3647,7 @@
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             </textView>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4lz-Ts-DqJ">
-                                                                <rect key="frame" x="207.5" y="163" width="192.5" height="50"/>
+                                                                <rect key="frame" x="207.5" y="163" width="187.5" height="50"/>
                                                                 <color key="backgroundColor" systemColor="quaternaryLabelColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="tJY-ol-HTS"/>
@@ -3672,12 +3657,12 @@
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             </textView>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1vQ-bA-L0r">
-                                                                <rect key="frame" x="207.5" y="290" width="192.5" height="34"/>
+                                                                <rect key="frame" x="207.5" y="290" width="187.5" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aZ0-6U-juh">
-                                                                <rect key="frame" x="207.5" y="346.5" width="192.5" height="34"/>
+                                                                <rect key="frame" x="207.5" y="346.5" width="187.5" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
@@ -3699,6 +3684,7 @@
                                                             <constraint firstAttribute="trailing" secondItem="Ttx-4B-srt" secondAttribute="trailing" constant="83" id="22g-8s-7LC"/>
                                                             <constraint firstItem="qgx-cA-kAa" firstAttribute="top" secondItem="9xk-Xc-C3T" secondAttribute="bottom" constant="44.5" id="2bS-jq-fNk"/>
                                                             <constraint firstItem="jWL-DE-s8P" firstAttribute="leading" secondItem="XH6-Gp-Cmh" secondAttribute="trailing" constant="2" id="2nm-iI-gxg"/>
+                                                            <constraint firstAttribute="trailing" secondItem="aZ0-6U-juh" secondAttribute="trailing" constant="5" id="6OT-ME-6Pv"/>
                                                             <constraint firstItem="9xk-Xc-C3T" firstAttribute="top" secondItem="7IM-ev-o4F" secondAttribute="bottom" constant="37.5" id="7Ef-Dn-rMj"/>
                                                             <constraint firstItem="Jn9-Nc-JwW" firstAttribute="centerY" secondItem="nqZ-lu-kud" secondAttribute="centerY" id="7cn-tk-VAD"/>
                                                             <constraint firstItem="aNv-dx-Mtm" firstAttribute="centerY" secondItem="qgx-cA-kAa" secondAttribute="centerY" id="9IB-79-Aep"/>
@@ -3707,8 +3693,8 @@
                                                             <constraint firstItem="0up-M7-Q21" firstAttribute="centerY" secondItem="Xl2-Sg-LRl" secondAttribute="centerY" id="AAw-sG-RtM"/>
                                                             <constraint firstItem="whq-DC-xOl" firstAttribute="top" secondItem="4lz-Ts-DqJ" secondAttribute="bottom" constant="10.5" id="AqW-w2-m4s"/>
                                                             <constraint firstItem="nqZ-lu-kud" firstAttribute="leading" secondItem="s2s-yC-Mxc" secondAttribute="leading" constant="8" id="BnA-Pz-302"/>
-                                                            <constraint firstAttribute="trailing" secondItem="whq-DC-xOl" secondAttribute="trailing" id="D9L-77-8d6"/>
                                                             <constraint firstItem="Fh5-U4-5Dg" firstAttribute="top" secondItem="Ttx-4B-srt" secondAttribute="bottom" constant="10" id="ENj-QO-W6u"/>
+                                                            <constraint firstAttribute="trailing" secondItem="whq-DC-xOl" secondAttribute="trailing" constant="5" id="Eg2-cp-rel"/>
                                                             <constraint firstItem="8c8-55-aWw" firstAttribute="top" secondItem="Nva-sV-DcA" secondAttribute="bottom" constant="5" id="Eiu-Nb-c9W"/>
                                                             <constraint firstAttribute="trailing" secondItem="8c8-55-aWw" secondAttribute="trailing" constant="93" id="FBV-D2-JNJ"/>
                                                             <constraint firstItem="Nva-sV-DcA" firstAttribute="centerY" secondItem="XH6-Gp-Cmh" secondAttribute="centerY" id="GX1-h2-gMm"/>
@@ -3741,15 +3727,14 @@
                                                             <constraint firstAttribute="trailing" secondItem="H1e-vh-txT" secondAttribute="trailing" constant="160" id="beT-Gh-bpD"/>
                                                             <constraint firstItem="aZ0-6U-juh" firstAttribute="top" secondItem="1vQ-bA-L0r" secondAttribute="bottom" constant="22.5" id="dab-S6-o46"/>
                                                             <constraint firstItem="oRV-LQ-kjK" firstAttribute="centerY" secondItem="7IM-ev-o4F" secondAttribute="centerY" id="evk-Xo-PPB"/>
+                                                            <constraint firstAttribute="trailing" secondItem="4lz-Ts-DqJ" secondAttribute="trailing" constant="5" id="g7j-Y1-X29"/>
                                                             <constraint firstItem="PFQ-Xd-RiI" firstAttribute="centerY" secondItem="s6H-Al-cRb" secondAttribute="centerY" id="gVP-BE-c9v"/>
+                                                            <constraint firstAttribute="trailing" secondItem="1vQ-bA-L0r" secondAttribute="trailing" constant="5" id="gVk-xC-Ugq"/>
                                                             <constraint firstItem="nqZ-lu-kud" firstAttribute="top" secondItem="XH6-Gp-Cmh" secondAttribute="bottom" constant="20" id="gnI-7Y-w2c"/>
                                                             <constraint firstItem="H1e-vh-txT" firstAttribute="leading" secondItem="s2s-yC-Mxc" secondAttribute="leading" constant="160" id="hWh-di-Q5f"/>
                                                             <constraint firstItem="jWL-DE-s8P" firstAttribute="centerY" secondItem="XH6-Gp-Cmh" secondAttribute="centerY" id="iMp-pY-Slg"/>
                                                             <constraint firstItem="7IM-ev-o4F" firstAttribute="top" secondItem="nqZ-lu-kud" secondAttribute="bottom" constant="10" id="idq-gu-drR"/>
-                                                            <constraint firstAttribute="trailing" secondItem="1vQ-bA-L0r" secondAttribute="trailing" id="jbp-em-vkl"/>
                                                             <constraint firstItem="Nva-sV-DcA" firstAttribute="top" secondItem="PFQ-Xd-RiI" secondAttribute="bottom" constant="5" id="jor-FB-vwS"/>
-                                                            <constraint firstAttribute="trailing" secondItem="aZ0-6U-juh" secondAttribute="trailing" id="kEa-YN-OeO"/>
-                                                            <constraint firstAttribute="trailing" secondItem="4lz-Ts-DqJ" secondAttribute="trailing" id="kQC-uN-xFX"/>
                                                             <constraint firstItem="Ttx-4B-srt" firstAttribute="top" secondItem="s2s-yC-Mxc" secondAttribute="top" constant="8" id="l8S-Gm-wtK"/>
                                                             <constraint firstItem="whq-DC-xOl" firstAttribute="leading" secondItem="SaI-Oe-Adn" secondAttribute="trailing" constant="15" id="nEJ-p8-cb0"/>
                                                             <constraint firstItem="qgx-cA-kAa" firstAttribute="leading" secondItem="s2s-yC-Mxc" secondAttribute="leading" constant="8" id="oU4-UP-jbZ"/>

@@ -71,6 +71,12 @@ struct UiConstants {
         static let ENTER_PIN_TITLE = "Enter PIN number"
         static let ENTER_PIN_MESSAGE = "Please enter your PIN number here"
         static let PIN_FIELD_PLACEHOLDER = "Enter PIN"
+        // OTP
+        static let INVALID_OTP_TITLE = "Invalid OTP"
+        static let INVALID_OTP_ENTERED_TIMES = "You have entered an invalid PIN "
+        static let PLEASE_TRY_AGAIN = " times. Please try again"
+        static let OTP_TEXT_FIELD_EMPTY = "OTP Text field cannot be empty!"
+        static let PLEASE_ENTER_OTP = "Please enter OTP"
     }
     
     struct UserInfo {
@@ -197,6 +203,7 @@ struct KeyCostants {
     
     struct OTPDetails {
         static let WAIT_FOR_OTP_CODE = "Waiting for code..."
+    
     }
     
     struct LeaveDetails {

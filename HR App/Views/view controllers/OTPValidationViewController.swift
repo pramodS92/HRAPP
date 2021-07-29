@@ -18,6 +18,7 @@ class OTPValidationViewController: UIViewController, UITextFieldDelegate {
     var userId: String? = "HRMAPI"
     var transactionId: String? = "123456789"
     var otpCount: Int = 0
+    var otpResendTimer: Timer?
     
     let OTP_TEXT_FIELD_CONER_RADIUS = 5.0
     let OTP_TEXT_FIELD_BORDER_WIDTH = 1.0
@@ -29,6 +30,7 @@ class OTPValidationViewController: UIViewController, UITextFieldDelegate {
         self.otpCodeValidation()
         self.hideKeyboardWhenTappedAround()
         self.generateOTP(userId: self.userId!, transactionId: self.transactionId!)
+        otpResendTimer = Timer(timeInterval: 20, target: self, selector: #selector(resendOTP), userInfo: nil, repeats: true)
     }
     
     func setUiProps(){
@@ -41,9 +43,13 @@ class OTPValidationViewController: UIViewController, UITextFieldDelegate {
 
         resendButtonOTP.layer.borderColor = UIColor.systemBlue.cgColor
         resendButtonOTP.layer.borderWidth =  CGFloat(OTP_TEXT_FIELD_BORDER_WIDTH)
+        
     }
     
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        otpResendTimer?.invalidate()
+    }
     
     func otpCodeValidation(){
         self.otpTextView.delegate = self
@@ -63,32 +69,28 @@ class OTPValidationViewController: UIViewController, UITextFieldDelegate {
     func handleSubmit() {
         let userOTPCode = otpTextView.text
         self.validateOTP(userId: self.userId!, transactionId: self.transactionId!, otp: userOTPCode!)
-            if (self.isOTPValid == true) {
-                self.navigateToConfigureBiometricPinScreen()
-            } else if (self.otpTextView.text == "") {
-                self.emptyOTPCodeField()
-            } else {
-                self.authenticateOTPCode()
-            }
-        self.otpTextView.text = ""
+        
+    }
+    
+    @objc func resendOTP() {
+        self.generateOTP(userId: self.userId!, transactionId: self.transactionId!)
     }
     
     func authenticateOTPCode() {
         self.otpCount += 1
-        if (self.otpCount > 5) {
-            navigateToLoggingPage()
+        if (self.otpCount < 5) {
+            alertFunc(title: UiConstants.AlertConst.INVALID_OTP_TITLE, message: "You have entered an invalid PIN  \(self.otpCount)  times. Please try again", alertActionTitle: UiConstants.AlertConst.DISMISS_ACTION_TITLE)
+        } else if (self.otpCount == 5) {
+            alertFunc(title: UiConstants.AlertConst.INVALID_OTP_TITLE, message: "You have entered an invalid PIN  \(self.otpCount)  times. Final Attempt. Please try again", alertActionTitle: UiConstants.AlertConst.DISMISS_ACTION_TITLE)
         }
-        DispatchQueue.main.async {
-            let alertController = UIAlertController(title: "Invalid OTP", message: "You have entered an invalid PIN \(self.otpCount) times. Please try again", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
-            self.present(alertController, animated: true, completion: nil)
+        else {
+        navigateToLoggingPage()
         }
+            
     }
     
     func emptyOTPCodeField() {
-        let alertController = UIAlertController(title: "Text field cannot be empty!", message: "Please enter OTP", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
-        self.present(alertController, animated: true, completion: nil)
+        alertFunc(title: UiConstants.AlertConst.OTP_TEXT_FIELD_EMPTY, message: UiConstants.AlertConst.PLEASE_ENTER_OTP, alertActionTitle: UiConstants.AlertConst.DISMISS_ACTION_TITLE)
     }
     
     @IBAction func onActionResend(_ sender: Any) {
@@ -98,6 +100,12 @@ class OTPValidationViewController: UIViewController, UITextFieldDelegate {
     
     func setOtpCodeToLabel() {
         self.otpCodeLabel.text = self.otpCode
+    }
+    
+    func alertFunc(title: String, message: String, alertActionTitle: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: alertActionTitle, style: .cancel, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func navigateToBiometricScreen(){
@@ -146,8 +154,18 @@ class OTPValidationViewController: UIViewController, UITextFieldDelegate {
         self.isOTPValid = status
         DispatchQueue.main.async {
             print(self.isOTPValid!)
+            if (self.isOTPValid == true) {
+                self.navigateToConfigureBiometricPinScreen()
+            } else if (self.otpTextView.text == "") {
+                self.emptyOTPCodeField()
+            } else {
+                self.authenticateOTPCode()
+                
+            }
+            self.otpTextView.text = ""
         }
     }
+    
     
 }
 
@@ -164,6 +182,8 @@ extension UIViewController {
 }
 
 extension OTPValidationViewController: OnSuccessOTP {
+    
+    
     
     internal func generateOTP(userId: String, transactionId: String) {
         serviceManager.generateOTP(userId: userId, transactionId: transactionId, self)

@@ -24,5 +24,6 @@ struct UserDefaultConstants {
         static let isLocalPinEnabled = "isLocalPinEnabled"
         static let isBiometricsEnabled = "isBiometricsEnabled"
         static let isScreenActive = "isScreenActive"
+        static let isOtpEntered = "isOtpEntered"
     }
 }
