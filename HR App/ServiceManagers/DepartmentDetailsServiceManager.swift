@@ -46,14 +46,14 @@ class DepartmentDetailsServiceManager {
         departmentData.append(data.deparmentHead!.condensed.uppercased())
         departmentData.append(data.knownName!)
         departmentData.append(data.deparmentHeadTelephone!)
-        departmentData.append(data.aGMName!.condensed.uppercased())
+        departmentData.append(data.agmName!.condensed.uppercased())
         departmentData.append(data.branchName!)
         departmentData.append(data.headEXT!)
         departmentData.append(data.fax!)
-        departmentData.append(data.address1!)
-        departmentData.append(data.address2!)
-        departmentData.append(data.address3!)
-        departmentData.append(data.address4!)
+        departmentData.append(data.addressOne!)
+        departmentData.append(data.addressTwo!)
+        departmentData.append(data.addressThree!)
+        departmentData.append(data.addressFour!)
         
         return departmentData
     }

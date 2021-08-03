@@ -11,6 +11,7 @@ class OTPValidationViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var submitButtonOTP: UIButton!
     @IBOutlet weak var resendButtonOTP: UIButton!
     @IBOutlet weak var otpCodeLabel: UILabel!
+    @IBOutlet weak var timerLabel: UILabel!
     
     var serviceManager: OTPServiceManager = OTPServiceManager()
     var otpCode: String?
@@ -18,7 +19,9 @@ class OTPValidationViewController: UIViewController, UITextFieldDelegate {
     var userId: String? = "HRMAPI"
     var transactionId: String? = "123456789"
     var otpCount: Int = 0
-    var otpResendTimer: Timer?
+    var timerCount: Int = 0
+    var timer: Timer = Timer()
+    
     
     let OTP_TEXT_FIELD_CONER_RADIUS = 5.0
     let OTP_TEXT_FIELD_BORDER_WIDTH = 1.0
@@ -30,7 +33,7 @@ class OTPValidationViewController: UIViewController, UITextFieldDelegate {
         self.otpCodeValidation()
         self.hideKeyboardWhenTappedAround()
         self.generateOTP(userId: self.userId!, transactionId: self.transactionId!)
-        otpResendTimer = Timer(timeInterval: 20, target: self, selector: #selector(resendOTP), userInfo: nil, repeats: true)
+//        timer = Timer(timeInterval: 20, target: self, selector: #selector(resendOTP), userInfo: nil, repeats: true)
     }
     
     func setUiProps(){
@@ -44,11 +47,12 @@ class OTPValidationViewController: UIViewController, UITextFieldDelegate {
         resendButtonOTP.layer.borderColor = UIColor.systemBlue.cgColor
         resendButtonOTP.layer.borderWidth =  CGFloat(OTP_TEXT_FIELD_BORDER_WIDTH)
         
+        otpCodeLabel.text = KeyCostants.OTPDetails.WAIT_FOR_OTP_CODE
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        otpResendTimer?.invalidate()
+        timer.invalidate()
     }
     
     func otpCodeValidation(){
@@ -134,6 +138,34 @@ class OTPValidationViewController: UIViewController, UITextFieldDelegate {
         return count <= 6
     }
     
+    @objc func timerCounter() {
+        timerCount = timerCount + 1
+        let time = secondsToHoursMinutesSeconds(seconds: timerCount)
+        var timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
+        timerLabel.text = KeyCostants.OTPDetails.OTP_EXPIRE_MESSAGE + ": " + timeString
+        if (timeString == "01 : 00") {
+            timeString = "00 : 00"
+            print(timeString)
+            timerCount = 0
+        }
+    }
+    
+    // seconds conversion
+    func secondsToHoursMinutesSeconds(seconds: Int) -> (Int, Int, Int) {
+        return ((seconds / 360), ((seconds % 3600) / 60), ((seconds % 3600) % 60))
+    }
+    
+    // convert time to string
+    func makeTimeString(hours: Int, minutes: Int, seconds: Int) -> String {
+        var timeString = ""
+        //        timeString += String(format: "%02d", hours)
+        //        timeString += " : "
+        timeString += String(format: "%02d", minutes)
+        timeString += " : "
+        timeString += String(format: "%02d", seconds)
+        return timeString
+    }
+    
     func navigateToLoggingPage() {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: UiConstants.StrotyBoardId.LOGIN_VC) as! LoginViewController
         self.navigationController?.pushViewController(vc, animated: true)
@@ -182,8 +214,6 @@ extension UIViewController {
 }
 
 extension OTPValidationViewController: OnSuccessOTP {
-    
-    
     
     internal func generateOTP(userId: String, transactionId: String) {
         serviceManager.generateOTP(userId: userId, transactionId: transactionId, self)

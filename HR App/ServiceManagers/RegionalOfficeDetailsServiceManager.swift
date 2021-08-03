@@ -44,7 +44,7 @@ class RegionalOfficeDetailsServiceManager {
         let location = data.location!
         let address = location.split(separator: ",", maxSplits: 4)
         
-        regionalOfficeData.append(data.aGMName!)
+        regionalOfficeData.append(data.agmName!)
         regionalOfficeData.append(data.regionalManagerName!.condensed.uppercased())
         regionalOfficeData.append(data.regionalManagerKnownName!)
         regionalOfficeData.append(data.regionalManagerTP!)

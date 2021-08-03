@@ -203,6 +203,7 @@ struct KeyCostants {
     
     struct OTPDetails {
         static let WAIT_FOR_OTP_CODE = "Waiting for code..."
+        static let OTP_EXPIRE_MESSAGE = "OTP expires within one minute"
     
     }
     

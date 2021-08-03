@@ -40,8 +40,8 @@ struct RegionalOfficeDetailsModel: Codable {
 // MARK: - DataClass
 struct RegionalOfficeDataClass: Codable {
     let regionalOffice, regionalOfficeIDs, regionCode, attachedBranch: String?
-    let location, fax, aGMName, aGMID: String?
-    let aGMDesignation, regionalManagerName, regionalManagerKnownName, regionalManagerTP: String?
+    let location, fax, agmName, agmId: String?
+    let agmDesignation, regionalManagerName, regionalManagerKnownName, regionalManagerTP: String?
     let regionalManagerEXT, subdivision: String?
     let employeeDetails: [BranchEmployeeData]?
 }

@@ -43,8 +43,8 @@ class BranchInfoServiceManager {
                         brachData.append(infoData.branchID!)
                         brachData.append(infoData.regionalManagerName?.condensed.uppercased() ?? "")
                         brachData.append(infoData.regionalOffice!)
-                        brachData.append(infoData.aGM?.condensed.uppercased() ?? "")
-                        brachData.append(infoData.aGMDesignation ?? "")
+                        brachData.append(infoData.agm?.condensed.uppercased() ?? "")
+                        brachData.append(infoData.agmDesignation ?? "")
                         self.delegate?.getBranchInfo(response: brachData, branchName: infoData.branchName!,employeeList: infoData.branchEmployees!)
                     }
                 }

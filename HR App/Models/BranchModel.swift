@@ -50,16 +50,16 @@ struct BranchData: Codable {
     let branchID, addressOne, addressTwo, addressThree: String?
     let addressFour, telephone, fax, managerID: String?
     let managerTelephone, managerName, managerKnowName, regionalOffice: String?
-    let regionalManagerName, regionalManagerEmpcode, aGM, aGMID: String?
-    let aGMDesignation: String?
+    let regionalManagerName, regionalManagerEmpcode, agm, agmID: String?
+    let agmDesignation: String?
     let branchEmployees: [BranchEmployeeData]?
 
     enum CodingKeys: String, CodingKey {
         case branchName
         case branchID = "branchId"
-        case addressOne, addressTwo, addressThree, addressFour, telephone, fax, managerID, managerTelephone, managerName, managerKnowName, regionalOffice, regionalManagerName, regionalManagerEmpcode, aGM
-        case aGMID = "aGM_ID"
-        case aGMDesignation = "aGM_designation"
+        case addressOne, addressTwo, addressThree, addressFour, telephone, fax, managerID, managerTelephone, managerName, managerKnowName, regionalOffice, regionalManagerName, regionalManagerEmpcode, agm
+        case agmID
+        case agmDesignation
         case branchEmployees
     }
 }

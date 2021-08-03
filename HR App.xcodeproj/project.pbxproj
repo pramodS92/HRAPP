@@ -90,6 +90,8 @@
 		51D258F226A2CD980069A87D /* OTPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D258F126A2CD980069A87D /* OTPModel.swift */; };
 		51D258F426A2FC7A0069A87D /* OTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D258F326A2FC7A0069A87D /* OTPService.swift */; };
 		51D258F626A3F9CF0069A87D /* OTPServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D258F526A3F9CE0069A87D /* OTPServiceManager.swift */; };
+		51DAF1A126B4A382008B8699 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DAF1A026B4A382008B8699 /* PostModel.swift */; };
+		51DAF1A426B4AC41008B8699 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DAF1A326B4AC41008B8699 /* PostViewController.swift */; };
 		F4D9612C03BF5E0CBB9F00D7 /* Pods_HR_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12118F4C3A4593868361AFCC /* Pods_HR_App.framework */; };
 /* End PBXBuildFile section */
 
@@ -181,6 +183,8 @@
 		51D258F126A2CD980069A87D /* OTPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPModel.swift; sourceTree = "<group>"; };
 		51D258F326A2FC7A0069A87D /* OTPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPService.swift; sourceTree = "<group>"; };
 		51D258F526A3F9CE0069A87D /* OTPServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPServiceManager.swift; sourceTree = "<group>"; };
+		51DAF1A026B4A382008B8699 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		51DAF1A326B4AC41008B8699 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		A217BE01F3E4C7683CC30EE7 /* Pods-HR App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HR App.debug.xcconfig"; path = "Target Support Files/Pods-HR App/Pods-HR App.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -439,6 +443,7 @@
 				51BE1CAB267BB26A0035E0D3 /* CoporateManagementModel.swift */,
 				51BE1CAF267C839A0035E0D3 /* SpecialLocationModel.swift */,
 				51D258F126A2CD980069A87D /* OTPModel.swift */,
+				51DAF1A026B4A382008B8699 /* PostModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -527,6 +532,7 @@
 		2CFFA09426543D5B00D86E53 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				51DAF1A226B4AC1B008B8699 /* Post */,
 				5128921A269D884A005405E1 /* ELeave */,
 				5111397626859D12002FEFC2 /* Home */,
 				2CB1DA502658061500CCF06F /* DirectoryModule */,
@@ -559,6 +565,14 @@
 				517F8A1926A219B300D089AA /* LeaveConstants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		51DAF1A226B4AC1B008B8699 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				51DAF1A326B4AC41008B8699 /* PostViewController.swift */,
+			);
+			path = Post;
 			sourceTree = "<group>";
 		};
 		A05548C113752D85C13732CE /* Pods */ = {
@@ -702,6 +716,7 @@
 				2CD8E7D626582F7A00CD2C5A /* BranchInfoService.swift in Sources */,
 				51BE1CB4267C87E80035E0D3 /* SpecialLocationInfoService.swift in Sources */,
 				51BE1CAC267BB26A0035E0D3 /* CoporateManagementModel.swift in Sources */,
+				51DAF1A426B4AC41008B8699 /* PostViewController.swift in Sources */,
 				51BE1C9E267A08D20035E0D3 /* ExchangeOfficeModel.swift in Sources */,
 				2C06B371263936A8005743D8 /* LoginViewController.swift in Sources */,
 				2C06B370263936A8005743D8 /* TabBarView.swift in Sources */,
@@ -736,6 +751,7 @@
 				2C0B3A03264552410037378E /* NetworkClient.swift in Sources */,
 				2CF4B7B92652C17200D8BF6A /* UserDetailsService.swift in Sources */,
 				51BE1CB6267C9B7C0035E0D3 /* SpecialLocationDetailsServiceManager.swift in Sources */,
+				51DAF1A126B4A382008B8699 /* PostModel.swift in Sources */,
 				2C7CD39626406E3D000C22D4 /* ErrorModel.swift in Sources */,
 				2C35A69A26631AF100A7EF0E /* AccessTokenServiceManager.swift in Sources */,
 				514C8A8026ADFC4A00F4E36F /* UserTransferHistoryTableViewCell.swift in Sources */,
