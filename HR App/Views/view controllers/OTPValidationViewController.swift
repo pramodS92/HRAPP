@@ -21,6 +21,7 @@ class OTPValidationViewController: UIViewController, UITextFieldDelegate {
     var otpCount: Int = 0
     var timerCount: Int = 0
     var timer: Timer = Timer()
+    var timeText: String = "00 : 00"
     
     
     let OTP_TEXT_FIELD_CONER_RADIUS = 5.0
@@ -49,6 +50,8 @@ class OTPValidationViewController: UIViewController, UITextFieldDelegate {
         otpCodeLabel.text = KeyCostants.OTPDetails.WAIT_FOR_OTP_CODE
         
         self.otpTextView.delegate = self
+        
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -97,6 +100,8 @@ class OTPValidationViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func onActionResend(_ sender: Any) {
+        self.otpCodeLabel.text = KeyCostants.OTPDetails.WAIT_FOR_OTP_CODE
+        
         self.generateOTPCode(userId: self.userId!, transactionId: self.transactionId!)
         
     }
@@ -146,6 +151,8 @@ class OTPValidationViewController: UIViewController, UITextFieldDelegate {
             timeString = "00 : 00"
             print(timeString)
             timerCount = 0
+            timer.invalidate()
+            self.generateOTPCode(userId: self.userId!, transactionId: self.transactionId!)
         }
     }
     
@@ -191,7 +198,6 @@ class OTPValidationViewController: UIViewController, UITextFieldDelegate {
                 self.emptyOTPCodeField()
             } else {
                 self.authenticateOTPCode()
-                
             }
             self.otpTextView.text = ""
         }
@@ -216,6 +222,9 @@ extension OTPValidationViewController: OnSuccessOTP {
     
     internal func generateOTPCode(userId: String, transactionId: String) {
         serviceManager.generateOTP(userId: userId, transactionId: transactionId, self)
+        DispatchQueue.main.async {
+            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.timerCounter), userInfo: nil, repeats: true)
+        }
     }
     
     internal func validateOTP(userId: String, transactionId: String, otp: String) {
