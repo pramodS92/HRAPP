@@ -14,18 +14,21 @@ class UserJobInfoHeader: UITableViewHeaderFooterView {
     private let titleOne: UILabel = {
         let label = UILabel()
         label.text = "Effective Date"
+        label.textColor = UIColor.black
         return label
     }()
     
     private let titleTwo: UILabel = {
         let label = UILabel()
         label.text = "Basic"
+        label.textColor = UIColor.black
         return label
     }()
     
     private let titleThree: UILabel = {
         let label = UILabel()
         label.text = "Salary Grade"
+        label.textColor = UIColor.black
         return label
     }()
     
@@ -57,6 +60,7 @@ class UserJobInfoHeader: UITableViewHeaderFooterView {
                                   y: contentView.frame.size.height * 0.25,
                                  width: titleThree.frame.size.width,
                                  height: titleThree.frame.size.height)
+        self.contentView.backgroundColor = UIColor.lightGray
     }
     
 }

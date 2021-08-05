@@ -40,8 +40,9 @@ class UserJobInfoViewController: UIViewController, UITableViewDelegate, UITableV
         userTransferHistoryTableView.delegate = self
         userTransferHistoryTableView.dataSource = self
         
-        print("hell yea", self.userJobTableData!)
-        print("hell no", self.userSalaryTableData!)
+        print("yea", self.userJobTableData!)
+        print("no", self.userSalaryTableData!)
+        print("yep", self.userTransferHistoryTableData!)
         self.setupUi()
         self.hidePreviousSalaryHistoryView()
     }
@@ -129,13 +130,13 @@ class UserJobInfoViewController: UIViewController, UITableViewDelegate, UITableV
                 
         } else if tableView == self.userTransferHistoryTableView {
             
-            let startIndex = userTransferHistoryTableData[indexPath.row].date.index(userTransferHistoryTableData[indexPath.row].date.startIndex, offsetBy: 4)
-            let endIndex = userTransferHistoryTableData[indexPath.row].date.index(userTransferHistoryTableData[indexPath.row].date.endIndex, offsetBy: -2)
+            let startIndex = userTransferHistoryTableData[indexPath.row].effectedOn.index(userTransferHistoryTableData[indexPath.row].effectedOn.startIndex, offsetBy: 4)
+            let endIndex = userTransferHistoryTableData[indexPath.row].effectedOn.index(userTransferHistoryTableData[indexPath.row].effectedOn.endIndex, offsetBy: -2)
             let range = startIndex..<endIndex
             
-            let year = userTransferHistoryTableData[indexPath.row].date.prefix(4)
-            let month = userTransferHistoryTableData[indexPath.row].date[range]
-            let day = userTransferHistoryTableData[indexPath.row].date.suffix(2)
+            let year = userTransferHistoryTableData[indexPath.row].effectedOn.prefix(4)
+            let month = userTransferHistoryTableData[indexPath.row].effectedOn[range]
+            let day = userTransferHistoryTableData[indexPath.row].effectedOn.suffix(2)
             
             let cell = userTransferHistoryTableView.dequeueReusableCell(withIdentifier: UiConstants.ViewCellId.USER_TRANSFER_HISTORY_CELL, for: indexPath) as! UserTransferHistoryTableViewCell
             cell.selectionStyle = .none

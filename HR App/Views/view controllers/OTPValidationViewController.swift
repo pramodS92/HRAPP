@@ -30,9 +30,8 @@ class OTPValidationViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUiProps()
-        self.otpCodeValidation()
         self.hideKeyboardWhenTappedAround()
-        self.generateOTP(userId: self.userId!, transactionId: self.transactionId!)
+        self.generateOTPCode(userId: self.userId!, transactionId: self.transactionId!)
 //        timer = Timer(timeInterval: 20, target: self, selector: #selector(resendOTP), userInfo: nil, repeats: true)
     }
     
@@ -48,6 +47,8 @@ class OTPValidationViewController: UIViewController, UITextFieldDelegate {
         resendButtonOTP.layer.borderWidth =  CGFloat(OTP_TEXT_FIELD_BORDER_WIDTH)
         
         otpCodeLabel.text = KeyCostants.OTPDetails.WAIT_FOR_OTP_CODE
+        
+        self.otpTextView.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -55,9 +56,7 @@ class OTPValidationViewController: UIViewController, UITextFieldDelegate {
         timer.invalidate()
     }
     
-    func otpCodeValidation(){
-        self.otpTextView.delegate = self
-    }
+    
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         if (otpTextView.text?.count)! > 5 {
@@ -76,9 +75,9 @@ class OTPValidationViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    @objc func resendOTP() {
-        self.generateOTP(userId: self.userId!, transactionId: self.transactionId!)
-    }
+//    @objc func resendOTP() {
+//        self.generateOTPCode(userId: self.userId!, transactionId: self.transactionId!)
+//    }
     
     func authenticateOTPCode() {
         self.otpCount += 1
@@ -98,7 +97,7 @@ class OTPValidationViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func onActionResend(_ sender: Any) {
-        self.generateOTP(userId: self.userId!, transactionId: self.transactionId!)
+        self.generateOTPCode(userId: self.userId!, transactionId: self.transactionId!)
         
     }
     
@@ -215,7 +214,7 @@ extension UIViewController {
 
 extension OTPValidationViewController: OnSuccessOTP {
     
-    internal func generateOTP(userId: String, transactionId: String) {
+    internal func generateOTPCode(userId: String, transactionId: String) {
         serviceManager.generateOTP(userId: userId, transactionId: transactionId, self)
     }
     

@@ -14,3 +14,4 @@ struct GenerateOTPModel: Codable {
 struct ValidateOTPModel: Codable {
     let status: String
 }
+

@@ -86,13 +86,17 @@ struct EmployeeTransferHistoryModel: Codable {
 }
 
 struct EmployeeTransferHistoryData: Codable {
-    let date, reasonForChange, employeeType, branchCode: String
-    let branchName, branchTel, departmentName, departmentTel: String
-    let departmentID, reason, designation: String
+    let effectedOn, reasonForChange: String
+        let employeeType: String
+        let branchCode: String
+        let branchName: String
+        let branchTel: String
+        let departmentName: String
+        let departmentTel, departmentID, reason, designation: String
 
-    enum CodingKeys: String, CodingKey {
-        case date, reasonForChange, employeeType, branchCode, branchName, branchTel, departmentName, departmentTel
-        case departmentID = "departmentId"
-        case reason, designation
-    }
+        enum CodingKeys: String, CodingKey {
+            case effectedOn, reasonForChange, employeeType, branchCode, branchName, branchTel, departmentName, departmentTel
+            case departmentID = "departmentId"
+            case reason, designation
+        }
 }

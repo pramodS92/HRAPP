@@ -40,6 +40,7 @@ struct UiConstants {
         static let PREVIOUS_SALARY_TITLE_CELL = "PreviousSalaryTitlesTableViewCell"
         static let USER_JOB_INFO_HEADER_CELL = "UserJobInfoHeader"
         static let USER_TRANSFER_HISTORY_HEADER_CELL = "UserTransferHistoryHeader"
+        static let POST_CELL = "PostCell"
     }
     
     struct SegueIdentifiers {

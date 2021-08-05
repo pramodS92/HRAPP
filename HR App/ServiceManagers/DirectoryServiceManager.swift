@@ -162,7 +162,7 @@ class DirectoryServiceManager {
                     self.tableData.removeAll()
                     if let data = responseBody.data {
                         for item in data {
-                            self.tableData.append(item.locationName!)
+                            self.tableData.append(item.locationName)
                         }
                         self.delegate?.onSuccessSpecialLocationNameList(response: data)
                     }

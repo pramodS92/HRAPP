@@ -187,6 +187,7 @@ extension UserProfileViewController: OnSuccessUserProfile {
     }
     
     func getEmployeeTransferHistoryInfo(employeeTransferHistory: [EmployeeTransferHistoryData]) {
+        print("098", employeeTransferHistory)
         setUserTransferHistoryInfo(userTransferHistoryTableData: employeeTransferHistory)
     }
     

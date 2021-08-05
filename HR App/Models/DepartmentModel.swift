@@ -24,12 +24,14 @@ struct DepartmentNameListModel: Codable {
 
 
 struct DepartmentData: Codable {
-    let departmentName, departmentID: String?
+    let departmentName, departmentID, addressOne, addressTwo: String
+    let addressThree, addressFour: String
 
-    enum CodingKeys: String, CodingKey {
-        case departmentName
-        case departmentID = "departmentId"
-    }
+        enum CodingKeys: String, CodingKey {
+            case departmentName
+            case departmentID = "departmentId"
+            case addressOne, addressTwo, addressThree, addressFour
+        }
 }
 
 struct DepartmentDetailsModel: Codable {
@@ -63,22 +65,3 @@ struct DepartmentDataClass: Codable {
         case fax, deparmentHead, knownName, departmentHeadID, deparmentHeadTelephone, headEXT, branchName, addressOne, addressTwo, addressThree, addressFour, branchEmployees
     }
 }
-
-
-//struct BranchEmployee: Codable {
-//    let name, fullName, employeeID, knownName: String?
-//    let gender: String?
-//    let designation, email, telephone, interCOM: String?
-//    let imageURL: String?
-//    let branch: String?
-//    let department: String?
-//
-//    enum CodingKeys: String, CodingKey {
-//        case name, fullName
-//        case employeeID = "employeeId"
-//        case knownName, gender, designation, email, telephone
-//        case interCOM
-//        case imageURL
-//        case branch, department
-//    }
-//}

@@ -77,6 +77,7 @@ class UserProfileServiceManager {
             (response, error, statusCode) in
             if response != nil {
                 if let responseBody = try? JSONDecoder().decode(EmployeeSalaryDetailsModel.self, from: response! as! Data) {
+                    print("juliet", responseBody.data)
                     self.delegate?.getEmployeeSalaryInfo(employeeSalaries: self.getEmployeeSalaryTableData(response: responseBody.data))
                 }
             } else {
@@ -92,6 +93,7 @@ class UserProfileServiceManager {
         EmployeeInfoService.shared.getEmployeeTransferHistoryById(employeeId: employeeId) { (response, error, statusCode) in
             if response != nil {
                 if let responseBody = try? JSONDecoder().decode(EmployeeTransferHistoryModel.self, from: response! as! Data) {
+                    print("romeo", responseBody.data)
                     self.delegate?.getEmployeeTransferHistoryInfo(employeeTransferHistory: self.getEmployeeTransferHistoryData(response: responseBody.data))
                 }
             } else {
@@ -129,11 +131,11 @@ class UserProfileServiceManager {
         for i in 0...(response.count - 1) {
             
             var dateFromString: Date {
-                return UserProfileServiceManager.isoFormatter.date(from: response[i].date)!
+                return UserProfileServiceManager.isoFormatter.date(from: response[i].effectedOn)!
             }
         }
         
-        let sortedTransferHistory = response.sorted {$0.date > $1.date}
+        let sortedTransferHistory = response.sorted {$0.effectedOn > $1.effectedOn}
         self.userTransferHistoryTableData = sortedTransferHistory
         
         return userTransferHistoryTableData

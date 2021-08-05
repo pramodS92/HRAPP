@@ -68,6 +68,10 @@
 		5128921E269DD4CB005405E1 /* LeaveInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5128921D269DD4CB005405E1 /* LeaveInfoViewController.swift */; };
 		51289220269DD55D005405E1 /* AddLeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5128921F269DD55D005405E1 /* AddLeaveViewController.swift */; };
 		51289223269DD622005405E1 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51289222269DD622005405E1 /* CircularProgressView.swift */; };
+		514257A126BB343C001596D2 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514257A026BB343C001596D2 /* PostService.swift */; };
+		514257A326BB3A3D001596D2 /* PostServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514257A226BB3A3D001596D2 /* PostServiceManager.swift */; };
+		514257A626BB4A96001596D2 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514257A526BB4A96001596D2 /* PostCell.swift */; };
+		5145047126BB1F5D004AE62E /* ProductReferenceGuideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5145047026BB1F5D004AE62E /* ProductReferenceGuideModel.swift */; };
 		514C8A8026ADFC4A00F4E36F /* UserTransferHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514C8A7E26ADFC4A00F4E36F /* UserTransferHistoryTableViewCell.swift */; };
 		514C8A8126ADFC4A00F4E36F /* UserTransferHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 514C8A7F26ADFC4A00F4E36F /* UserTransferHistoryTableViewCell.xib */; };
 		516825DF267F982000755321 /* CoporateManagementDetailsServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516825DE267F982000755321 /* CoporateManagementDetailsServiceManager.swift */; };
@@ -161,6 +165,10 @@
 		5128921D269DD4CB005405E1 /* LeaveInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveInfoViewController.swift; sourceTree = "<group>"; };
 		5128921F269DD55D005405E1 /* AddLeaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLeaveViewController.swift; sourceTree = "<group>"; };
 		51289222269DD622005405E1 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		514257A026BB343C001596D2 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
+		514257A226BB3A3D001596D2 /* PostServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostServiceManager.swift; sourceTree = "<group>"; };
+		514257A526BB4A96001596D2 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		5145047026BB1F5D004AE62E /* ProductReferenceGuideModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductReferenceGuideModel.swift; sourceTree = "<group>"; };
 		514C8A7E26ADFC4A00F4E36F /* UserTransferHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTransferHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		514C8A7F26ADFC4A00F4E36F /* UserTransferHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTransferHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		516825DE267F982000755321 /* CoporateManagementDetailsServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoporateManagementDetailsServiceManager.swift; sourceTree = "<group>"; };
@@ -222,6 +230,7 @@
 				51BE1CAD267BB3770035E0D3 /* CoporateManagementInfoService.swift */,
 				51BE1CB3267C87E80035E0D3 /* SpecialLocationInfoService.swift */,
 				51D258F326A2FC7A0069A87D /* OTPService.swift */,
+				514257A026BB343C001596D2 /* PostService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -326,6 +335,7 @@
 				51BE1CB5267C9B7C0035E0D3 /* SpecialLocationDetailsServiceManager.swift */,
 				516825DE267F982000755321 /* CoporateManagementDetailsServiceManager.swift */,
 				51D258F526A3F9CE0069A87D /* OTPServiceManager.swift */,
+				514257A226BB3A3D001596D2 /* PostServiceManager.swift */,
 			);
 			path = ServiceManagers;
 			sourceTree = "<group>";
@@ -444,6 +454,7 @@
 				51BE1CAF267C839A0035E0D3 /* SpecialLocationModel.swift */,
 				51D258F126A2CD980069A87D /* OTPModel.swift */,
 				51DAF1A026B4A382008B8699 /* PostModel.swift */,
+				5145047026BB1F5D004AE62E /* ProductReferenceGuideModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -559,6 +570,14 @@
 			path = ELeave;
 			sourceTree = "<group>";
 		};
+		514257A426BB4A74001596D2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				514257A526BB4A96001596D2 /* PostCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		517F8A1826A2199000D089AA /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -570,6 +589,7 @@
 		51DAF1A226B4AC1B008B8699 /* Post */ = {
 			isa = PBXGroup;
 			children = (
+				514257A426BB4A74001596D2 /* Cell */,
 				51DAF1A326B4AC41008B8699 /* PostViewController.swift */,
 			);
 			path = Post;
@@ -748,10 +768,13 @@
 				2CB1DA542658125E00CCF06F /* UserJobInfoTableViewCell.swift in Sources */,
 				2C06B36E263936A8005743D8 /* LandingViewController.swift in Sources */,
 				2C705AAF265C116A009E3148 /* BranchDetailsViewController.swift in Sources */,
+				5145047126BB1F5D004AE62E /* ProductReferenceGuideModel.swift in Sources */,
 				2C0B3A03264552410037378E /* NetworkClient.swift in Sources */,
 				2CF4B7B92652C17200D8BF6A /* UserDetailsService.swift in Sources */,
 				51BE1CB6267C9B7C0035E0D3 /* SpecialLocationDetailsServiceManager.swift in Sources */,
 				51DAF1A126B4A382008B8699 /* PostModel.swift in Sources */,
+				514257A126BB343C001596D2 /* PostService.swift in Sources */,
+				514257A326BB3A3D001596D2 /* PostServiceManager.swift in Sources */,
 				2C7CD39626406E3D000C22D4 /* ErrorModel.swift in Sources */,
 				2C35A69A26631AF100A7EF0E /* AccessTokenServiceManager.swift in Sources */,
 				514C8A8026ADFC4A00F4E36F /* UserTransferHistoryTableViewCell.swift in Sources */,
@@ -780,6 +803,7 @@
 				2C34EE682655E6C100978015 /* UserInfoViewController.swift in Sources */,
 				51BE1CA0267A10600035E0D3 /* ExchangeOfficeInfoService.swift in Sources */,
 				2CD67BD12664AE4C00C4C5C3 /* EmployeeTableViewCell.swift in Sources */,
+				514257A626BB4A96001596D2 /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

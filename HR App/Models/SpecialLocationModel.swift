@@ -21,12 +21,23 @@ struct SpecialLocationNameListModel: Codable {
 
 // MARK: - Datum
 struct SpecialLocationData: Codable {
-    let locationName, locationID: String?
+    let locationName, locationID: String
+        let attachedBranch: String
+        let fax, designationOne: String
+        let designationTwo: String
+        let nameOne: String
+        let nameTwo: String
+        let directNumberOne, directNumberTwo, interComeOne, interComeTwo: String
+        let addressOne: String
+        let addressTwo: String
+        let addressThree: String
+        let addressFour: String
 
-    enum CodingKeys: String, CodingKey {
-        case locationName
-        case locationID = "locationId"
-    }
+        enum CodingKeys: String, CodingKey {
+            case locationName
+            case locationID = "locationId"
+            case attachedBranch, fax, designationOne, designationTwo, nameOne, nameTwo, directNumberOne, directNumberTwo, interComeOne, interComeTwo, addressOne, addressTwo, addressThree, addressFour
+        }
 }
 
 struct SpecialLocationDetailsModel: Codable {
