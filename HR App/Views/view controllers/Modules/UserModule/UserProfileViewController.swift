@@ -21,8 +21,10 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet var userInfoTitles: [UILabel]!
     @IBOutlet var userSegmentControl: UISegmentedControl!
+    @IBOutlet var headerViewHeight: NSLayoutConstraint!
     
     var employeeDetails: BranchEmployeeData!
+    var employeeInfo: EmployeeInfoData?
     var userInfo: [String] = []
     var userTabelData: [String] = []
     var userJobTableData: [String] = []
@@ -35,12 +37,14 @@ class UserProfileViewController: UIViewController {
     var employeeId: String?
     var loggedInEmployeeId: String?
     var serviceManager: UserProfileServiceManager = UserProfileServiceManager()
-    
     var isLoggedIn: Bool = false {
         didSet {
             self.performSegue(withIdentifier: UiConstants.SegueIdentifiers.USER_INFO_SEGUE, sender: self)
         }
     }
+    let maxHeaderHeight: CGFloat = 300
+    let minHeaderHeight: CGFloat = 40
+    var previousScrollOffset: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +74,7 @@ class UserProfileViewController: UIViewController {
         DispatchQueue.main.async {
             self.getEmployeeSalaryDetailsById()
             self.getTransferHistoryDetailsById()
+            self.getEmployeeInfoById()
         }
         
     }
@@ -103,6 +108,11 @@ class UserProfileViewController: UIViewController {
         print("transfer ", self.userTransferHistoryData)
     }
     
+    func setEmployeeInfoData(employeeInfoData: EmployeeInfoData) {
+        self.employeeInfo = employeeInfoData
+        print("employee info", self.employeeInfo!)
+    }
+    
     func setActivityIndicatorVisibility(show: Bool) {
         self.spinnerView.isHidden = !show
         if show {
@@ -113,7 +123,6 @@ class UserProfileViewController: UIViewController {
     }
     
     @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
-        
         if sender.selectedSegmentIndex == 0 {
             self.userJobInfoViewContainer.alpha = 0
             self.userInfoViewContainer.alpha = 1
@@ -155,7 +164,6 @@ class UserProfileViewController: UIViewController {
     }
 }
 
-
 extension UserProfileViewController: OnSuccessUserProfile {
     
     internal func getUserProfile() {
@@ -166,14 +174,6 @@ extension UserProfileViewController: OnSuccessUserProfile {
         serviceManager.getEmployeeDetailsById(employeeId: self.employeeId!, self)
     }
     
-    func OnSuccessUserProfile(userInfo: [String],userTabelData: [String]) {
-        setUiProps(userInfo: userInfo, userTabelData: userTabelData)
-    }
-    
-    func getUserData(userData: BranchEmployeeData) {
-        
-    }
-    
     internal func getEmployeeSalaryDetailsById() {
         isLoggedInUser ?? true ? serviceManager.getEmployeeSalaryDetailsById(employeeId: self.loggedInEmployeeId!, self) : serviceManager.getEmployeeSalaryDetailsById(employeeId: self.employeeId!, self)
     }
@@ -182,16 +182,68 @@ extension UserProfileViewController: OnSuccessUserProfile {
         isLoggedInUser ?? true ? serviceManager.getEmployeeTransferHistoryDetailsById(employeeId: self.loggedInEmployeeId!, self) : serviceManager.getEmployeeTransferHistoryDetailsById(employeeId: self.employeeId!, self)
     }
     
+    internal func getEmployeeInfoById() {
+        isLoggedInUser ?? true ? serviceManager.getEmployeeInfoById(employeeId: self.loggedInEmployeeId!, self) : serviceManager.getEmployeeInfoById(employeeId: self.employeeId!, self)
+    }
+    
     func getEmployeeSalaryInfo(employeeSalaries: [EmployeeSalaryDetailsData]) {
         setUserSalaryInfo(userSalaryTableData: employeeSalaries)
     }
     
+    func OnSuccessUserProfile(userInfo: [String],userTabelData: [String]) {
+        setUiProps(userInfo: userInfo, userTabelData: userTabelData)
+    }
+    
     func getEmployeeTransferHistoryInfo(employeeTransferHistory: [EmployeeTransferHistoryData]) {
-        print("098", employeeTransferHistory)
         setUserTransferHistoryInfo(userTransferHistoryTableData: employeeTransferHistory)
+    }
+    
+    func getEmployeeInfo(employeeInfo: EmployeeInfoData) {
+        setEmployeeInfoData(employeeInfoData: employeeInfo)
+    }
+    
+    func getUserData(userData: BranchEmployeeData) {
+        
     }
     
     func onFailier() {
         setActivityIndicatorVisibility(show: false)
     }
 }
+
+//extension UserProfileViewController {
+//
+//    func canAnimateHeader(_ scrollView: UIScrollView) -> Bool {
+//        let scrollViewMaxHeight = scrollView.frame.height + self.headerViewHeight.constant - minHeaderHeight
+//        return scrollView.contentSize.height > scrollViewMaxHeight
+//    }
+//
+//    func setScrollPosition() {
+//        contentViewHolder.frame = CGRect(x: 40, y: 40, width: contentViewHolder.frame.size.width, height: contentViewHolder.frame.size.height)
+//    }
+//
+//}
+//
+//extension UserProfileViewController {
+//
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        let scrollDiff = (scrollView.contentOffset.y - previousScrollOffset)
+//        let isScrollingDown = scrollDiff > 0
+//        let isScrollingUp = scrollDiff < 0
+//        if canAnimateHeader(scrollView) {
+//            var newHeight = headerViewHeight.constant
+//            if isScrollingDown {
+//                newHeight = max(minHeaderHeight, headerViewHeight.constant - abs(scrollDiff))
+//            } else if isScrollingUp {
+//                newHeight = min(maxHeaderHeight, headerViewHeight.constant + abs(scrollDiff))
+//            }
+//            if newHeight != headerViewHeight.constant {
+//                headerViewHeight.constant = newHeight
+//                setScrollPosition()
+//                previousScrollOffset = scrollView.contentOffset.y
+//            }
+//        }
+//
+//    }
+//}
+

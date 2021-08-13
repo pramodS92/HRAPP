@@ -114,22 +114,22 @@ class BranchEmployeeDetailsViewController: UIViewController {
     
     func setSpecialLocationEmployeeDetails() {
         if specialLocationEmployeeCount == 1 {
-            self.employeeData.append(specialLocationEmployeeDetails.nameOne!.condensed.uppercased())
+            self.employeeData.append(specialLocationEmployeeDetails.nameOne.condensed.uppercased())
             self.employeeData.append("")
-            self.employeeData.append(specialLocationEmployeeDetails.designationOne!)
+            self.employeeData.append(specialLocationEmployeeDetails.designationOne)
             self.employeeData.append("")
             self.employeeData.append("")
-            self.employeeData.append(specialLocationEmployeeDetails.directNumberOne!)
-            self.employeeData.append(specialLocationEmployeeDetails.interComeOne!)
+            self.employeeData.append(specialLocationEmployeeDetails.directNumberOne)
+            self.employeeData.append(specialLocationEmployeeDetails.interComeOne)
             self.employeeData.append("")
         } else if specialLocationEmployeeCount == 2 {
-            self.employeeData.append(specialLocationEmployeeDetails.nameTwo!.condensed.uppercased())
+            self.employeeData.append(specialLocationEmployeeDetails.nameTwo.condensed.uppercased())
             self.employeeData.append("")
-            self.employeeData.append(specialLocationEmployeeDetails.designationTwo!)
+            self.employeeData.append(specialLocationEmployeeDetails.designationTwo)
             self.employeeData.append("")
             self.employeeData.append("")
-            self.employeeData.append(specialLocationEmployeeDetails.directNumberTwo!)
-            self.employeeData.append(specialLocationEmployeeDetails.interComeTwo!)
+            self.employeeData.append(specialLocationEmployeeDetails.directNumberTwo)
+            self.employeeData.append(specialLocationEmployeeDetails.interComeTwo)
             self.employeeData.append("")
         }
         self.initUiProps()

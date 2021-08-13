@@ -22,6 +22,7 @@ enum EmployeeInfoServiceRouter {
     case getEmployeeDetailsById
     case getEmployeeSalaryDetailsById
     case getEmployeeTransferHistoryById
+    case getEmployeeInfoById
     
     var baseURL: String {
         return NetworkConstants.baseURL
@@ -37,6 +38,8 @@ enum EmployeeInfoServiceRouter {
             return NetworkConstants.path.getEmployeeSalaryDetailsById
         case .getEmployeeTransferHistoryById:
             return NetworkConstants.path.getEmployeeTransferHistoryById
+        case .getEmployeeInfoById:
+            return NetworkConstants.path.getEmployeeInfoById
         }
     }
     
@@ -118,6 +121,21 @@ extension EmployeeInfoService {
     
     func getEmployeeTransferHistoryById(employeeId: String, completion: @escaping(Any?, Error?, Int?) -> ()) {
         let requestInfo = EmployeeInfoServiceRouter.getEmployeeTransferHistoryById.asurlRequest(searchBy: employeeId)
+        
+        NetworkClient.shared.requestData(requestInfo: requestInfo, isSecure: false) { (response) in
+            switch response {
+            case .Success(let response, let statusCode):
+                completion(response, nil, statusCode)
+            case .Invalid(let response, let statusCode):
+                completion(response, nil, statusCode)
+            case .Failure(let error, let statusCode):
+                completion(nil, error, statusCode)
+            }
+        }
+    }
+    
+    func getEmployeeInfoById(employeeId: String, completion: @escaping(Any?, Error?, Int?) -> ()) {
+        let requestInfo = EmployeeInfoServiceRouter.getEmployeeInfoById.asurlRequest(searchBy: employeeId)
         
         NetworkClient.shared.requestData(requestInfo: requestInfo, isSecure: false) { (response) in
             switch response {

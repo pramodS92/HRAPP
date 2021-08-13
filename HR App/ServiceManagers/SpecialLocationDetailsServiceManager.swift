@@ -26,7 +26,7 @@ class SpecialLocationDetailsServiceManager {
             if response != nil {
                 if let responseBody = try? JSONDecoder().decode(SpecialLocationDetailsModel.self, from: response! as! Data) {
                     if let specialLocationData = responseBody.data {
-                        self.delegate?.getSpecialLocationInfo(specialLocationName: specialLocationData.locationName!, specialLocationInfo: self.getSpecialLocationDetails(data: specialLocationData), specialLocationData: specialLocationData)
+                        self.delegate?.getSpecialLocationInfo(specialLocationName: specialLocationData.locationName, specialLocationInfo: self.getSpecialLocationDetails(data: specialLocationData), specialLocationData: specialLocationData)
                     }
                 }
             } else {
@@ -39,8 +39,8 @@ class SpecialLocationDetailsServiceManager {
     
     func getSpecialLocationDetails(data: SpecialLocationDataClass) -> [String] {
         
-        specialLocationData.append(data.attachedBranch!)
-        specialLocationData.append(data.fax!)
+        specialLocationData.append(data.attachedBranch)
+        specialLocationData.append(data.fax)
         specialLocationData.append(" ")
         specialLocationData.append(" ")
         specialLocationData.append(" ")

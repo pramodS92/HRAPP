@@ -11,7 +11,7 @@ class PostViewController: UIViewController {
 
     @IBOutlet var postCollectionView: UICollectionView!
     var serviceManager: PostServiceManager = PostServiceManager()
-    var postData = [PostData]()
+    var postData: [PostData] = []
     var status: String = "1"
     
     override func viewDidLoad() {
@@ -23,7 +23,7 @@ class PostViewController: UIViewController {
     
     func setPostData(postData: [PostData]) {
         self.postData = postData
-        print(self.postData)
+        print("post data", self.postData)
     }
 
 }
@@ -50,7 +50,9 @@ extension PostViewController:OnSuccessPost {
     }
     
     func onSuccessGetPost(postData: [PostData]) {
-        setPostData(postData: postData)
+        DispatchQueue.main.async {
+            self.setPostData(postData: postData)
+        }
     }
     
     func onFailier() {

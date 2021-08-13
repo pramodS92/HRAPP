@@ -54,13 +54,13 @@ struct SpecialLocationDetailsModel: Codable {
 
 // MARK: - DataClass
 struct SpecialLocationDataClass: Codable {
-    let locationName, locationID, attachedBranch, fax: String?
-    let designationOne, designationTwo, nameOne, nameTwo: String?
-    let directNumberOne, directNumberTwo, interComeOne, interComeTwo: String?
+    let locationName, locationID, attachedBranch, fax: String
+        let designationOne, designationTwo, nameOne, nameTwo: String
+        let directNumberOne, directNumberTwo, interComeOne, interComeTwo: String
 
-    enum CodingKeys: String, CodingKey {
-        case locationName
-        case locationID = "locationId"
-        case attachedBranch, fax, designationOne, designationTwo, nameOne, nameTwo, directNumberOne, directNumberTwo, interComeOne, interComeTwo
-    }
+        enum CodingKeys: String, CodingKey {
+            case locationName
+            case locationID = "locationId"
+            case attachedBranch, fax, designationOne, designationTwo, nameOne, nameTwo, directNumberOne, directNumberTwo, interComeOne, interComeTwo
+        }
 }

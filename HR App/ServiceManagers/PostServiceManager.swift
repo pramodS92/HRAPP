@@ -18,11 +18,16 @@ class PostServiceManager {
     var delegate: OnSuccessPost?
     
     func getPost(status: String,_ callback: OnSuccessPost) {
+        
         self.delegate = callback
+        
+        print("post data1")
         PostInfoService.shared.getPost(searchBy: status) { (response, error, statusCode) in
+            print("post data2")
             if response != nil {
                 if let responseBody = try? JSONDecoder().decode(PostModel.self, from: response! as! Data) {
-                    self.delegate?.onSuccessGetPost(postData: responseBody.data)
+                    print("post data3", responseBody.data!)
+                    self.delegate?.onSuccessGetPost(postData: responseBody.data!)
                 }
             } else {
                 self.delegate?.onFailier()

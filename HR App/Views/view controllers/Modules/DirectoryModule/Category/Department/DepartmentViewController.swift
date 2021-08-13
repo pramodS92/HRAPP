@@ -104,6 +104,7 @@ class DepartmentViewController: UIViewController,UITableViewDelegate, UITableVie
     
     func setSpecialLocationDetails(specialLocationData: SpecialLocationDataClass) {
         self.specialLocationData = specialLocationData
+        print("ssss", self.specialLocationData!)
         if (specialLocationData.designationOne != "" && specialLocationData.designationTwo != "") {
             specialLocationEmployeeCount = 2
         } else if (specialLocationData.designationOne != "" && specialLocationData.designationTwo == "") {
@@ -139,14 +140,14 @@ class DepartmentViewController: UIViewController,UITableViewDelegate, UITableVie
             cell.branchEmployeeName.text = self.departmentEmployeeList[indexPath.row].name!.condensed  + " (" + self.departmentEmployeeList[indexPath.row].knownName!.uppercased() + ")"
             cell.branchEmployeeImageView.image = UIImage(named: self.departmentEmployeeList[indexPath.row].gender == "M" ? "ic_person": "ic_women")
         } else if (categoryNo == 7) {
-            if indexPath.row == 0 {
+            if (indexPath.row == 0) {
                 cell.branchEmployeeDesignation.text = self.specialLocationData?.designationOne
-                cell.branchEmployeeName.text = (self.specialLocationData?.nameOne!.condensed)!
-                cell.branchEmployeeImageView.image = UIImage(named: self.specialLocationData?.nameOne?.prefix(3) == "Mrs" ? "ic_women": "ic_person")
+                cell.branchEmployeeName.text = (self.specialLocationData?.nameOne.condensed)!
+                cell.branchEmployeeImageView.image = UIImage(named: self.specialLocationData?.nameOne.prefix(3) == "Mrs" ? "ic_women": "ic_person")
             } else if (indexPath.row == 1) {
                 cell.branchEmployeeDesignation.text = self.specialLocationData?.designationTwo
-                cell.branchEmployeeName.text = (self.specialLocationData?.nameTwo!.condensed)!
-                cell.branchEmployeeImageView.image = UIImage(named: self.specialLocationData?.nameTwo?.prefix(3) == "Mrs" ? "ic_women": "ic_person")
+                cell.branchEmployeeName.text = (self.specialLocationData?.nameTwo.condensed)!
+                cell.branchEmployeeImageView.image = UIImage(named: self.specialLocationData?.nameTwo.prefix(3) == "Mrs" ? "ic_women": "ic_person")
             }
         }
         
@@ -222,6 +223,10 @@ extension DepartmentViewController: onSuccessRegionalOfficeDetails {
 }
 
 extension DepartmentViewController: OnSuccessUserProfile {
+    func getEmployeeInfo(employeeInfo: EmployeeInfoData) {
+        
+    }
+    
     
     func getUserData(userData: BranchEmployeeData) {
         specialLocationEmployeeList?.append(userData)

@@ -78,10 +78,6 @@ class OTPValidationViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-//    @objc func resendOTP() {
-//        self.generateOTPCode(userId: self.userId!, transactionId: self.transactionId!)
-//    }
-    
     func authenticateOTPCode() {
         self.otpCount += 1
         if (self.otpCount < 5) {
@@ -101,9 +97,11 @@ class OTPValidationViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func onActionResend(_ sender: Any) {
         self.otpCodeLabel.text = KeyCostants.OTPDetails.WAIT_FOR_OTP_CODE
+        timerCount = 0
+        timer.invalidate()
         
         self.generateOTPCode(userId: self.userId!, transactionId: self.transactionId!)
-        
+
     }
     
     func setOtpCodeToLabel() {
@@ -143,6 +141,7 @@ class OTPValidationViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func timerCounter() {
+        
         timerCount = timerCount + 1
         let time = secondsToHoursMinutesSeconds(seconds: timerCount)
         var timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
@@ -150,8 +149,8 @@ class OTPValidationViewController: UIViewController, UITextFieldDelegate {
         if (timeString == "01 : 00") {
             timeString = "00 : 00"
             print(timeString)
-            timerCount = 0
             timer.invalidate()
+            timerCount = 0
             self.generateOTPCode(userId: self.userId!, transactionId: self.transactionId!)
         }
     }
@@ -222,6 +221,7 @@ extension OTPValidationViewController: OnSuccessOTP {
     
     internal func generateOTPCode(userId: String, transactionId: String) {
         serviceManager.generateOTP(userId: userId, transactionId: transactionId, self)
+        
         DispatchQueue.main.async {
             self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.timerCounter), userInfo: nil, repeats: true)
         }

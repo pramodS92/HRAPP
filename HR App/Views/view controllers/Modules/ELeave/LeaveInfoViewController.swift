@@ -7,6 +7,7 @@
 
 import UIKit
 
+@available(iOS 13.0, *)
 class LeaveInfoViewController: UIViewController {
 
     @IBOutlet var annualLeaveProgressView: CircularProgressView!
@@ -145,6 +146,8 @@ class LeaveInfoViewController: UIViewController {
     
     
     @IBAction func addLeaveAction(_ sender: Any) {
+//        let vc = self.storyboard?.instantiateViewController(identifier: "AddLeaveViewController") as! AddLeaveViewController
+//        vc.present(vc, animated: true, completion: nil)
     }
     
 }

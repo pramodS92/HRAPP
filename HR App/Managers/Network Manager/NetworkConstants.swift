@@ -92,8 +92,20 @@ struct NetworkConstants {
         static var getEmployeeTransferHistoryById: String {
             return "/hrm/employee/history/transfer/"
         }
+        static var getEmployeeInfoById: String {
+            return "/hrm/employee/profile/info/"
+        }
         static var getPost: String {
             return "/hrm/post/status/"
+        }
+        static var getAllProducts: String {
+            return "/hrm/product/list"
+        }
+        static var getProductById: String {
+            return "/hrm/product/id/"
+        }
+        static var getProductByStatus: String {
+            return "/hrm/product/list/"
         }
         
     }

@@ -36,7 +36,7 @@ class DirectoryViewController: UIViewController, UITableViewDelegate, UITableVie
     
     let TEXT_FIELD_CONER_RADIUS = 10.0
     let TEXT_FIELD_BORDER_WIDTH = 1.0
-    var tableData: [String] = []
+    var tableData: [String]?
 
     
     var _tableData: [Any] = []

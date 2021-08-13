@@ -15,6 +15,7 @@ protocol OnSuccessUserProfile {
     func getEmployeeSalaryInfo(employeeSalaries: [EmployeeSalaryDetailsData])
     func getEmployeeTransferHistoryInfo(employeeTransferHistory: [EmployeeTransferHistoryData])
     func getUserData(userData: BranchEmployeeData)
+    func getEmployeeInfo(employeeInfo: EmployeeInfoData)
     func onFailier()
 }
 
@@ -95,6 +96,21 @@ class UserProfileServiceManager {
                 if let responseBody = try? JSONDecoder().decode(EmployeeTransferHistoryModel.self, from: response! as! Data) {
                     print("romeo", responseBody.data)
                     self.delegate?.getEmployeeTransferHistoryInfo(employeeTransferHistory: self.getEmployeeTransferHistoryData(response: responseBody.data))
+                }
+            } else {
+                self.delegate?.onFailier()
+                return
+            }
+        }
+    }
+    
+    func getEmployeeInfoById(employeeId: String, _ callback: OnSuccessUserProfile) {
+        self.delegate = callback
+        
+        EmployeeInfoService.shared.getEmployeeInfoById(employeeId: employeeId) { (response, error, statusCode) in
+            if response != nil {
+                if let responseBody = try? JSONDecoder().decode(EmployeeInfoModel.self, from: response! as! Data) {
+                    self.delegate?.getEmployeeInfo(employeeInfo: responseBody.data)
                 }
             } else {
                 self.delegate?.onFailier()
